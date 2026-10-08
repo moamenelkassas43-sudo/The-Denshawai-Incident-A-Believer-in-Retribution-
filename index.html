@@ -3,26 +3,44 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>الدليل الشامل لقواعد If في اللغة الإنجليزية</title>
+    <title>المعلم الاحترافي: قواعد If الشرطية كاملة</title>
     <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@300;400;500;700;800;900&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet">
     <style>
         :root {
-            --primary: #2563eb;
+            /* Main Palette */
+            --primary: #3b82f6;
             --primary-dark: #1d4ed8;
             --secondary: #0f172a;
-            --bg-light: #f8fafc;
+            --bg-body: #f1f5f9;
             --card-bg: #ffffff;
-            --text-main: #334155;
+            --text-main: #1e293b;
             --text-muted: #64748b;
-            --border: #e2e8f0;
-            
-            /* Conditionals Theme Colors */
-            --zero-color: #059669;
-            --first-color: #d97706;
-            --second-color: #2563eb;
-            --third-color: #7c3aed;
-            --mixed-color: #db2777;
+            --border-color: #e2e8f0;
+
+            /* State Specific Colors */
+            --zero-bg: #ecfdf5;
+            --zero-border: #10b981;
+            --zero-badge: #059669;
+
+            --first-bg: #fffbebf;
+            --first-border: #f59e0b;
+            --first-badge: #d97706;
+
+            --second-bg: #eff6ff;
+            --second-border: #3b82f6;
+            --second-badge: #2563eb;
+
+            --third-bg: #f5f3ff;
+            --third-border: #8b5cf6;
+            --third-badge: #7c3aed;
+
+            --mixed-bg: #fdf2f8;
+            --mixed-border: #ec4899;
+            --mixed-badge: #db2777;
+
+            --grammar-code-bg: #0f172a;
+            --grammar-code-text: #38bdf8;
         }
 
         * {
@@ -33,197 +51,260 @@
 
         body {
             font-family: 'Tajawal', sans-serif;
-            background-color: var(--bg-light);
+            background-color: var(--bg-body);
             color: var(--text-main);
-            line-height: 1.7;
-            padding: 20px;
+            line-height: 1.8;
+            padding: 30px 15px;
         }
 
         .container {
-            max-width: 900px;
+            max-width: 1000px;
             margin: 0 auto;
             background: var(--card-bg);
-            padding: 40px;
-            border-radius: 16px;
-            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.05);
+            padding: 50px;
+            border-radius: 20px;
+            box-shadow: 0 20px 40px rgba(15, 23, 42, 0.08);
         }
 
-        /* Control Panel / Actions */
+        /* Top Action Bar */
         .action-bar {
             display: flex;
             justify-content: flex-end;
-            margin-bottom: 20px;
+            margin-bottom: 25px;
         }
 
-        .btn-print {
+        .btn-export {
             background-color: var(--primary);
             color: white;
             border: none;
-            padding: 12px 24px;
-            font-size: 16px;
-            font-weight: bold;
+            padding: 12px 28px;
+            font-size: 1rem;
+            font-weight: 700;
             font-family: 'Tajawal', sans-serif;
-            border-radius: 8px;
+            border-radius: 10px;
             cursor: pointer;
-            transition: background 0.3s ease;
+            transition: all 0.3s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            box-shadow: 0 4px 12px rgba(59, 130, 246, 0.3);
+        }
+
+        .btn-export:hover {
+            background-color: var(--primary-dark);
+            transform: translateY(-2px);
+        }
+
+        /* Main Header */
+        header {
+            text-align: center;
+            border-bottom: 3px solid var(--bg-body);
+            padding-bottom: 30px;
+            margin-bottom: 40px;
+        }
+
+        header .main-title {
+            font-size: 2.6rem;
+            font-weight: 900;
+            color: var(--secondary);
+            margin-bottom: 8px;
+            letter-spacing: -0.5px;
+        }
+
+        header .subtitle {
+            color: var(--text-muted);
+            font-size: 1.15rem;
+            font-weight: 500;
+        }
+
+        /* Key Terms & Tenses Glossary Table */
+        .glossary-section {
+            background: #f8fafc;
+            border: 1px solid var(--border-color);
+            border-radius: 14px;
+            padding: 25px;
+            margin-bottom: 40px;
+        }
+
+        .glossary-title {
+            font-size: 1.25rem;
+            font-weight: 800;
+            color: var(--secondary);
+            margin-bottom: 15px;
             display: flex;
             align-items: center;
             gap: 8px;
         }
 
-        .btn-print:hover {
-            background-color: var(--primary-dark);
+        .table-wrapper {
+            overflow-x: auto;
         }
 
-        /* Header Header Styling */
-        header {
-            text-align: center;
-            border-bottom: 2px solid var(--border);
-            padding-bottom: 25px;
-            margin-bottom: 30px;
+        .tenses-table {
+            width: 100%;
+            border-collapse: collapse;
+            text-align: right;
+            font-size: 0.95rem;
         }
 
-        header h1 {
-            font-size: 2.2rem;
+        .tenses-table th {
+            background-color: #e2e8f0;
             color: var(--secondary);
-            margin-bottom: 10px;
-            font-weight: 800;
+            padding: 12px;
+            font-weight: 700;
         }
 
-        header p {
-            color: var(--text-muted);
-            font-size: 1.1rem;
+        .tenses-table td {
+            padding: 12px;
+            border-bottom: 1px solid var(--border-color);
         }
 
-        /* General Section Layout */
-        .section-card {
-            border: 1px solid var(--border);
-            border-radius: 12px;
-            padding: 25px;
-            margin-bottom: 30px;
-            position: relative;
-            background: #fff;
-            overflow: hidden;
+        .tenses-table tr:last-child td {
+            border-bottom: none;
+        }
+
+        .en-code {
+            font-family: 'JetBrains Mono', monospace;
+            direction: ltr;
+            display: inline-block;
+            font-weight: 700;
+            color: #0f172a;
+        }
+
+        /* Card Layout for Each Conditional */
+        .case-card {
+            border-radius: 16px;
+            border-right: 8px solid;
+            padding: 30px;
+            margin-bottom: 35px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.02);
             page-break-inside: avoid;
         }
 
-        .section-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            right: 0;
-            width: 6px;
-            height: 100%;
-        }
+        /* Case Specific Themes */
+        .case-zero { background-color: var(--zero-bg); border-color: var(--zero-border); }
+        .case-first { background-color: #fffdf5; border-color: var(--first-border); }
+        .case-second { background-color: var(--second-bg); border-color: var(--second-border); }
+        .case-third { background-color: var(--third-bg); border-color: var(--third-border); }
+        .case-mixed { background-color: var(--mixed-bg); border-color: var(--mixed-border); }
 
-        .zero-case::before { background-color: var(--zero-color); }
-        .first-case::before { background-color: var(--first-color); }
-        .second-case::before { background-color: var(--second-color); }
-        .third-case::before { background-color: var(--third-color); }
-        .mixed-case::before { background-color: var(--mixed-color); }
-
-        .card-header {
+        .case-header {
             display: flex;
-            align-items: center;
             justify-content: space-between;
-            margin-bottom: 15px;
+            align-items: center;
+            margin-bottom: 20px;
+            flex-wrap: wrap;
+            gap: 10px;
         }
 
-        .card-title {
-            font-size: 1.4rem;
-            font-weight: 700;
+        .case-title {
+            font-size: 1.5rem;
+            font-weight: 800;
             color: var(--secondary);
         }
 
         .badge {
-            padding: 4px 12px;
-            border-radius: 20px;
+            padding: 6px 16px;
+            border-radius: 30px;
             font-size: 0.85rem;
-            font-weight: bold;
+            font-weight: 800;
             color: white;
+            letter-spacing: 0.3px;
         }
 
-        .bg-zero { background-color: var(--zero-color); }
-        .bg-first { background-color: var(--first-color); }
-        .bg-second { background-color: var(--second-color); }
-        .bg-third { background-color: var(--third-color); }
-        .bg-mixed { background-color: var(--mixed-color); }
+        .bg-zero-badge { background-color: var(--zero-badge); }
+        .bg-first-badge { background-color: var(--first-badge); }
+        .bg-second-badge { background-color: var(--second-badge); }
+        .bg-third-badge { background-color: var(--third-badge); }
+        .bg-mixed-badge { background-color: var(--mixed-badge); }
 
-        .usage-text {
-            margin-bottom: 15px;
-            font-size: 1rem;
-            color: var(--text-main);
+        .usage-box {
+            font-size: 1.05rem;
+            margin-bottom: 20px;
+            color: #334155;
         }
 
-        /* Grammar Formula Box */
-        .formula-box {
-            background-color: var(--bg-light);
-            border-radius: 8px;
-            padding: 15px;
-            font-family: monospace;
+        .usage-box strong {
+            color: var(--secondary);
+        }
+
+        /* Formula Bar */
+        .formula-bar {
+            background-color: var(--grammar-code-bg);
+            color: var(--grammar-code-text);
+            font-family: 'JetBrains Mono', monospace;
+            padding: 16px 20px;
+            border-radius: 10px;
             direction: ltr;
             text-align: center;
-            font-size: 1.1rem;
-            font-weight: bold;
-            color: var(--secondary);
-            margin-bottom: 20px;
-            border: 1px dashed var(--border);
+            font-size: 1.15rem;
+            font-weight: 700;
+            margin-bottom: 25px;
+            box-shadow: inset 0 2px 4px rgba(0,0,0,0.3);
+        }
+
+        .formula-bar span.highlight {
+            color: #f43f5e;
         }
 
         /* Examples Section */
-        .examples-title {
-            font-size: 1rem;
-            font-weight: 700;
-            margin-bottom: 10px;
-            color: var(--secondary);
+        .examples-grid {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            margin-bottom: 20px;
         }
 
-        .example-item {
-            background-color: #f1f5f9;
-            padding: 12px 15px;
-            border-radius: 6px;
-            margin-bottom: 10px;
+        .example-card {
+            background-color: #ffffff;
+            border: 1px solid var(--border-color);
+            padding: 15px 20px;
+            border-radius: 10px;
         }
 
         .example-en {
             direction: ltr;
             text-align: left;
-            font-weight: 600;
-            color: #0f172a;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-family: 'Tajawal', sans-serif;
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: var(--secondary);
         }
 
         .example-ar {
-            direction: rtl;
-            text-align: right;
             color: var(--text-muted);
             font-size: 0.95rem;
             margin-top: 4px;
         }
 
-        /* Notes & Tips */
-        .note-box {
-            background-color: #fffbe0;
-            border-right: 4px solid #f59e0b;
-            padding: 12px 15px;
-            border-radius: 4px;
+        /* Pro Tips Box */
+        .pro-note {
+            background-color: rgba(255, 255, 255, 0.7);
+            border-right: 4px solid var(--secondary);
+            padding: 12px 18px;
+            border-radius: 6px;
             font-size: 0.95rem;
-            margin-top: 15px;
+            color: #334155;
         }
 
+        .pro-note strong {
+            color: var(--secondary);
+        }
+
+        /* Footer */
         footer {
             text-align: center;
-            margin-top: 40px;
+            margin-top: 50px;
+            padding-top: 25px;
+            border-top: 2px solid var(--border-color);
             color: var(--text-muted);
-            font-size: 0.9rem;
-            border-top: 1px solid var(--border);
-            padding-top: 20px;
+            font-size: 0.95rem;
         }
 
-        /* PRINT STYLES FOR PDF & PNG SAVING */
+        /* Print Optimization */
         @media print {
             body {
-                background-color: #ffffff;
+                background-color: #fff;
                 padding: 0;
             }
             .container {
@@ -232,152 +313,218 @@
                 max-width: 100%;
             }
             .action-bar {
-                display: none; /* Hide print button in output */
+                display: none !important;
             }
-            .section-card {
+            .case-card {
                 page-break-inside: avoid;
-                border: 1px solid #ccc;
+                border: 1px solid #cbd5e1 !important;
+                border-right-width: 8px !important;
+                background-color: #fff !important;
+            }
+            .formula-bar {
+                background-color: #1e293b !important;
+                color: #38bdf8 !important;
+                -webkit-print-color-adjust: exact;
             }
         }
     </style>
 </head>
 <body>
 
-    <div class="container" id="content-to-export">
+    <div class="container">
         
-        <!-- Action Button for Exporting to PDF -->
+        <!-- Action Control Bar -->
         <div class="action-bar">
-            <button class="btn-print" onclick="window.print()">🖨️ حفظ كملف PDF</button>
+            <button class="btn-export" onclick="window.print()">
+                📄 تصدير المستند كـ PDF / طباعة
+            </button>
         </div>
 
-        <!-- Document Header -->
+        <!-- Header -->
         <header>
-            <h1>الدليل الشامل لقواعد If الشرطية</h1>
-            <p>شرح كامل، منظم، ومترجم لجميع الحالات (Conditionals in English)</p>
+            <h1 class="main-title">المعلم الاحترافي لقواعد If الشرطية</h1>
+            <div class="subtitle">دليل مرجعي شامل مصمم للفهم السريع، الترجمة الدقيقة، والطباعة عالية الجودة</div>
         </header>
 
-        <!-- Zero Conditional -->
-        <div class="section-card zero-case">
-            <div class="card-header">
-                <span class="card-title">1. الحالة الصفريّة (Zero Conditional)</span>
-                <span class="badge bg-zero">الحقائق والعادات</span>
+        <!-- Glossary Section: Breakdown of Tenses -->
+        <section class="glossary-section">
+            <div class="glossary-title">
+                📚 جدول ترجمة الأزمنة والأفعال المستخدمة داخل القاعدة:
             </div>
-            <p class="usage-text"><strong>الاستخدام:</strong> تُستخدم للتعبير عن الحقائق العلمية الثابتة، أو القوانين، أو العادات المنتظمة التي تحدث دائماً بنفس النتيجة.</p>
-            
-            <div class="formula-box">
-                If + Present Simple, ... Present Simple
+            <div class="table-wrapper">
+                <table class="tenses-table">
+                    <thead>
+                        <tr>
+                            <th>الزمن / الفعل (English)</th>
+                            <th>المسمى بالعربي</th>
+                            <th>الشكل والتكوين الأساسي</th>
+                            <th>دور الفعل في الجملة</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><span class="en-code">Present Simple</span></td>
+                            <td>المضارع البسيط</td>
+                            <td><span class="en-code">V1 (e.g. play / plays)</span></td>
+                            <td>يعبر عن حقائق وأحداث ثابتة أو حقيقية حالياً.</td>
+                        </tr>
+                        <tr>
+                            <td><span class="en-code">Past Simple</span></td>
+                            <td>الماضي البسيط</td>
+                            <td><span class="en-code">V2 (e.g. played / went)</span></td>
+                            <td>يُستخدم للتعبير عن فرضية غير واقعية في الحاضر.</td>
+                        </tr>
+                        <tr>
+                            <td><span class="en-code">Past Perfect</span></td>
+                            <td>الماضي التام</td>
+                            <td><span class="en-code">had + V3 (e.g. had played)</span></td>
+                            <td>يُستخدم للحديث عن حدث يفترض أنه وقع في الماضي.</td>
+                        </tr>
+                        <tr>
+                            <td><span class="en-code">Modal Verbs</span></td>
+                            <td>الأفعال الناقصة</td>
+                            <td><span class="en-code">will / would / can / could</span></td>
+                            <td>تحدد مستوى التأكد، الإمكانية، أو النتيجة المترتبة.</td>
+                        </tr>
+                    </tbody>
+                </table>
             </div>
+        </section>
 
-            <div class="examples-title">أمثلة مع الترجمة:</div>
-            <div class="example-item">
-                <div class="example-en">If you heat ice, it melts.</div>
-                <div class="example-ar">إذا قمت بتسخين الثلج، فإنه يذوب. (حقيقة علمية)</div>
+        <!-- Zero Conditional -->
+        <div class="case-card case-zero">
+            <div class="case-header">
+                <span class="case-title">1. الحالة الصفريّة (Zero Conditional)</span>
+                <span class="badge bg-zero-badge">حقائق علمية وقوانين ثابته</span>
             </div>
-            <div class="example-item">
-                <div class="example-en">If I drink coffee late at night, I don't sleep well.</div>
-                <div class="example-ar">إذا شربت القهوة في وقت متأخر من الليل، لا أنام جيداً. (عادة شخصية)</div>
+            <div class="usage-box">
+                <strong>💡 الاستخدام والمفهوم:</strong> تعبر عن نتائج حتمية؛ عند تحقق الشرط يحدث جواب الشرط دائماً وبنسبة 100%. تُستخدم مع الحقائق العلمية والقوانين العادية.
+            </div>
+            <div class="formula-bar">
+                IF + <span class="highlight">Present Simple</span> , ... <span class="highlight">Present Simple</span>
+            </div>
+            <div class="examples-grid">
+                <div class="example-card">
+                    <div class="example-en">If you heat water to 100°C, it boils.</div>
+                    <div class="example-ar">إذا قمت بتسخين الماء لدرجة 100 مئوية، فإنه يغلي. (حقيقة علمية)</div>
+                </div>
+                <div class="example-card">
+                    <div class="example-en">If I work late, I get tired.</div>
+                    <div class="example-ar">إذا عملت لآخر الليل، أُصاب بالتعب. (حقيقة شخصية تتكرر دائماً)</div>
+                </div>
+            </div>
+            <div class="pro-note">
+                📌 <strong>ملاحظة احترافية:</strong> يمكنك استبدال كلمة <span class="en-code">If</span> بـ <span class="en-code">When</span> في هذه الحالة فقط دون أن يتغير المعنى إطلاقاً.
             </div>
         </div>
 
         <!-- First Conditional -->
-        <div class="section-card first-case">
-            <div class="card-header">
-                <span class="card-title">2. الحالة الأولى (First Conditional)</span>
-                <span class="badge bg-first">احتمال قوي في المستقبل</span>
+        <div class="case-card case-first">
+            <div class="case-header">
+                <span class="case-title">2. الحالة الأولى (First Conditional)</span>
+                <span class="badge bg-first-badge">احتمال حقيقي في المستقبل</span>
             </div>
-            <p class="usage-text"><strong>الاستخدام:</strong> تُستخدم للتعبير عن أحداث محتملة وممكنة الحدوث في المستقبل في حال تحقق الشرط.</p>
-            
-            <div class="formula-box">
-                If + Present Simple, ... Will + Infinitive
+            <div class="usage-box">
+                <strong>💡 الاستخدام والمفهوم:</strong> تُستخدم عند التخطيط أو الحديث عن موقف ممكن ومحتمل الحدوث بشكل كبير في المستقبل إذا تحقق الشرط.
             </div>
-
-            <div class="examples-title">أمثلة مع الترجمة:</div>
-            <div class="example-item">
-                <div class="example-en">If it rains tomorrow, we will stay at home.</div>
-                <div class="example-ar">إذا أمطرت غداً، سوف نبقى في المنزل.</div>
+            <div class="formula-bar">
+                IF + <span class="highlight">Present Simple</span> , ... <span class="highlight">Will + Infinitive (المصدر)</span>
             </div>
-            <div class="example-item">
-                <div class="example-en">If you study hard, you will pass the exam.</div>
-                <div class="example-ar">إذا درست بجد، ستجتاز الامتحان.</div>
+            <div class="examples-grid">
+                <div class="example-card">
+                    <div class="example-en">If it rains this afternoon, we will cancel the match.</div>
+                    <div class="example-ar">إذا أمطرت السماء هذا بعد الظهيرة، سنلغي المباراة. (احتمال وارد جداً)</div>
+                </div>
+                <div class="example-card">
+                    <div class="example-en">If you study hard, you will pass the exam.</div>
+                    <div class="example-ar">إذا درست بجد، ستنجح في الاختبار.</div>
+                </div>
             </div>
-
-            <div class="note-box">
-                💡 <strong>ملاحظة:</strong> يمكن استخدام أفعل ناقصة أخرى بدل (Will) مثل: Can, May, Should حسب المعنى.
+            <div class="pro-note">
+                📌 <strong>ملاحظة احترافية:</strong> يمكن استبدال <span class="en-code">Will</span> بأفعال أخرى مثل <span class="en-code">Can</span> (للاستطاعة) أو <span class="en-code">May</span> (للشك) أو <span class="en-code">Should</span> (ولإعطاء نصيحة).
             </div>
         </div>
 
         <!-- Second Conditional -->
-        <div class="section-card second-case">
-            <div class="card-header">
-                <span class="card-title">3. الحالة الثانية (Second Conditional)</span>
-                <span class="badge bg-second">تخيل في الحاضر / غير واقعي</span>
+        <div class="case-card case-second">
+            <div class="case-header">
+                <span class="case-title">3. الحالة الثانية (Second Conditional)</span>
+                <span class="badge bg-second-badge">تخيل / موقف غير واقعي الآن</span>
             </div>
-            <p class="usage-text"><strong>الاستخدام:</strong> تُستخدم للتعبير عن مواقف خيالية أو غير واقعية في الوقت الحاضر، أو لتقديم النصيحة.</p>
-            
-            <div class="formula-box">
-                If + Past Simple, ... Would + Infinitive
+            <div class="usage-box">
+                <strong>💡 الاستخدام والمفهوم:</strong> تُستخدم للتعبير عن أحلام، تخيلات، أو مواقف افتراضية شبه مستحيلة في الوقت الحاضر، أو لإسداء النصائح.
             </div>
-
-            <div class="examples-title">أمثلة مع الترجمة:</div>
-            <div class="example-item">
-                <div class="example-en">If I won the lottery, I would buy a large house.</div>
-                <div class="example-ar">لو فزت باليانصيب، لاشتريت منزلاً كبيراً. (موقف خيالي الآن)</div>
+            <div class="formula-bar">
+                IF + <span class="highlight">Past Simple</span> , ... <span class="highlight">Would + Infinitive (المصدر)</span>
             </div>
-            <div class="example-item">
-                <div class="example-en">If I were you, I would see a doctor.</div>
-                <div class="example-ar">لو كنت مكانك، لذهبت إلى الطبيب. (تقديم نصيحة)</div>
+            <div class="examples-grid">
+                <div class="example-card">
+                    <div class="example-en">If I had a lot of money, I would buy a private jet.</div>
+                    <div class="example-ar">لو كان لدي الكثير من المال، لاشتريت طائرة خاصة. (واقع الحال: لا أملك المال الآن)</div>
+                </div>
+                <div class="example-card">
+                    <div class="example-en">If I were you, I would accept the job offer.</div>
+                    <div class="example-ar">لو كنت مكانك، لقبلت عرض العمل. (أسلوب نصيحة شهير)</div>
+                </div>
             </div>
-
-            <div class="note-box">
-                💡 <strong>ملاحظة:</strong> نستخدم (Were) عادةً مع جميع الضمائر في هذه الحالة حتى مع (I, He, She, It) للتأكيد على الخيال.
+            <div class="pro-note">
+                📌 <strong>ملاحظة احترافية:</strong> نستخدم <span class="en-code">Were</span> مع جميع الضمائر (<span class="en-code">I, He, She, It</span>) في جملة الشرط الرسمية للتأكيد على أن الموقف خيالي.
             </div>
         </div>
 
         <!-- Third Conditional -->
-        <div class="section-card third-case">
-            <div class="card-header">
-                <span class="card-title">4. الحالة الثالثة (Third Conditional)</span>
-                <span class="badge bg-third">الندم على الماضي</span>
+        <div class="case-card case-third">
+            <div class="case-header">
+                <span class="case-title">4. الحالة الثالثة (Third Conditional)</span>
+                <span class="badge bg-third-badge">تندم وتخيل للماضي</span>
             </div>
-            <p class="usage-text"><strong>الاستخدام:</strong> تُستخدم للتعبير عن التندم أو تخيل نتائج مختلفة لحدث وقع بالفعل واستحال تغييره في الماضي.</p>
-            
-            <div class="formula-box">
-                If + Past Perfect (had + V3), ... Would have + Past Participle (V3)
+            <div class="usage-box">
+                <strong>💡 الاستخدام والمفهوم:</strong> تُستخدم للتعبير عن الندم أو تخيل سيناريو مختلف لحدث وقع بالفعل في الماضي وانتهى ولا يمكن تغييره.
             </div>
-
-            <div class="examples-title">أمثلة مع الترجمة:</div>
-            <div class="example-item">
-                <div class="example-en">If I had studied harder, I would have passed the test.</div>
-                <div class="example-ar">لو أنني درست بجد أكثر، لكنت قد نجحت في الاختبار. (لكني لم أدرس ولم أنجح)</div>
+            <div class="formula-bar">
+                IF + <span class="highlight">Past Perfect (had + V3)</span> , ... <span class="highlight">Would have + V3</span>
             </div>
-            <div class="example-item">
-                <div class="example-en">If they had left earlier, they wouldn't have missed the train.</div>
-                <div class="example-ar">لو أنهم غادروا مبكراً، لما كان قد فاتهم القطار.</div>
+            <div class="examples-grid">
+                <div class="example-card">
+                    <div class="example-en">If I had set my alarm, I wouldn't have missed the flight.</div>
+                    <div class="example-ar">لو أنني ضبطت المنبه، لما كان قد فاتني موعد الطائرة. (واقع الحال: لم أضبطه وفاتتني الطائرة)</div>
+                </div>
+                <div class="example-card">
+                    <div class="example-en">If they had trained well, they would have won the final.</div>
+                    <div class="example-ar">لو أنهم تدربوا جيداً، لكنوا قد فازوا بالمباراة النهائية.</div>
+                </div>
+            </div>
+            <div class="pro-note">
+                📌 <strong>ملاحظة احترافية:</strong> هذه الحالة تعبر دائماً عن العكس التام لما حدث في الواقع في الزمن الماضي.
             </div>
         </div>
 
         <!-- Mixed Conditional -->
-        <div class="section-card mixed-case">
-            <div class="card-header">
-                <span class="card-title">5. الحالة المختلطة (Mixed Conditional)</span>
-                <span class="badge bg-mixed">متقدم</span>
+        <div class="case-card case-mixed">
+            <div class="case-header">
+                <span class="case-title">5. الحالة المختلطة (Mixed Conditional)</span>
+                <span class="badge bg-mixed-badge">ربط الماضي بالحاضر</span>
             </div>
-            <p class="usage-text"><strong>الاستخدام:</strong> تربط بين حدث وقع في الماضي ونتيجة مستمرة تؤثر على الوقت الحاضر.</p>
-            
-            <div class="formula-box">
-                If + Past Perfect, ... Would + Infinitive
+            <div class="usage-box">
+                <strong>💡 الاستخدام والمفهوم:</strong> تربط بين سبب وقع في الماضي ونتيجة ما زالت تؤثر على الفرد في الوقت الحاضر.
             </div>
-
-            <div class="examples-title">مثال مع الترجمة:</div>
-            <div class="example-item">
-                <div class="example-en">If I had taken that job, I would be rich now.</div>
-                <div class="example-ar">لو أنني قبلتلك الوظيفة (في الماضي)، لكنت غنياً الآن (في الحاضر).</div>
+            <div class="formula-bar">
+                IF + <span class="highlight">Past Perfect (had + V3)</span> , ... <span class="highlight">Would + Infinitive (المصدر)</span>
+            </div>
+            <div class="examples-grid">
+                <div class="example-card">
+                    <div class="example-en">If I had studied medicine, I would be a doctor now.</div>
+                    <div class="example-ar">لو أنني درست الطب (في الماضي)، لكنت طبيباً الآن (في الحاضر).</div>
+                </div>
+            </div>
+            <div class="pro-note">
+                📌 <strong>ملاحظة احترافية:</strong> تحظى هذه الحالة باهتمام كبير في اختبارات اللغة المتقدمة مثل (IELTS / TOEFL).
             </div>
         </div>
 
         <!-- Footer -->
         <footer>
-            <p>تم إعداد هذا المستند ليكون مرجعاً سريعاً وشاملاً لكافة حالات If في اللغة الإنجليزية.</p>
+            <p>تم إعداد هذا المستند التعليمي بواسطة الشاشات والتطبيقات الذكية ليناسب التصدير التلقائي لملفات PDF والصور عالية الدقة.</p>
         </footer>
 
     </div>
