@@ -1,21 +1,23 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ar" dir="rtl">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>An Essay on Love & Philosophy</title>
+    <title>مقال علمي: الذكاء الاصطناعي وثورة المستقبل</title>
     <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Amiri:ital,wght@0,400;0,700;1,400&family=Cinzel:wght@500;700;900&family=Plus+Jakarta+Sans:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@300;400;500;700;800;900&family=Fira+Code:wght@500;700&display=swap" rel="stylesheet">
     <style>
         :root {
-            --primary-burgundy: #581c87;
-            --accent-gold: #d97706;
+            --primary: #2563eb;
+            --primary-dark: #1d4ed8;
+            --accent: #06b6d4;
             --dark-navy: #0f172a;
-            --bg-body: #f8fafc;
-            --card-bg: #ffffff;
+            --bg-light: #f8fafc;
+            --surface: #ffffff;
             --text-main: #334155;
-            --text-dark: #1e293b;
-            --border-color: #e2e8f0;
+            --text-dark: #0f172a;
+            --text-muted: #64748b;
+            --border: #e2e8f0;
         }
 
         * {
@@ -25,291 +27,407 @@
         }
 
         body {
-            font-family: 'Plus Jakarta Sans', sans-serif;
-            background-color: var(--bg-body);
+            font-family: 'Tajawal', sans-serif;
+            background-color: var(--bg-light);
             color: var(--text-main);
             line-height: 1.8;
-            padding: 40px 20px;
+            padding: 20px;
         }
 
-        .document-container {
-            max-width: 900px;
+        .paper-container {
+            max-width: 950px;
             margin: 0 auto;
-            background: var(--card-bg);
-            padding: 60px;
+            background: var(--surface);
             border-radius: 24px;
-            box-shadow: 0 25px 50px -12px rgba(15, 23, 42, 0.12);
-            border: 1px solid var(--border-color);
+            box-shadow: 0 20px 40px rgba(15, 23, 42, 0.08);
+            border: 1px solid var(--border);
+            overflow: hidden;
         }
 
-        /* Top Action Bar */
+        /* Control Bar for Print/PDF */
         .action-bar {
+            background: var(--dark-navy);
+            padding: 15px 30px;
             display: flex;
-            justify-content: flex-end;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .action-bar span {
+            color: #94a3b8;
+            font-size: 0.9rem;
+            font-weight: 500;
+        }
+
+        .btn-pdf {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--accent) 100%);
+            color: white;
+            border: none;
+            padding: 10px 22px;
+            border-radius: 10px;
+            font-family: 'Tajawal', sans-serif;
+            font-weight: 700;
+            font-size: 0.95rem;
+            cursor: pointer;
+            box-shadow: 0 4px 12px rgba(37, 99, 235, 0.3);
+            transition: all 0.3s ease;
+        }
+
+        .btn-pdf:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 18px rgba(37, 99, 235, 0.4);
+        }
+
+        /* HERO COVER WITH USER IMAGE BACKGROUND */
+        .hero-cover {
+            position: relative;
+            background-image: linear-gradient(180deg, rgba(15, 23, 42, 0.75) 0%, rgba(15, 23, 42, 0.95) 100%), 
+                              url('https://i.postimg.cc/cCXfYkhn/IMG-20261008-WA0015.jpg');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            padding: 80px 50px 60px 50px;
+            color: white;
+            text-align: right;
+            border-bottom: 4px solid var(--accent);
+        }
+
+        .category-badge {
+            display: inline-block;
+            background: rgba(6, 182, 212, 0.2);
+            border: 1px solid var(--accent);
+            color: var(--accent);
+            padding: 6px 16px;
+            border-radius: 30px;
+            font-size: 0.85rem;
+            font-weight: 700;
+            margin-bottom: 20px;
+            letter-spacing: 0.5px;
+        }
+
+        .hero-cover h1 {
+            font-size: 2.8rem;
+            font-weight: 900;
+            line-height: 1.3;
+            margin-bottom: 15px;
+            color: #ffffff;
+            text-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+        }
+
+        .hero-cover p.subtitle {
+            font-size: 1.2rem;
+            color: #cbd5e1;
+            max-width: 750px;
+            font-weight: 400;
             margin-bottom: 30px;
         }
 
-        .btn-print {
-            background: linear-gradient(135deg, #7e22ce 0%, #a855f7 100%);
-            color: white;
-            border: none;
-            padding: 14px 28px;
-            font-size: 1rem;
+        .meta-info {
+            display: flex;
+            gap: 25px;
+            font-size: 0.88rem;
+            color: #94a3b8;
+            border-top: 1px solid rgba(255, 255, 255, 0.15);
+            padding-top: 20px;
+            flex-wrap: wrap;
+        }
+
+        .meta-info div span {
+            color: #ffffff;
             font-weight: 700;
-            font-family: 'Plus Jakarta Sans', sans-serif;
+        }
+
+        /* ARTICLE BODY CONTENT */
+        .content-body {
+            padding: 50px;
+        }
+
+        /* Executive Abstract Box */
+        .abstract-box {
+            background: #eff6ff;
+            border-right: 5px solid var(--primary);
+            padding: 25px;
             border-radius: 12px;
-            cursor: pointer;
-            box-shadow: 0 10px 20px rgba(126, 34, 206, 0.25);
-            transition: all 0.3s ease;
+            margin-bottom: 40px;
+        }
+
+        .abstract-box h3 {
+            color: var(--primary-dark);
+            font-size: 1.15rem;
+            font-weight: 800;
+            margin-bottom: 8px;
+        }
+
+        .abstract-box p {
+            color: #334155;
+            font-size: 1rem;
+            margin: 0;
+        }
+
+        /* Main Section Styling */
+        .section-title {
+            font-size: 1.6rem;
+            font-weight: 800;
+            color: var(--text-dark);
+            margin: 35px 0 15px 0;
             display: flex;
             align-items: center;
             gap: 10px;
         }
 
-        .btn-print:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 15px 25px rgba(126, 34, 206, 0.35);
-        }
-
-        /* Cover Image Hero Section */
-        .hero-cover {
-            position: relative;
-            border-radius: 20px;
-            overflow: hidden;
-            margin-bottom: 40px;
-            border: 2px solid var(--border-color);
-            background: #000;
-        }
-
-        .hero-cover img {
-            width: 100%;
-            max-height: 480px;
-            object-fit: cover;
-            display: block;
-            opacity: 0.9;
-        }
-
-        .hero-overlay {
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            right: 0;
-            background: linear-gradient(to top, rgba(15, 23, 42, 0.95), transparent);
-            padding: 40px;
-            color: white;
-        }
-
-        .hero-overlay h1 {
-            font-family: 'Cinzel', serif;
-            font-size: 2.5rem;
-            font-weight: 900;
-            letter-spacing: 1px;
-            color: #f8fafc;
-            margin-bottom: 8px;
-        }
-
-        .hero-overlay p {
-            font-size: 1.1rem;
-            color: #cbd5e1;
-            font-weight: 300;
-        }
-
-        /* Arabic Poetry Highlight Box */
-        .poetry-card {
-            background: linear-gradient(135deg, #fdf4ff 0%, #fae8ff 100%);
-            border-left: 5px solid #a855f7;
-            border-radius: 16px;
-            padding: 30px;
-            margin: 40px 0;
-            text-align: center;
-            position: relative;
-        }
-
-        .arabic-verse {
-            font-family: 'Amiri', serif;
-            font-size: 1.8rem;
-            font-weight: 700;
-            color: #581c87;
-            direction: rtl;
-            line-height: 2;
-            margin-bottom: 15px;
-        }
-
-        .english-translation {
-            font-style: italic;
-            color: #6b21a8;
-            font-size: 1.05rem;
-            font-weight: 500;
-        }
-
-        .poet-tag {
+        .section-title::before {
+            content: '';
+            width: 8px;
+            height: 24px;
+            background: var(--primary);
+            border-radius: 4px;
             display: inline-block;
-            margin-top: 15px;
-            font-size: 0.85rem;
-            font-weight: 700;
-            letter-spacing: 1.5px;
-            text-transform: uppercase;
-            color: #a855f7;
-            background: #ffffff;
-            padding: 4px 16px;
-            border-radius: 20px;
         }
 
-        /* Editorial Body Content */
-        .content-section {
-            margin-bottom: 40px;
-        }
-
-        .section-title {
-            font-family: 'Cinzel', serif;
-            font-size: 1.6rem;
-            color: var(--dark-navy);
-            margin-bottom: 15px;
-            font-weight: 700;
-            border-bottom: 2px solid var(--border-color);
-            padding-bottom: 8px;
-        }
-
-        .paragraph {
+        p.text-paragraph {
             font-size: 1.05rem;
             color: var(--text-main);
             margin-bottom: 20px;
             text-align: justify;
         }
 
-        /* Two-Column Features Grid */
-        .grid-two {
+        /* Grid Layout for Core Pillars */
+        .grid-cards {
             display: grid;
-            grid-template-columns: 1fr 1fr;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
             gap: 20px;
             margin: 30px 0;
         }
 
-        .feature-box {
+        .card-item {
             background: #f8fafc;
-            border: 1px solid var(--border-color);
-            padding: 20px;
-            border-radius: 14px;
+            border: 1px solid var(--border);
+            padding: 22px;
+            border-radius: 16px;
+            transition: all 0.3s ease;
         }
 
-        .feature-box h4 {
-            font-family: 'Cinzel', serif;
-            color: var(--dark-navy);
-            margin-bottom: 8px;
+        .card-item h4 {
+            color: var(--text-dark);
             font-size: 1.1rem;
+            font-weight: 700;
+            margin-bottom: 8px;
         }
 
-        .feature-box p {
+        .card-item p {
             font-size: 0.95rem;
-            color: #64748b;
+            color: var(--text-muted);
+            margin: 0;
         }
 
-        /* Footer */
-        footer {
-            margin-top: 60px;
-            padding-top: 25px;
-            border-top: 1px solid var(--border-color);
+        /* Structured Data Table */
+        .table-section {
+            margin: 35px 0;
+            overflow-x: auto;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 0.95rem;
+            background: var(--surface);
+            border-radius: 12px;
+            overflow: hidden;
+            border: 1px solid var(--border);
+        }
+
+        th {
+            background-color: var(--dark-navy);
+            color: white;
+            padding: 14px 18px;
+            text-align: right;
+            font-weight: 700;
+        }
+
+        td {
+            padding: 14px 18px;
+            border-bottom: 1px solid var(--border);
+            color: var(--text-main);
+        }
+
+        tr:last-child td {
+            border-bottom: none;
+        }
+
+        tr:nth-child(even) {
+            background-color: #f8fafc;
+        }
+
+        /* Highlighted Quote */
+        .quote-box {
+            background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+            color: white;
+            padding: 30px;
+            border-radius: 16px;
+            margin: 40px 0;
             text-align: center;
-            color: #94a3b8;
-            font-size: 0.9rem;
+            position: relative;
         }
 
-        /* PRINT SETTINGS FOR PDF */
+        .quote-box p {
+            font-size: 1.25rem;
+            font-weight: 700;
+            line-height: 1.7;
+            color: #f8fafc;
+        }
+
+        .quote-box span {
+            display: block;
+            margin-top: 10px;
+            color: var(--accent);
+            font-weight: 600;
+            font-size: 0.95rem;
+        }
+
+        /* Article Footer */
+        footer {
+            border-top: 1px solid var(--border);
+            padding: 25px 50px;
+            text-align: center;
+            color: var(--text-muted);
+            font-size: 0.9rem;
+            background-color: #f8fafc;
+        }
+
+        /* PRINT OPTIMIZATION FOR PDF EXPORT */
         @media print {
             body {
                 background: white;
                 padding: 0;
             }
-            .document-container {
+            .paper-container {
                 box-shadow: none;
-                padding: 0;
-                max-width: 100%;
                 border: none;
+                max-width: 100%;
             }
             .action-bar {
                 display: none !important;
             }
             .hero-cover {
-                page-break-inside: avoid;
-            }
-            .poetry-card {
-                background: #faf5ff !important;
+                padding: 50px 30px 40px 30px;
                 -webkit-print-color-adjust: exact;
+                print-color-adjust: exact;
+            }
+            .card-item, .abstract-box, table, .quote-box {
+                page-break-inside: avoid;
+                -webkit-print-color-adjust: exact;
+                print-color-adjust: exact;
             }
         }
     </style>
 </head>
 <body>
 
-    <div class="document-container">
+    <div class="paper-container">
 
-        <!-- Export Action -->
+        <!-- Top Control Bar -->
         <div class="action-bar">
-            <button class="btn-print" onclick="window.print()">
-                📄 Export / Save as PDF
-            </button>
+            <span>تقرير علمي أكاديمي محكّم • 2026</span>
+            <button class="btn-pdf" onclick="window.print()">🖨️ طباعة / حفظ كملف PDF</button>
         </div>
 
-        <!-- Hero Section with Image as Focal Point -->
-        <div class="hero-cover">
-            <img src="https://i.postimg.cc/gjTPxdCJ/Screenshot-2026-10-08-19-55-39-33-680d03679600f7af0b4c700c6b270fe7.jpg" alt="Love Document Cover">
-            <div class="hero-overlay">
-                <h1>The Essence of Love</h1>
-                <p>A Philosophical & Literary Reflection on Human Connection</p>
+        <!-- Cover Header with Image Background -->
+        <header class="hero-cover">
+            <span class="category-badge">المجلة العلمية للتكنولوجيا والذكاء الاصطناعي</span>
+            <h1>الذكاء الاصطناعي والتطور التكنولوجي: إعادة تشكيل المستقبل الرقمي</h1>
+            <p class="subtitle">دراسة تحليليّة شاملة حول آليات التعلم العميق، الشبكات العصبية الاصطناعية، وأثرها على الاقتصاد والعلوم الحديثة.</p>
+            
+            <div class="meta-info">
+                <div>إعداد: <span>د. أحمد محمود</span></div>
+                <div>تاريخ النشر: <span>أكتوبر 2026</span></div>
+                <div>مجال البحث: <span>الذكاء الاصطناعي التوليدي والأنظمة الخبيرة</span></div>
             </div>
-        </div>
+        </header>
 
-        <!-- Classical Poetry Feature -->
-        <div class="poetry-card">
-            <div class="arabic-verse">
-                «وَمَا كُنْتُ مِمَّنْ يَدْخُلُ العِشْقُ قَلْبَهُ ... وَلَكِنَّ مَنْ يُبْصِرْ جُفُونَكِ يَعْشَقِ»
-            </div>
-            <div class="english-translation">
-                "I was never one whose heart romance could easily enter, yet whoever gazes upon your eyes is hopelessly enraptured."
-            </div>
-            <span class="poet-tag">Classical Arabic Poetry — Al-Mutanabbi</span>
-        </div>
+        <!-- Main Body Content -->
+        <main class="content-body">
 
-        <!-- Main Essay Content -->
-        <div class="content-section">
-            <h2 class="section-title">1. The Nature of True Affection</h2>
-            <p class="paragraph">
-                Love is not merely a transient emotional state; it is an enduring architecture of understanding, empathy, and mutual elevation. Throughout history, philosophers, poets, and scholars have sought to articulate its profound influence on the human psyche. It operates as the force that bridges isolation, turning individual experiences into shared journeys.
+            <!-- Executive Summary -->
+            <div class="abstract-box">
+                <h3>الملخص التنفيذي (Abstract):</h3>
+                <p>يشهد العالم طفرة تقنية غير مسبوقة بقيادة تقنيات الذكاء الاصطناعي (AI). يهدف هذا المقال إلى تسليط الضوء على الأركان الأساسية لتطور النماذج الذكية، بدءاً من الخوارزميات التقليدية وصولاً إلى نماذج اللغات الضخمة والتعلم المعزز، مع استعراض تأثيرها المباشر على القطاعات الحيوية.</p>
+            </div>
+
+            <!-- Section 1 -->
+            <h2 class="section-title">1. المفهوم والتطور التاريخي</h2>
+            <p class="text-paragraph">
+                لم يعد الذكاء الاصطناعي مجرد مفهوم من مفاهيم الخيال العلمي، بل أصبح محركاً أساسياً للثورة الصناعية الرابعة. يُعرف الذكاء الاصطناعي بأنه قدرة الآلات والأنظمة الحاسوبية على محاكاة القدرات الذهنية البشرية، مثل التعلم، الاستنتاج، التفكير المنطقي، واتخاذ القرارات الذاتية بناءً على البيانات الضخمة.
             </p>
 
-            <div class="grid-two">
-                <div class="feature-box">
-                    <h4>Eros & Passion</h4>
-                    <p>The immediate, vibrant spark that kindles deep admiration and creative energy between souls.</p>
+            <!-- Grid Display -->
+            <div class="grid-cards">
+                <div class="card-item">
+                    <h4>التعلم الآلي (Machine Learning)</h4>
+                    <p>قدرة النظام على تحسين أدائه تلقائياً من خلال الخبرة والتغذية بالبيانات دون برمجة صريحة.</p>
                 </div>
-                <div class="feature-box">
-                    <h4>Agape & Devotion</h4>
-                    <p>Unconditional, selfless care that endures through life's changing tides and challenges.</p>
+                <div class="card-item">
+                    <h4>التعلم العميق (Deep Learning)</h4>
+                    <p>فرع متقدم يعتمد على شبكات عصبية اصطناعية تحاكي طريقة عمل الدماغ البشري لمعالجة الصور والصوت.</p>
+                </div>
+                <div class="card-item">
+                    <h4>الذكاء التوليدي (Generative AI)</h4>
+                    <p>نماذج قادرة على إنتاج محتوى جديد بالكامل (نصوص، صور، أكواد برمجة) بأسلوب يحاكي الإبداع البشري.</p>
                 </div>
             </div>
-        </div>
 
-        <div class="content-section">
-            <h2 class="section-title">2. Harmony Between East and West</h2>
-            <p class="paragraph">
-                While Western philosophy often dissects love through the lens of psychology and reason, Eastern traditions—particularly classical Arabic literature—elevate love to a spiritual dimension. In Arabic poetry, love is depicted as a transformative journey that refines character, instills courage, and awakens profound wisdom within the human spirit.
+            <!-- Quote Box -->
+            <div class="quote-box">
+                <p>"الذكاء الاصطناعي هو الكهرباء الجديدة؛ وكما غيرت الكهرباء كل مجالات الحياة قبل قرن، سيغير الذكاء الاصطناعي كل قطاع اليوم."</p>
+                <span>— د. أندرو إنغ (رائد علوم الحاسوب)</span>
+            </div>
+
+            <!-- Section 2 -->
+            <h2 class="section-title">2. تطبيقات الذكاء الاصطناعي في القطاعات الحيوية</h2>
+            <p class="text-paragraph">
+                تتعدد التطبيقات العملية للذكاء الاصطناعي وتتداخل في مختلف جوانب الحياة اليومية والصناعية، مما يعزز من الكفاءة ويقلل من الأخطاء البشرية بشكل ملحوظ:
             </p>
-        </div>
 
-        <!-- Second Verse Highlight -->
-        <div class="poetry-card" style="background: linear-gradient(135deg, #fffbebf5 0%, #fef3c7 100%); border-left-color: #d97706;">
-            <div class="arabic-verse" style="color: #92400e;">
-                «يَقُولُونَ لَيْلَى فِي العِرَاقِ مَرِيضَةٌ ... فَيَا لَيْتَنِي كُنْتُ الطَّبِيبَ المُدَاوِيَا»
+            <!-- Table section -->
+            <div class="table-section">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>القطاع</th>
+                            <th>التطبيق الذكي</th>
+                            <th>الأثر والمتوقع</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>الرعاية الصحية</strong></td>
+                            <td>تشخيص الأورام وتحليل الصور الطبية بدقة عالية.</td>
+                            <td>تسريع اكتشاف الأمراض وتقليل نسبة التشخيص الخاطئ.</td>
+                        </tr>
+                        <tr>
+                            <td><strong>التجارة والاقتصاد</strong></td>
+                            <td>تحليل التنبؤات الماليّة والتداول الآلي السريع.</td>
+                            <td>رفع كفاءة إدارة المخاطر وتحسين تجربة المستهلك.</td>
+                        </tr>
+                        <tr>
+                            <td><strong>التعليم والتدريب</strong></td>
+                            <td>أنظمة التعلم المخصصة والتقييم الآلي المتقدم.</td>
+                            <td>توفير مسارات تعليمية تناسب قدرات كل طالب على حدة.</td>
+                        </tr>
+                    </tbody>
+                </table>
             </div>
-            <div class="english-translation" style="color: #b45309;">
-                "They say my beloved is ill in distant lands; oh, how I wish I were the physician who heals her."
-            </div>
-            <span class="poet-tag" style="color: #d97706;">Qays Ibn Al-Mulawwah</span>
-        </div>
 
-        <!-- Footer -->
+            <!-- Section 3 -->
+            <h2 class="section-title">3. التحديات والأبعاد الأخلاقية</h2>
+            <p class="text-paragraph">
+                بالرغم من الإيجابيات الهائلة، يواجه التوسع في الذكاء الاصطناعي معضلات أخلاقية وتقنية معقدة، أبرزها: التحيز في البيانات، مخاوف الخصوصية وحماية البيانات الشخصية، بالإضافة إلى تأثير الأتمتة على سوق العمل وساعات التشغيل. مما يستدعي وضع أطر تنظيمية عالمية حازمة وضوابط للذكاء الاصطناعي المسؤول.
+            </p>
+
+        </main>
+
+        <!-- Paper Footer -->
         <footer>
-            <p>Designed for High-Quality PDF Printing & Digital Reading • 2026 Edition</p>
+            <p>تم إعداد هذا المقال العلمي وتنسيقه ليكون جاهزاً للطباعة المباشرة أو حفظه كملف PDF عالي الجودة.</p>
         </footer>
 
     </div>
