@@ -3,12 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>الدليل الماسي لمستر اشرف بسيوني لقواعد If الشرطية</title>
+    <title>م قاع وحالات تقديم قاعدة If الشرطية مستر اشرف بسيوني </title>
     <!-- Google Fonts: Cairo & JetBrains Mono -->
     <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800;900&family=JetBrains+Mono:wght@600;800&display=swap" rel="stylesheet">
     <style>
         :root {
-            --primary-gradient: linear-gradient(135deg, #4f46e5 0%, #7c3aed 100%);
+            --primary-gradient: linear-gradient(135deg, #0284c7 0%, #0369a1 100%);
             --bg-body: #f8fafc;
             --surface: #ffffff;
             --text-primary: #0f172a;
@@ -17,26 +17,24 @@
             --shadow-sm: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
             --shadow-lg: 0 20px 25px -5px rgba(0, 0, 0, 0.08);
 
-            /* Conditionals Color Palette */
-            --zero-color: #10b981;
-            --zero-bg: #ecfdf5;
-            --zero-gradient: linear-gradient(135deg, #10b981 0%, #059669 100%);
+            /* Theme Colors for Alternatives */
+            --synonyms-color: #059669;
+            --synonyms-gradient: linear-gradient(135deg, #10b981 0%, #059669 100%);
 
-            --first-color: #f59e0b;
-            --first-bg: #fffbeb;
-            --first-gradient: linear-gradient(135deg, #f59e0b 0%, #d97706 100%);
+            --should-color: #d97706;
+            --should-gradient: linear-gradient(135deg, #f59e0b 0%, #d97706 100%);
 
-            --second-color: #3b82f6;
-            --second-bg: #eff6ff;
-            --second-gradient: linear-gradient(135deg, #3b82f6 0%, #1d4ed8 100%);
+            --were-color: #2563eb;
+            --were-gradient: linear-gradient(135deg, #3b82f6 0%, #1d4ed8 100%);
 
-            --third-color: #8b5cf6;
-            --third-bg: #f5f3ff;
-            --third-gradient: linear-gradient(135deg, #8b5cf6 0%, #6d28d9 100%);
+            --had-color: #7c3aed;
+            --had-gradient: linear-gradient(135deg, #8b5cf6 0%, #6d28d9 100%);
 
-            --mixed-color: #ec4899;
-            --mixed-bg: #fdf2f8;
-            --mixed-gradient: linear-gradient(135deg, #ec4899 0%, #be185d 100%);
+            --without-color: #db2777;
+            --without-gradient: linear-gradient(135deg, #ec4899 0%, #be185d 100%);
+
+            --unless-color: #dc2626;
+            --unless-gradient: linear-gradient(135deg, #ef4444 0%, #dc2626 100%);
         }
 
         * {
@@ -58,7 +56,7 @@
             margin: 0 auto;
         }
 
-        /* Top Bar & Print Button */
+        /* Top Bar */
         .action-bar {
             display: flex;
             justify-content: flex-end;
@@ -75,8 +73,8 @@
             font-family: 'Cairo', sans-serif;
             border-radius: 12px;
             cursor: pointer;
-            box-shadow: 0 8px 20px rgba(79, 70, 229, 0.3);
-            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            box-shadow: 0 8px 20px rgba(2, 132, 199, 0.3);
+            transition: all 0.3s ease;
             display: flex;
             align-items: center;
             gap: 10px;
@@ -84,10 +82,10 @@
 
         .btn-print:hover {
             transform: translateY(-3px);
-            box-shadow: 0 12px 25px rgba(79, 70, 229, 0.4);
+            box-shadow: 0 12px 25px rgba(2, 132, 199, 0.4);
         }
 
-        /* Header Section */
+        /* Header */
         header {
             background: var(--surface);
             padding: 40px;
@@ -111,74 +109,19 @@
         }
 
         header h1 {
-            font-size: 2.5rem;
+            font-size: 2.3rem;
             font-weight: 900;
             color: var(--text-primary);
             margin-bottom: 10px;
-            letter-spacing: -0.5px;
         }
 
         header p {
             color: var(--text-secondary);
-            font-size: 1.15rem;
+            font-size: 1.1rem;
             font-weight: 600;
         }
 
-        /* Fast Grammar Keys Table */
-        .keys-card {
-            background: var(--surface);
-            border-radius: 20px;
-            padding: 30px;
-            margin-bottom: 35px;
-            border: 1px solid var(--border);
-            box-shadow: var(--shadow-sm);
-        }
-
-        .keys-header {
-            font-size: 1.3rem;
-            font-weight: 800;
-            color: var(--text-primary);
-            margin-bottom: 20px;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
-
-        .keys-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 15px;
-        }
-
-        .key-box {
-            background: #f8fafc;
-            border: 1px solid var(--border);
-            border-radius: 14px;
-            padding: 16px;
-            transition: border-color 0.2s;
-        }
-
-        .key-box:hover {
-            border-color: #cbd5e1;
-        }
-
-        .key-box .en {
-            font-family: 'JetBrains Mono', monospace;
-            font-weight: 800;
-            color: #1e293b;
-            font-size: 1.05rem;
-            direction: ltr;
-            text-align: right;
-            margin-bottom: 4px;
-        }
-
-        .key-box .ar {
-            font-size: 0.95rem;
-            color: var(--text-secondary);
-            font-weight: 600;
-        }
-
-        /* Conditionals Cards Structure */
+        /* Card Layout */
         .case-card {
             background: var(--surface);
             border-radius: 24px;
@@ -206,11 +149,12 @@
             height: 100%;
         }
 
-        .card-zero::before { background: var(--zero-gradient); }
-        .card-first::before { background: var(--first-gradient); }
-        .card-second::before { background: var(--second-gradient); }
-        .card-third::before { background: var(--third-gradient); }
-        .card-mixed::before { background: var(--mixed-gradient); }
+        .card-synonyms::before { background: var(--synonyms-gradient); }
+        .card-should::before { background: var(--should-gradient); }
+        .card-were::before { background: var(--were-gradient); }
+        .card-had::before { background: var(--had-gradient); }
+        .card-without::before { background: var(--without-gradient); }
+        .card-unless::before { background: var(--unless-gradient); }
 
         .case-head {
             display: flex;
@@ -222,7 +166,7 @@
         }
 
         .case-title {
-            font-size: 1.6rem;
+            font-size: 1.5rem;
             font-weight: 900;
             color: var(--text-primary);
         }
@@ -230,19 +174,20 @@
         .badge {
             padding: 6px 18px;
             border-radius: 50px;
-            font-size: 0.9rem;
+            font-size: 0.88rem;
             font-weight: 800;
             color: white;
             box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
         }
 
-        .badge-zero { background: var(--zero-gradient); }
-        .badge-first { background: var(--first-gradient); }
-        .badge-second { background: var(--second-gradient); }
-        .badge-third { background: var(--third-gradient); }
-        .badge-mixed { background: var(--mixed-gradient); }
+        .badge-synonyms { background: var(--synonyms-gradient); }
+        .badge-should { background: var(--should-gradient); }
+        .badge-were { background: var(--were-gradient); }
+        .badge-had { background: var(--had-gradient); }
+        .badge-without { background: var(--without-gradient); }
+        .badge-unless { background: var(--unless-gradient); }
 
-        /* Formula Display */
+        /* Formula Box */
         .formula-box {
             background: #0f172a;
             border-radius: 16px;
@@ -256,9 +201,8 @@
         .formula-code {
             font-family: 'JetBrains Mono', monospace;
             color: #38bdf8;
-            font-size: 1.2rem;
+            font-size: 1.15rem;
             font-weight: 800;
-            letter-spacing: 0.5px;
         }
 
         .formula-code span {
@@ -307,12 +251,6 @@
             border-right: 4px solid #cbd5e1;
             padding: 16px 20px;
             border-radius: 12px;
-            transition: all 0.2s;
-        }
-
-        .example-card:hover {
-            border-right-color: #475569;
-            background: #fafafa;
         }
 
         .example-en {
@@ -320,7 +258,7 @@
             text-align: left;
             font-weight: 700;
             color: #0f172a;
-            font-size: 1.1rem;
+            font-size: 1.05rem;
             margin-bottom: 4px;
         }
 
@@ -342,7 +280,6 @@
             font-weight: 600;
         }
 
-        /* Footer Section */
         footer {
             text-align: center;
             margin-top: 50px;
@@ -353,31 +290,18 @@
             font-weight: 600;
         }
 
-        /* Print Settings */
         @media print {
-            body {
-                background: white;
-                padding: 0;
-            }
-            .container {
-                max-width: 100%;
-            }
-            .action-bar {
-                display: none !important;
-            }
+            body { background: white; padding: 0; }
+            .container { max-width: 100%; }
+            .action-bar { display: none !important; }
             .case-card {
                 border: 1px solid #cbd5e1 !important;
                 box-shadow: none !important;
                 page-break-inside: avoid;
                 margin-bottom: 20px !important;
             }
-            .formula-box {
-                background: #0f172a !important;
-                -webkit-print-color-adjust: exact;
-            }
-            .badge {
-                -webkit-print-color-adjust: exact;
-            }
+            .formula-box { background: #0f172a !important; -webkit-print-color-adjust: exact; }
+            .badge { -webkit-print-color-adjust: exact; }
         }
     </style>
 </head>
@@ -394,228 +318,217 @@
 
         <!-- Header -->
         <header>
-            <h1>الدليل الماسي لقواعد If الشرطية</h1>
-            <p>شرح عصري احترافي ومبسط بأسلوب الواجهات والتنظيم المتقدم</p>
+            <h1>بدائل وحالات تقديم (حذف) If الشرطية</h1>
+            <p>دليل شامل ومعتمد للمراحل المتقدمة والشرح المفصل للملاحظات والبدائل</p>
         </header>
 
-        <!-- Tenses Quick Keys -->
-        <div class="keys-card">
-            <div class="keys-header">
-                🔑 مفاتيح الأزمنة والأفعال المستخدمة داخل القاعدة
+        <!-- 1. Synonyms of If -->
+        <div class="case-card card-synonyms">
+            <div class="case-head">
+                <div class="case-title">1. مرادفات وبدائل الكلمة (If)</div>
+                <span class="badge badge-synonyms">بمعنى: بشرط أن / طالما / في حالة</span>
             </div>
-            <div class="keys-grid">
-                <div class="key-box">
-                    <div class="en">Present Simple</div>
-                    <div class="ar">مضارع بسيط: التصريف الأول (play / plays)</div>
+
+            <div class="info-grid">
+                <div class="info-item">
+                    <strong>💡 الكلمات البديلة:</strong>
+                    <span>Provided (that) / Providing / As long as / On condition that / In case</span>
                 </div>
-                <div class="key-box">
-                    <div class="en">Past Simple</div>
-                    <div class="ar">ماضي بسيط: التصريف الثاني (played / went)</div>
+                <div class="info-item">
+                    <strong>⏱️ طريقة الاستخدام:</strong>
+                    <span>تأتي بدلاً من If تماماً وتتبعها جملة كاملة (فاعل + فعل).</span>
                 </div>
-                <div class="key-box">
-                    <div class="en">Past Perfect</div>
-                    <div class="ar">ماضي تام: (had + التصريف الثالث V3)</div>
+            </div>
+
+            <div class="formula-box">
+                <div class="formula-code"><span>[ Provided / As long as / In case ]</span> + Subject + Verb ...</div>
+            </div>
+
+            <div class="examples-wrapper">
+                <div class="example-card">
+                    <div class="example-en">We will cook meat in case he comes.</div>
+                    <div class="example-ar">سنطبخ اللحم في حالة حضوره.</div>
+                </div>
+                <div class="example-card">
+                    <div class="example-en">Take your umbrella in case it rains.</div>
+                    <div class="example-ar">خذ مظلتك تحسباً/في حالة أن تمطر.</div>
                 </div>
             </div>
         </div>
 
-        <!-- 0. Zero Conditional -->
-        <div class="case-card card-zero">
+        <!-- 2. Should Inversion -->
+        <div class="case-card card-should">
             <div class="case-head">
-                <div class="case-title">1. الحالة الصفريّة (Zero Conditional)</div>
-                <span class="badge badge-zero">حقائق وقوانين ثابته (100%)</span>
+                <div class="case-title">2. استخدام Should بدلاً من If</div>
+                <span class="badge badge-should">الحالة الأولى والثانية</span>
             </div>
 
             <div class="info-grid">
                 <div class="info-item">
                     <strong>💡 الاستخدام الأساسي:</strong>
-                    <span>حقائق علمية، أو عادات شخصية دائمة التكرار.</span>
+                    <span>تُستخدم بدلاً من If في الحالة الأولى والثانية عند تقديم الفعل على الفاعل.</span>
                 </div>
                 <div class="info-item">
-                    <strong>⏱️ زمن الجملة:</strong>
-                    <span>المضارع البسيط في كلا الجانبين.</span>
+                    <strong>⚠️ القاعدة الذهبية:</strong>
+                    <span>الفعل بعد الفاعل يكون دائماً في **المصدر (Infinitive)** بغير إضافة.</span>
                 </div>
             </div>
 
             <div class="formula-box">
-                <div class="formula-code">If + <span>Present Simple</span>, ... <span>Present Simple</span></div>
+                <div class="formula-code">Should + <span>Subject</span> + <span>Infinitive (المصدر)</span> , ...</div>
             </div>
 
             <div class="examples-wrapper">
                 <div class="example-card">
-                    <div class="example-en">If you heat ice, it melts.</div>
-                    <div class="example-ar">إذا قمت بتسخين الثلج، فإنه يذوب. (حقيقة علمية)</div>
-                </div>
-                <div class="example-card">
-                    <div class="example-en">If I drink coffee late, I don't sleep well.</div>
-                    <div class="example-ar">إذا شربت القهوة متأخراً، لا أنام جيداً. (عادة ثابتة)</div>
-                </div>
-                <div class="example-card">
-                    <div class="example-en">If you mix red and blue, you get purple.</div>
-                    <div class="example-ar">إذا مزجت الأحمَر والأزرق، تحصل على اللون البنفسجي.</div>
+                    <div class="example-en">Should he come on time, he will meet the boss.</div>
+                    <div class="example-ar">لو أتى في الموعد، سيلتقي بالمدير. (الأصل: If he comes...)</div>
                 </div>
             </div>
 
             <div class="pro-tip">
-                📌 <strong>ملاحظة احترافية:</strong> يمكنك استبدال كلمة <strong>If</strong> بكلمة <strong>When</strong> في هذه الحالة دون تغيير في المعنى.
+                📌 <strong>لاحظ:</strong> استخدمنا المصدر (come) مع الضمير (he) وليس (comes) بسبب وجود Should.
             </div>
         </div>
 
-        <!-- 1. First Conditional -->
-        <div class="case-card card-first">
+        <!-- 3. Were Inversion -->
+        <div class="case-card card-were">
             <div class="case-head">
-                <div class="case-title">2. الحالة الأولى (First Conditional)</div>
-                <span class="badge badge-first">احتمال قوي في المستقبل</span>
+                <div class="case-title">3. استخدام Were بدلاً من If</div>
+                <span class="badge badge-were">خاص بالحالة الثانية</span>
             </div>
 
             <div class="info-grid">
                 <div class="info-item">
-                    <strong>💡 الاستخدام الأساسي:</strong>
-                    <span>أحداث ممكنة وقابلة للتحقق في المستقبل.</span>
+                    <strong>1️⃣ إذا كانت Were أساسية في الجملة:</strong>
+                    <span>نقدم Were في البداية ونضع بعدها الفاعل مباشرة ثم الصفة/الاسم.</span>
                 </div>
                 <div class="info-item">
-                    <strong>⏱️ زمن الجملة:</strong>
-                    <span>مضارع بسيط للشرط + (Will + المصدر) للنتيجة.</span>
+                    <strong>2️⃣ إذا كان هناك فعل رئيسي آخر:</strong>
+                    <span>نبدأ بـ Were ثم الفاعل ثم نضع التركيب (to + المصدر).</span>
                 </div>
             </div>
 
             <div class="formula-box">
-                <div class="formula-code">If + <span>Present Simple</span>, ... <span>Will + Infinitive</span></div>
+                <div class="formula-code">Were + <span>Subject</span> + <span>(Noun/Adj)</span> OR <span>(to + Infinitive)</span></div>
             </div>
 
             <div class="examples-wrapper">
                 <div class="example-card">
-                    <div class="example-en">If it rains tomorrow, we will stay at home.</div>
-                    <div class="example-ar">إذا أمطرت غداً، سوف نبقى في المنزل. (احتمال وارد جداً)</div>
+                    <div class="example-en">Were I a doctor, I would help you.</div>
+                    <div class="example-ar">لو كنت طبيباً، لساعدتك. (Were كفعل أساسي)</div>
                 </div>
                 <div class="example-card">
-                    <div class="example-en">If you study hard, you will pass the exam.</div>
-                    <div class="example-ar">إذا درست بجد، ستنجح في الاختبار.</div>
+                    <div class="example-en">Were he to play well, he would win.</div>
+                    <div class="example-ar">لو لعب بشكل جيد، لفاز. (الأصل: If he played well...)</div>
                 </div>
-                <div class="example-card">
-                    <div class="example-en">If I have free time, I will call you.</div>
-                    <div class="example-ar">إذا كان لدي وقت فراغ، سأتصل بك.</div>
-                </div>
-            </div>
-
-            <div class="pro-tip">
-                📌 <strong>ملاحظة احترافية:</strong> يمكن استخدام (Can / May / Should) مكان (Will) لتقليل أو تغيير درجة التأكد.
             </div>
         </div>
 
-        <!-- 2. Second Conditional -->
-        <div class="case-card card-second">
+        <!-- 4. Had Inversion -->
+        <div class="case-card card-had">
             <div class="case-head">
-                <div class="case-title">3. الحالة الثانية (Second Conditional)</div>
-                <span class="badge badge-second">تخيل في الحاضر / أمنية</span>
+                <div class="case-title">4. استخدام Had بدلاً من If</div>
+                <span class="badge badge-had">الحالة الثانية والثالثة</span>
             </div>
 
             <div class="info-grid">
                 <div class="info-item">
-                    <strong>💡 الاستخدام الأساسي:</strong>
-                    <span>مواقف خيالية في الوقت الحالي أو لتقديم النصيحة.</span>
+                    <strong>1️⃣ في الحالة الثالثة (فعل مساعد):</strong>
+                    <span>توضع Had في البداية + الفاعل + التصريف الثالث (P.P).</span>
                 </div>
                 <div class="info-item">
-                    <strong>⏱️ زمن الجملة:</strong>
-                    <span>ماضي بسيط للشرط + (Would + المصدر) للنتيجة.</span>
+                    <strong>2️⃣ في الحالة الثانية (بمعنى يمتلك):</strong>
+                    <span>توضع Had في البداية + الفاعل + المفعول به مباشرة.</span>
                 </div>
             </div>
 
             <div class="formula-box">
-                <div class="formula-code">If + <span>Past Simple</span>, ... <span>Would + Infinitive</span></div>
+                <div class="formula-code">Had + <span>Subject</span> + <span>P.P (التصريف 3)</span> OR <span>(Noun)</span></div>
             </div>
 
             <div class="examples-wrapper">
                 <div class="example-card">
-                    <div class="example-en">If I won the lottery, I would buy a large villa.</div>
-                    <div class="example-ar">لو فزت باليانصيب، لاشتريت فيلا كبيرة. (موقف خيالي الآن)</div>
+                    <div class="example-en">Had he listened to my advice, he wouldn't have failed.</div>
+                    <div class="example-ar">لو أنه استمع لنصيحتي، لما كان قد فشل. (حالة ثالثة)</div>
                 </div>
                 <div class="example-card">
-                    <div class="example-en">If I were you, I would consult a doctor.</div>
-                    <div class="example-ar">لو كنت مكانك، لاستشرت طبيباً. (نصيحة)</div>
+                    <div class="example-en">Had I a car, I would drive to work.</div>
+                    <div class="example-ar">لو كان لدي سيارة، لقضيت مشواري بها. (حالة ثانية - ملكية)</div>
                 </div>
-                <div class="example-card">
-                    <div class="example-en">If he had a car, he would travel more often.</div>
-                    <div class="example-ar">لو كان يمتلك سيارة، لسافر بشكل أكثر تكراراً. (الواقع: لا يملك سيارة)</div>
-                </div>
-            </div>
-
-            <div class="pro-tip">
-                📌 <strong>ملاحظة احترافية:</strong> نستخدم <strong>Were</strong> مع كافة الضمائر (I, He, She, It) في جملة الشرط للتأكيد على الفرضية الخيالية.
             </div>
         </div>
 
-        <!-- 3. Third Conditional -->
-        <div class="case-card card-third">
+        <!-- 5. Without / In case of -->
+        <div class="case-card card-without">
             <div class="case-head">
-                <div class="case-title">4. الحالة الثالثة (Third Conditional)</div>
-                <span class="badge badge-third">الندم على الماضي</span>
+                <div class="case-title">5. بدائل المعية والنفي (Without / In case of)</div>
+                <span class="badge badge-without">يأتي بعدها اسم أو v-ing</span>
             </div>
 
             <div class="info-grid">
                 <div class="info-item">
-                    <strong>💡 الاستخدام الأساسي:</strong>
-                    <span>التندم وتخيل عكس ما حدث بالفعل في الماضي.</span>
+                    <strong>💡 الإثبات: In case of / In the event of</strong>
+                    <span>تعني "في حالة" وتستبدل جملة If المثبتة.</span>
                 </div>
                 <div class="info-item">
-                    <strong>⏱️ زمن الجملة:</strong>
-                    <span>ماضي تام (had + V3) + (Would have + V3) للنتيجة.</span>
+                    <strong>💡 النفي: Without / But for</strong>
+                    <span>تعني "لولا / بدون" وتستبدل جملة If المنفية (If not).</span>
                 </div>
             </div>
 
             <div class="formula-box">
-                <div class="formula-code">If + <span>Had + V3</span>, ... <span>Would have + V3</span></div>
+                <div class="formula-code"><span>[ Without / In case of / But for ]</span> + <span>Noun (اسم)</span> OR <span>V-ing</span></div>
             </div>
 
             <div class="examples-wrapper">
                 <div class="example-card">
-                    <div class="example-en">If I had studied harder, I would have passed.</div>
-                    <div class="example-ar">لو أنني درست بجد أكثر، لكنت قد نجحت. (الواقع: لم أدرس ولم أنجح)</div>
+                    <div class="example-en">Without his help, I wouldn't have got the job.</div>
+                    <div class="example-ar">لولا مساعدته، لما حصلت على الوظيفة. (تساوي: If he hadn't helped me)</div>
                 </div>
                 <div class="example-card">
-                    <div class="example-en">If they had left earlier, they wouldn't have missed the train.</div>
-                    <div class="example-ar">لو أنهم غادروا مبكراً، لما كان قد فاتهم القطار.</div>
+                    <div class="example-en">In case of emergency, call the police.</div>
+                    <div class="example-ar">في حالة الطوارئ، اتصل بالشرطة.</div>
                 </div>
-            </div>
-
-            <div class="pro-tip">
-                📌 <strong>ملاحظة احترافية:</strong> هذه الحالة تعبر دائماً عن الاستحالة لأن الحدث وقع وانتهى في الماضي.
             </div>
         </div>
 
-        <!-- 4. Mixed Conditional -->
-        <div class="case-card card-mixed">
+        <!-- 6. Supposing / Suppose / Imagine & Unless -->
+        <div class="case-card card-unless">
             <div class="case-head">
-                <div class="case-title">5. الحالة المختلطة (Mixed Conditional)</div>
-                <span class="badge badge-mixed">ربط الماضي بالحاضر</span>
+                <div class="case-title">6. التخيل والاستفهام (Suppose / Imagine) و (Unless)</div>
+                <span class="badge badge-unless">الافتراض والنفي</span>
             </div>
 
             <div class="info-grid">
                 <div class="info-item">
-                    <strong>💡 الاستخدام الأساسي:</strong>
-                    <span>سبب وقع في الماضي، ونتيجته تؤثر عليك حتى هذه اللحظة.</span>
+                    <strong>💡 Suppose / Supposing / Imagine:</strong>
+                    <span>تُستخدم للافتراض والتخيل، وغالباً ما تأتي الصيغة في سؤال.</span>
                 </div>
                 <div class="info-item">
-                    <strong>⏱️ زمن الجملة:</strong>
-                    <span>ماضي تام (had + V3) للشرط + (Would + المصدر) للحاضر.</span>
+                    <strong>💡 Unless (إلا إذا / إذا لم):</strong>
+                    <span>تساوي (If + جملة منفية)، ويأتي بعدها دائماً جملة مثبتة في المعنى.</span>
                 </div>
             </div>
 
             <div class="formula-box">
-                <div class="formula-code">If + <span>Had + V3</span>, ... <span>Would + Infinitive (الان)</span></div>
+                <div class="formula-code">Suppose + <span>Sentence</span>?  |  Unless + <span>Positive Sentence</span></div>
             </div>
 
             <div class="examples-wrapper">
                 <div class="example-card">
-                    <div class="example-en">If I had taken that job, I would be rich now.</div>
-                    <div class="example-ar">لو أنني قبلت تلك الوظيفة في الماضي، لكنت غنياً الآن في الحاضر.</div>
+                    <div class="example-en">Suppose you found a mobile, what would you do?</div>
+                    <div class="example-ar">افترض أنك وجدت هاتفاً، ماذا كنت ستفعل؟</div>
+                </div>
+                <div class="example-card">
+                    <div class="example-en">Unless he studies, he will fail.</div>
+                    <div class="example-ar">إذا لم يدرس، فسوف يرسب. (تساوي: If he doesn't study...)</div>
                 </div>
             </div>
         </div>
 
         <!-- Footer -->
         <footer>
-            <p>دليل قواعد If المصمم للطباعة والمذاكرة والتصدير حقوق النشر محفوظه لمستر اشرف بسيوني لملفات PDF.</p>
+            <p>ملخص ومسودة بدائل وحالات تقديم If - جاهز للتصدير كملف PDF والطباعة.</p>
         </footer>
 
     </div>
