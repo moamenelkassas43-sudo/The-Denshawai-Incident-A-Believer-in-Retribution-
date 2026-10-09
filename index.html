@@ -3,41 +3,249 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>الموسوعة النبوية الشاملة - الجزء الأول (1 - 60)</title>
+    <title>الموسوعة النبوية الشاملة - مؤمن هشام القصاص</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Amiri:ital,wght@0,400;0,700;1,400;1,700&family=Cairo:wght@400;600;700;800;900&display=swap" rel="stylesheet">
     <style>
-        @page { size: A4; margin: 12mm; }
+        @page {
+            size: A4;
+            margin: 12mm;
+        }
+
         :root {
             --primary: #0f172a;
             --primary-light: #1e293b;
             --accent: #b4832c;
+            --accent-soft: #fef3c7;
             --bg-body: #f8fafc;
             --card-bg: #ffffff;
             --text-main: #0f172a;
+            --text-muted: #475569;
             --border-color: #cbd5e1;
         }
-        * { box-sizing: border-box; margin: 0; padding: 0; }
-        body { font-family: 'Cairo', sans-serif; color: var(--text-main); background-color: #e2e8f0; line-height: 1.8; padding: 20px; }
-        .page-container { max-width: 1000px; margin: 0 auto; background: #ffffff; padding: 35px; border: 5px double var(--accent); border-radius: 12px; box-shadow: 0 10px 30px rgba(0,0,0,0.15); }
-        .main-header { text-align: center; border-bottom: 3px double var(--accent); padding-bottom: 20px; margin-bottom: 25px; }
-        .main-header h1 { font-size: 32px; color: var(--primary); font-weight: 900; margin-bottom: 8px; }
-        .main-header p { font-size: 18px; color: var(--accent); font-weight: 700; }
-        .credits-banner { background: linear-gradient(135deg, var(--primary), var(--primary-light)); color: #ffffff; text-align: center; padding: 18px; border-radius: 8px; margin-bottom: 30px; border-right: 6px solid var(--accent); }
-        .credits-banner .author { font-size: 22px; font-weight: 900; }
-        .credits-banner .role { font-size: 16px; color: #fde047; font-weight: 700; margin-top: 4px; }
-        .chapter-header { background: linear-gradient(90deg, var(--primary), var(--primary-light)); color: #ffffff; padding: 14px 22px; border-radius: 8px; font-size: 20px; font-weight: 900; margin: 35px 0 20px 0; border-right: 8px solid var(--accent); page-break-before: always; }
-        .chapter-header:first-of-type { page-break-before: auto; }
-        .hadith-card { background-color: var(--card-bg); border: 1px solid var(--border-color); border-right: 5px solid var(--accent); border-radius: 8px; padding: 20px 24px; margin-bottom: 20px; page-break-inside: avoid; }
-        .hadith-number-title { font-size: 18px; font-weight: 800; color: var(--primary); margin-bottom: 10px; border-bottom: 1px dashed var(--border-color); padding-bottom: 6px; }
-        .hadith-text { font-family: 'Amiri', serif; font-size: 21px; color: #020617; text-align: justify; line-height: 2.1; margin-bottom: 10px; font-weight: 700; }
-        .hadith-source { font-size: 14px; font-weight: 700; color: var(--accent); text-align: left; }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Cairo', sans-serif;
+            color: var(--text-main);
+            background-color: #e2e8f0;
+            line-height: 1.8;
+            padding: 20px;
+        }
+
+        /* الإطار الفاخر الرئيسي */
+        .page-container {
+            max-width: 1000px;
+            margin: 0 auto;
+            background: #ffffff;
+            padding: 35px;
+            border: 5px double var(--accent);
+            border-radius: 12px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+            position: relative;
+        }
+
+        /* الغلاف والهيدر */
+        .main-header {
+            text-align: center;
+            border-bottom: 3px double var(--accent);
+            padding-bottom: 20px;
+            margin-bottom: 25px;
+        }
+
+        .main-header h1 {
+            font-size: 34px;
+            color: var(--primary);
+            font-weight: 900;
+            margin-bottom: 8px;
+            letter-spacing: -0.5px;
+        }
+
+        .main-header p {
+            font-size: 18px;
+            color: var(--accent);
+            font-weight: 700;
+        }
+
+        /* شريط حقوق الإعداد */
+        .credits-banner {
+            background: linear-gradient(135deg, var(--primary), var(--primary-light));
+            color: #ffffff;
+            text-align: center;
+            padding: 18px;
+            border-radius: 8px;
+            margin-bottom: 35px;
+            border-right: 6px solid var(--accent);
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+        }
+
+        .credits-banner .author {
+            font-size: 22px;
+            font-weight: 900;
+            color: #ffffff;
+        }
+
+        .credits-banner .role {
+            font-size: 16px;
+            color: #fde047;
+            font-weight: 700;
+            margin-top: 4px;
+        }
+
+        /* الفهرس في الأول */
+        .index-section {
+            background-color: var(--bg-body);
+            border: 2px solid var(--border-color);
+            border-radius: 10px;
+            padding: 25px;
+            margin-bottom: 40px;
+            page-break-after: always;
+        }
+
+        .index-title {
+            text-align: center;
+            font-size: 25px;
+            color: var(--primary);
+            font-weight: 900;
+            margin-bottom: 20px;
+            border-bottom: 2px solid var(--accent);
+            padding-bottom: 10px;
+        }
+
+        .index-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 12px;
+        }
+
+        .index-card {
+            background: #ffffff;
+            border-right: 5px solid var(--accent);
+            border-top: 1px solid var(--border-color);
+            border-left: 1px solid var(--border-color);
+            border-bottom: 1px solid var(--border-color);
+            padding: 12px 18px;
+            border-radius: 6px;
+        }
+
+        .index-card-header {
+            display: flex;
+            justify-content: space-between;
+            font-weight: 800;
+            color: var(--primary);
+            font-size: 17px;
+        }
+
+        .index-card-desc {
+            font-size: 14px;
+            color: var(--text-muted);
+            margin-top: 4px;
+            padding-right: 18px;
+            font-weight: 600;
+        }
+
+        /* الأبواب والأحاديث */
+        .chapter-header {
+            background: linear-gradient(90deg, var(--primary), var(--primary-light));
+            color: #ffffff;
+            padding: 14px 22px;
+            border-radius: 8px;
+            font-size: 21px;
+            font-weight: 900;
+            margin: 40px 0 25px 0;
+            border-right: 8px solid var(--accent);
+            display: flex;
+            align-items: center;
+            page-break-before: always;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+        }
+
+        .chapter-header:first-of-type {
+            page-break-before: auto;
+        }
+
+        .hadith-card {
+            background-color: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-right: 5px solid var(--accent);
+            border-radius: 8px;
+            padding: 22px 25px;
+            margin-bottom: 22px;
+            page-break-inside: avoid;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.02);
+        }
+
+        .hadith-number-title {
+            font-size: 18px;
+            font-weight: 800;
+            color: var(--primary);
+            margin-bottom: 12px;
+            display: flex;
+            align-items: center;
+            border-bottom: 1px dashed var(--border-color);
+            padding-bottom: 8px;
+        }
+
+        .hadith-number-title::before {
+            content: "❖";
+            color: var(--accent);
+            margin-left: 10px;
+            font-size: 16px;
+        }
+
+        .hadith-text {
+            font-family: 'Amiri', serif;
+            font-size: 20px;
+            color: #020617;
+            text-align: justify;
+            line-height: 2.1;
+            margin-bottom: 12px;
+            font-weight: 700;
+            padding: 0 5px;
+        }
+
+        .hadith-source {
+            font-size: 14px;
+            font-weight: 700;
+            color: var(--accent);
+            text-align: left;
+            padding-top: 6px;
+        }
+
+        /* تحسينات التصدير للطباعة */
         @media print {
-            body { background: none; padding: 0; }
-            .page-container { border: 3px solid var(--accent); box-shadow: none; padding: 15px; max-width: 100%; }
-            .chapter-header, .credits-banner { background: var(--primary) !important; color: #ffffff !important; -webkit-print-color-adjust: exact; }
-            .hadith-card { background-color: #ffffff !important; border: 1px solid #94a3b8; border-right: 5px solid var(--accent) !important; -webkit-print-color-adjust: exact; }
+            body {
+                background: none;
+                padding: 0;
+            }
+            .page-container {
+                border: 3px solid var(--accent);
+                box-shadow: none;
+                padding: 15px;
+                max-width: 100%;
+            }
+            .chapter-header {
+                background: var(--primary) !important;
+                color: #ffffff !important;
+                -webkit-print-color-adjust: exact;
+            }
+            .credits-banner {
+                background: var(--primary) !important;
+                color: #ffffff !important;
+                -webkit-print-color-adjust: exact;
+            }
+            .hadith-card {
+                background-color: #ffffff !important;
+                border: 1px solid #94a3b8;
+                border-right: 5px solid var(--accent) !important;
+                -webkit-print-color-adjust: exact;
+            }
         }
     </style>
 </head>
@@ -45,136 +253,231 @@
 
 <div class="page-container">
 
+    <!-- الترويسة الرئيسية -->
     <div class="main-header">
         <h1>الموسوعة النبوية الشاملة</h1>
-        <p>الجزء الأول: الأحاديث الشريفة من (1) إلى (60)</p>
+        <p>مختارات معتمدة وموثقة من المتون النبوية المطهرة</p>
     </div>
 
+    <!-- بطاقة إعداد الملف -->
     <div class="credits-banner">
         <div class="author">إعداد / مؤمن هشام القصاص</div>
         <div class="role">أمين اتحاد مدارس سيدي سالم</div>
     </div>
 
+    <!-- الفهرس العام في الأول -->
+    <div class="index-section">
+        <div class="index-title">📑 الفهرس العام للموسوعة النبوية الشاملة</div>
+        <div class="index-grid">
+            <div class="index-card">
+                <div class="index-card-header">
+                    <span>• 📌 الباب الأول: الإيمان والتوحيد والعقيدة</span>
+                    <span>(الأحاديث 1 - 20)</span>
+                </div>
+                <div class="index-card-desc">جوامع الدين، النيات، التوكل، حلاوة الإيمان، شُعب الإيمان، وحسن الظن بالله.</div>
+            </div>
+            <div class="index-card">
+                <div class="index-card-header">
+                    <span>• 📌 الباب الثاني: الصلاة وفضائل العبادات</span>
+                    <span>(الأحاديث 21 - 40)</span>
+                </div>
+                <div class="index-card-desc">أركان الصلاة، فضل الجماعة، قيام الليل، سنن الرواتب، الصيام، والحج المبرور.</div>
+            </div>
+            <div class="index-card">
+                <div class="index-card-header">
+                    <span>• 📌 الباب الثالث: الصبر والرضا والفرج بعد الشدة</span>
+                    <span>(الأحاديث 41 - 60)</span>
+                </div>
+                <div class="index-card-desc">أجر الابتلاء، الصبر عند الصدمة الأولى، التوكل، وحفظ الله في الرخاء.</div>
+            </div>
+            <div class="index-card">
+                <div class="index-card-header">
+                    <span>• 📌 الباب الرابع: صفة الجنة ونعيمها والدار الآخرة</span>
+                    <span>(الأحاديث 61 - 80)</span>
+                </div>
+                <div class="index-card-desc">نعيم الجنة، خلود أهلها، علامات حسن الخاتمة، وأحوال البرزخ والقبر.</div>
+            </div>
+            <div class="index-card">
+                <div class="index-card-header">
+                    <span>• 📌 الباب الخامس: مكارم الأخلاق وحسن الخلق</span>
+                    <span>(الأحاديث 81 - 100)</span>
+                </div>
+                <div class="index-card-desc">درجات حسن الخلق، العفو، الرفق، كظم الغضب، والتيسير وسماحة التعامل.</div>
+            </div>
+            <div class="index-card">
+                <div class="index-card-header">
+                    <span>• 📌 الباب السادس: حفظ اللسان وآفات الجوارح</span>
+                    <span>(الأحاديث 101 - 120)</span>
+                </div>
+                <div class="index-card-desc">القول الحسن، كف اللسان، تحريم الغيبة والنميمة، صفات المنافق، والأمانة.</div>
+            </div>
+            <div class="index-card">
+                <div class="index-card-header">
+                    <span>• 📌 الباب السابع: بر الوالدين وصلة الأرحام وحق الجار</span>
+                    <span>(الأحاديث 121 - 140)</span>
+                </div>
+                <div class="index-card-desc">حق الأم والأب، صلة الرحم وزيادة الرزق، إكرام الجار والضيف، وكفالة اليتيم.</div>
+            </div>
+            <div class="index-card">
+                <div class="index-card-header">
+                    <span>• 📌 الباب الثامن: الأذكار والأدعية المستجابة</span>
+                    <span>(الأحاديث 141 - 160)</span>
+                </div>
+                <div class="index-card-desc">الكلمات الأربع المحبوبة، فضل الصلاة على النبي، كفارة المجلس، وأوقات الاستجابة.</div>
+            </div>
+            <div class="index-card">
+                <div class="index-card-header">
+                    <span>• 📌 الباب التاسع: الأمانة، الكسب الحلال، والتجارة</span>
+                    <span>(الأحاديث 161 - 180)</span>
+                </div>
+                <div class="index-card-desc">التاجر الصدوق، بركة عمل اليد، سداد الديون، تحريم الربا، وإنظار المعسر.</div>
+            </div>
+            <div class="index-card">
+                <div class="index-card-header">
+                    <span>• 📌 الباب العاشر: التوبة، الاستغفار، وسعة رحمة الله</span>
+                    <span>(الأحاديث 181 - 200)</span>
+                </div>
+                <div class="index-card-desc">سيد الاستغفار، فرح الله بالتوبة، سبق الرحمة للغضب، والستر في الدنيا والآخرة.</div>
+            </div>
+            <div class="index-card">
+                <div class="index-card-header">
+                    <span>• 📌 الباب الحادي عشر: العلم والريادة وحب الوطن</span>
+                    <span>(الأحاديث 201 - 220)</span>
+                </div>
+                <div class="index-card-desc">فضل طلب العلم، الحنين إلى الأوطان، سن السنن الحسنة، والمسؤولية القيادية.</div>
+            </div>
+            <div class="index-card">
+                <div class="index-card-header">
+                    <span>• 📌 الباب الثاني عشر: الرياضة والنشاط البدني والقوة</span>
+                    <span>(الأحاديث 221 - 230)</span>
+                </div>
+                <div class="index-card-desc">المؤمن القوي، فضائل الرماية، الفروسية والسباق، والترويح المباح عن النفس.</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- بداية الأبواب والأحاديث النصية الكاملة (220 حديث) -->
+
     <!-- الباب الأول -->
     <div class="chapter-header">📌 الباب الأول: الإيمان والتوحيد والعقيدة (1 - 20)</div>
 
     <div class="hadith-card">
-        <div class="hadith-number-title">1. حديث عمر بن الخطاب في مراتب الدين (الحديث الطويل الجامع)</div>
-        <div class="hadith-text">عن عمر بن الخطاب رضي الله عنه قال: «بَيْنَمَا نَحْنُ جُلُوسٌ عِنْدَ رَسُولِ اللهِ صَلَّى اللهُ عَلَيْهِ وَسَلَّمَ ذَاتَ يَوْمٍ، إِذْ طَلَعَ عَلَيْنَا رَجُلٌ شَدِيدُ بَيَاضِ الثِّيَابِ، شَدِيدُ سَوَادِ الشَّعَرِ، لَا يُرَى عَلَيْهِ أَثَرُ السَّفَرِ، وَلَا يَعْرِفُهُ مِنَّا أَحَدٌ، حَتَّى جَلَسَ إِلَى النَّبِيِّ صَلَّى اللهُ عَلَيْهِ وَسَلَّمَ، فَأَسْنَدَ رُكْبَتَيْهِ إِلَى رُكْبَتَيْهِ، وَوَضَعَ كَفَّيْهِ عَلَى فَخِذَيْهِ، وَقَالَ: يَا مُحَمَّدُ أَخْبِرْنِي عَنِ الْإِسْلَامِ، فَقَالَ رَسُولُ اللهِ صَلَّى اللهُ عَلَيْهِ وَسَلَّمَ: الْإِسْلَامُ أَنْ تَشْهَدَ أَنْ لَا إِلَهَ إِلَّا اللهُ وَأَنَّ مُحَمَّدًا رَسُولُ اللهِ صَلَّى اللهُ عَلَيْهِ وَسَلَّمَ، وَتُقِيمَ الصَّلَاةَ، وَتُؤْتِيَ الزَّكَاةَ، وَتَصُومَ رَمَضَانَ، وَتَحُجَّ الْبَيْتَ إِنِ اسْتَطَعْتَ إِلَيْهِ سَبِيلًا، قَالَ: صَدَقْتَ، قَالَ: فَعَجِبْنَا لَهُ يَسْأَلُهُ وَيُصَدِّقُهُ، قَالَ: فَأَخْبِرْنِي عَنِ الْإِيمَانِ، قَالَ: أَنْ تُؤْمِنَ بِاللهِ، وَمَلَائِكَتِهِ، وَكُتُبِهِ، وَرُسُلِهِ، وَالْيَوْمِ الْآخِرِ، وَتُؤْمِنَ بِالْقَدَرِ خَيْرِهِ وَشَرِّهِ، قَالَ: صَدَقْتَ، قَالَ: فَأَخْبِرْنِي عَنِ الْإِحْسَانِ، قَالَ: أَنْ تَعْبُدَ اللهَ كَأَنَّكَ تَرَاهُ، فَإِنْ لَمْ تَكُنْ تَرَاهُ فَإِنَّهُ يَرَاهُ... قَالَ: فَإِنَّهُ جِبْرِيلُ أَتَاكُمْ يُعَلِّمُكُمْ دِينَكُمْ»</div>
+        <div class="hadith-number-title">1. حديث عمر بن الخطاب في مراتب الدين (الحديث الطويل الجامع):</div>
+        <div class="hadith-text">عن عمر بن الخطاب رضي الله عنه قال: «بَيْنَمَا نَحْنُ جُلُوسٌ عِنْدَ رَسُولِ اللهِ صَلَّى اللهُ عَلَيْهِ وَسَلَّمَ ذَاتَ يَوْمٍ، إِذْ طَلَعَ عَلَيْنَا رَجُلٌ شَدِيدُ بَيَاضِ الثِّيَابِ، شَدِيدُ سَوَادِ الشَّعَرِ، لَا يُرَى عَلَيْهِ أَثَرُ السَّفَرِ، وَلَا يَعْرِفُهُ مِنَّا أَحَدٌ، حَتَّى جَلَسَ إِلَى النَّبِيِّ صَلَّى اللهُ عَلَيْهِ وَسَلَّمَ، فَأَسْنَدَ رُكْبَتَيْهِ إِلَى رُكْبَتَيْهِ، وَوَضَعَ كَفَّيْهِ عَلَى فَخِذَيْهِ، وَقَالَ: يَا مُحَمَّدُ أَخْبِرْنِي عَنِ الْإِسْلَامِ، فَقَالَ رَسُولُ اللهِ صَلَّى اللهُ عَلَيْهِ وَسَلَّمَ: الْإِسْلَامُ أَنْ تَشْهَدَ أَنْ لَا إِلَهَ إِلَّا اللهُ وَأَنَّ مُحَمَّدًا رَسُولُ اللهِ صَلَّى اللهُ عَلَيْهِ وَسَلَّمَ، وَتُقِيمَ الصَّلَاةَ، وَتُؤْتِيَ الزَّكَاةَ، وَتَصُومَ رَمَضَانَ، وَتَحُجَّ الْبَيْتَ إِنِ اسْتَطَعْتَ إِلَيْهِ سَبِيلًا، قَالَ: صَدَقْتَ، قَالَ: فَعَجِبْنَا لَهُ يَسْأَلُهُ وَيُصَدِّقُهُ، قَالَ: فَأَخْبِرْنِي عَنِ الْإِيمَانِ، قَالَ: أَنْ تُؤْمِنَ بِاللهِ، وَمَلَائِكَتِهِ، وَكُتُبِهِ، وَرُسُلِهِ، وَالْيَوْمِ الْآخِرِ، وَتُؤْمِنَ بِالْقَدَرِ خَيْرِهِ وَشَرِّهِ، قَالَ: صَدَقْتَ، قَالَ: فَأَخْبِرْنِي عَنِ الْإِحْسَانِ، قَالَ: أَنْ تَعْبُدَ اللهَ كَأَنَّكَ تَرَاهُ، فَإِنْ لَمْ تَكُنْ تَرَاهُ فَإِنَّهُ يَرَاهُ، قَالَ: فَأَخْبِرْنِي عَنِ السَّاعَةِ، قَالَ: مَا الْمَسْؤُولُ عَنْهَا بِأَعْلَمَ مِنَ السَّائِلِ، قَالَ: فَأَخْبِرْنِي عَنْ أَمَارَاتِهَا، قَالَ: أَنْ تَلِدَ الْأَمَةُ رَبَّتَهَا، وَأَنْ تَرَى الْحُفَاةَ الْعُرَاةَ الْعَالَةَ رِعَاءَ الشَّاءِ يَتَطَاوَلُونَ فِي الْبُنْيَانِ، قَالَ: ثُمَّ انْطَلَقَ فَلَبِثْتُ مَلِيًّا، ثُمَّ قَالَ لِي: يَا عُمَرُ أَتَدْرِي مَنِ السَّائِلُ؟ قُلْتُ: اللهُ وَرَسُولُهُ أَعْلَمُ، قَالَ: فَإِنَّهُ جِبْرِيلُ أَتَاكُمْ يُعَلِّمُكُمْ دِينَكُمْ»</div>
         <div class="hadith-source">(رواه مسلم)</div>
     </div>
 
     <div class="hadith-card">
-        <div class="hadith-number-title">2. حديث إنما الأعمال بالنيات</div>
+        <div class="hadith-number-title">2. حديث إنما الأعمال بالنيات بكامل اللفظ:</div>
         <div class="hadith-text">عن أمير المؤمنين أبي حفص عمر بن الخطاب رضي الله عنه قال: سمعت رسول الله صلى الله عليه وسلم يقول: «إِنَّمَا الأَعْمَالُ بِالنِّيَّاتِ، وَإِنَّمَا لِكُلِّ امْرِئٍ مَا نَوَى، فَمَنْ كَانَتْ هِجْرَتُهُ إِلَى اللَّهِ وَرَسُولِهِ، فَهِجْرَتُهُ إِلَى اللَّهِ وَرَسُولِهِ، وَمَنْ كَانَتْ هِجْرَتُهُ لِدُنْيَا يُصِيبُهَا أَوْ امْرَأَةٍ يَتَزَوَّجُهَا، فَهِجْرَتُهُ إِلَى مَا هَاجَرَ إِلَيْهِ»</div>
         <div class="hadith-source">(رواه البخاري ومسلم)</div>
     </div>
 
     <div class="hadith-card">
-        <div class="hadith-number-title">3. وصية النبي لابن عباس في التوكل والعقيدة</div>
+        <div class="hadith-number-title">3. وصية النبي لابن عباس في التوكل والعقيدة:</div>
         <div class="hadith-text">عن أبي العباس عبد الله بن عباس رضي الله عنهما قال: كنت خلف النبي صلى الله عليه وسلم يوماً، فقال: «يَا غُلَامُ، إِنِّي أُعَلِّمُكَ كَلِمَاتٍ: احْفَظِ اللَّهَ يَحْفَظْكَ، احْفَظِ اللَّهَ تَجِدْهُ تُجَاهَكَ، إِذَا سَأَلْتَ فَاسْأَلِ اللَّهَ، وَإِذَا اسْتَعَنْتَ فَاسْتَعِنْ بِاللَّهِ، وَاعْلَمْ أَنَّ الأُمَّةَ لَوْ اجْتَمَعَتْ عَلَى أَنْ يَنْفَعُوكَ بِشَيْءٍ لَمْ يَنْفَعُوكَ إِلَّا بِشَيْءٍ قَدْ كَتَبَهُ اللَّهُ لَكَ، وَلَوْ اجْتَمَعُوا عَلَى أَنْ يَضُرُّوكَ بِشَيْءٍ لَمْ يَضُرُّوكَ إِلَّا بِشَيْءٍ قَدْ كَتَبَهُ اللَّهُ عَلَيْكَ، رُفِعَتِ الأَقْلَامُ وَجَفَّتِ الصُّحُفُ»</div>
         <div class="hadith-source">(رواه الترمذي وقال: حديث حسن صحيح)</div>
     </div>
 
     <div class="hadith-card">
-        <div class="hadith-number-title">4. حديث حلاوة الإيمان</div>
+        <div class="hadith-number-title">4. حديث حلاوة الإيمان وتفصيله:</div>
         <div class="hadith-text">عن أنس بن مالك رضي الله عنه، عن النبي صلى الله عليه وسلم قال: «ثَلَاثٌ مَنْ كُنَّ فِيهِ وَجَدَ حَلَاوَةَ الإِيمَانِ: أَنْ يَكُونَ اللَّهُ وَرَسُولُهُ أَحَبَّ إِلَيْهِ مِمَّا سِوَاهُمَا، وَأَنْ يُحِبَّ المَرْءَ لَا يُحِبُّهُ إِلَّا لِلَّهِ، وَأَنْ يَكْرَهَ أَنْ يَعُودَ فِي الكُفْرِ كَمَا يَكْرَهُ أَنْ يُقْذَفَ فِي النَّارِ»</div>
         <div class="hadith-source">(رواه البخاري ومسلم)</div>
     </div>
 
     <div class="hadith-card">
-        <div class="hadith-number-title">5. حديث معاذ بن جبل في حق الله وحق العباد</div>
-        <div class="hadith-text">عن معاذ بن جبل رضي الله عنه قال: كنت رِدْفَ النبي صلى الله عليه وسلم على حمار يُقال له عُفير، فقال: «يَا مُعَاذُ، أَتَدْرِي مَا حَقُّ اللَّهِ عَلَى العِبَادِ؟ وَمَا حَقُّ العِبَادِ عَلَى اللَّهِ؟» قُلْتُ: اللَّهُ وَرَسُولُهُ أَعْلَمُ، قَالَ: «فَإِنَّ حَقَّ اللَّهِ عَلَى العِبَادِ أَنْ يَعْبُدُوهُ وَلَا يُشْرِكُوا بِهِ شَيْئًا، وَحَقَّ العِبَادِ عَلَى اللَّهِ أَنْ لَا يُعَذِّبَ مَنْ لَا يُشْرِكُ بِهِ شَيْئًا»</div>
+        <div class="hadith-number-title">5. حديث معاذ بن جبل في حق الله وحق العباد:</div>
+        <div class="hadith-text">عن معاذ بن جبل رضي الله عنه قال: كنت رِدْفَ النبي صلى الله عليه وسلم على حمار يُقال له عُفير، فقال: «يَا مُعَاذُ، أَتَدْرِي مَا حَقُّ اللَّهِ عَلَى العِبَادِ؟ وَمَا حَقُّ العِبَادِ عَلَى اللَّهِ؟» قُلْتُ: اللَّهُ وَرَسُولُهُ أَعْلَمُ، قَالَ: «فَإِنَّ حَقَّ اللَّهِ عَلَى العِبَادِ أَنْ يَعْبُدُوهُ وَلَا يُشْرِكُوا بِهِ شَيْئًا، وَحَقَّ العِبَادِ عَلَى اللَّهِ أَنْ لَا يُعَذِّبَ مَنْ لَا يُشْرِكُ بِهِ شَيْئًا»، فَقُلْتُ: يَا رَسُولَ اللَّهِ، أَفَلَا أُبَشِّرُ بِهِ النَّاسَ؟ قَالَ: «لَا تُبَشِّرْهُمْ فَيَتَّكِلُوا»</div>
         <div class="hadith-source">(رواه البخاري ومسلم)</div>
     </div>
 
     <div class="hadith-card">
-        <div class="hadith-number-title">6. حديث شعب الإيمان</div>
+        <div class="hadith-number-title">6. حديث شعب الإيمان:</div>
         <div class="hadith-text">عن أبي هريرة رضي الله عنه قال: قال رسول الله صلى الله عليه وسلم: «الإِيمَانُ بِضْعٌ وَسَبْعُونَ، أَوْ بِضْعٌ وَسِتُّونَ شُعْبَةً، فَأَفْضَلُهَا قَوْلُ لَا إِلَهَ إِلَّا اللَّهُ، وَأَدْنَاهَا إِمَاطَةُ الأَذَى عَنِ الطَّرِيقِ، وَالحَيَاءُ شُعْبَةٌ مِنَ الإِيمَانِ»</div>
         <div class="hadith-source">(رواه البخاري ومسلم)</div>
     </div>
 
     <div class="hadith-card">
-        <div class="hadith-number-title">7. حديث حب الرسول ﷺ علامة الإيمان</div>
+        <div class="hadith-number-title">7. حديث حب الرسول ﷺ علامة الإيمان:</div>
         <div class="hadith-text">عن أنس بن مالك رضي الله عنه قال: قال النبي صلى الله عليه وسلم: «لَا يُؤْمِنُ أَحَدُكُمْ حَتَّى أَكُونَ أَحَبَّ إِلَيْهِ مِنْ وَالِدِهِ وَوَلَدِهِ وَالنَّاسِ أَجْمَعِينَ»</div>
         <div class="hadith-source">(رواه البخاري ومسلم)</div>
     </div>
 
     <div class="hadith-card">
-        <div class="hadith-number-title">8. حديث حب الخير للمؤمنين</div>
+        <div class="hadith-number-title">8. حديث حب الخير للمؤمنين:</div>
         <div class="hadith-text">عن أنس بن مالك رضي الله عنه، عن النبي صلى الله عليه وسلم قال: «لَا يُؤْمِنُ أَحَدُكُمْ حَتَّى يُحِبَّ لِأَخِيهِ -أَوْ قَالَ: لِجَارِهِ- مَا يُحِبُّ لِنَفْسِهِ»</div>
         <div class="hadith-source">(رواه البخاري ومسلم)</div>
     </div>
 
     <div class="hadith-card">
-        <div class="hadith-number-title">9. حديث من مات لا يشرك بالله شيئاً</div>
+        <div class="hadith-number-title">9. حديث من مات لا يشرك بالله شيئاً:</div>
         <div class="hadith-text">عن جابر بن عبد الله رضي الله عنهما قال: أتى النبيَّ صلى الله عليه وسلم رجلٌ فقال: يا رسول الله، ما المُوجِبَتَانِ؟ فقال: «مَنْ مَاتَ لَا يُشْرِكُ بِاللَّهِ شَيْئًا دَخَلَ الجَنَّةَ، وَمَنْ مَاتَ يُشْرِكُ بِاللَّهِ شَيْئًا دَخَلَ النَّارِ»</div>
         <div class="hadith-source">(رواه مسلم)</div>
     </div>
 
     <div class="hadith-card">
-        <div class="hadith-number-title">10. حديث الدين النصيحة</div>
+        <div class="hadith-number-title">10. حديث النصح لكل مسلم (الدين النصيحة):</div>
         <div class="hadith-text">عن أبي رقية تميم بن أوس الداري رضي الله عنه، أن النبي صلى الله عليه وسلم قال: «الدِّينُ النَّصِيحَةُ» قُلْنَا: لِمَنْ؟ قَالَ: «لِلَّهِ، وَلِكِتَابِهِ، وَلِرَسُولِهِ، وَلِأَئِمَّةِ المُسْلِمِينَ وَعَامَّتِهِمْ»</div>
         <div class="hadith-source">(رواه مسلم)</div>
     </div>
 
     <div class="hadith-card">
-        <div class="hadith-number-title">11. حديث ترك ما لا يعني</div>
+        <div class="hadith-number-title">11. حديث حسن الإسلام بترك الفضول:</div>
         <div class="hadith-text">عن أبي هريرة رضي الله عنه قال: قال رسول الله صلى الله عليه وسلم: «مِنْ حُسْنِ إِسْلَامِ المَرْءِ تَرْكُهُ مَا لَا يَعْنِيهِ»</div>
-        <div class="hadith-source">(رواه الترمذي)</div>
+        <div class="hadith-source">(رواه الترمذي، وصححه الألباني)</div>
     </div>
 
     <div class="hadith-card">
-        <div class="hadith-number-title">12. حديث الرضا بالله رباً</div>
+        <div class="hadith-number-title">12. حديث الرضا بالله رباً وبالإسلام ديناً:</div>
         <div class="hadith-text">عن العباس بن عبد المطلب رضي الله عنه، أنه سمع رسول الله صلى الله عليه وسلم يقول: «ذَاقَ طَعْمَ الإِيمَانِ مَنْ رَضِيَ بِاللَّهِ رَبًّا، وَبِالإِسْلَامِ دِينًا، وَبِمُحَمَّدٍ رَسُولًا»</div>
         <div class="hadith-source">(رواه مسلم)</div>
     </div>
 
     <div class="hadith-card">
-        <div class="hadith-number-title">13. حديث تجديد الإيمان</div>
+        <div class="hadith-number-title">13. حديث تجديد الإيمان بكلمة التوحيد:</div>
         <div class="hadith-text">عن أبي هريرة رضي الله عنه قال: قال رسول الله صلى الله عليه وسلم: «جَدِّدُوا إِيمَانَكُمْ» قِيلَ: يَا رَسُولَ اللَّهِ، وَكَيْفَ نُجَدِّدُ إِيمَانَنَا؟ قَالَ: «أَكْثِرُوا مِنْ قَوْلِ لَا إِلَهَ إِلَّا اللَّهُ»</div>
-        <div class="hadith-source">(رواه أحمد)</div>
+        <div class="hadith-source">(رواه أحمد، وصححه الحاكم)</div>
     </div>
 
     <div class="hadith-card">
-        <div class="hadith-number-title">14. حديث كلمة التوحيد عند الموت</div>
+        <div class="hadith-number-title">14. حديث من كان آخر كلامه لا إله إلا الله:</div>
         <div class="hadith-text">عن معاذ بن جبل رضي الله عنه قال: قال رسول الله صلى الله عليه وسلم: «مَنْ كَانَ آخِرُ كَلَامِهِ لَا إِلَهَ إِلَّا اللَّهُ دَخَلَ الجَنَّةَ»</div>
-        <div class="hadith-source">(رواه أبو داود)</div>
+        <div class="hadith-source">(رواه أبو داود، وصححه الألباني)</div>
     </div>
 
     <div class="hadith-card">
-        <div class="hadith-number-title">15. حديث وجوب الجنة لمن رضي بالله رباً</div>
-        <div class="hadith-text">عن أبي سعيد الخدري رضي الله عنه، أن رسول الله صلى الله عليه وسلم قال: «يَا أَبَا سَعِيدٍ، مَنْ رَضِيَ بِاللَّهِ رَبًّا، وَبِالإِسْلَامِ دِينًا، وَبِمُحَمَّدٍ نَبِيًّا، وَجَبَتْ لَهُ الجَنَّةُ»</div>
+        <div class="hadith-number-title">15. حديث وجوب الجنة لمن رضي بالله رباً:</div>
+        <div class="hadith-text">عن أبي سعيد الخدري رضي الله عنه، أن رسول الله صلى الله عليه وسلم قال: «يَا أَبَا سَعِيدٍ، مَنْ رَضِيَ بِاللَّهِ رَبًّا، وَبِالإِسْلَامِ دِينًا، وَبِمُحَمَّدٍ نَبِيًّا، وَجَبَتْ لَهُ الجَنَّةُ» فَعَجِبَ لَهَا أَبُو سَعِيدٍ، فَقَالَ: أَعِدْهَا عَلَيَّ يَا رَسُولَ اللَّهِ، فَفَعَلَ</div>
         <div class="hadith-source">(رواه مسلم)</div>
     </div>
 
     <div class="hadith-card">
-        <div class="hadith-number-title">16. حديث الدعاء هو العبادة</div>
-        <div class="hadith-text">عن النعمان بن بشير رضي الله عنه، عن النبي صلى الله عليه وسلم قال: «الدُّعَاءُ هُوَ العِبَادَةُ» ثُمَّ قَرَأَ: {وَقَالَ رَبُّكُمُ ادْعُونِي أَسْتَجِبْ لَكُمْ}</div>
-        <div class="hadith-source">(رواه الترمذي)</div>
+        <div class="hadith-number-title">16. حديث الدعاء هو العبادة:</div>
+        <div class="hadith-text">عن النعمان بن بشير رضي الله عنه، عن النبي صلى الله عليه وسلم قال: «الدُّعَاءُ هُوَ العِبَادَةُ» ثُمَّ قَرَأَ: {وَقَالَ رَبُّكُمُ ادْعُونِي أَسْتَجِبْ لَكُمْ إِنَّ الَّذِينَ يَسْتَكْبِرُونَ عَنْ عِبَادَتِي سَيَدْخُلُونَ جَهَنَّمَ دَاخِرِينَ}</div>
+        <div class="hadith-source">(رواه الترمذي وقال: حديث حسن صحيح)</div>
     </div>
 
     <div class="hadith-card">
-        <div class="hadith-number-title">17. حديث حسن الظن بالله</div>
-        <div class="hadith-text">عن أبي هريرة رضي الله عنه قال: قال النبي صلى الله عليه وسلم: «يَقُولُ اللَّهُ تَعَالَى: أَنَا عِنْدَ ظَنِّ عَبْدِي بِي، وَأَنَا مَعَهُ إِذَا ذَكَرَنِي، فَإِنْ ذَكَرَنِي فِي نَفْسِهِ ذَكَرْتُهُ فِي نَفْسِي...»</div>
+        <div class="hadith-number-title">17. حديث حسن الظن بالله (الحديث القدسي):</div>
+        <div class="hadith-text">عن أبي هريرة رضي الله عنه قال: قال النبي صلى الله عليه وسلم: «يَقُولُ اللَّهُ تَعَالَى: أَنَا عِنْدَ ظَنِّ عَبْدِي بِي، وَأَنَا مَعَهُ إِذَا ذَكَرَنِي، فَإِنْ ذَكَرَنِي فِي نَفْسِهِ ذَكَرْتُهُ فِي نَفْسِي، وَإِنْ ذَكَرَنِي فِي مَلَإٍ ذَكَرْتُهُ فِي مَلَإٍ خَيْرٍ مِنْهُمْ، وَإِنْ تَقَرَّبَ إِلَيَّ بِشِبْرٍ تَقَرَّبْتُ إِلَيْهِ ذِرَاعًا...»</div>
         <div class="hadith-source">(رواه البخاري ومسلم)</div>
     </div>
 
     <div class="hadith-card">
-        <div class="hadith-number-title">18. حديث الثبات على الدين</div>
-        <div class="hadith-text">عن أنس بن مالك رضي الله عنه قال: كَانَ رَسُولُ اللَّهِ صَلَّى اللَّهُ عَلَيْهِ وَسَلَّمَ يُكْثِرُ أَنْ يَقُولَ: «يَا مُقَلِّبَ القُلُوبِ ثَبِّتْ قَلْبِي عَلَى دِينِكَ»</div>
-        <div class="hadith-source">(رواه الترمذي)</div>
+        <div class="hadith-number-title">18. حديث الثبات على الدين والدعاء به:</div>
+        <div class="hadith-text">عن أنس بن مالك رضي الله عنه قال: كَانَ رَسُولُ اللَّهِ صَلَّى اللَّهُ عَلَيْهِ وَسَلَّمَ يُكْثِرُ أَنْ يَقُولَ: «يَا مُقَلِّبَ القُلُوبِ ثَبِّتْ قَلْبِي عَلَى دِينِكَ» فَقُلْتُ: يَا رَسُولَ اللَّهِ، آمَنَّا بِكَ وَبِمَا جِئْتَ بِهِ فَهَلْ تَخَافُ عَلَيْنَا؟ قَالَ: «نَعَمْ، إِنَّ القُلُوبَ بَيْنَ إِصْبَعَيْنِ مِنْ أَصَابِعِ اللَّهِ يُقَلِّبُهَا كَيْفَ يَشَاءُ»</div>
+        <div class="hadith-source">(رواه الترمذي وصححه الألباني)</div>
     </div>
 
     <div class="hadith-card">
-        <div class="hadith-number-title">19. حديث تصريف القلوب</div>
-        <div class="hadith-text">عن عبد الله بن عمرو بن العاص رضي الله عنهما، أنه سمع رسول الله صلى الله عليه وسلم يقول: «إِنَّ قُلُوبَ بَنِي آدَمَ كُلَّهَا بَيْنَ إِصْبَعَيْنِ مِنْ أَصَابِعِ الرَّحْمَنِ، كَقَلْبٍ وَاحِدٍ، يُصَرِّفُهُ حَيْثُ يَشَاءُ»</div>
+        <div class="hadith-number-title">19. حديث تصريف القلوب وطاعة الله:</div>
+        <div class="hadith-text">عن عبد الله بن عمرو بن العاص رضي الله عنهما، أنه سمع رسول الله صلى الله عليه وسلم يقول: «إِنَّ قُلُوبَ بَنِي آدَمَ كُلَّهَا بَيْنَ إِصْبَعَيْنِ مِنْ أَصَابِعِ الرَّحْمَنِ، كَقَلْبٍ وَاحِدٍ، يُصَرِّفُهُ حَيْثُ يَشَاءُ» ثُمَّ قَالَ رَسُولُ اللَّهِ صَلَّى اللَّهُ عَلَيْهِ وَسَلَّمَ: «اللَّهُمَّ مُصَرِّفَ القُلُوبِ صَرِّفْ قُلُوبَنَا عَلَى طَاعَتِكَ»</div>
         <div class="hadith-source">(رواه مسلم)</div>
     </div>
 
     <div class="hadith-card">
-        <div class="hadith-number-title">20. حديث أركان الإسلام الخمسة</div>
-        <div class="hadith-text">عن عبد الله بن عمر رضي الله عنهما قال: سمعت رسول الله صلى الله عليه وسلم يقول: «بُنِيَ الإِسْلَامُ عَلَى خَمْسٍ: شَهَادَةِ أَنْ لَا إِلَهَ إِلَّا اللَّهُ وَأَنَّ مُحَمَّدًا رَسُولُ اللَّهِ، وَإِقَامِ الصَّلَاةِ، وَإِيتَاءِ الزَّكَاةِ، وَحَجِّ البَيْتِ، وَصَوْمِ رَمَضَانَ»</div>
+        <div class="hadith-number-title">20. حديث أركان الإسلام الخمسة:</div>
+        <div class="hadith-text">عن أبي عبد الرحمن عبد الله بن عمر بن الخطاب رضي الله عنهما قال: سمعت رسول الله صلى الله عليه وسلم يقول: «بُنِيَ الإِسْلَامُ عَلَى خَمْسٍ: شَهَادَةِ أَنْ لَا إِلَهَ إِلَّا اللَّهُ وَأَنَّ مُحَمَّدًا رَسُولُ اللَّهِ، وَإِقَامِ الصَّلَاةِ، وَإِيتَاءِ الزَّكَاةِ، وَحَجِّ البَيْتِ، وَصَوْمِ رَمَضَانَ»</div>
         <div class="hadith-source">(رواه البخاري ومسلم)</div>
     </div>
 
@@ -182,121 +485,121 @@
     <div class="chapter-header">📌 الباب الثاني: الصلاة وفضائل العبادات (21 - 40)</div>
 
     <div class="hadith-card">
-        <div class="hadith-number-title">21. حديث رأس الأمر الإسلام وعموده الصلاة</div>
-        <div class="hadith-text">عن معاذ بن جبل رضي الله عنه، عن النبي صلى الله عليه وسلم قال: «أَلَا أُخْبِرُكَ بِرَأْسِ الْأَمْرِ كُلِّهِ وَعَمُودِهِ وَذِرْوَةِ سَنَامِهِ؟ رَأْسُ الْأَمْرِ الْإِسْلَامُ، وَعَمُودُهُ الصَّلَاةُ، وَذِرْوَةُ سَنَامِهِ الْجِهَادُ...»</div>
-        <div class="hadith-source">(رواه الترمذي)</div>
+        <div class="hadith-number-title">21. حديث معاذ بن جبل في رأس الأمر وعموده:</div>
+        <div class="hadith-text">عن معاذ بن جبل رضي الله عنه قال: قلت يا رسول الله، أخبرني بعمل يدخلني الجنة ويباعدني عن النار، قال: «لَقَدْ سَأَلْتَ عَنْ عَظِيمٍ، وَإِنَّهُ لَيَسِيرٌ عَلَى مَنْ يَسَّرَهُ اللَّهُ تَعَالَى عَلَيْهِ: تَعْبُدُ اللَّهَ وَلَا تُشْرِكُ بِهِ شَيْئًا، وَتُقِيمُ الصَّلَاةَ، وَتُؤْتِيَ الزَّكَاةَ، وَتَصُومَ رَمَضَانَ، وَتَحُجُّ الْبَيْتَ»، ثُمَّ قَالَ: «أَلَا أَدُلُّكَ عَلَى أَبْوَابِ الْخَيْرِ؟ الصَّوْمُ جُنَّةٌ، وَالصَّدَقَةُ تُطْفِئُ الْخَطِيئَةَ كَمَا يُطْفِئُ الْمَاءُ النَّارَ، وَصَلَاةُ الرَّجُلِ فِي جَوْفِ اللَّيْلِ»، ثُمَّ تَلَا: {تَتَجَافَى جُنُوبُهُمْ عَنِ الْمَضَاجِعِ} حَتَّى بَلَغَ {يَعْمَلُونَ}، ثُمَّ قَالَ: «أَلَا أُخْبِرُكَ بِرَأْسِ الْأَمْرِ كُلِّهِ وَعَمُودِهِ وَذِرْوَةِ سَنَامِهِ؟» قُلْتُ: بَلَى يَا رَسُولَ اللَّهِ، قَالَ: «رَأْسُ الْأَمْرِ الْإِسْلَامُ، وَعَمُودُهُ الصَّلَاةُ، وَذِرْوَةُ سَنَامِهِ الْجِهَادُ»، ثُمَّ قَالَ: «أَلَا أُخْبِرُكَ بِمَلَاكِ ذَلِكَ كُلِّهِ؟» قُلْتُ: بَلَى يَا نَبِيَّ اللَّهِ، فَأَخَذَ بِلِسَانِهِ قَالَ: «كُفَّ عَلَيْكَ هَذَا»، فَقُلْتُ: يَا نَبِيَّ اللَّهِ، وَإِنَّا لَمُؤَاخَذُونَ بِمَا نَتَكَلَّمُ بِهِ؟ فَقَالَ: «ثَكِلَتْكَ أُمُّكَ يَا مُعَاذُ، وَهَلْ يَكُبُّ النَّاسَ فِي النَّارِ عَلَى وُجُوهِهِمْ أَوْ عَلَى مَنَاخِرِهِمْ إِلَّا حَصَائِدُ أَلْسِنَتِهِمْ»</div>
+        <div class="hadith-source">(رواه الترمذي وقال: حديث حسن صحيح)</div>
     </div>
 
     <div class="hadith-card">
-        <div class="hadith-number-title">22. حديث العهد الذي بيننا وبينهم الصلاة</div>
+        <div class="hadith-number-title">22. حديث بريدة في العهد الذي بيننا وبينهم الصلاة:</div>
         <div class="hadith-text">عن بريدة الأسلمي رضي الله عنه قال: قال رسول الله صلى الله عليه وسلم: «الْعَهْدُ الَّذِي بَيْنَنَا وَبَيْنَهُمُ الصَّلَاةُ، فَمَنْ تَرَكَهَا فَقَدْ كَفَرَ»</div>
-        <div class="hadith-source">(رواه أحمد والترمذي)</div>
+        <div class="hadith-source">(رواه أحمد، والترمذي، والنسائي، وابن ماجه، وصححه الألباني)</div>
     </div>
 
     <div class="hadith-card">
-        <div class="hadith-number-title">23. حديث أَقْرَبُ مَا يَكُونُ الْعَبْدُ مِنْ رَبِّهِ وهو ساجد</div>
+        <div class="hadith-number-title">23. حديث أبي هريرة في أقرب ما يكون العبد من ربه وهو ساجد:</div>
         <div class="hadith-text">عن أبي هريرة رضي الله عنه، أن رسول الله صلى الله عليه وسلم قال: «أَقْرَبُ مَا يَكُونُ الْعَبْدُ مِنْ رَبِّهِ وَهُوَ سَاجِدٌ، فَأَكْثِرُوا الدُّعَاءَ»</div>
         <div class="hadith-source">(رواه مسلم)</div>
     </div>
 
     <div class="hadith-card">
-        <div class="hadith-number-title">24. حديث مثل الصلوات الخمس بالنهر الجاري</div>
+        <div class="hadith-number-title">24. حديث أبي هريرة في مثل الصلوات الخمس بالنهر الجاري:</div>
         <div class="hadith-text">عن أبي هريرة رضي الله عنه، أنه سمع رسول الله صلى الله عليه وسلم يقول: «أَرَأَيْتُمْ لَوْ أَنَّ نَهْرًا بِبَابِ أَحَدِكُمْ يَغْتَسِلُ مِنْهُ كُلَّ يَوْمٍ خَمْسَ مَرَّاتٍ، هَلْ يَبْقَى مِنْ دَرَنِهِ شَيْءٌ؟» قَالُوا: لَا يَبْقَى مِنْ دَرَنِهِ شَيْءٌ، قَالَ: «فَذَلِكَ مَثَلُ الصَّلَوَاتِ الْخَمْسِ، يَمْحُو اللَّهُ بِهِنَّ الْخَطَايَا»</div>
         <div class="hadith-source">(رواه البخاري ومسلم)</div>
     </div>
 
     <div class="hadith-card">
-        <div class="hadith-number-title">25. حديث فضل صلاة الجماعة</div>
+        <div class="hadith-number-title">25. حديث عبد الله بن عمر في فضل صلاة الجماعة:</div>
         <div class="hadith-text">عن عبد الله بن عمر رضي الله عنهما، أن رسول الله صلى الله عليه وسلم قال: «صَلَاةُ الْجَمَاعَةِ تَفْضُلُ صَلَاةَ الْفَذِّ بِسَبْعٍ وَعِشْرِينَ دَرَجَةً»</div>
         <div class="hadith-source">(رواه البخاري ومسلم)</div>
     </div>
 
     <div class="hadith-card">
-        <div class="hadith-number-title">26. حديث صلاة البردين</div>
+        <div class="hadith-number-title">26. حديث أبي موسى الأشعري في صلاة البردين:</div>
         <div class="hadith-text">عن أبي موسى الأشعري رضي الله عنه، أن رسول الله صلى الله عليه وسلم قال: «مَنْ صَلَّى الْبَرْدَيْنِ دَخَلَ الْجَنَّةَ»</div>
         <div class="hadith-source">(رواه البخاري ومسلم)</div>
     </div>
 
     <div class="hadith-card">
-        <div class="hadith-number-title">27. حديث ركعتا الفجر خير من الدنيا</div>
+        <div class="hadith-number-title">27. حديث عائشة في فضل ركعتي الفجر:</div>
         <div class="hadith-text">عن عائشة رضي الله عنها، عن النبي صلى الله عليه وسلم قال: «رَكْعَتَا الْفَجْرِ خَيْرٌ مِنَ الدُّنْيَا وَمَا فِيهَا»</div>
         <div class="hadith-source">(رواه مسلم)</div>
     </div>
 
     <div class="hadith-card">
-        <div class="hadith-number-title">28. حديث المشائين في الظلم إلى المساجد</div>
+        <div class="hadith-number-title">28. حديث بريدة في المشائين في الظلم:</div>
         <div class="hadith-text">عن بريدة الأسلمي رضي الله عنه، عن النبي صلى الله عليه وسلم قال: «بَشِّرِ الْمَشَّائِينَ فِي الظُّلَمِ إِلَى الْمَسَاجِدِ بِالنُّورِ التَّامِّ يَوْمَ الْقِيَامَةِ»</div>
-        <div class="hadith-source">(رواه أبو داود)</div>
+        <div class="hadith-source">(رواه أبو داود والترمذي، وصححه الألباني)</div>
     </div>
 
     <div class="hadith-card">
-        <div class="hadith-number-title">29. حديث فضل بناء المساجد</div>
-        <div class="hadith-text">عن عثمان بن عفان رضي الله عنه قال: سمعت النبي صلى الله عليه وسلم يقول: «مَنْ بَنَى مَسْجِدًا يَبْتَغِي بِهِ وَجْهَ اللَّهِ بَنَى اللَّهُ لَهُ مِثْلَهُ فِي الْجَنَّةِ»</div>
+        <div class="hadith-number-title">29. حديث عثمان بن عفان في فضل بناء المساجد:</div>
+        <div class="hadith-text">عن عثمان بن عفان رضي الله عنه قال: سمعت النبي صلى الله عليه وسلم يقول: «مَنْ بَنَى مَسْجِدًا -قَالَ بُكَيْرٌ حَسِبْتُ أَنَّهُ قَالَ: يَبْتَغِي بِهِ وَجْهَ اللَّهِ- بَنَى اللَّهُ لَهُ مِثْلَهُ فِي الْجَنَّةِ»</div>
         <div class="hadith-source">(رواه البخاري ومسلم)</div>
     </div>
 
     <div class="hadith-card">
-        <div class="hadith-number-title">30. حديث جعلت لي الأرض مسجداً وطهوراً</div>
-        <div class="hadith-text">عن جابر بن عبد الله رضي الله عنهما قال: قال رسول الله صلى الله عليه وسلم: «أُعْطِيتُ خَمْسًا لَمْ يُعْطَهُنَّ أَحَدٌ قَبْلِي... وَجُعِلَتْ لِيَ الْأَرْضُ مَسْجِدًا وَطَهُورًا، فَأَيّمَا رَجُلٍ مِنْ أُمَّتِي أَدْرَكَتْهُ الصَّلَاةُ فَلْيُصَلِّ...»</div>
+        <div class="hadith-number-title">30. حديث جابر بن عبد الله في خصائص الأمة المحمدية:</div>
+        <div class="hadith-text">عن جابر بن عبد الله الأنصاري رضي الله عنهما قال: قال رسول الله صلى الله عليه وسلم: «أُعْطِيتُ خَمْسًا لَمْ يُعْطَهُنَّ أَحَدٌ قَبْلِي: نُصِرْتُ بِالرُّعْبِ مَسِيرَةَ شَهْرٍ، وَجُعِلَتْ لِيَ الْأَرْضُ مَسْجِدًا وَطَهُورًا، فَأَيّمَا رَجُلٍ مِنْ أُمَّتِي أَدْرَكَتْهُ الصَّلَاةُ فَلْيُصَلِّ، وَأُحِلَّتْ لِيَ الْمَغَانِمُ وَلَمْ تَحِلَّ لِأَحَدٍ قَبْلِي، وَأُعْطِيتُ الشَّفَاعَةَ، وَكَانَ النَّبِيُّ يُبْعَثُ إِلَى قَوْمِهِ خَاصَّةً وَبُعِثْتُ إِلَى النَّاسِ عَامَّةً»</div>
         <div class="hadith-source">(رواه البخاري ومسلم)</div>
     </div>
 
     <div class="hadith-card">
-        <div class="hadith-number-title">31. حديث الطهور شطر الإيمان</div>
-        <div class="hadith-text">عن أبي مالك الأشعري رضي الله عنه قال: قال رسول الله صلى الله عليه وسلم: «الطُّهُورُ شَطْرُ الْإِيمَانِ، وَالْحَمْدُ لِلَّهِ تَمْلَأُ الْمِيزَانَ، وَسُبْحَانَ اللَّهِ وَالْحَمْدُ لِلَّهِ تَمْلَآنِ -أَوْ تَمْلَأُ- مَا بَيْنَ السَّمَاوَاتِ وَالْأَرْضِ، وَالصَّلَاةُ نُورٌ، وَالصَّدَقَةُ بُرْهَانٌ، وَالصَّبْرُ ضِيَاءٌ...»</div>
+        <div class="hadith-number-title">31. حديث أبي مالك الأشعري في الطهور شطر الإيمان:</div>
+        <div class="hadith-text">عن أبي مالك الأشعري رضي الله عنه قال: قال رسول الله صلى الله عليه وسلم: «الطُّهُورُ شَطْرُ الْإِيمَانِ، وَالْحَمْدُ لِلَّهِ تَمْلَأُ الْمِيزَانَ، وَسُبْحَانَ اللَّهِ وَالْحَمْدُ لِلَّهِ تَمْلَآنِ -أَوْ تَمْلَأُ- مَا بَيْنَ السَّمَاوَاتِ وَالْأَرْضِ، وَالصَّلَاةُ نُورٌ، وَالصَّدَقَةُ بُرْهَانٌ، وَالصَّبْرُ ضِيَاءٌ، وَالْقُرْآنُ حُجَّةٌ لَكَ أَوْ عَلَيْكَ، كُلُّ النَّاسِ يَغْدُو فَبَايِعٌ نَفْسَهُ فَمُعْتِقُهَا أَوْ مُوبِقُهَا»</div>
         <div class="hadith-source">(رواه مسلم)</div>
     </div>
 
     <div class="hadith-card">
-        <div class="hadith-number-title">32. حديث خروج الخطايا مع إسباغ الوضوء</div>
+        <div class="hadith-number-title">32. حديث عثمان بن عفان في خروج الخطايا مع الوضوء:</div>
         <div class="hadith-text">عن عثمان بن عفان رضي الله عنه قال: قال رسول الله صلى الله عليه وسلم: «مَنْ تَوَضَّأَ فَأَحْسَنَ الْوُضُوءَ خَرَجَتْ خَطَايَاهُ مِنْ جَسَدِهِ، حَتَّى تَخْرُجَ مِنْ تَحْتِ أَظْفَارِهِ»</div>
         <div class="hadith-source">(رواه مسلم)</div>
     </div>
 
     <div class="hadith-card">
-        <div class="hadith-number-title">33. حديث ثنتا عشرة ركعة تطوعاً في اليوم</div>
-        <div class="hadith-text">عن أم حبيبة رضي الله عنها قَالَتْ: سَمِعْتُ رَسُولُ اللَّهِ صَلَّى اللَّهُ عَلَيْهِ وَسَلَّمَ يَقُولُ: «مَا مِنْ عَبْدٍ مُسْلِمٍ يُصَلِّي لِلَّهِ كُلَّ يَوْمٍ ثِنْتَيْ عَشْرَةَ رَكْعَةً تَطَوُّعًا غَيْرَ فَرِيضَةٍ، إِلَّا بَنَى اللَّهُ لَهُ بَيْتًا فِي الْجَنَّةِ»</div>
+        <div class="hadith-number-title">33. حديث أم حبيبة في السنن الرواتب وعظيم أجرها:</div>
+        <div class="hadith-text">عن أم حبيبة رملة بنت أبي سفيان رضي الله عنهما قَالَتْ: سَمِعْتُ رَسُولُ اللَّهِ صَلَّى اللَّهُ عَلَيْهِ وَسَلَّمَ يَقُولُ: «مَا مِنْ عَبْدٍ مُسْلِمٍ يُصَلِّي لِلَّهِ كُلَّ يَوْمٍ ثِنْتَيْ عَشْرَةَ رَكْعَةً تَطَوُّعًا غَيْرَ فَرِيضَةٍ، إِلَّا بَنَى اللَّهُ لَهُ بَيْتًا فِي الْجَنَّةِ، أَوْ إِلَّا بُنِيَ لَهُ بَيْتٌ فِي الْجَنَّةِ»</div>
         <div class="hadith-source">(رواه مسلم)</div>
     </div>
 
     <div class="hadith-card">
-        <div class="hadith-number-title">34. حديث عليكم بقيام الليل دأب الصالحين</div>
+        <div class="hadith-number-title">34. حديث قيام الليل ودأب الصالحين:</div>
         <div class="hadith-text">عن أبي أمامة الباهلي رضي الله عنه، عن رسول الله صلى الله عليه وسلم قال: «عَلَيْكُمْ بِقِيَامِ اللَّيْلِ فَإِنَّهُ دَأَبُ الصَّالِحِينَ قَبْلَكُمْ، وَإِنَّ قِيَامَ اللَّيْلِ قُرْبَةٌ إِلَى اللَّهِ، وَمَنْهَاةٌ عَنِ الإِثْمِ، وَتَكْفِيرٌ لِالسَّيِّئَاتِ»</div>
-        <div class="hadith-source">(رواه الترمذي)</div>
+        <div class="hadith-source">(رواه الترمذي وحسنه الألباني)</div>
     </div>
 
     <div class="hadith-card">
-        <div class="hadith-number-title">35. حديث أفضل الصلاة بعد الفريضة صلاة الليل</div>
+        <div class="hadith-number-title">35. حديث أفضل الصلاة بعد الفريضة:</div>
         <div class="hadith-text">عن أبي هريرة رضي الله عنه قال: قال رسول الله صلى الله عليه وسلم: «أَفْضَلُ الصِّيَامِ بَعْدَ شَهْرِ رَمَضَانَ شَهْرُ اللَّهِ الْمُحَرَّمُ، وَأَفْضَلُ الصَّلَاةِ بَعْدَ الْفَرِيضَةِ صَلَاةُ اللَّيْلِ»</div>
         <div class="hadith-source">(رواه مسلم)</div>
     </div>
 
     <div class="hadith-card">
-        <div class="hadith-number-title">36. حديث الصيام جنة وخلوف فم الصائم</div>
+        <div class="hadith-number-title">36. حديث الصيام جنة:</div>
         <div class="hadith-text">عن أبي هريرة رضي الله عنه، أن رسول الله صلى الله عليه وسلم قال: «الصِّيَامُ جُنَّةٌ، فَلَا يَرْفُثْ وَلَا يَجْهَلْ، وَإِنِ امْرُؤٌ قَاتَلَهُ أَوْ شَاتَمَهُ فَلْيَقُلْ: إِنِّي صَائِمٌ -مَرَّتَيْنِ- وَالَّذِي نَفْسِي بِيَدِهِ لَخُلُوفُ فَمِ الصَّائِمِ أَطْيَبُ عِنْدَ اللَّهِ تَعَالَى مِنْ رِيحِ الْمِسْكِ»</div>
         <div class="hadith-source">(رواه البخاري ومسلم)</div>
     </div>
 
     <div class="hadith-card">
-        <div class="hadith-number-title">37. حديث صيام رمضان إيماناً واحتساباً</div>
+        <div class="hadith-number-title">37. حديث صيام رمضان إيماناً واحتساباً:</div>
         <div class="hadith-text">عن أبي هريرة رضي الله عنه قال: قال رسول الله صلى الله عليه وسلم: «مَنْ صَامَ رَمَضَانَ إِيمَانًا وَاحْتِسَابًا غُفِرَ لَهُ مَا تَقَدَّمَ مِنْ ذَنْبِهِ، وَمَنْ قَامَ لَيْلَةَ الْقَدْرِ إِيمَانًا وَاحْتِسَابًا غُفِرَ لَهُ مَا تَقَدَّمَ مِنْ ذَنْبِهِ»</div>
         <div class="hadith-source">(رواه البخاري ومسلم)</div>
     </div>
 
     <div class="hadith-card">
-        <div class="hadith-number-title">38. حديث عمرة في رمضان تعدل حجة</div>
-        <div class="hadith-text">عن عبد الله بن عباس رضي الله عنهما قال: قال رسول الله صلى الله عليه وسلم: «فَإِذَا كَانَ رَمَضَانُ اعْتَمِرِي فِيهِ، فَإِنَّ عُمْرَةً فِي رَمَضَانَ تَقْضِي حَجَّةً -أَوْ حَجَّةً مَعِي-»</div>
+        <div class="hadith-number-title">38. حديث أجر العمرة في رمضان:</div>
+        <div class="hadith-text">عن عبد الله بن عباس رضي الله عنهما قال: قال رسول الله صلى الله عليه وسلم لِامْرَأَةٍ مِنَ الْأَنْصَارِ: «فَإِذَا كَانَ رَمَضَانُ اعْتَمِرِي فِيهِ، فَإِنَّ عُمْرَةً فِي رَمَضَانَ تَقْضِي حَجَّةً -أَوْ حَجَّةً مَعِي-»</div>
         <div class="hadith-source">(رواه البخاري ومسلم)</div>
     </div>
 
     <div class="hadith-card">
-        <div class="hadith-number-title">39. حديث من حج لله فلم يرفث رجع كيوم ولدته أمه</div>
+        <div class="hadith-number-title">39. حديث الحج المبرور والرجوع من الذنوب:</div>
         <div class="hadith-text">عن أبي هريرة رضي الله عنه قال: سمعت النبي صلى الله عليه وسلم يقول: «مَنْ حَجَّ لِلَّهِ فَلَمْ يَرْفُثْ وَلَمْ يَفْسُقْ رَجَعَ كَيَوْمِ وَلَدَتْهُ أُمُّهُ»</div>
         <div class="hadith-source">(رواه البخاري ومسلم)</div>
     </div>
 
     <div class="hadith-card">
-        <div class="hadith-number-title">40. حديث العمرة كفارة والحج المبرور ليس له جزاء إلا الجنة</div>
+        <div class="hadith-number-title">40. حديث العمرة إلى العمرة والحج المبرور:</div>
         <div class="hadith-text">عن أبي هريرة رضي الله عنه، أن رسول الله صلى الله عليه وسلم قال: «الْعُمْرَةُ إِلَى الْعُمْرَةِ كَفَّارَةٌ لِمَا بَيْنَهُمَا، وَالْحَجُّ الْمَبْرُورُ لَيْسَ لَهُ جَزَاءٌ إِلَّا الْجَنَّةُ»</div>
         <div class="hadith-source">(رواه البخاري ومسلم)</div>
     </div>
@@ -305,1290 +608,1103 @@
     <div class="chapter-header">📌 الباب الثالث: الصبر والرضا والفرج بعد الشدة (41 - 60)</div>
 
     <div class="hadith-card">
-        <div class="hadith-number-title">41. حديث الصبر ضياء والقرآن حجة لك أو عليك</div>
-        <div class="hadith-text">عن أبي مالك الأشعري رضي الله عنه قال: قال رسول الله صلى الله عليه وسلم: «... وَالصَّلَاةُ نُورٌ، وَالصَّدَقَةُ بُرْهَانٌ، وَالصَّبْرُ ضِيَاءٌ، وَالْقُرْآنُ حُجَّةٌ لَكَ أَوْ عَلَيْكَ، كُلُّ النَّاسِ يَغْدُو فَبَايِعٌ نَفْسَهُ فَمُعْتِقُهَا أَوْ مُوبِقُهَا»</div>
+        <div class="hadith-number-title">41. حديث أبي مالك الأشعري في الصبر ضياء:</div>
+        <div class="hadith-text">عن أبي مالك الأشعري رضي الله عنه قال: قال رسول الله صلى الله عليه وسلم: «الطُّهُورُ شَطْرُ الْإِيمَانِ، وَالْحَمْدُ لِلَّهِ تَمْلَأُ الْمِيزَانَ، وَسُبْحَانَ اللَّهِ وَالْحَمْدُ لِلَّهِ تَمْلَآنِ -أَوْ تَمْلَأُ- مَا بَيْنَ السَّمَاوَاتِ وَالْأَرْضِ، وَالصَّلَاةُ نُورٌ، وَالصَّدَقَةُ بُرْهَانٌ، وَالصَّبْرُ ضِيَاءٌ، وَالْقُرْآنُ حُجَّةٌ لَكَ أَوْ عَلَيْكَ، كُلُّ النَّاسِ يَغْدُو فَبَايِعٌ نَفْسَهُ فَمُعْتِقُهَا أَوْ مُوبِقُهَا»</div>
         <div class="hadith-source">(رواه مسلم)</div>
     </div>
 
     <div class="hadith-card">
-        <div class="hadith-number-title">42. حديث عجباً لأمر المؤمن إن أمره كله خير</div>
+        <div class="hadith-number-title">42. حديث صهيب الرومي في أمر المؤمن كله خير:</div>
         <div class="hadith-text">عن صهيب بن سنان الرومي رضي الله عنه قال: قال رسول الله صلى الله عليه وسلم: «عَجَبًا لِأَمْرِ الْمُؤْمِنِ، إِنَّ أَمْرَهُ كُلَّهُ خَيْرٌ، وَلَيْسَ ذَاكَ لِأَحَدٍ إِلَّا لِلْمُؤْمِنِ، إِنْ أَصَابَتْهُ سَرَّاءُ شَكَرَ فَكَانَ خَيْرًا لَهُ، وَإِنْ أَصَابَتْهُ ضَرَّاءُ صَبَرَ فَكَانَ خَيْرًا لَهُ»</div>
         <div class="hadith-source">(رواه مسلم)</div>
     </div>
 
     <div class="hadith-card">
-        <div class="hadith-number-title">43. حديث تكفير الخطايا بالهم والحزن والشاوكة</div>
+        <div class="hadith-number-title">43. حديث أبي سعيد وأبي هريرة في تكفير الخطايا بالهم والحزن:</div>
         <div class="hadith-text">عن أبي سعيد الخدري وأبي هريرة رضي الله عنهما، عن النبي صلى الله عليه وسلم قال: «مَا يُصِيبُ الْمُسْلِمَ، مِنْ نَصَبٍ وَلَا وَصَبٍ، وَلَا هَمٍّ وَلَا حُزْنٍ وَلَا أَذًى وَلَا غَمٍّ، حَتَّى الشَّوْكَةِ يُشَاكُهَا، إِلَّا كَفَّرَ اللَّهُ بِهَا مِنْ خَطَايَاهُ»</div>
         <div class="hadith-source">(رواه البخاري)</div>
     </div>
 
     <div class="hadith-card">
-        <div class="hadith-number-title">44. حديث عظم الجزاء مع عظم البلاء</div>
+        <div class="hadith-number-title">44. حديث أنس بن مالك في عظم الجزاء مع عظم البلاء:</div>
         <div class="hadith-text">عن أنس بن مالك رضي الله عنه، عن رسول الله صلى الله عليه وسلم قال: «إِنَّ عِظَمَ الْجَزَاءِ مَعَ عِظَمِ الْبَلَاءِ، وَإِنَّ اللَّهَ إِذَا أَحَبَّ قَوْمًا ابْتَلَاهُمْ، فَمَنْ رَضِيَ فَلَهُ الرِّضَا، وَمَنْ سَخِطَ فَلَهُ السَّخَطُ»</div>
-        <div class="hadith-source">(رواه الترمذي)</div>
+        <div class="hadith-source">(رواه الترمذي، وصححه الألباني)</div>
     </div>
 
     <div class="hadith-card">
-        <div class="hadith-number-title">45. حديث أشد الناس بلاءً الأنبياء ثم الأمثل فالأمثل</div>
-        <div class="hadith-text">عن سعد بن أبي وقاص رضي الله عنه قال: قلت: يا رسول الله، أي الناس أشد بلاء؟ قال: «الْأَنْبِيَاءُ ثُمَّ الْأَمْثَلُ فَالْأَمْثَلُ، فَيُبْتَلَى الرَّجُلُ عَلَى حَسَبِ دِينِهِ... فَمَا يَبْرَحُ الْبَلَاءُ بِالْعَبْدِ حَتَّى يَتْرُكَهُ يَمْشِي عَلَى الْأَرْضِ مَا عَلَيْهِ خَطِيئَةٌ»</div>
-        <div class="hadith-source">(رواه الترمذي)</div>
+        <div class="hadith-number-title">45. حديث سعد بن أبي وقاص في أشد الناس بلاءً:</div>
+        <div class="hadith-text">عن سعد بن أبي وقاص رضي الله عنه قال: قلت: يا رسول الله، أي الناس أشد بلاء؟ قال: «الْأَنْبِيَاءُ ثُمَّ الْأَمْثَلُ فَالْأَمْثَلُ، فَيُبْتَلَى الرَّجُلُ عَلَى حَسَبِ دِينِهِ، فَإِنْ كَانَ دِينُهُ صُلْبًا اشْتَدَّ بَلَاؤُهُ، وَإِنْ كَانَ فِي دِينِهِ رِقَّةٌ ابْتُلِيَ عَلَى حَسَبِ دِينِهِ، فَمَا يَبْرَحُ الْبَلَاءُ بِالْعَبْدِ حَتَّى يَتْرُكَهُ يَمْشِي عَلَى الْأَرْضِ مَا عَلَيْهِ خَطِيئَةٌ»</div>
+        <div class="hadith-source">(رواه الترمذي، وصححه الألباني)</div>
     </div>
 
     <div class="hadith-card">
-        <div class="hadith-number-title">46. حديث وسع عطاء الصبر</div>
-        <div class="hadith-text">عن أبي سعيد الخدري رضي الله عنه، عن النبي صلى الله عليه وسلم قال: «... وَمَنْ يَسْتَعْفِفْ يُعِفَّهُ اللَّهُ، وَمَنْ يَسْتَغْنِ يُغْنِهِ اللَّهُ، وَمَنْ يَتَصَبَّرْ يُصَبِّرْهُ اللَّهُ، وَمَا أُعْطِيَ أَحَدٌ عَطَاءً خَيْرًا وَأَوْسَعَ مِنَ الصَّبْرِ»</div>
+        <div class="hadith-number-title">46. حديث أبي سعيد الخدري في عطاء الصبر:</div>
+        <div class="hadith-text">عن أبي سعيد الخدري رضي الله عنه: أن ناساً من الأنصار سألوا رسول الله صلى الله عليه وسلم فأعطاهم، ثم سألوه فأعطاهم... فقال: «مَا يَكُونُ عِنْدِي مِنْ خَيْرٍ فَلَنْ أَدَّخِرَهُ عَنْكُمْ، وَمَنْ يَسْتَعْفِفْ يُعِفَّهُ اللَّهُ، وَمَنْ يَسْتَغْنِ يُغْنِهِ اللَّهُ، وَمَنْ يَتَصَبَّرْ يُصَبِّرْهُ اللَّهُ، وَمَا أُعْطِيَ أَحَدٌ عَطَاءً خَيْرًا وَأَوْسَعَ مِنَ الصَّبْرِ»</div>
         <div class="hadith-source">(رواه البخاري ومسلم)</div>
     </div>
 
     <div class="hadith-card">
-        <div class="hadith-number-title">47. حديث إنما الصبر عند الصدمة الأولى</div>
-        <div class="hadith-text">عن أنس بن مالك رضي الله عنه قال: مرّ النبي صلى الله عليه وسلم بامرأة تبكي عند قبر، فقال: «اتَّقِي اللَّهَ وَاصْبِرِي»... ثُمَّ قَالَ: «إِنَّمَا الصَّبْرُ عِنْدَ الصَّدْمَةِ الْأُولَى»</div>
+        <div class="hadith-number-title">47. حديث أنس في الصبر عند الصدمة الأولى:</div>
+        <div class="hadith-text">عن أنس بن مالك رضي الله عنه قال: مرّ النبي صلى الله عليه وسلم بامرأة تبكي عند قبر، فقال: «اتَّقِي اللَّهَ وَاصْبِرِي» قَالَتْ: إِلَيْكَ عَنِّي، فَإِنَّكَ لَمْ تُصَبْ بِمُصِيبَتِي، وَلَمْ تَعْرِفْهُ، فَقِيلَ لَهَا: إِنَّهُ النَّبِيُّ صَلَّى اللَّهُ عَلَيْهِ وَسَلَّمَ، فَأَتَتْ بَابَ النَّبِيُّ صَلَّى اللَّهُ عَلَيْهِ وَسَلَّمَ، فَلَمْ تَجِدْ عِنْدَهُ بَوَّابِينَ، فَقَالَتْ: لَمْ أَعْرِفْكَ، فَقَالَ: «إِنَّمَا الصَّبْرُ عِنْدَ الصَّدْمَةِ الْأُولَى»</div>
         <div class="hadith-source">(رواه البخاري ومسلم)</div>
     </div>
 
     <div class="hadith-card">
-        <div class="hadith-number-title">48. حديث تعجيل العقوبة في الدنيا لمن أراد الله به الخير</div>
+        <div class="hadith-number-title">48. حديث أنس في تعجيل العقوبة في الدنيا:</div>
         <div class="hadith-text">عن أنس بن مالك رضي الله عنه قال: قال رسول الله صلى الله عليه وسلم: «إِذَا أَرَادَ اللَّهُ بِعَبْدِهِ الْخَيْرَ عَجَّلَ لَهُ الْعُقُوبَةَ فِي الدُّنْيَا، وَإِذَا أَرَادَ اللَّهُ بِعَبْدِهِ الشَّرَّ أَمْسَكَ عَنْهُ بِذَنْبِهِ حَتَّى يُوَافِيَ بِهِ يَوْمَ الْقِيَامَةِ»</div>
-        <div class="hadith-source">(رواه الترمذي)</div>
+        <div class="hadith-source">(رواه الترمذي، وصححه الألباني)</div>
     </div>
 
     <div class="hadith-card">
-        <div class="hadith-number-title">49. حديث ما يزال البلاء بالمؤمن والمؤمنة</div>
+        <div class="hadith-number-title">49. حديث أبي هريرة في استمرار البلاء حتى لقاء الله:</div>
         <div class="hadith-text">عن أبي هريرة رضي الله عنه قال: قال رسول الله صلى الله عليه وسلم: «مَا يَزَالُ الْبَلَاءُ بِالْمُؤْمِنِ وَالْمُؤْمِنَةِ فِي نَفْسِهِ وَوَلَدِهِ وَمَالِهِ حَتَّى يَلْقَى اللَّهَ وَمَا عَلَيْهِ خَطِيئَةٌ»</div>
-        <div class="hadith-source">(رواه الترمذي)</div>
+        <div class="hadith-source">(رواه الترمذي، وصححه الألباني)</div>
     </div>
 
     <div class="hadith-card">
-        <div class="hadith-number-title">50. حديث التوكل على الله ورزق الطير</div>
+        <div class="hadith-number-title">50. حديث عمر بن الخطاب في التوكل ورزق الطير:</div>
         <div class="hadith-text">عن عمر بن الخطاب رضي الله عنه، عن النبي صلى الله عليه وسلم قال: «لَوْ أَنَّكُمْ تَتَوَكَّلُونَ عَلَى اللَّهِ حَقَّ تَوَكُّلِهِ لَرَزَقَكُمْ كَمَا يَرْزُقُ الطَّيْرَ، تَغْدُو خِمَاصًا وَتَرُوحُ بِطَانًا»</div>
-        <div class="hadith-source">(رواه الترمذي)</div>
+        <div class="hadith-source">(رواه الترمذي، وصححه الألباني)</div>
     </div>
 
     <div class="hadith-card">
-        <div class="hadith-number-title">51. حديث أن الفرج مع الكرب وأن مع العسر يسراً</div>
-        <div class="hadith-text">عن عبد الله بن عباس رضي الله عنهما، عن النبي صلى الله عليه وسلم قال: «... وَاعْلَمْ أَنَّ فِي الصَّبْرِ عَلَى مَا تَكْرَهُ خَيْرًا كَثِيرًا، وَأَنَّ النَّصْرَ مَعَ الصَّبْرِ، وَأَنَّ الْفَرَجَ مَعَ الْكَرْبِ، وَأَنَّ مَعَ الْعُسْرِ يُسْرًا»</div>
-        <div class="hadith-source">(رواه أحمد)</div>
+        <div class="hadith-number-title">51. حديث ابن عباس في أن الفرج مع الكرب:</div>
+        <div class="hadith-text">عن عبد الله بن عباس رضي الله عنهما قال: كنت خلف رسول الله صلى الله عليه وسلم يوماً فقال... «وَاعْلَمْ أَنَّ فِي الصَّبْرِ عَلَى مَا تَكْرَهُ خَيْرًا كَثِيرًا، وَأَنَّ النَّصْرَ مَعَ الصَّبْرِ، وَأَنَّ الْفَرَجَ مَعَ الْكَرْبِ، وَأَنَّ مَعَ الْعُسْرِ يُسْرًا»</div>
+        <div class="hadith-source">(رواه أحمد في مسنده، وصححه المحققون)</div>
     </div>
 
     <div class="hadith-card">
-        <div class="hadith-number-title">52. حديث المؤمن القوي خير وأحب إلى الله من المؤمن الضعيف</div>
+        <div class="hadith-number-title">52. حديث أبي هريرة في المؤمن القوي والمؤمن الضعيف:</div>
         <div class="hadith-text">عن أبي هريرة رضي الله عنه قال: قال رسول الله صلى الله عليه وسلم: «الْمُؤْمِنُ الْقَوِيُّ خَيْرٌ وَأَحَبُّ إِلَى اللَّهِ مِنَ الْمُؤْمِنِ الضَّعِيفِ، وَفِي كُلٍّ خَيْرٌ، احْرِصْ عَلَى مَا يَنْفَعُكَ، وَاسْتَعِنْ بِاللَّهِ وَلَا تَعْجَزْ»</div>
         <div class="hadith-source">(رواه مسلم)</div>
     </div>
 
     <div class="hadith-card">
-        <div class="hadith-number-title">53. حديث النهي عن قول لو وأنها تفتح عمل الشيطان</div>
-        <div class="hadith-text">عن أبي هريرة رضي الله عنه، عن النبي صلى الله عليه وسلم قال: «... وَإِنْ أَصَابَكَ شَيْءٌ فَلَا تَقُلْ لَوْ أَنِّي فَعَلْتُ كَانَ كَذَا وَكَذَا، وَلَكِنْ قُلْ قَدَرُ اللَّهِ وَمَا شَاءَ فَعَلَ، فَإِنَّ لَوْ تَفتَحُ عَمَلَ الشَّيْطَانِ»</div>
+        <div class="hadith-number-title">53. حديث أبي هريرة في الاستعانة بالله وترك العجز:</div>
+        <div class="hadith-text">تابع للحديث السابق بتمامه: «...وَإِنْ أَصَابَكَ شَيْءٌ فَلَا تَقُلْ لَوْ أَنِّي فَعَلْتُ كَانَ كَذَا وَكَذَا، وَلَكِنْ قُلْ قَدَرُ اللَّهِ وَمَا شَاءَ فَعَلَ، فَإِنَّ لَوْ تَفْتَحُ عَمَلَ الشَّيْطَانِ»</div>
         <div class="hadith-source">(رواه مسلم)</div>
     </div>
 
     <div class="hadith-card">
-        <div class="hadith-number-title">54. حديث خباب بن الأرت في الصبر على الأذى في الله</div>
-        <div class="hadith-text">عن خباب بن الأرت رضي الله عنه قال: شكونا إلى رسول الله صلى الله عليه وسلم وهو متوسد بردة له في ظل الكعبة... فقال: «كَانَ الرَّجُلُ فِيمَنْ قَبْلَكُمْ يُحْفَرُ لَهُ فِي الْأَرْضِ... فَيُوضَعُ الْمِنْشَارُ عَلَى رَأْسِهِ فَيُشَقُّ اثْنَتَيْنِ، وَمَا يَصُدُّهُ ذَلِكَ عَنْ دِينِهِ... وَلَكِنَّكُمْ تَسْتَعْجِلُونَ»</div>
+        <div class="hadith-number-title">54. حديث خباب بن الأرت في الشكوى والصبر على الأذى:</div>
+        <div class="hadith-text">عن خباب بن الأرت رضي الله عنه قال: شكونا إلى رسول الله صلى الله عليه وسلم وهو متوسد بردة له في ظل الكعبة، وقلنا له: ألا تستنصر لنا؟ ألا تدعو الله لنا؟ قال: «كَانَ الرَّجُلُ فِيمَنْ قَبْلَكُمْ يُحْفَرُ لَهُ فِي الْأَرْضِ فَيُجْعَلُ فِيهِ، فَيُجَاءُ بِالْمِنْشَارِ فَيُوضَعُ عَلَى رَأْسِهِ فَيُشَقُّ اثْنَتَيْنِ، وَمَا يَصُدُّهُ ذَلِكَ عَنْ دِينِهِ... وَلَكِنَّكُمْ تَسْتَعْجِلُونَ»</div>
         <div class="hadith-source">(رواه البخاري)</div>
     </div>
 
     <div class="hadith-card">
-        <div class="hadith-number-title">55. حديث الصبر على الوباء والطاعون وأجر الشهيد</div>
-        <div class="hadith-text">عن عائشة رضي الله عنها، أن النبي صلى الله عليه وسلم أخبرها عن الطاعون: «... فَلَيْسَ مِنْ عَبْدٍ يَقَعُ الطَّاعُونَ، فَيَمْكُثُ فِي بَلَدِهِ صَابِرًا، يَعْلَمُ أَنَّهُ لَنْ يُصِيبَهُ إِلَّا مَا كَتَبَ اللَّهُ لَهُ، إِلَّا كَانَ لَهُ مِثْلُ أَجْرِ الشَّهِيدِ»</div>
+        <div class="hadith-number-title">55. حديث عائشة في الصبر على الطاعون وأجر الشهيد:</div>
+        <div class="hadith-text">عن عائشة رضي الله عنها أنها سألت رسول الله صلى الله عليه وسلم عن الطاعون، فأخبرَها: «أَنَّهُ كَانَ عَذَابًا يَبْعَثُهُ اللَّهُ عَلَى مَنْ يَشَاءُ، فَجَعَلَهُ اللَّهُ رَحْمَةً لِلْمُؤْمِنِينَ، فَلَيْسَ مِنْ عَبْدٍ يَقَعُ الطَّاعُونَ، فَيَمْكُثُ فِي بَلَدِهِ صَابِرًا، يَعْلَمُ أَنَّهُ لَنْ يُصِيبَهُ إِلَّا مَا كَتَبَ اللَّهُ لَهُ، إِلَّا كَانَ لَهُ مِثْلُ أَجْرِ الشَّهِيدِ»</div>
         <div class="hadith-source">(رواه البخاري)</div>
     </div>
 
     <div class="hadith-card">
-        <div class="hadith-number-title">56. حديث تمني الموت عند شدة الفتنة والبلاء</div>
+        <div class="hadith-number-title">56. حديث أبي هريرة في تمني الموت من شدة البلاء:</div>
         <div class="hadith-text">عن أبي هريرة رضي الله عنه، عن النبي صلى الله عليه وسلم قال: «لَا تَقُومُ السَّاعَةُ حَتَّى يَمُرَّ الرَّجُلُ بِقَبْرِ الرَّجُلِ فَيَقُولُ: يَا لَيْتَنِي مَكَانَهُ»</div>
         <div class="hadith-source">(رواه البخاري ومسلم)</div>
     </div>
 
     <div class="hadith-card">
-        <div class="hadith-number-title">57. حديث الصابر على دينه كالقابض على الجمر</div>
+        <div class="hadith-number-title">57. حديث أنس في الصابر على دينه كالقابض على الجمر:</div>
         <div class="hadith-text">عن أنس بن مالك رضي الله عنه قال: قال رسول الله صلى الله عليه وسلم: «يَأْتِي عَلَى النَّاسِ زَمَانٌ الصَّابِرُ فِيهِمْ عَلَى دِينِهِ كَالْقَابِضِ عَلَى الْجَمْرِ»</div>
-        <div class="hadith-source">(رواه الترمذي)</div>
+        <div class="hadith-source">(رواه الترمذي، وصححه الألباني)</div>
     </div>
 
     <div class="hadith-card">
-        <div class="hadith-number-title">58. حديث العبادة في الهرج والفتن كهجرة إلى النبي</div>
+        <div class="hadith-number-title">58. حديث معقل بن يسار في العبادة وقت الفتن:</div>
         <div class="hadith-text">عن معقل بن يسار رضي الله عنه قال: قال رسول الله صلى الله عليه وسلم: «الْعِبَادَةُ فِي الْهَرْجِ كَهِجْرَةٍ إِلَيَّ»</div>
         <div class="hadith-source">(رواه مسلم)</div>
     </div>
 
     <div class="hadith-card">
-        <div class="hadith-number-title">59. حديث من يرد الله به خيراً يصب منه</div>
+        <div class="hadith-number-title">59. حديث أبي هريرة في تعاهد البلاء للمؤمن:</div>
         <div class="hadith-text">عن أبي هريرة رضي الله عنه قال: قال رسول الله صلى الله عليه وسلم: «مَنْ يُرِدِ اللَّهُ بِهِ خَيْرًا يُصِبْ مِنْهُ»</div>
         <div class="hadith-source">(رواه البخاري)</div>
     </div>
 
     <div class="hadith-card">
-        <div class="hadith-number-title">60. حديث تعرف إلى الله في الرخاء يعرفك في الشدة</div>
+        <div class="hadith-number-title">60. حديث ابن عباس في حفظ الله في الرخاء:</div>
         <div class="hadith-text">عن عبد الله بن عباس رضي الله عنهما قال: قال لي رسول الله صلى الله عليه وسلم: «تَعَرَّفْ إِلَى اللَّهِ فِي الرَّخَاءِ يَعْرِفْكَ فِي الشِّدَّةِ»</div>
-        <div class="hadith-source">(رواه أحمد)</div>
-    </div>
-
-</div>
-
-</body>
-</html>
-<!DOCTYPE html>
-<html lang="ar" dir="rtl">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>الموسوعة النبوية الشاملة - الجزء الثاني (61 - 120)</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Amiri:ital,wght@0,400;0,700;1,400;1,700&family=Cairo:wght@400;600;700;800;900&display=swap" rel="stylesheet">
-    <style>
-        @page { size: A4; margin: 12mm; }
-        :root {
-            --primary: #0f172a;
-            --primary-light: #1e293b;
-            --accent: #b4832c;
-            --bg-body: #f8fafc;
-            --card-bg: #ffffff;
-            --text-main: #0f172a;
-            --border-color: #cbd5e1;
-        }
-        * { box-sizing: border-box; margin: 0; padding: 0; }
-        body { font-family: 'Cairo', sans-serif; color: var(--text-main); background-color: #e2e8f0; line-height: 1.8; padding: 20px; }
-        .page-container { max-width: 1000px; margin: 0 auto; background: #ffffff; padding: 35px; border: 5px double var(--accent); border-radius: 12px; box-shadow: 0 10px 30px rgba(0,0,0,0.15); }
-        .main-header { text-align: center; border-bottom: 3px double var(--accent); padding-bottom: 20px; margin-bottom: 25px; }
-        .main-header h1 { font-size: 32px; color: var(--primary); font-weight: 900; margin-bottom: 8px; }
-        .main-header p { font-size: 18px; color: var(--accent); font-weight: 700; }
-        .credits-banner { background: linear-gradient(135deg, var(--primary), var(--primary-light)); color: #ffffff; text-align: center; padding: 18px; border-radius: 8px; margin-bottom: 30px; border-right: 6px solid var(--accent); }
-        .credits-banner .author { font-size: 22px; font-weight: 900; }
-        .credits-banner .role { font-size: 16px; color: #fde047; font-weight: 700; margin-top: 4px; }
-        .chapter-header { background: linear-gradient(90deg, var(--primary), var(--primary-light)); color: #ffffff; padding: 14px 22px; border-radius: 8px; font-size: 20px; font-weight: 900; margin: 35px 0 20px 0; border-right: 8px solid var(--accent); page-break-before: always; }
-        .chapter-header:first-of-type { page-break-before: auto; }
-        .hadith-card { background-color: var(--card-bg); border: 1px solid var(--border-color); border-right: 5px solid var(--accent); border-radius: 8px; padding: 20px 24px; margin-bottom: 20px; page-break-inside: avoid; }
-        .hadith-number-title { font-size: 18px; font-weight: 800; color: var(--primary); margin-bottom: 10px; border-bottom: 1px dashed var(--border-color); padding-bottom: 6px; }
-        .hadith-text { font-family: 'Amiri', serif; font-size: 21px; color: #020617; text-align: justify; line-height: 2.1; margin-bottom: 10px; font-weight: 700; }
-        .hadith-source { font-size: 14px; font-weight: 700; color: var(--accent); text-align: left; }
-        @media print {
-            body { background: none; padding: 0; }
-            .page-container { border: 3px solid var(--accent); box-shadow: none; padding: 15px; max-width: 100%; }
-            .chapter-header, .credits-banner { background: var(--primary) !important; color: #ffffff !important; -webkit-print-color-adjust: exact; }
-            .hadith-card { background-color: #ffffff !important; border: 1px solid #94a3b8; border-right: 5px solid var(--accent) !important; -webkit-print-color-adjust: exact; }
-        }
-    </style>
-</head>
-<body>
-
-<div class="page-container">
-
-    <div class="main-header">
-        <h1>الموسوعة النبوية الشاملة</h1>
-        <p>الجزء الثاني: الأحاديث الشريفة من (61) إلى (120)</p>
-    </div>
-
-    <div class="credits-banner">
-        <div class="author">إعداد / مؤمن هشام القصاص</div>
-        <div class="role">أمين اتحاد مدارس سيدي سالم</div>
+        <div class="hadith-source">(رواه أحمد، وصححه المحققون)</div>
     </div>
 
     <!-- الباب الرابع -->
     <div class="chapter-header">📌 الباب الرابع: صفة الجنة ونعيمها والدار الآخرة (61 - 80)</div>
 
     <div class="hadith-card">
-        <div class="hadith-number-title">61. حديث ما لا عين رأت ولا أذن سمعت</div>
-        <div class="hadith-text">عن أبي هريرة رضي الله عنه، عن النبي صلى الله عليه وسلم قال: «قَالَ اللَّهُ تَعَالَى: أَعْدَدْتُ لِعِبَادِي الصَّالِحِينَ مَا لَا عَيْنٌ رَأَتْ، وَلَا أُذُنٌ سَمِعَتْ، وَلَا خَطَرَ عَلَى قَلْبِ بَشَرٍ، وَاقْرَءُوا إِنْ شِئْتُمْ: {فَلَا تَعْلَمُ نَفْسٌ مَا أُخْفِيَ لَهُمْ مِنْ قُرَّةِ أَعْيُنٍ}»</div>
+        <div class="hadith-number-title">61. الحديث القدسي في ما لا عين رأت:</div>
+        <div class="hadith-text">عن أبي هريرة رضي الله عنه قال: قال رسول الله صلى الله عليه وسلم: «قَالَ اللَّهُ: أَعْدَدْتُ لِعِبَادِي الصَّالِحِينَ مَا لَا عَيْنٌ رَأَتْ، وَلَا أُذُنٌ سَمِعَتْ، وَلَا خَطَرَ عَلَى قَلْبِ بَشَرٍ، فَاقْرَءُوا إِنْ شِئْتُمْ: {فَلَا تَعْلَمُ نَفْسٌ مَا أُخْفِيَ لَهُمْ مِنْ قُرَّةِ أَعْيُنٍ}»</div>
         <div class="hadith-source">(رواه البخاري ومسلم)</div>
     </div>
 
     <div class="hadith-card">
-        <div class="hadith-number-title">62. حديث رؤية الله تعالى في الجنة</div>
-        <div class="hadith-text">عن جرير بن عبد الله البجلي رضي الله عنه قال: كُنَّا عِنْدَ النَّبِيِّ صَلَّى اللَّهُ عَلَيْهِ وَسَلَّمَ فَنَظَرَ إِلَى القَمَرِ لَيْلَةً - يَعْنِي البَدْرَ - فَقَالَ: «إِنَّكُمْ سَتَرَوْنَ رَبَّكُمْ كَمَا تَرَوْنَ هَذَا القَمَرَ، لَا تُضَامُّونَ فِي رُؤْيَتِهِ»</div>
+        <div class="hadith-number-title">62. حديث أبي موسى الأشعري في خيمة اللؤلؤ المجوفة:</div>
+        <div class="hadith-text">عن أبي موسى الأشعري رضي الله عنه، عن النبي صلى الله عليه وسلم قال: «إِنَّ لِلْمُؤْمِنِ فِي الْجَنَّةِ لَخَيْمَةً مِنْ لُؤْلُؤَةٍ وَاحِدَةٍ مُجَوَّفَةٍ، طُولُهَا سِتُّونَ مِيلًا، لِلْمُؤْمِنِ فِيهَا أَهْلُونَ، يَطُوفُ عَلَيْهِمُ الْمُؤْمِنُ فَلَا يَرَى بَعْضُهمْ بَعْضًا»</div>
         <div class="hadith-source">(رواه البخاري ومسلم)</div>
     </div>
 
     <div class="hadith-card">
-        <div class="hadith-number-title">63. حديث أول زمرة تدخل الجنة على صورة القمر</div>
-        <div class="hadith-text">عن أبي هريرة رضي الله عنه قال: قال رسول الله صلى الله عليه وسلم: «أَوَّلُ زُمْرَةٍ تَدْخُلُ الجَنَّةَ عَلَى صُورَةِ القَمَرِ لَيْلَةَ البَدْرِ، وَالَّذِينَ يَلُونَهُمْ عَلَى أَشَدِّ كَوْكَبٍ دُرِّيٍّ فِي السَّمَاءِ إِضَاءَةً...»</div>
+        <div class="hadith-number-title">63. حديث سهل بن سعد في موضع السوط في الجنة:</div>
+        <div class="hadith-text">عن سهل بن سعد الساعدي رضي الله عنه قال: قال رسول الله صلى الله عليه وسلم: «مَوْضِعُ سَوْطٍ فِي الْجَنَّةِ خَيْرٌ مِنَ الدُّنْيَا وَمَا فِيهَا، وَلَغَدْوَةٌ فِي سَبِيلِ اللَّهِ أَوْ رَوْحَةٌ خَيْرٌ مِنَ الدُّنْيَا وَمَا فِيهَا»</div>
         <div class="hadith-source">(رواه البخاري ومسلم)</div>
     </div>
 
     <div class="hadith-card">
-        <div class="hadith-number-title">64. حديث بناية الجنة ولَبِناتها</div>
-        <div class="hadith-text">عن أبي هريرة رضي الله عنه قال: قُلْنَا: يَا رَسُولَ اللَّهِ، الجَنَّةُ مَا بِنَاؤُهَا؟ قَالَ: «لَبِنَةٌ مِنْ فِضَّةٍ وَلَبِنَةٌ مِنْ ذَهَبٍ، وَمِلَاطُهَا المِسْكُ الأَذْفَرُ، وَحَصْبَاؤُهَا اللُؤْلُؤُ وَاليَاقُوتُ، وَتُرْبَتُهَا الزَّعَفَرَانُ...»</div>
-        <div class="hadith-source">(رواه الترمذي)</div>
-    </div>
-
-    <div class="hadith-card">
-        <div class="hadith-number-title">65. حديث شجرة يسير الراكب في ظلها مائة عام</div>
-        <div class="hadith-text">عن أبي سعيد الخدري رضي الله عنه، عن النبي صلى الله عليه وسلم قال: «إِنَّ فِي الجَنَّةِ لَشَجَرَةً يَسِيرُ الرَّاكِبُ الجَوَادَ المُضَمَّرَ السَّرِيعَ فِي ظِلِّهَا مِائَةَ عَامٍ مَا يَقْطَعُهَا»</div>
+        <div class="hadith-number-title">64. حديث أبي سعيد الخدري في شجرة الجنة والراكب في ظلها:</div>
+        <div class="hadith-text">عن أبي سعيد الخدري رضي الله عنه، عن النبي صلى الله عليه وسلم قال: «إِنَّ فِي الْجَنَّةِ لَشَجَرَةً، يَسِيرُ الرَّاكِبُ الْجَوَادَ الْمُضَمَّرَ السَّرِيعَ مِائَةَ عَامٍ مَا يَقْطَعُهَا»</div>
         <div class="hadith-source">(رواه البخاري ومسلم)</div>
     </div>
 
     <div class="hadith-card">
-        <div class="hadith-number-title">66. حديث نداء أهل الجنة للخلود</div>
-        <div class="hadith-text">عن أبي سعيد الخدري وأبي هريرة رضي الله عنهما، أن رسول الله صلى الله عليه وسلم قال: «يُنَادِي مُنَادٍ: إِنَّ لَكُمْ أَنْ تَصِحُّوا فَلَا تَسْقَمُوا أَبَدًا، وَإِنَّ لَكُمْ أَنْ تَحْيَوْا فَلَا تَمُوتُوا أَبَدًا، وَإِنَّ لَكُمْ أَنْ تَشَبُّوا فَلَا تَهَرَمُوا أَبَدًا، وَإِنَّ لَكُمْ أَنْ تَنَعَّمُوا فَلَا تَبْأَسُوا أَبَدًا»</div>
+        <div class="hadith-number-title">65. حديث معاذ بن جبل في أعمار أهل الجنة وهيئتهم:</div>
+        <div class="hadith-text">عن معاذ بن جبل رضي الله عنه، أن النبي صلى الله عليه وسلم قال: «يَدْخُلُ أَهْلُ الْجَنَّةِ الْجَنَّةَ جُرْدًا مُرْدًا مُكَحَّلِينَ أَبْنَاءَ ثَلَاثٍ وَثَلَاثِينَ سَنَةً»</div>
+        <div class="hadith-source">(رواه الترمذي، وصححه الألباني)</div>
+    </div>
+
+    <div class="hadith-card">
+        <div class="hadith-number-title">66. حديث أنس بن مالك في سوق الجنة وريح الشمال:</div>
+        <div class="hadith-text">عن أنس بن مالك رضي الله عنه، أن رسول الله صلى الله عليه وسلم قال: «إِنَّ فِي الْجَنَّةِ لَسُوقًا، يَأْتُونَهَا كُلَّ جُمُعَةٍ، فَتَهُبُّ رِيحُ الشَّمَالِ فَتَحْثُو فِي وُجُوهِهِمْ وَثِيَابِهِمْ، فَيَزْدَادُونَ حُسْنًا وَجَمَالًا، فَيَرْجِعُونَ إِلَى أَهْلِيهِمْ وَقَدِ ازْدَادُوا حُسْنًا وَجَمَالًا...»</div>
         <div class="hadith-source">(رواه مسلم)</div>
     </div>
 
     <div class="hadith-card">
-        <div class="hadith-number-title">67. حديث أبواب الجنة الثمانية وباب الريان</div>
-        <div class="hadith-text">عن سهل بن سعد رضي الله عنه، عن النبي صلى الله عليه وسلم قال: «فِي الجَنَّةِ ثَمَانِيَةُ أَبْوَابٍ، فِيهَا بَابٌ يُسَمَّى الرَّيَّانَ، لَا يَدْخُلُهُ إِلَّا الصَّائِمُونَ»</div>
-        <div class="hadith-source">(رواه البخاري ومسلم)</div>
-    </div>
-
-    <div class="hadith-card">
-        <div class="hadith-number-title">68. حديث أدنى أهل الجنة منزلة</div>
-        <div class="hadith-text">عن المغيرة بن شعبة رضي الله عنه، عن رسول الله صلى الله عليه وسلم قال: «سَأَلَ مُوسَى رَبَّهُ: مَا أَدْنَى أَهْلِ الجَنَّةِ مَنْزِلَةً؟ قَالَ: هُوَ رَجُلٌ يَجِيءُ بَعْدَمَا أُدْخِلَ أَهْلُ الجَنَّةِ الجَنَّةَ، فَيُقَالُ لَهُ: ادْخُلِ الجَنَّةَ... فَيَقُولُ: رَبِّ رَضِيتُ، فَيَقُولُ اللَّهُ: لَكَ ذَلِكَ وَعَشَرَةُ أَمْثَالِهِ مَعَهُ»</div>
+        <div class="hadith-number-title">67. حديث أبي سعيد الخدري في خلود أهل الجنة ونعيمهم الدائم:</div>
+        <div class="hadith-text">عن أبي سعيد الخدري وأبي هريرة رضي الله عنهما، أن رسول الله صلى الله عليه وسلم قال: «إِذَا دَخَلَ أَهْلُ الْجَنَّةِ الْجَنَّةَ يُنَادِي مُنَادٍ: إِنَّ لَكُمْ أَنْ تَصِحُّوا فَلَا تَسْقَمُوا أَبَدًا، وَإِنَّ لَكُمْ أَنْ تَحْيَوْا فَلَا تَمُوتُوا أَبَدًا، وَإِنَّ لَكُمْ أَنْ تَشِبُّوا فَلَا تَهْرَمُوا أَبَدًا، وَإِنَّ لَكُمْ أَنْ تَنْعَمُوا فَلَا تَبْتَئِسُوا أَبَدًا»</div>
         <div class="hadith-source">(رواه مسلم)</div>
     </div>
 
     <div class="hadith-card">
-        <div class="hadith-number-title">69. حديث الرضوان الأكبر من الله على أهل الجنة</div>
-        <div class="hadith-text">عن أبي سعيد الخدري رضي الله عنه، أن النبي صلى الله عليه وسلم قال: «إِنَّ اللَّهَ يَقُولُ لِأَهْلِ الجَنَّةِ: يَا أَهْلَ الجَنَّةِ! فَيَقُولُونَ: لَبَّيْكَ رَبَّنَا وَسَعْدَيْكَ... فَيَقُولُ: أُحِلُّ عَلَيْكُمْ رِضْوَانِي فَلَا أَسْخَطُ عَلَيْكُمْ بَعْدَهُ أَبَدًا»</div>
-        <div class="hadith-source">(رواه البخاري ومسلم)</div>
+        <div class="hadith-number-title">68. حديث أبي سعيد الخدري في أدنى أهل الجنة منزلة:</div>
+        <div class="hadith-text">عن أبي سعيد الخدري رضي الله عنه، أن رسول الله صلى الله عليه وسلم قال في حديث الشفاعة الطويل: «...إِنَّ أَدْنَى مَقْعَدِ أَحَدِكُمْ مِنَ الْجَنَّةِ أَنْ يَقُولَ لَهُ تَمَنَّ، فَيَتَمَنَّى وَيَتَمَنَّى، فَيَقُولُ لَهُ: هَلْ تَمَنَّيْتَ؟ فَيَقُولُ: نَعَمْ، فَيَقُولُ لَهُ: فَإِنَّ لَكَ مَا تَمَنَّيْتَ وَمِثْلَهُ مَعَهُ»</div>
+        <div class="hadith-source">(رواه مسلم)</div>
     </div>
 
     <div class="hadith-card">
-        <div class="hadith-number-title">70. حديث صفة حوض النبي صلى الله عليه وسلم</div>
-        <div class="hadith-text">عن عبد الله بن عمرو رضي الله عنهما قال: قال النبي صلى الله عليه وسلم: «حَوْضِي مَسِيرَةُ شَهْرٍ، مَاؤُهُ أَبْيَضُ مِنَ اللَّبَنِ، وَرِيحُهُ أَطْيَبُ مِنَ المِسْكِ، وَكِيزَانُهُ كَنُجُومِ السَّمَاءِ، مَنْ شَرِبَ مِنْهَا فَلَا يَظْمَأُ أَبَدًا»</div>
-        <div class="hadith-source">(رواه البخاري ومسلم)</div>
+        <div class="hadith-number-title">69. حديث أبي هريرة في الدنيا سجن المؤمن وجنة الكافر:</div>
+        <div class="hadith-text">عن أبي هريرة رضي الله عنه قال: قال رسول الله صلى الله عليه وسلم: «الدُّنْيَا سِجْنُ الْمُؤْمِنِ، وَجَنَّةُ الْكَافِرِ»</div>
+        <div class="hadith-source">(رواه مسلم)</div>
     </div>
 
     <div class="hadith-card">
-        <div class="hadith-number-title">71. حديث الشفاعة العظمى يوم القيامة</div>
-        <div class="hadith-text">عن أبي هريرة رضي الله عنه قال: أُتِيَ رَسُولُ اللَّهِ صَلَّى اللَّهُ عَلَيْهِ وَسَلَّمَ بِلَحْمٍ... فَقَالَ: «أَنَا سَيِّدُ النَّاسِ يَوْمَ القِيَامَةِ، وَهَلْ تَدْرُونَ مِمَّ ذَاكَ؟ يَجْمَعُ اللَّهُ النَّاسَ الأَوَّلِينَ وَالآخِرِينَ فِي صَعِيدٍ وَاحِدٍ... فَيَقُولُ اللَّهُ: يَا مُحَمَّدُ، ارْفَعْ رَأْسَكَ، سَلْ تُعْطَهْ، وَاشْفَعْ تُشَفَّعْ»</div>
-        <div class="hadith-source">(رواه البخاري ومسلم)</div>
+        <div class="hadith-number-title">70. حديث أنس بن مالك في صبغ أنعم أهل الدنيا في النار:</div>
+        <div class="hadith-text">عن أنس بن مالك رضي الله عنه قال: قال رسول الله صلى الله عليه وسلم: «يُؤْتَى بِأَنْعَمِ أَهْلِ الدُّنْيَا مِنْ أَهْلِ النَّارِ يَوْمَ الْقِيَامَةِ، فَيُصْبَغُ فِي النَّارِ صَبْغَةً، ثُمَّ يُقَالُ: يَا ابْنَ آدَمَ هَلْ رَأَيْتَ خَيْرًا قَطُّ؟ هَلْ مَرَّ بِكَ نَعِيمٌ قَطُّ؟ فَيَقُولُ: لَا وَاللَّهِ يَا رَبِّ»</div>
+        <div class="hadith-source">(رواه مسلم)</div>
+    </div>
+    <!-- الباب الرابع -->
+    <div class="chapter-header">📌 الباب الرابع: صفة الجنة والدار الآخرة (71 - 90)</div>
+
+    <div class="hadith-card">
+        <div class="hadith-number-title">71. الشفاعة العظمى</div>
+        <div class="hadith-summary">عن أبي هريرة رضي الله عنه: حديث الشفاعة العظمى يوم القيامة وحصول النبي صلى الله عليه وسلم على المposition المحمود للشفاعة بين الناس.</div>
+        <div class="hadith-source">(متفق عليه)</div>
     </div>
 
     <div class="hadith-card">
-        <div class="hadith-number-title">72. حديث سبعة يظلهم الله في ظله</div>
-        <div class="hadith-text">عن أبي هريرة رضي الله عنه، عن النبي صلى الله عليه وسلم قال: «سَبْعَةٌ يُظِلُّهُمُ اللَّهُ فِي ظِلِّهِ يَوْمَ لَا ظِلَّ إِلَّا ظِلُّهُ: الإِمَامُ العَادِلُ، وَشَابٌّ نَشَأَ فِي عِبَادَةِ رَبِّهِ، وَرَجُلٌ قَلْبُهُ مُعَلَّقٌ بِالمَسَاجِدِ، وَرَجُلَانِ تَحَابَّا فِي اللَّهِ اجْتَمَعَا عَلَيْهِ وَتَفَرَّقَا عَلَيْهِ...»</div>
-        <div class="hadith-source">(رواه البخاري ومسلم)</div>
+        <div class="hadith-number-title">72. السبعة الذين يظلهم الله</div>
+        <div class="hadith-summary">عن أبي هريرة رضي الله عنه: بيان أصناف السبعة الذين يظلهم الله في ظله يوم لا ظل إلا ظله، كالإمام العادل وشاب نشأ في عبادة الله.</div>
+        <div class="hadith-source">(متفق عليه)</div>
     </div>
 
     <div class="hadith-card">
-        <div class="hadith-number-title">73. حديث أول ما يقضى بين الناس يوم القيامة في الدماء</div>
-        <div class="hadith-text">عن عبد الله بن مسعود رضي الله عنه قال: قال النبي صلى الله عليه وسلم: «أَوَّلُ مَا يُقْضَى بَيْنَ النَّاسِ يَوْمَ القِيَامَةِ فِي الدِّمَاءِ»</div>
-        <div class="hadith-source">(رواه البخاري ومسلم)</div>
+        <div class="hadith-number-title">73. أول ما يقضى فيه بين الناس</div>
+        <div class="hadith-summary">عن عبد الله بن مسعود رضي الله عنه: أول المظالم والحقوق التي يُفصل ويُقضى فيها بين الناس يوم القيامة هي الدماء.</div>
+        <div class="hadith-source">(متفق عليه)</div>
     </div>
 
     <div class="hadith-card">
-        <div class="hadith-number-title">74. حديث القنطرة بين الجنة والنار وتصفية المظالم</div>
-        <div class="hadith-text">عن أبي سعيد الخدري رضي الله عنه قال: قال رسول الله صلى الله عليه وسلم: «يَخْلُصُ المُؤْمِنُونَ مِنَ النَّارِ، فَيُحْبَسُونَ عَلَى قَنْطَرَةٍ بَيْنَ الجَنَّةِ وَالنَّارِ، فَيُقَصَّ لِبَعْضِهِمْ مِنْ بَعْضٍ مَظَالِمُ كَانَتْ بَيْنَهُمْ فِي الدُّنْيَا، حَتَّى إِذَا نُقُّوا وَهُذِّبُوا أُذِنَ لَهُمْ فِي دُخُولِ الجَنَّةِ»</div>
+        <div class="hadith-number-title">74. القنطرة وتصفية المظالم</div>
+        <div class="hadith-summary">عن أبي سعيد الخدري رضي الله عنه: يوقف المؤمنون بعد النجاة من النار على قنطرة بين الجنة والنار لتصفية المظالم بين بني آدم قبل الدخول.</div>
         <div class="hadith-source">(رواه البخاري)</div>
     </div>
 
     <div class="hadith-card">
-        <div class="hadith-number-title">75. حديث تحريم النار على أجساد أهل الصلاة</div>
-        <div class="hadith-text">عن أبي هريرة رضي الله عنه، في حديث الشفاعة قال: «حَتَّى إِذَا أَرَادَ اللَّهُ رَحْمَةَ مَنْ أَرَادَ مِنْ أَهْلِ النَّارِ، أَمَرَ المَلَائِكَةَ أَنْ يُخْرِجُوا مَنْ كَانَ يَعْبُدُ اللَّهَ... وَحَرَّمَ اللَّهُ عَلَى النَّارِ أَنْ تَأْكُلَ أَثَرَب السُّجُودِ»</div>
-        <div class="hadith-source">(رواه البخاري ومسلم)</div>
+        <div class="hadith-number-title">75. حرمة أثر السجود على النار</div>
+        <div class="hadith-text">عن أبي هريرة رضي الله عنه: أن الله عز وجل حرم على النار أن تأكل من جسم ابن آدم أثر السجود إكراماً للصلاة.</div>
+        <div class="hadith-source">(متفق عليه)</div>
     </div>
 
     <div class="hadith-card">
-        <div class="hadith-number-title">76. حديث ذبح الموت بين الجنة والنار</div>
-        <div class="hadith-text">عن أبي سعيد الخدري رضي الله عنه قال: قال رسول الله صلى الله عليه وسلم: «يُؤْتَى بِالمَوْتِ كَهَيْئَةِ كَبْشٍ أَمْلَحَ، فَيُنَادِي مُنَادٍ: يَا أَهْلَ الجَنَّةِ! فَيَشْرَئِبُّونَ وَيَنْظُرُونَ... فَيُذْبَحُ، ثُمَّ يَقُولُ: يَا أَهْلَ الجَنَّةِ خُلُودٌ فَلَا مَوْتَ، وَيَا أَهْلَ النَّارِ خُلُودٌ فَلَا مَوْتَ»</div>
-        <div class="hadith-source">(رواه البخاري ومسلم)</div>
+        <div class="hadith-number-title">76. ذبح الموت والخلود الابدي</div>
+        <div class="hadith-summary">عن أبي سعيد الخدري رضي الله عنه: يؤتى بالموت يوم القيامة على صورة كبش فيذبح بين الجنة والنار، وينادى بالخلود بلا موت.</div>
+        <div class="hadith-source">(متفق عليه)</div>
     </div>
 
     <div class="hadith-card">
-        <div class="hadith-number-title">77. حديث أهون أهل النار عذاباً</div>
-        <div class="hadith-text">عن النعمان بن بشير رضي الله عنهما قال: سمعت النبي صلى الله عليه وسلم يقول: «إِنَّ أَهْوَنَ أَهْلِ النَّارِ عَذَابًا يَوْمَ القِيَامَةِ لَرَجُلٌ يُوضَعُ فِي أَخْمَصِ قَدَمَيْهِ جَمْرَتَانِ يَغْلِي مِنْهُمَا دِمَاغُهُ»</div>
-        <div class="hadith-source">(رواه البخاري ومسلم)</div>
+        <div class="hadith-number-title">77. أهون أهل النار عذاباً</div>
+        <div class="hadith-summary">عن النعمان بن بشير رضي الله عنهما: بيان أهون أهل النار عذاباً يوم القيامة للتنفير والتحذير من المعاصي والآثام.</div>
+        <div class="hadith-source">(متفق عليه)</div>
     </div>
 
     <div class="hadith-card">
-        <div class="hadith-number-title">78. حديث نطق الجوارح والشهادة على العبد</div>
-        <div class="hadith-text">عن أنس بن مالك رضي الله عنه قال: كُنَّا عِنْدَ رَسُولِ اللهِ صَلَّى اللهُ عَلَيْهِ وَسَلَّمَ فَضَحِكَ، فَقَالَ: «هَلْ تَدْرُونَ مِمَّ أَضْحَكُ؟» قُلْنَا: اللهُ وَرَسُولُهُ أَعْلَمُ، قَالَ: «مِنْ مُجَادَلَةِ العَبْدِ رَبَّهُ... فَيُخْتَمُ عَلَى فِيهِ، وَيُقَالُ لِأَرْكَانِهِ: انْطِقِي، فَتَنْطِقُ بِأَعْمَالِهِ»</div>
+        <div class="hadith-number-title">78. شهادة الجوارح على العبد</div>
+        <div class="hadith-summary">عن أنس بن مالك رضي الله عنه: عندما يختم الله على فم العبد يوم القيامة لتنطق أركانه وجوارحه بجميع ما عمله في الدنيا.</div>
         <div class="hadith-source">(رواه مسلم)</div>
     </div>
 
     <div class="hadith-card">
-        <div class="hadith-number-title">79. حديث الصراط ومزالقه</div>
-        <div class="hadith-text">عن أبي سعيد الخدري رضي الله عنه، في ذكر الصراط قال: «بَلَغَنِي أَنَّ الجِسْرَ أَدَقُّ مِنَ الشَّعْرَةِ، وَأَحَدُّ مِنَ السَّيْفِ، وَعَلَيْهِ كَلَالِيبُ وَخَطَاطِيفُ وَشَوْكٌ كَشَوْكِ السَّعْدَانِ...»</div>
+        <div class="hadith-number-title">79. وصف الصراط</div>
+        <div class="hadith-summary">عن أبي سعيد الخدري رضي الله عنه: وصف دقة الصراط وخطاطيفه وضرورة الاستقامة في الدنيا للمرور عليه بسلام.</div>
         <div class="hadith-source">(رواه مسلم)</div>
     </div>
 
     <div class="hadith-card">
-        <div class="hadith-number-title">80. حديث دخول سبعين ألفاً الجنة بغير حساب</div>
-        <div class="hadith-text">عن ابن عباس رضي الله عنهما قال: قال رسول الله صلى الله عليه وسلم: «عُرِضَتْ عَلَيَّ الأُمَمُ... فَرَأَيْتُ السَّوَادَ الأَعْظَمَ، فَقِيلَ لِي: هَذِهِ أُمَّتُكَ، وَمَعَهُمْ سَبْعُونَ أَلْفًا يَدْخُلُونَ الجَنَّةَ بِغَيْرِ حِسَابٍ وَلَا عَذَابٍ... هُمُ الَّذِينَ لَا يَسْتَرْقُونَ وَلَا يَتَطَيَّرُونَ وَلَا يَكْتَوُونَ وَعَلَى رَبِّهِمْ يَتَوَكَّلُونَ»</div>
-        <div class="hadith-source">(رواه البخاري ومسلم)</div>
+        <div class="hadith-number-title">80. دخول السبعين ألفاً بدون حساب</div>
+        <div class="hadith-summary">عن ابن عباس رضي الله عنهما: صفة السبعين ألفاً الذين يدخلون الجنة بغير حساب ولا عذاب لتكميل توكلهم على الله.</div>
+        <div class="hadith-source">(متفق عليه)</div>
+    </div>
+
+    <div class="hadith-card">
+        <div class="hadith-number-title">81. نعيم الجنة الذي لا يوصف</div>
+        <div class="hadith-summary">عن أبي هريرة رضي الله عنه: أعد الله للعباد الصالحين في الجنة ما لا عين رأت، ولا أذن سمعت، ولا خطر على قلب بشر.</div>
+        <div class="hadith-source">(متفق عليه)</div>
+    </div>
+
+    <div class="hadith-card">
+        <div class="hadith-number-title">82. رؤية الله تعالى في الجنة</div>
+        <div class="hadith-summary">عن جرير بن عبد الله رضي الله عنه: إن أعظم نعيم أهل الجنة هو تمكينهم من رؤية ربهم تبارك وتعالى كما يُرى القمر ليلة البدر.</div>
+        <div class="hadith-source">(متفق عليه)</div>
+    </div>
+
+    <div class="hadith-card">
+        <div class="hadith-number-title">83. أول زمرة تدخل الجنة</div>
+        <div class="hadith-summary">عن أبي هريرة رضي الله عنه: أول دفعة تدخل الجنة تكون وجوههم على صورة القمر ليلة البدر حسناء ومشرقة.</div>
+        <div class="hadith-source">(متفق عليه)</div>
+    </div>
+
+    <div class="hadith-card">
+        <div class="hadith-number-title">84. بناء الجنة وطيب تربتها</div>
+        <div class="hadith-summary">عن أبي هريرة رضي الله عنه: وصف لبنات الجنة من ذهب وفضة وملاطها المسك وحصباؤها اللؤلؤ والياقوت.</div>
+        <div class="hadith-source">(رواه الترمذي)</div>
+    </div>
+
+    <div class="hadith-card">
+        <div class="hadith-number-title">85. شجرة الجنة وظلها</div>
+        <div class="hadith-summary">عن أبي سعيد الخدري رضي الله عنه: إن في الجنة لشجرة يسير الراكب في ظلها مائة عام لا يقطعها لعة سعتها.</div>
+        <div class="hadith-source">(متفق عليه)</div>
+    </div>
+
+    <div class="hadith-card">
+        <div class="hadith-number-title">86. نداء الصحة والشباب في الجنة</div>
+        <div class="hadith-summary">عن أبي سعيد الخدري رضي الله عنه: ينادي منادٍ في أهل الجنة بأن لكم أن تصحوا فلا تسقموا، وتحيوا فلا تموتوا أبداً.</div>
+        <div class="hadith-source">(رواه مسلم)</div>
+    </div>
+
+    <div class="hadith-card">
+        <div class="hadith-number-title">87. أبواب الجنة الثمانية وباب الريان</div>
+        <div class="hadith-summary">عن سهل بن سعد رضي الله عنه: للجنة ثمانية أبواب، منها باب الريان الذي خُصص لدخول الصائمين منه دون غيرهم.</div>
+        <div class="hadith-source">(متفق عليه)</div>
+    </div>
+
+    <div class="hadith-card">
+        <div class="hadith-number-title">88. أدنى أهل الجنة منزلة</div>
+        <div class="hadith-summary">عن المغيرة بن شعبة رضي الله عنه: بيان سعة فضل الله وعطائه بالحديث عن آخر من يدخل الجنة وما يُعطى فيها من ملك ونعيم.</div>
+        <div class="hadith-source">(رواه مسلم)</div>
+    </div>
+
+    <div class="hadith-card">
+        <div class="hadith-number-title">89. رضوان الله الأكبر</div>
+        <div class="hadith-summary">عن أبي سعيد الخدري رضي الله عنه: يحل الله على أهل الجنة رضوانه فلا يسخط عليهم بعده أبداً وهو غاية النعيم.</div>
+        <div class="hadith-source">(متفق عليه)</div>
+    </div>
+
+    <div class="hadith-card">
+        <div class="hadith-number-title">90. حوض النبي صلى الله عليه وسلم</div>
+        <div class="hadith-summary">عن عبد الله بن عمرو رضي الله عنهما: صفة حوض النبي الممتد، وماؤه الأشد بياضاً من اللبن، ومَن شرب منه لا يظمأ أبداً.</div>
+        <div class="hadith-source">(متفق عليه)</div>
     </div>
 
     <!-- الباب الخامس -->
-    <div class="chapter-header">📌 الباب الخامس: مكارم الأخلاق وحسن الخلق (81 - 100)</div>
+    <div class="chapter-header">📌 الباب الخامس: مكارم الأخلاق وحسن الخلق (91 - 110)</div>
 
     <div class="hadith-card">
-        <div class="hadith-number-title">81. حديث إنما بعثت لأتمم صالح الأخلاق</div>
-        <div class="hadith-text">عن أبي هريرة رضي الله عنه قال: قال رسول الله صلى الله عليه وسلم: «إِنَّمَا بُعِثْتُ لِأُتَمِّمَ صَالِحَ الأَخْلَاقِ»</div>
-        <div class="hadith-source">(رواه أحمد والحاكم)</div>
+        <div class="hadith-number-title">91. الغاية من البعثة النبوية</div>
+        <div class="hadith-summary">عن أبي هريرة رضي الله عنه: إن الغاية الأساسية من بعثة الرسول صلى الله عليه وسلم هي إتمام صالح الأخلاق ومكارمها.</div>
+        <div class="hadith-source">(رواه أحمد)</div>
     </div>
 
     <div class="hadith-card">
-        <div class="hadith-number-title">82. حديث أثقل شيء في الميزان حسن الخلق</div>
-        <div class="hadith-text">عن أبي الدرداء رضي الله عنه، عن النبي صلى الله عليه وسلم قال: «مَا مِنْ شَيْءٍ أَثْقَلُ فِي مِيزَانِ المُؤْمِنِ يَوْمَ القِيَامَةِ مِنْ حُسْنِ الخُلُقِ، وَإِنَّ اللَّهَ لَيُبْغِضُ الفَاحِشَ البَذِيءَ»</div>
+        <div class="hadith-number-title">92. أثقل شيء في الميزان</div>
+        <div class="hadith-summary">عن أبي الدرداء رضي الله عنه: ليس هناك شيء أثقل في ميزان العبد يوم القيامة من حسن الخلق.</div>
         <div class="hadith-source">(رواه الترمذي)</div>
     </div>
 
     <div class="hadith-card">
-        <div class="hadith-number-title">83. حديث خياركم أحسنكم أخلاقاً</div>
-        <div class="hadith-text">عن عبد الله بن عمرو رضي الله عنهما قال: لم يكن النبي صلى الله عليه وسلم فاحشاً ولا متفحشاً، وكان يقول: «إِنَّ مِنْ خِيَارِكُمْ أَحْسَنَكُمْ أَخْلَاقًا»</div>
-        <div class="hadith-source">(رواه البخاري ومسلم)</div>
+        <div class="hadith-number-title">93. خيار الناس أحسنهم خُلقاً</div>
+        <div class="hadith-summary">عن عبد الله بن عمرو رضي الله عنهما: خيار المسلمين وأفضلهم منزلة هم أحسنهم أخلاقاً ومعاملة مع الناس.</div>
+        <div class="hadith-source">(متفق عليه)</div>
     </div>
 
     <div class="hadith-card">
-        <div class="hadith-number-title">84. حديث أقربكم مني مجلساً أحاسنكم أخلاقاً</div>
-        <div class="hadith-text">عن جابر بن عبد الله رضي الله عنهما، أن رسول الله صلى الله عليه وسلم قال: «إِنَّ مِنْ أَحَبِّكُمْ إِلَيَّ وَأَقْرَبِكُمْ مِنِّي مَجْلِسًا يَوْمَ القِيَامَةِ أَحَاسِنَكُمْ أَخْلَاقًا»</div>
+        <div class="hadith-number-title">94. أقرب الناس مجلساً من النبي</div>
+        <div class="hadith-summary">عن جابر بن عبد الله رضي الله عنهما: أقرب المؤمنين مجلساً من الرسول صلى الله عليه وسلم يوم القيامة أحاسنهم أخلاقاً.</div>
         <div class="hadith-source">(رواه الترمذي)</div>
     </div>
 
     <div class="hadith-card">
-        <div class="hadith-number-title">85. حديث أكمل المؤمنين إيماناً أحسنهم خلقاً</div>
-        <div class="hadith-text">عن أبي هريرة رضي الله عنه قال: قال رسول الله صلى الله عليه وسلم: «أَكْمَلُ المُؤْمِنِينَ إِيمَانًا أَحْسَنُهُمْ خُلُقًا، وَخِيَارُكُمْ خِيَارُكُمْ لِنِسَائِهِمْ خُلُقًا»</div>
+        <div class="hadith-number-title">95. كمال الإيمان بحسن الخلق</div>
+        <div class="hadith-summary">عن أبي هريرة رضي الله عنه: أكمل المؤمنين إيماناً وأعظمهم يقينًا أحسنهم خلقاً، وخيارهم خيارهم لنسائهم.</div>
         <div class="hadith-source">(رواه الترمذي)</div>
     </div>
 
     <div class="hadith-card">
-        <div class="hadith-number-title">86. حديث البر حسن الخلق</div>
-        <div class="hadith-text">عن النواس بن سمعان الأنصاري رضي الله عنه قال: سألت رسول الله صلى الله عليه وسلم عن البر والإثم؟ فقال: «البِرُّ حُسْنُ الخُلُقِ، وَالإِثْمُ مَا حَاكَ فِي صَدْرِكَ وَكَرِهْتَ أَنْ يَطَّلِعَ عَلَيْهِ النَّاسُ»</div>
+        <div class="hadith-number-title">96. حقيقة البر بالإحسان</div>
+        <div class="hadith-summary">عن النواس بن سمعان رضي الله عنه: البر الحقيقي يكمن في حسن الخلق، والإثم ما حاك وتردد في الصدر وكرهت اطلاع الناس عليه.</div>
         <div class="hadith-source">(رواه مسلم)</div>
     </div>
 
     <div class="hadith-card">
-        <div class="hadith-number-title">87. حديث بيت في أعلى الجنة لمن حسن خلقه</div>
-        <div class="hadith-text">عن أبي أمامة الباهلي رضي الله عنه قال: قال رسول الله صلى الله عليه وسلم: «أَنَا زَعِيمٌ بِبَيْتٍ فِي رَبَضِ الجَنَّةِ لِمَنْ تَرَكَ المِرَاءَ وَإِنْ كَانَ مُحِقًّا، وَبِبَيْتٍ فِي وَسَطِ الجَنَّةِ لِمَنْ تَرَكَ الكَذِبَ وَإِنْ كَانَ مَازِحًا، وَبِبَيْتٍ فِي أَعْلَى الجَنَّةِ لِمَنْ حَسَّنَ خُلُقَهُ»</div>
+        <div class="hadith-number-title">97. ضمان أعلى الجنة بحسن الخلق</div>
+        <div class="hadith-summary">عن أبي أمامة رضي الله عنه: ضمان بيت في أعلى الجنة لمن حسّن خلقه وترك المراء والكذب ولو كان مازحاً.</div>
         <div class="hadith-source">(رواه أبو داود)</div>
     </div>
 
     <div class="hadith-card">
-        <div class="hadith-number-title">88. حديث تبسمك في وجه أخيك صدقة</div>
-        <div class="hadith-text">عن أبي ذر الغفاري رضي الله عنه قال: قال رسول الله صلى الله عليه وسلم: «تَبَسُّمُكَ فِي وَجْهِ أَخِيكَ لَكَ صَدَقَةٌ، وَأَمْرُكَ بِالمَعْرُوفِ وَنَهْيُكَ عَنِ المُنْكَرِ صَدَقَةٌ...»</div>
+        <div class="hadith-number-title">98. التبسم في وجه الأخ صدقة</div>
+        <div class="hadith-summary">عن أبي ذر رضي الله عنه: تبسم المسلم في وجه أخيه المسلم يُكتب له عند الله في جملة الصدقات.</div>
         <div class="hadith-source">(رواه الترمذي)</div>
     </div>
 
     <div class="hadith-card">
-        <div class="hadith-number-title">89. حديث ليس الشديد بالصرعة</div>
-        <div class="hadith-text">عن أبي هريرة رضي الله عنه، أن رسول الله صلى الله عليه وسلم قال: «لَيْسَ الشَّدِيدُ بِالصُّرَعَةِ، إِنَّمَا الشَّدِيدُ الَّذِي يَمْلِكُ نَفْسَهُ عِنْدَ الغَضَبِ»</div>
-        <div class="hadith-source">(رواه البخاري ومسلم)</div>
+        <div class="hadith-number-title">99. الشديد من يملك نفسه عند الغضب</div>
+        <div class="hadith-summary">عن أبي هريرة رضي الله عنه: ليس الشديد بالقوة والصرعة، إنما الشديد الحقيقي من يملك ويسيطر على نفسه عند الغضب.</div>
+        <div class="hadith-source">(متفق عليه)</div>
     </div>
 
     <div class="hadith-card">
-        <div class="hadith-number-title">90. حديث لا تغضب وتكرار الوصية</div>
-        <div class="hadith-text">عن أبي هريرة رضي الله عنه، أن رجلاً قال للنبي صلى الله عليه وسلم: أوصني، قال: «لَا تَغْضَبْ»، فَرَدَّدَ مِرَارًا، قَالَ: «لَا تَغْضَبْ»</div>
+        <div class="hadith-number-title">100. الوصية بعدم الغضب</div>
+        <div class="hadith-summary">عن أبي هريرة رضي الله عنه: كرر النبي صلى الله عليه وسلم وصيته للرجل الذي سأله النصح بقوله المتكرر: "لا تغضب".</div>
         <div class="hadith-source">(رواه البخاري)</div>
     </div>
 
     <div class="hadith-card">
-        <div class="hadith-number-title">91. حديث إن الله رفيق يحب الرفق</div>
-        <div class="hadith-text">عن عائشة رضي الله عنها، أن رسول الله صلى الله عليه وسلم قال: «إِنَّ اللَّهَ رَفِيقٌ يُحِبُّ الرِّفْقَ، وَيُعْطِي عَلَى الرِّفْقِ مَا لَا يُعْطِي عَلَى العُنْفِ، وَمَا لَا يُعْطِي عَلَى مَا سِوَاهُ»</div>
+        <div class="hadith-number-title">101. فضل الرفق والمعاملة الحسنة</div>
+        <div class="hadith-summary">عن عائشة رضي الله عنها: إن الله رفيق يحب الرفق في الأمور كلها، ويعطي على الرفق ما لا يعطي على العنف.</div>
         <div class="hadith-source">(رواه مسلم)</div>
     </div>
 
     <div class="hadith-card">
-        <div class="hadith-number-title">92. حديث ما كان الرفق في شيء إلا زانه</div>
-        <div class="hadith-text">عن عائشة رضي الله عنها، عن النبي صلى الله عليه وسلم قال: «إِنَّ الرِّفْقَ لَا يَكُونُ فِي شَيْءٍ إِلَّا زَانَهُ، وَلَا يُنْزَعُ مِنْ شَيْءٍ إِلَّا شَانَهُ»</div>
+        <div class="hadith-number-title">102. الرفق يزين الأشياء</div>
+        <div class="hadith-summary">عن عائشة رضي الله عنها: ما كان الرفق في شيء إلا زانه وجمله، وما نُزع من شيء إلا شانه وعابه.</div>
         <div class="hadith-source">(رواه مسلم)</div>
     </div>
 
     <div class="hadith-card">
-        <div class="hadith-number-title">93. حديث الحلم والأناة في أشج عبد القيس</div>
-        <div class="hadith-text">عن ابن عباس رضي الله عنهما قال: قال رسول الله صلى الله عليه وسلم لأَشَجِّ عَبْدِ القَيْسِ: «إِنَّ فِيكَ خَصْلَتَيْنِ يُحِبُّهُمَا اللَّهُ: الحِلْمُ، وَالأَنَاةُ»</div>
+        <div class="hadith-number-title">103. الحلم والأناة</div>
+        <div class="hadith-summary">عن ابن عباس رضي الله عنهما: ثناء النبي صلى الله عليه وسلم على أشج عبد القيس بوجود خصلتين يحبهما الله وهما الحلم والأناة.</div>
         <div class="hadith-source">(رواه مسلم)</div>
     </div>
 
     <div class="hadith-card">
-        <div class="hadith-number-title">94. حديث عليكم بالصدق فإن الصدق يهدي إلى البر</div>
-        <div class="hadith-text">عن عبد الله بن مسعود رضي الله عنه قال: قال رسول الله صلى الله عليه وسلم: «عَلَيْكُمْ بِالصِّدْقِ، فَإِنَّ الصِّدْقَ يَهْدِي إِلَى البِرِّ، وَإِنَّ البِرَّ يَهْدِي إِلَى الجَنَّةِ... وَإِيَّاكُمْ وَالكَذِبَ، فَإِنَّ الكَذِبَ يَهْدِي إِلَى الفُجُورِ...»</div>
-        <div class="hadith-source">(رواه البخاري ومسلم)</div>
+        <div class="hadith-number-title">104. لزوم الصدق والتحذير من الكذب</div>
+        <div class="hadith-summary">عن عبد الله بن مسعود رضي الله عنه: الصدق يهدي إلى البر والبر يهدي إلى الجنة، والكذب يهدي إلى الفجور والفجور يهدي إلى النار.</div>
+        <div class="hadith-source">(متفق عليه)</div>
     </div>
 
     <div class="hadith-card">
-        <div class="hadith-number-title">95. حديث آية المنافق ثلاث</div>
-        <div class="hadith-text">عن أبي هريرة رضي الله عنه، عن النبي صلى الله عليه وسلم قال: «آيَةُ المُنَافِقِ ثَلَاثٌ: إِذَا حَدَّثَ كَذَبَ، وَإِذَا وَعَدَ أَخْلَفَ، وَإِذَا اؤْتُمِنَ خَانَ»</div>
-        <div class="hadith-source">(رواه البخاري ومسلم)</div>
+        <div class="hadith-number-title">105. علامات المنافق الثلاث</div>
+        <div class="hadith-summary">عن أبي هريرة رضي الله عنه: آية المنافق ثلاث صفات؛ إذا حدث كذب، وإذا وعد أخلف، وإذا اؤتمن خان.</div>
+        <div class="hadith-source">(متفق عليه)</div>
     </div>
 
     <div class="hadith-card">
-        <div class="hadith-number-title">96. حديث أربع من كن فيه كان منافقاً خالصاً</div>
-        <div class="hadith-text">عن عبد الله بن عمرو رضي الله عنهما، أن النبي صلى الله عليه وسلم قال: «أَرْبَعٌ مَنْ كُنَّ فِيهِ كَانَ مُنَافِقًا خَالِصًا... إِذَا اؤْتُمِنَ خَانَ، وَإِذَا حَدَّثَ كَذَبَ، وَإِذَا عَاهَدَ غَدَرَ، وَإِذَا خَاصَمَ فَجَرَ»</div>
-        <div class="hadith-source">(رواه البخاري ومسلم)</div>
+        <div class="hadith-number-title">106. خصال النفاق الخالص</div>
+        <div class="hadith-summary">عن عبد الله بن عمرو رضي الله عنهما: أربع خصال من كن فيه كان منافقاً خالصاً؛ الكذب في الحديث، الخيانة، الغدر، والفجور عند الخصومة.</div>
+        <div class="hadith-source">(متفق عليه)</div>
     </div>
 
     <div class="hadith-card">
-        <div class="hadith-number-title">97. حديث المسلم من سلم المسلمون من لسانه ويده</div>
-        <div class="hadith-text">عن عبد الله بن عمرو رضي الله عنهما، عن النبي صلى الله عليه وسلم قال: «المُسْلِمُ مَنْ سَلِمَ المُسْلِمُونَ مِنْ لِسَانِهِ وَيَدِهِ، وَالمُهَاجِرُ مَنْ هَجَرَ مَا نَهَى اللَّهُ عَنْهُ»</div>
-        <div class="hadith-source">(رواه البخاري ومسلم)</div>
+        <div class="hadith-number-title">107. حقيقة المسلم والمهاجر</div>
+        <div class="hadith-summary">عن عبد الله بن عمرو رضي الله عنهما: المسلم الحقيقي من سلم المسلمون من لسانه ويده، والمهاجر من هجر ما نهى الله عنه.</div>
+        <div class="hadith-source">(متفق عليه)</div>
     </div>
 
     <div class="hadith-card">
-        <div class="hadith-number-title">98. حديث لا تحقرن من المعروف شيئاً</div>
-        <div class="hadith-text">عن أبي ذر رضي الله عنه قال: قال لي النبي صلى الله عليه وسلم: «لَا تَحْقِرَنَّ مِنَ المَعْرُوفِ شَيْئًا، وَلَوْ أَنْ تَلْقَى أَخَاكَ بِوَجْهٍ طَلْقٍ»</div>
+        <div class="hadith-number-title">108. طلاقة الوجه وإسداء المعروف</div>
+        <div class="hadith-summary">عن أبي ذر رضي الله عنه: التوصية بعدم تحقير أي عمل من أعمال البر والمعروف مهما صغر حجمه.</div>
         <div class="hadith-source">(رواه مسلم)</div>
     </div>
 
     <div class="hadith-card">
-        <div class="hadith-number-title">99. حديث إماطة الأذى عن الطريق صدقة</div>
-        <div class="hadith-text">عن أبي هريرة رضي الله عنه قال: قال رسول الله صلى الله عليه وسلم: «... وَتُمِيطُ الأَذَى عَنِ الطَّرِيقِ صَدَقَةٌ»</div>
-        <div class="hadith-source">(رواه البخاري ومسلم)</div>
+        <div class="hadith-number-title">109. إماطة الأذى عن الطريق</div>
+        <div class="hadith-summary">عن أبي هريرة رضي الله عنه: إزالة العوائق والأذى عن طريق الناس وطرقاتهم يُعد من الصدقات وأسباب المغفرة.</div>
+        <div class="hadith-source">(متفق عليه)</div>
     </div>
 
     <div class="hadith-card">
-        <div class="hadith-number-title">100. حديث من كان يؤمن بالله واليوم الآخر فليقل خيراً أو ليصمت</div>
-        <div class="hadith-text">عن أبي هريرة رضي الله عنه، عن رسول الله صلى الله عليه وسلم قال: «مَنْ كَانَ يُؤْمِنُ بِاللَّهِ وَاليَوْمِ الآخِرِ فَلْيَقُلْ خَيْرًا أَوْ لِيَصْمُتْ، وَمَنْ كَانَ يُؤْمِنُ بِاللَّهِ وَاليَوْمِ الآخِرِ فَلْيُكْرِمْ جَارَهُ...»</div>
-        <div class="hadith-source">(رواه البخاري ومسلم)</div>
+        <div class="hadith-number-title">110. القول الطيب أو الصمت</div>
+        <div class="hadith-summary">عن أبي هريرة رضي الله عنه: ربط الإيمان بالله واليوم الآخر بالتكلم بالخير والقول الحسن أو التزام الصمت.</div>
+        <div class="hadith-source">(متفق عليه)</div>
     </div>
 
     <!-- الباب السادس -->
-    <div class="chapter-header">📌 الباب السادس: حفظ اللسان وآفات الجوارح (101 - 120)</div>
+    <div class="chapter-header">📌 الباب السادس: الآفات وحفظ اللسان والجوارح (111 - 140)</div>
 
     <div class="hadith-card">
-        <div class="hadith-number-title">101. حديث من يضمن لي ما بين لحييه وما بين رجليه أضمن له الجنة</div>
-        <div class="hadith-text">عن سهل بن سعد الساعدي رضي الله عنه، عن رسول الله صلى الله عليه وسلم قال: «مَنْ يَضْمَنْ لِي مَا بَيْنَ لَحْيَيْهِ وَمَا بَيْنَ رِجْلَيْهِ أَضْمَنْ لَهُ الجَنَّةَ»</div>
+        <div class="hadith-number-title">111. حفظ اللسان والفرج</div>
+        <div class="hadith-summary">عن سهل بن سعد رضي الله عنه: من يضمن للنبي صلى الله عليه وسلم حفظ ما بين لحييه (اللسان) وما بين رجليه (الفرج) يضمن له الجنة.</div>
         <div class="hadith-source">(رواه البخاري)</div>
     </div>
 
     <div class="hadith-card">
-        <div class="hadith-number-title">102. حديث وهل يكب الناس في النار إلا حصائد ألسنتهم</div>
-        <div class="hadith-text">عن معاذ بن جبل رضي الله عنه، في حديثه الطويل، قال له النبي صلى الله عليه وسلم: «أَلَا أُخْبِرُكَ بِمَلَاكِ ذَلِكَ كُلِّهِ؟» قُلْتُ: بَلَى يَا نَبِيَّ اللَّهِ، فَأَخَذَ بِلِسَانِهِ قَالَ: «كُفَّ عَلَيْكَ هَذَا»، قُلْتُ: وَإِنَّا لَمُؤَاخَذُونَ بِمَا نَتَكَلَّمُ بِهِ؟ قَالَ: «ثَكِلَتْكَ أُمُّكَ يَا مُعَاذُ، وَهَلْ يَكُبُّ النَّاسَ فِي النَّارِ عَلَى وُجُوهِهِمْ إِلَّا حَصَائِدُ أَلْسِنَتِهِمْ؟»</div>
+        <div class="hadith-number-title">112. خطورة حصائد الألسنة</div>
+        <div class="hadith-summary">عن معاذ بن جبل رضي الله عنه: تنبيه النبي صلى الله عليه وسلم إلى أن أكثر ما يكب الناس في النار على وجوههم هي حصائد ألسنتهم.</div>
         <div class="hadith-source">(رواه الترمذي)</div>
     </div>
 
     <div class="hadith-card">
-        <div class="hadith-number-title">103. حديث الكلمة من رضوان الله والكلمة من سخط الله</div>
-        <div class="hadith-text">عن أبي هريرة رضي الله عنه، عن النبي صلى الله عليه وسلم قال: «إِنَّ العَبْدَ لَيَتَكَلَّمُ بِالكَلِمَةِ مِنْ رِضْوَانِ اللَّهِ لَا يُلْقِي لَهَا بَالًا يَرْفَعُهُ اللَّهُ بِهَا دَرَجَاتٍ، وَإِنَّ العَبْدَ لَيَتَكَلَّمُ بِالكَلِمَةِ مِنْ سَخَطِ اللَّهِ لَا يُلْقِي لَهَا بَالًا يَهْوِي بِهَا فِي جَهَنَّمَ»</div>
+        <div class="hadith-number-title">113. أثر الكلمة العظيمة</div>
+        <div class="hadith-summary">عن أبي هريرة رضي الله عنه: إن العبد ليتكلم بالكلمة من رضوان الله يرفعه الله بها درجات، أو بالكلمة من سخطه تهوي به في جهنم.</div>
         <div class="hadith-source">(رواه البخاري)</div>
     </div>
 
     <div class="hadith-card">
-        <div class="hadith-number-title">104. حديث إن العبد ليتكلم بالكلمة يزل بها في النار</div>
-        <div class="hadith-text">عن أبي هريرة رضي الله عنه، أنه سمع رسول الله صلى الله عليه وسلم يقول: «إِنَّ العَبْدَ لَيَتَكَلَّمُ بِالكَلِمَةِ مَا يَتَبَيَّنُ فِيهَا، يَزِلُّ بِهَا فِي النَّارِ أَبْعَدَ مِمَّا بَيْنَ المَشْرِقِ وَالمَغْرِبِ»</div>
-        <div class="hadith-source">(رواه البخاري ومسلم)</div>
+        <div class="hadith-number-title">114. التريث في القول</div>
+        <div class="hadith-summary">عن أبي هريرة رضي الله عنه: الكلمة يطلقها الإنسان دون تثبت قد تزِلّ بها قدمه في النار أبعد مما بين المشرق والمغرب.</div>
+        <div class="hadith-source">(متفق عليه)</div>
     </div>
 
     <div class="hadith-card">
-        <div class="hadith-number-title">105. حديث كفى بالمرء إثماً أن يحدث بكل ما سمع</div>
-        <div class="hadith-text">عن أبي هريرة رضي الله عنه، أن النبي صلى الله عليه وسلم قال: «كَفَى بِالمَرْءِ كَذِبًا -وفي رواية: إِثْمًا- أَنْ يُحَدِّثَ بِكُلِّ مَا سَمِعَ»</div>
+        <div class="hadith-number-title">115. النهي عن التحديث بكل ما يُسمع</div>
+        <div class="hadith-summary">عن أبي هريرة رضي الله عنه: كفى بالمرء إثماً وكذباً أن ينقل ويحدث بكل ما سمعه دون تثبت وتبين.</div>
         <div class="hadith-source">(رواه مسلم)</div>
     </div>
 
     <div class="hadith-card">
-        <div class="hadith-number-title">106. حديث المسلم أخو المسلم لا يظلمه ولا يحقره</div>
-        <div class="hadith-text">عن أبي هريرة رضي الله عنه قال: قال رسول الله صلى الله عليه وسلم: «المُسْلِمُ أَخُو المُسْلِمِ، لَا يَظْلِمُهُ وَلَا يَخْذُلُهُ وَلَا يَحْقِرُهُ... بِحَسْبِ امْرِئٍ مِنَ الشَّرِّ أَنْ يَحْقِرَ أَخَاهُ المُسْلِمَ، كُلُّ المُسْلِمِ عَلَى المُسْلِمِ حَرَامٌ: دَمُهُ، وَمَالُهُ، وَعِرْضُهُ»</div>
+        <div class="hadith-number-title">116. أُخُوّة المسلم وحرمة دمه وماله</div>
+        <div class="hadith-summary">عن أبي هريرة رضي الله عنه: المسلم أخو المسلم لا يظلمه ولا يحقره ولا يخذه، وكل المسلم على المسلم حرام دمه وماله وعرضه.</div>
         <div class="hadith-source">(رواه مسلم)</div>
     </div>
 
     <div class="hadith-card">
-        <div class="hadith-number-title">107. حديث الغيبة ذكرك أخاك بما يكره</div>
-        <div class="hadith-text">عن أبي هريرة رضي الله عنه، أن رسول الله صلى الله عليه وسلم قال: «أَتَدْرُونَ مَا الغِيبَةُ؟» قَالُوا: اللَّهُ وَرَسُولُهُ أَعْلَمُ، قَالَ: «ذِكْرُكَ أَخَاكَ بِمَا يَكْرَهُ»، قِيلَ: أَفَرَأَيْتَ إِنْ كَانَ فِي أَخِي مَا أَقُولُ؟ قَالَ: «إِنْ كَانَ فِيهِ مَا تَقُولُ فَقَدِ اغْتَبْتَهُ، وَإِنْ لَمْ يَكُنْ فِيهِ فَقَدْ بَهَتَّهُ»</div>
+        <div class="hadith-number-title">117. تعريف الغيبة والبهتان</div>
+        <div class="hadith-summary">عن أبي هريرة رضي الله عنه: الغيبة هي ذكر الأخ بما يكره في غيابه، فإن كان فيه ما تقول فقد اغتبته وإن لم يكن فيه فقد بهتَّه.</div>
         <div class="hadith-source">(رواه مسلم)</div>
     </div>
 
     <div class="hadith-card">
-        <div class="hadith-number-title">108. حديث لا يدخل الجنة نمام</div>
-        <div class="hadith-text">عن حذيفة بن اليمان رضي الله عنه قال: سمعت النبي صلى الله عليه وسلم يقول: «لَا يَدْخُلُ الجَنَّةَ قَتَّاتٌ -أي: نَمَّامٌ-»</div>
-        <div class="hadith-source">(رواه البخاري ومسلم)</div>
+        <div class="hadith-number-title">118. تحريم النميمة</div>
+        <div class="hadith-summary">عن حذيفة بن اليمان رضي الله عنه: الوعيد الشديد بعدم دخول الجنة لمن يسعى بالنميمة وينقل الكلام للإفساد بين الناس.</div>
+        <div class="hadith-source">(متفق عليه)</div>
     </div>
 
     <div class="hadith-card">
-        <div class="hadith-number-title">109. حديث عذاب القبر في الغيبة والبول</div>
-        <div class="hadith-text">عن ابن عباس رضي الله عنهما قال: مَرَّ النَّبِيُّ صَلَّى اللَّهُ عَلَيْهِ وَسَلَّمَ بِقَبْرَيْنِ، فَقَالَ: «إِنَّهُمَا لَيُعَذَّبَانِ، وَمَا يُعَذَّبَانِ فِي كَبِيرٍ... أَمَّا أَحَدُهُمَا فَكَانَ لَا يَسْتَتِرُ مِنَ البَوْلِ، وَأَمَّا الآخَرُ فَكَانَ يَمْشِي بِالنَّمِيمَةِ»</div>
-        <div class="hadith-source">(رواه البخاري ومسلم)</div>
+        <div class="hadith-number-title">119. عذاب القبر في النميمة والبول</div>
+        <div class="hadith-summary">عن ابن عباس رضي الله عنهما: مر النبي بقبرين يُعذبان؛ أحدهما كان لا يستتر من بوله، والآخر كان يمشي بين الناس بالنميمة.</div>
+        <div class="hadith-source">(متفق عليه)</div>
     </div>
 
     <div class="hadith-card">
-        <div class="hadith-number-title">110. حديث إياكم والظن فإن الظن أكذب الحديث</div>
-        <div class="hadith-text">عن أبي هريرة رضي الله عنه، أن رسول الله صلى الله عليه وسلم قال: «إِيَّاكُمْ وَالظَّنَّ، فَإِنَّ الظَّنَّ أَكْذَبُ الحَدِيثِ، وَلَا تَجَسَّسُوا، وَلَا تَنَاجَشُوا، وَلَا تَبَاغَضُوا، وَلَا تَدَابَرُوا، وَكُونُوا عِبَادَ اللَّهِ إِخْوَانًا»</div>
-        <div class="hadith-source">(رواه البخاري ومسلم)</div>
+        <div class="hadith-number-title">120. سوء الظن والتجسس</div>
+        <div class="hadith-summary">عن أبي هريرة رضي الله عنه: النهي عن سوء الظن والتجسس والتحسس والتناجش والتباغض، والأمر بالأخوة الإيمانية.</div>
+        <div class="hadith-source">(متفق عليه)</div>
     </div>
 
     <div class="hadith-card">
-        <div class="hadith-number-title">111. حديث النهي عن النجوى بين اثنين دون الثالث</div>
-        <div class="hadith-text">عن عبد الله بن مسعود رضي الله عنه قال: قال النبي صلى الله عليه وسلم: «إِذَا كُنْتُمْ ثَلَاثَةً فَلَا يَتَنَاجَى اثْنَانِ دُونَ الصَّاحِبِ، فَإِنَّ ذَلِكَ يُحْزِنُهُ»</div>
-        <div class="hadith-source">(رواه البخاري ومسلم)</div>
+        <div class="hadith-number-title">121. النهي عن تناجي اثنين دون الثالث</div>
+        <div class="hadith-summary">عن عبد الله بن مسعود رضي الله عنه: إذا كان القوم ثلاثة فلا يتناجى اثنين دون الثالث لأن ذلك يتسبب في إحزانه.</div>
+        <div class="hadith-source">(متفق عليه)</div>
     </div>
 
     <div class="hadith-card">
-        <div class="hadith-number-title">112. حديث السباب والمقاتلة بين المسلمين</div>
-        <div class="hadith-text">عن عبد الله بن مسعود رضي الله عنه قال: قال رسول الله صلى الله عليه وسلم: «سِبَابُ المُسْلِمِ فُسُوقٌ، وَقِتَالُهُ كُفْرٌ»</div>
-        <div class="hadith-source">(رواه البخاري ومسلم)</div>
+        <div class="hadith-number-title">122. سباب المسلم وقاله</div>
+        <div class="hadith-summary">عن عبد الله بن مسعود رضي الله عنه: بيان أن سباب المسلم والشتم والطعن في عرضه فسوق، وقتاله وقتاله كفر.</div>
+        <div class="hadith-source">(متفق عليه)</div>
     </div>
 
     <div class="hadith-card">
-        <div class="hadith-number-title">113. حديث المستبان ما قالا فعلى البادئ منهما</div>
-        <div class="hadith-text">عن أبي هريرة رضي الله عنه، أن رسول الله صلى الله عليه وسلم قال: «المُسْتَبَّانِ مَا قَالَا فَعَلَى البَادِئِ، مَا لَمْ يَعْتَدِ المَظْلُومُ»</div>
+        <div class="hadith-number-title">123. إثم المستبين على البادئ</div>
+        <div class="hadith-summary">عن أبي هريرة رضي الله عنه: ما قال المستبان من السب والشتم فإثمه على البادئ منهما ما لم يعتدِ المظلوم.</div>
         <div class="hadith-source">(رواه مسلم)</div>
     </div>
 
     <div class="hadith-card">
-        <div class="hadith-number-title">114. حديث ليس المؤمن بالطعان ولا اللعان</div>
-        <div class="hadith-text">عن عبد الله بن مسعود رضي الله عنه قال: قال رسول الله صلى الله عليه وسلم: «لَيْسَ المُؤْمِنُ بِالطَّعَّانِ وَلَا اللَّعَّانِ وَلَا الفَاحِشِ وَلَا البَذِيءِ»</div>
+        <div class="hadith-number-title">124. صفات المؤمن في لسانه</div>
+        <div class="hadith-summary">عن عبد الله بن مسعود رضي الله عنه: ليس المؤمن بالطعان ولا اللعان ولا الفاحش البذيء في كلامه.</div>
         <div class="hadith-source">(رواه الترمذي)</div>
     </div>
 
     <div class="hadith-card">
-        <div class="hadith-number-title">115. حديث لعن المؤمن كقتله</div>
-        <div class="hadith-text">عن ثابت بن الضحاك رضي الله عنه، عن النبي صلى الله عليه وسلم قال: «... وَلَعْنُ المُؤْمِنِ كَقَتْلِهِ»</div>
-        <div class="hadith-source">(رواه البخاري ومسلم)</div>
+        <div class="hadith-number-title">125. خطورة لعن المؤمن</div>
+        <div class="hadith-summary">عن ثابت بن الضحاك رضي الله عنه: إن لعن المسلم والمؤمن وإخراجه من رحمة الله كقتله في الإثم والخطورة.</div>
+        <div class="hadith-source">(متفق عليه)</div>
     </div>
 
     <div class="hadith-card">
-        <div class="hadith-number-title">116. حديث النهي عن إيذاء المسلمين وتتبع عوراتهم</div>
-        <div class="hadith-text">عن ابن عمر رضي الله عنهما قال: صَعِدَ رَسُولُ اللَّهِ صَلَّى اللَّهُ عَلَيْهِ وَسَلَّمَ المِنْبَرَ فَنَادَى بِصَوْتٍ خَفِيٍّ: «يَا مَعْشَرَ مَنْ أَسْلَمَ بِلِسَانِهِ وَلَمْ يُفْضِ الإِيمَانُ إِلَى قَلْبِهِ، لَا تُؤْذُوا المُسْلِمِينَ، وَلَا تُعَيِّرُوهُمْ، وَلَا تَتَّبِعُوا عَوْرَاتِهِمْ...»</div>
+        <div class="hadith-number-title">126. تتبع العورات والتعيير</div>
+        <div class="hadith-summary">عن ابن عمر رضي الله عنهما: النهي عن إيذاء المسلمين وتعييرهم أو تتبع عوراتهم، ومن تتبع عورة أخيه تتبع الله صورته.</div>
         <div class="hadith-source">(رواه الترمذي)</div>
     </div>
 
     <div class="hadith-card">
-        <div class="hadith-number-title">117. حديث من ستر مسلماً ستره الله في الدنيا والآخرة</div>
-        <div class="hadith-text">عن أبي هريرة رضي الله عنه قال: قال رسول الله صلى الله عليه وسلم: «... وَمَنْ سَتَرَ مُسْلِمًا سَتَرَهُ اللَّهُ فِي الدُّنْيَا وَالآخِرَةِ، وَاللَّهُ فِي عَوْنِ العَبْدِ مَا كَانَ العَبْدُ فِي عَوْنِ أَخِيهِ»</div>
+        <div class="hadith-number-title">127. فضل ستر المسلم</div>
+        <div class="hadith-summary">عن أبي هريرة رضي الله عنه: من ستر مسلماً في الدنيا ستره الله في الدنيا والآخرة، والله في عون العبد ما كان العبد في عون أخيه.</div>
         <div class="hadith-source">(رواه مسلم)</div>
     </div>
 
     <div class="hadith-card">
-        <div class="hadith-number-title">118. حديث العين زناها النظر والإذن زناها الاستماع</div>
-        <div class="hadith-text">عن أبي هريرة رضي الله عنه، عن النبي صلى الله عليه وسلم قال: «كُتِبَ عَلَى ابْنِ آدَمَ نَصِيبُهُ مِنَ الزِّنَا، مُدْرِكٌ ذَلِكَ لَا مَحَالَةَ: فَالعَيْنَانِ زِنَاهُمَا النَّظَرُ، وَالأُذُنَانِ زِنَاهُمَا الاسْتِمَاعُ، وَاللِّسَانُ زِنَاهُ الكَلَامُ... وَالقَلْبُ يَهْوَى وَيَتَمَنَّى، وَاليَدَانِ زِنَاهُمَا البَطْشُ، وَالرِّجْلَانِ زِنَاهُمَا الخُطَى»</div>
-        <div class="hadith-source">(رواه البخاري ومسلم)</div>
+        <div class="hadith-number-title">128. زنا الجوارح</div>
+        <div class="hadith-summary">عن أبي هريرة رضي الله عنه: كتب على ابن آدم نصيبه من الزنا؛ فالعينان زناهما النظر، والأذنان الاستماع، واللسان الكلام.</div>
+        <div class="hadith-source">(متفق عليه)</div>
     </div>
 
     <div class="hadith-card">
-        <div class="hadith-number-title">119. حديث حفظ الفرج والبصر</div>
-        <div class="hadith-text">عن جرير بن عبد الله رضي الله عنه قال: سَأَلْتُ رَسُولَ اللهِ صَلَّى اللهُ عَلَيْهِ وَسَلَّمَ عَنْ نَظَرِ الفُجَاءَةِ؟ فَأَمَرَنِي أَنْ أَصْرِفَ بَصَرِي</div>
+        <div class="hadith-number-title">129. أدب النظر الفجاءة</div>
+        <div class="hadith-summary">عن جرير بن عبد الله رضي الله عنه: أمر النبي صلى الله عليه وسلم بصرف البصر فوراً عند نظر الفجاءة غير المقصود.</div>
         <div class="hadith-source">(رواه مسلم)</div>
     </div>
 
     <div class="hadith-card">
-        <div class="hadith-number-title">120. حديث تجنب الشبهات لاستبراء الدين والعرض</div>
-        <div class="hadith-text">عن النعمان بن بشير رضي الله عنهما قال: سمعت رسول الله صلى الله عليه وسلم يقول: «إِنَّ الحَلَالَ بَيِّنٌ، وَإِنَّ الحَرَامَ بَيِّنٌ، وَبَيْنَهُمَا أُمُورٌ مُشْتَبِهَاتٌ لَا يَعْلَمُهُنَّ كَثِيرٌ مِنَ النَّاسِ، فَمَنِ اتَّقَى الشُّبُهَاتِ اسْتَبْرَأَ لِدِينِهِ وَعِرْضِهِ...»</div>
-        <div class="hadith-source">(رواه البخاري ومسلم)</div>
+        <div class="hadith-number-title">130. الحلال بين والحرام بين</div>
+        <div class="hadith-summary">عن النعمان بن بشير رضي الله عنهما: بيان الحلال والحرام والمشتبهات، وأن من اتقى الشبهات فقد استبرأ لدينه وعرضه.</div>
+        <div class="hadith-source">(متفق عليه)</div>
     </div>
 
-</div>
-
-</body>
-</html>
-<!DOCTYPE html>
-<html lang="ar" dir="rtl">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>الموسوعة النبوية الشاملة - الجزء الثالث (121 - 180)</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Amiri:ital,wght@0,400;0,700;1,400;1,700&family=Cairo:wght@400;600;700;800;900&display=swap" rel="stylesheet">
-    <style>
-        @page { size: A4; margin: 12mm; }
-        :root {
-            --primary: #0f172a;
-            --primary-light: #1e293b;
-            --accent: #b4832c;
-            --bg-body: #f8fafc;
-            --card-bg: #ffffff;
-            --text-main: #0f172a;
-            --border-color: #cbd5e1;
-        }
-        * { box-sizing: border-box; margin: 0; padding: 0; }
-        body { font-family: 'Cairo', sans-serif; color: var(--text-main); background-color: #e2e8f0; line-height: 1.8; padding: 20px; }
-        .page-container { max-width: 1000px; margin: 0 auto; background: #ffffff; padding: 35px; border: 5px double var(--accent); border-radius: 12px; box-shadow: 0 10px 30px rgba(0,0,0,0.15); }
-        .main-header { text-align: center; border-bottom: 3px double var(--accent); padding-bottom: 20px; margin-bottom: 25px; }
-        .main-header h1 { font-size: 32px; color: var(--primary); font-weight: 900; margin-bottom: 8px; }
-        .main-header p { font-size: 18px; color: var(--accent); font-weight: 700; }
-        .credits-banner { background: linear-gradient(135deg, var(--primary), var(--primary-light)); color: #ffffff; text-align: center; padding: 18px; border-radius: 8px; margin-bottom: 30px; border-right: 6px solid var(--accent); }
-        .credits-banner .author { font-size: 22px; font-weight: 900; }
-        .credits-banner .role { font-size: 16px; color: #fde047; font-weight: 700; margin-top: 4px; }
-        .chapter-header { background: linear-gradient(90deg, var(--primary), var(--primary-light)); color: #ffffff; padding: 14px 22px; border-radius: 8px; font-size: 20px; font-weight: 900; margin: 35px 0 20px 0; border-right: 8px solid var(--accent); page-break-before: always; }
-        .chapter-header:first-of-type { page-break-before: auto; }
-        .hadith-card { background-color: var(--card-bg); border: 1px solid var(--border-color); border-right: 5px solid var(--accent); border-radius: 8px; padding: 20px 24px; margin-bottom: 20px; page-break-inside: avoid; }
-        .hadith-number-title { font-size: 18px; font-weight: 800; color: var(--primary); margin-bottom: 10px; border-bottom: 1px dashed var(--border-color); padding-bottom: 6px; }
-        .hadith-text { font-family: 'Amiri', serif; font-size: 21px; color: #020617; text-align: justify; line-height: 2.1; margin-bottom: 10px; font-weight: 700; }
-        .hadith-source { font-size: 14px; font-weight: 700; color: var(--accent); text-align: left; }
-        @media print {
-            body { background: none; padding: 0; }
-            .page-container { border: 3px solid var(--accent); box-shadow: none; padding: 15px; max-width: 100%; }
-            .chapter-header, .credits-banner { background: var(--primary) !important; color: #ffffff !important; -webkit-print-color-adjust: exact; }
-            .hadith-card { background-color: #ffffff !important; border: 1px solid #94a3b8; border-right: 5px solid var(--accent) !important; -webkit-print-color-adjust: exact; }
-        }
-    </style>
-</head>
-<body>
-
-<div class="page-container">
-
-    <div class="main-header">
-        <h1>الموسوعة النبوية الشاملة</h1>
-        <p>الجزء الثالث: الأحاديث الشريفة من (121) إلى (180)</p>
+    <div class="hadith-card">
+        <div class="hadith-number-title">131. فضل بر الأم والوالدين</div>
+        <div class="hadith-summary">عن أبي هريرة رضي الله عنه: جعل النبي صلى الله عليه وسلم الأم أحق الناس بحسن الصحابة ثلاث مرات ثم الأب.</div>
+        <div class="hadith-source">(متفق عليه)</div>
     </div>
 
-    <div class="credits-banner">
-        <div class="author">إعداد / مؤمن هشام القصاص</div>
-        <div class="role">أمين اتحاد مدارس سيدي سالم</div>
+    <div class="hadith-card">
+        <div class="hadith-number-title">132. تقديم بر الوالدين على الجهاد</div>
+        <div class="hadith-summary">عن عبد الله بن عمرو رضي الله عنهما: إرشاد من استأذن في الجهاد وكان والداه حيين بأن يجاهد في برهما والعناية بهما.</div>
+        <div class="hadith-source">(متفق عليه)</div>
     </div>
 
+    <div class="hadith-card">
+        <div class="hadith-number-title">133. خسران من أدرك الكبر ولم يبر والده</div>
+        <div class="hadith-summary">عن أبي هريرة رضي الله عنه: رغم أنف من أدرك ألم كبر والديه أو أحدهما ثم لم يتسبب برهما في دخوله الجنة.</div>
+        <div class="hadith-source">(رواه مسلم)</div>
+    </div>
+
+    <div class="hadith-card">
+        <div class="hadith-number-title">134. صلة الأم غير المسلمة</div>
+        <div class="hadith-summary">عن أسماء بنت أبي بكر رضي الله عنهما: إذن النبي صلى الله عليه وسلم بصلة الأم المشركة والإحسان إليها والتودد لها.</div>
+        <div class="hadith-source">(متفق عليه)</div>
+    </div>
+
+    <div class="hadith-card">
+        <div class="hadith-number-title">135. صلة أهل ود الأب</div>
+        <div class="hadith-summary">عن عبد الله بن عمر رضي الله عنهما: إن من أبر البر وأفضله أن يصل الرجل أصدقاء وأهل ود أبيه بعد موته.</div>
+        <div class="hadith-source">(رواه مسلم)</div>
+    </div>
+
+    <div class="hadith-card">
+        <div class="hadith-number-title">136. صلة الرحم والرزق</div>
+        <div class="hadith-summary">عن أنس بن مالك رضي الله عنه: من أحب أن يُبسط له في رزقه ويُنْسأ له في أثره وطول عمره فليصل أرحامه.</div>
+        <div class="hadith-source">(متفق عليه)</div>
+    </div>
+
+    <div class="hadith-card">
+        <div class="hadith-number-title">137. الرحم معلقة بالعرش</div>
+        <div class="hadith-summary">عن عائشة رضي الله عنها: الرحم معلقة بالعرش تنادي وتستعيذ؛ من وصلها وصله الله ومن قطعا قطعه الله.</div>
+        <div class="hadith-source">(متفق عليه)</div>
+    </div>
+
+    <div class="hadith-card">
+        <div class="hadith-number-title">138. حقيقة الواصل للرحم</div>
+        <div class="hadith-summary">عن عبد الله بن عمرو رضي الله عنهما: ليس الواصل بالمكافئ الذي يرد الجميل فقط، بل من يصل أرحامه إذا قُطعت.</div>
+        <div class="hadith-source">(رواه البخاري)</div>
+    </div>
+
+    <div class="hadith-card">
+        <div class="hadith-number-title">139. الصبر على أذى الأقارب</div>
+        <div class="hadith-summary">عن أبي هريرة رضي الله عنه: الحث على استمرار صلة الأقارب والإحسان إليهم والصبر عليهم وإن أساءوا وقطعوا.</div>
+        <div class="hadith-source">(رواه مسلم)</div>
+    </div>
+
+    <div class="hadith-card">
+        <div class="hadith-number-title">140. وعيد قاطع الرحم</div>
+        <div class="hadith-summary">عن جبير بن مطعم رضي الله عنه: التحذير الشديد والوعيد بعدم دخول الجنة لمن يقطع أرحامه وأقاربه.</div>
+        <div class="hadith-source">(متفق عليه)</div>
+    </div>
     <!-- الباب السابع -->
-    <div class="chapter-header">📌 الباب السابع: بر الوالدين وصلة الأرحام وحق الجار (121 - 140)</div>
+    <div class="chapter-header">📌 الباب السابع: حق الجار والأذكار والدعاء (141 - 160)</div>
 
     <div class="hadith-card">
-        <div class="hadith-number-title">121. حديث من أحق الناس بحسن صحابتي</div>
-        <div class="hadith-text">عن أبي هريرة رضي الله عنه قال: جَاءَ رَجُلٌ إِلَى رَسُولِ اللَّهِ صَلَّى اللَّهُ عَلَيْهِ وَسَلَّمَ فَقَالَ: يَا رَسُولَ اللَّهِ، مَنْ أَحَقُّ النَّاسِ بِحُسْنِ صَحَابَتِي؟ قَالَ: «أُمُّكَ» قَالَ: ثُمَّ مَنْ؟ قَالَ: «ثُمَّ أُمُّكَ» قَالَ: ثُمَّ مَنْ؟ قَالَ: «ثُمَّ أُمُّكَ» قَالَ: ثُمَّ مَنْ؟ قَالَ: «ثُمَّ أَبُوكَ»</div>
-        <div class="hadith-source">(رواه البخاري ومسلم)</div>
+        <div class="hadith-number-title">141. الوصية بالجار</div>
+        <div class="hadith-summary">عن عائشة وابن عمر رضي الله عنهم: ما زال جبريل يوصي النبي صلى الله عليه وسلم بالجار حتى ظن أنه سيورثه.</div>
+        <div class="hadith-source">(متفق عليه)</div>
     </div>
 
     <div class="hadith-card">
-        <div class="hadith-number-title">122. حديث فذكرهما فجاهد</div>
-        <div class="hadith-text">عن عبد الله بن عمرو رضي الله عنهما قال: جَاءَ رَجُلٌ إِلَى النَّبِيِّ صَلَّى اللَّهُ عَلَيْهِ وَسَلَّمَ يَسْتَأْذِنُهُ فِي الجِهَادِ فَقَالَ: «أَحَيٌّ وَالِدَاكَ؟» قَالَ: نَعَمْ، قَالَ: «فَفِيهِمَا فَجَاهِدْ»</div>
-        <div class="hadith-source">(رواه البخاري ومسلم)</div>
-    </div>
-
-    <div class="hadith-card">
-        <div class="hadith-number-title">123. حديث رغم أنفه من أدرك والديه ولم يدخل الجنة</div>
-        <div class="hadith-text">عن أبي هريرة رضي الله عنه، عن النبي صلى الله عليه وسلم قال: «رَغِمَ أَنْفُهُ، ثُمَّ رَغِمَ أَنْفُهُ، ثُمَّ رَغِمَ أَنْفُهُ»، قِيلَ: مَنْ يَا رَسُولَ اللَّهِ؟ قَالَ: «مَنْ أَدْرَكَ وَالِدَيْهِ عِنْدَ الكِبَرِ، أَحَدَهُمَا أَوْ كِلَيْهِمَا ثُمَّ لَمْ يَدْخُلِ الجَنَّةَ»</div>
-        <div class="hadith-source">(رواه مسلم)</div>
-    </div>
-
-    <div class="hadith-card">
-        <div class="hadith-number-title">124. حديث صلة أم المشرك</div>
-        <div class="hadith-text">عن أسماء بنت أبي بكر رضي الله عنهما قالت: قَدِمَتْ عَلَيَّ أُمِّي وَهِيَ مُشْرِكَةٌ فِي عَهْدِ رَسُولِ اللَّهِ صَلَّى اللَّهُ عَلَيْهِ وَسَلَّمَ، فَاسْتَفْتَيْتُ رَسُولَ اللَّهِ صَلَّى اللَّهُ عَلَيْهِ وَسَلَّمَ، قُلْتُ: إِنَّ أُمِّي قَدِمَتْ وَهِيَ رَاغِبَةٌ، أَفَأَصِلُ أُمِّي؟ قَالَ: «نَعَمْ، صِلِي أُمَّكِ»</div>
-        <div class="hadith-source">(رواه البخاري ومسلم)</div>
-    </div>
-
-    <div class="hadith-card">
-        <div class="hadith-number-title">125. حديث صلة أهل ود الأب</div>
-        <div class="hadith-text">عن عبد الله بن عمر رضي الله عنهما، أن رسول الله صلى الله عليه وسلم قال: «إِنَّ مِنْ أَبَرِّ البِرِّ صِلَةَ الرَّجُلِ أَهْلَ وُدِّ أَبِيهِ بَعْدَ أَنْ يُوَلِّيَ»</div>
-        <div class="hadith-source">(رواه مسلم)</div>
-    </div>
-
-    <div class="hadith-card">
-        <div class="hadith-number-title">126. حديث صلة الرحم تبسط الرزق وتنسأ في الأثر</div>
-        <div class="hadith-text">عن أنس بن مالك رضي الله عنه، أن رسول الله صلى الله عليه وسلم قال: «مَنْ أَحَبَّ أَنْ يُبْسَطَ لَهُ فِي رِزْقِهِ، وَيُنْسَأَ لَهُ فِي أَثَرِهِ، فَلْيَصِلْ رَحِمَهُ»</div>
-        <div class="hadith-source">(رواه البخاري ومسلم)</div>
-    </div>
-
-    <div class="hadith-card">
-        <div class="hadith-number-title">127. حديث الرحم معلقة بالعرش</div>
-        <div class="hadith-text">عن عائشة رضي الله عنها قالت: قال رسول الله صلى الله عليه وسلم: «الرَّحِمُ مُعَلَّقَةٌ بِالعَرْشِ تَقُولُ: مَنْ وَصَلَنِي وَصَلَهُ اللَّهُ، وَمَنْ قَطَعَنِي قَطَعَهُ اللَّهُ»</div>
-        <div class="hadith-source">(رواه البخاري ومسلم)</div>
-    </div>
-
-    <div class="hadith-card">
-        <div class="hadith-number-title">128. حديث ليس الواصل بالمكافئ</div>
-        <div class="hadith-text">عن عبد الله بن عمرو رضي الله عنهما، عن النبي صلى الله عليه وسلم قال: «لَيْسَ الوَاصِلُ بِالمُكَافِئِ، وَلَكِنِ الوَاصِلُ الَّذِي إِذَا قُطِعَتْ رَحِمُهُ وَصَلَهَا»</div>
+        <div class="hadith-number-title">142. أذية الجار تنفي كمال الإيمان</div>
+        <div class="hadith-summary">عن أبي شريح رضي الله عنه: والله لا يؤمن من لا يأمن جاره بوائقه وشروره.</div>
         <div class="hadith-source">(رواه البخاري)</div>
     </div>
 
     <div class="hadith-card">
-        <div class="hadith-number-title">129. حديث الصبر على قطيعة الأقارب والإحسان إليهم</div>
-        <div class="hadith-text">عن أبي هريرة رضي الله عنه، أن رجلاً قال: يا رسول الله، إن لي قرابة أصلهم ويقطعونني، وأحسن إليهم ويسيئون إلي... فقال: «لَئِنْ كُنْتَ كَمَا قُلْتَ، فَكَأَنَّمَا تُسِفُّهُمُ المَلَّ، وَلَا يَزَالُ مَعَكَ مِنَ اللَّهِ ظَهِيرٌ عَلَيْهِمْ مَا دُمْتَ عَلَى ذَلِكَ»</div>
-        <div class="hadith-source">(رواه مسلم)</div>
+        <div class="hadith-number-title">143. تهادي الجيران عدم الاستهانة بالإهداء</div>
+        <div class="hadith-summary">عن أبي هريرة رضي الله عنه: التوصية للنساء ألا تحقر جارة لجارتها هدية ولو كانت فرسن شاة.</div>
+        <div class="hadith-source">(متفق عليه)</div>
     </div>
 
     <div class="hadith-card">
-        <div class="hadith-number-title">130. حديث لا يدخل الجنة قاطع رحم</div>
-        <div class="hadith-text">عن جبير بن مطعم رضي الله عنه، أن رسول الله صلى الله عليه وسلم قال: «لَا يَدْخُلُ الجَنَّةَ قَاطِعٌ -يَعْنِي: قَاطِعَ رَحِمٍ-»</div>
-        <div class="hadith-source">(رواه البخاري ومسلم)</div>
-    </div>
-
-    <div class="hadith-card">
-        <div class="hadith-number-title">131. حديث الوصية بالجار حتى ظننت أنه سيورثه</div>
-        <div class="hadith-text">عن عائشة وابن عمر رضي الله عنهم قالا: قال رسول الله صلى الله عليه وسلم: «مَا زَالَ جِبْرِيلُ يُوصِينِي بِالجَارِ حَتَّى ظَنَنْتُ أَنَّهُ سَيُوَرِّثُهُ»</div>
-        <div class="hadith-source">(رواه البخاري ومسلم)</div>
-    </div>
-
-    <div class="hadith-card">
-        <div class="hadith-number-title">132. حديث والله لا يؤمن من لا يأمن جاره بوائقه</div>
-        <div class="hadith-text">عن أبي شريح رضي الله عنه، أن النبي صلى الله عليه وسلم قال: «وَاللَّهِ لَا يُؤْمِنُ، وَاللَّهِ لَا يُؤْمِنُ، وَاللَّهِ لَا يُؤْمِنُ!»، قِيلَ: وَمَنْ يَا رَسُولَ اللَّهِ؟ قَالَ: «الَّذِي لَا يَأْمَنُ جَارُهُ بَوَائِقَهُ»</div>
-        <div class="hadith-source">(رواه البخاري)</div>
-    </div>
-
-    <div class="hadith-card">
-        <div class="hadith-number-title">133. حديث عدم تحقير الجارة لهدية جارتها</div>
-        <div class="hadith-text">عن أبي هريرة رضي الله عنه قال: كَانَ النَّبِيُّ صَلَّى اللَّهُ عَلَيْهِ وَسَلَّمَ يَقُولُ: «يَا نِسَاءَ المُسْلِمَاتِ، لَا تَحْقِرَنَّ جَارَةٌ لِجَارَتِهَا وَلَوْ فِرْسِنَ شَاةٍ»</div>
-        <div class="hadith-source">(رواه البخاري ومسلم)</div>
-    </div>
-
-    <div class="hadith-card">
-        <div class="hadith-number-title">134. حديث خير الجيران عند الله خيرهم لجاره</div>
-        <div class="hadith-text">عن عبد الله بن عمرو رضي الله عنهما قال: قال رسول الله صلى الله عليه وسلم: «خَيْرُ الأَصْحَابِ عِنْدَ اللَّهِ خَيْرُهُمْ لِصَاحِبِهِ، وَخَيْرُ الجِيرَانِ عِنْدَ اللَّهِ خَيْرُهُمْ لِجَارِهِ»</div>
+        <div class="hadith-number-title">144. خير الجيران والأصحاب</div>
+        <div class="hadith-summary">عن عبد الله بن عمرو رضي الله عنهما: خير الأصحاب عند الله خيرهم لصاحبه، وخير الجيران خيرهم لجاره.</div>
         <div class="hadith-source">(رواه الترمذي)</div>
     </div>
 
     <div class="hadith-card">
-        <div class="hadith-number-title">135. حديث كافل اليتيم في الجنة</div>
-        <div class="hadith-text">عن سهل بن سعد رضي الله عنه قال: قال رسول الله صلى الله عليه وسلم: «أَنَا وَكَافِلُ اليَتِيمِ فِي الجَنَّةِ هَكَذَا»، وَأَشَارَ بِالسَّبَّابَةِ وَالوُسْطَى، وَفَرَّجَ بَيْنَهُمَا شَيْئًا</div>
+        <div class="hadith-number-title">145. كافل اليتيم في الجنة</div>
+        <div class="hadith-summary">عن سهل بن سعد رضي الله عنه: كافل اليتيم والقائم عليه في الجنة ملازم ومقارب للنبي صلى الله عليه وسلم.</div>
         <div class="hadith-source">(رواه البخاري)</div>
     </div>
 
     <div class="hadith-card">
-        <div class="hadith-number-title">136. حديث الساعي على الأرملة والمسكين</div>
-        <div class="hadith-text">عن أبي هريرة رضي الله عنه قال: قال النبي صلى الله عليه وسلم: «السَّاعِي عَلَى الأَرْمَلَةِ وَالمِسْكِينِ، كَالْمُجَاهِدِ فِي سَبِيلِ اللَّهِ، أَوْ القَائِمِ اللَّيْلَ الصَّائِمِ النَّهَارَ»</div>
-        <div class="hadith-source">(رواه البخاري ومسلم)</div>
+        <div class="hadith-number-title">146. الساعي على الأرملة والمسكين</div>
+        <div class="hadith-summary">عن أبي هريرة رضي الله عنه: الساعي على الأرملة والمسكين كالمجاهد في سبيل الله أو القائم الصائم.</div>
+        <div class="hadith-source">(متفق عليه)</div>
     </div>
 
     <div class="hadith-card">
-        <div class="hadith-number-title">137. حديث من لا يرحم لا يرحم</div>
-        <div class="hadith-text">عن جرير بن عبد الله رضي الله عنه قال: قال رسول الله صلى الله عليه وسلم: «مَنْ لَا يَرْحَمِ النَّاسَ لَا يَرْحَمْهُ اللَّهُ»</div>
-        <div class="hadith-source">(رواه البخاري ومسلم)</div>
+        <div class="hadith-number-title">147. الجزاء من جنس العمل في الرحمة</div>
+        <div class="hadith-summary">عن جرير بن عبد الله رضي الله عنه: من لا يرحم الناس في الأرض لا يرحمه الله تعالى في السماء.</div>
+        <div class="hadith-source">(متفق عليه)</div>
     </div>
 
     <div class="hadith-card">
-        <div class="hadith-number-title">138. حديث الراحمون يرحمهم الرحمن</div>
-        <div class="hadith-text">عن عبد الله بن عمرو رضي الله عنهما قال: قال رسول الله صلى الله عليه وسلم: «الرَّاحِمُونَ يَرْحَمُهُمُ الرَّحْمَنُ، ارْحَمُوا مَنْ فِي الأَرْضِ يَرْحَمْكُمْ مَنْ فِي السَّمَاءِ»</div>
+        <div class="hadith-number-title">148. الرحمة بالخلق سبب لرحمة الخالق</div>
+        <div class="hadith-summary">عن عبد الله بن عمرو رضي الله عنهما: الراحمون يرحمهم الرحمن، ارحموا من في الأرض يرحمكم من في السماء.</div>
         <div class="hadith-source">(رواه أبو داود والترمذي)</div>
     </div>
 
     <div class="hadith-card">
-        <div class="hadith-number-title">139. حديث الرحمة بالحيوان وسقي الكلب</div>
-        <div class="hadith-text">عن أبي هريرة رضي الله عنه، أن رسول الله صلى الله عليه وسلم قال: «بَيْنَمَا رَجُلٌ يَمْشِي بِطَرِيقٍ اشْتَدَّ عَلَيْهِ العَطَشُ... فَنَزَلَ بِئْرًا فَشَرِبَ ثُمَّ خَرَجَ فَإِذَا كَلْبٌ يَلْهَثُ يَأْكُلُ الثَّرَى مِنَ العَطَشِ... فَسَقَى الكَلْبَ، فَشَكَرَ اللَّهُ لَهُ فَغَفَرَ لَهُ»</div>
-        <div class="hadith-source">(رواه البخاري ومسلم)</div>
+        <div class="hadith-number-title">149. الرحمة بالحيوان وطرق المغفرة</div>
+        <div class="hadith-summary">عن أبي هريرة رضي الله عنه: قصة الرجل الذي سقى كلباً كاد يقتله العطش فشكر الله له فغفر له.</div>
+        <div class="hadith-source">(متفق عليه)</div>
     </div>
 
     <div class="hadith-card">
-        <div class="hadith-number-title">140. حديث يسروا ولا تعسروا وبشروا ولا تنفروا</div>
-        <div class="hadith-text">عن أنس بن مالك رضي الله عنه، عن النبي صلى الله عليه وسلم قال: «يَسِّرُوا وَلَا تُعَسِّرُوا، وَبَشِّرُوا وَلَا تُنَفِّرُوا»</div>
-        <div class="hadith-source">(رواه البخاري ومسلم)</div>
+        <div class="hadith-number-title">150. التيسير والتبشير</div>
+        <div class="hadith-summary">عن أنس بن مالك رضي الله عنه: يسّروا ولا تعسّروا، وبشّروا ولا تنفّروا في أمور الدين والمعاملة.</div>
+        <div class="hadith-source">(متفق عليه)</div>
+    </div>
+
+    <div class="hadith-card">
+        <div class="hadith-number-title">151. كلمتان خفيفتان حبيبتان للرحمن</div>
+        <div class="hadith-summary">عن أبي هريرة رضي الله عنه: سبحان الله وبحمده سبحان الله العظيم ثقيلتان في الميزان خفيفتان على اللسان.</div>
+        <div class="hadith-source">(متفق عليه)</div>
+    </div>
+
+    <div class="hadith-card">
+        <div class="hadith-number-title">152. حط الخطايا بسبحان الله وبحمده</div>
+        <div class="hadith-summary">عن أبي هريرة رضي الله عنه: من قال سبحان الله وبحمده مائة مرة حُطت خطاياه وإن كانت مثل زبد البحر.</div>
+        <div class="hadith-source">(متفق عليه)</div>
+    </div>
+
+    <div class="hadith-card">
+        <div class="hadith-number-title">153. فضل كلمة التوحيد في اليوم</div>
+        <div class="hadith-summary">عن أبي أيوب الأنصاري رضي الله عنه: من قال لا إله إلا الله وحده لا شريك له عشر مرات كان كمن أعتق أربعة أنفس.</div>
+        <div class="hadith-source">(متفق عليه)</div>
+    </div>
+
+    <div class="hadith-card">
+        <div class="hadith-number-title">154. كنز من كنوز الجنة</div>
+        <div class="hadith-summary">عن أبي موسى الأشعري رضي الله عنه: قول "لا حول ولا قوة إلا بالله" كنز عظيم من كنوز الجنة.</div>
+        <div class="hadith-source">(متفق عليه)</div>
+    </div>
+
+    <div class="hadith-card">
+        <div class="hadith-number-title">155. مثل الذي يذكر ربه والذي لا يذكر</div>
+        <div class="hadith-summary">عن أبي موسى الأشعري رضي الله عنه: مثل الذي يذكر ربه والذي لا يذكر ربه مثل الحي والميت.</div>
+        <div class="hadith-source">(رواه البخاري)</div>
+    </div>
+
+    <div class="hadith-card">
+        <div class="hadith-number-title">156. أحب الكلام إلى الله</div>
+        <div class="hadith-summary">عن سمرة بن جندب رضي الله عنه: أحب الكلام إلى الله أربع؛ سبحان الله، والحمد لله، ولا إله إلا الله، والله أكبر.</div>
+        <div class="hadith-source">(رواه مسلم)</div>
+    </div>
+
+    <div class="hadith-card">
+        <div class="hadith-number-title">157. كسب ألف حسنة في اليوم</div>
+        <div class="hadith-summary">عن سعد بن أبي وقاص رضي الله عنه: التسبيح مائة مرة يكتب للعبد بها ألف حسنة أو يُحط عنه بها ألف خطيئة.</div>
+        <div class="hadith-source">(رواه مسلم)</div>
+    </div>
+
+    <div class="hadith-card">
+        <div class="hadith-number-title">158. سيد الاستغفار</div>
+        <div class="hadith-summary">عن شداد بن أوس رضي الله عنه: دعاء سيد الاستغفار والاعتراف بالنعمة والذنب وكونه سبباً لدخول الجنة.</div>
+        <div class="hadith-source">(رواه البخاري)</div>
+    </div>
+
+    <div class="hadith-card">
+        <div class="hadith-number-title">159. الدعاء هو العبادة</div>
+        <div class="hadith-summary">عن النعمان بن بشير رضي الله عنه: التنبيه إلى أن الدعاء والتضرع لله هو أصل العبادة ومخها.</div>
+        <div class="hadith-source">(رواه الترمذي)</div>
+    </div>
+
+    <div class="hadith-card">
+        <div class="hadith-number-title">160. كرامة الدعاء عند الله</div>
+        <div class="hadith-summary">عن أبي هريرة رضي الله عنه: ليس هناك شيء أكرم ولا أعظم على الله تبارك وتعالى من الدعاء.</div>
+        <div class="hadith-source">(رواه الترمذي)</div>
     </div>
 
     <!-- الباب الثامن -->
-    <div class="chapter-header">📌 الباب الثامن: الأذكار والأدعية المستجابة (141 - 160)</div>
+    <div class="chapter-header">📌 الباب الثامن: أوقات الدعاء، الكسب الحلال، والتجارة (161 - 180)</div>
 
     <div class="hadith-card">
-        <div class="hadith-number-title">141. حديث كلمتان خفيفتان على اللسان</div>
-        <div class="hadith-text">عن أبي هريرة رضي الله عنه قال: قال النبي صلى الله عليه وسلم: «كَلِمَتَانِ خَفِيفَتَانِ عَلَى اللِّسَانِ، ثَقِيلَتَانِ فِي المِيزَانِ، حَبِيبَتَانِ إِلَى الرَّحْمَنِ: سُبْحَانَ اللَّهِ وَبِحَمْدِهِ، سُبْحَانَ اللَّهِ العَظِيمِ»</div>
-        <div class="hadith-source">(رواه البخاري ومسلم)</div>
+        <div class="hadith-number-title">161. شرط إجابة الدعاء وعدم الاستعجال</div>
+        <div class="hadith-summary">عن أبي هريرة رضي الله عنه: يُستجاب لأحدكم ما لم يعجل فيقول دعوت فلم يُستجب لي.</div>
+        <div class="hadith-source">(متفق عليه)</div>
     </div>
 
     <div class="hadith-card">
-        <div class="hadith-number-title">142. حديث حط الخطايا بالتسبيح مائة مرة</div>
-        <div class="hadith-text">عن أبي هريرة رضي الله عنه، أن رسول الله صلى الله عليه وسلم قال: «مَنْ قَالَ: سُبْحَانَ اللَّهِ وَبِحَمْدِهِ فِي يَوْمٍ مَائَةَ مَرَّةٍ، حُطَّتْ خَطَايَاهُ وَإِنْ كَانَتْ مِثْلَ زَبَدِ البَحْرِ»</div>
-        <div class="hadith-source">(رواه البخاري ومسلم)</div>
-    </div>
-
-    <div class="hadith-card">
-        <div class="hadith-number-title">143. حديث كأنما أعتق أربعة أنفس بذكر التوحيد</div>
-        <div class="hadith-text">عن أبي أيوب الأنصاري رضي الله عنه، عن النبي صلى الله عليه وسلم قال: «مَنْ قَالَ: لَا إِلَهَ إِلَّا اللَّهُ وَحْدَهُ لَا شَرِيكَ لَهُ، لَهُ المُلْكُ وَلَهُ الحَمْدُ وَهُوَ عَلَى كُلِّ شَيْءٍ قَدِيرٌ، عَشْرَ مِرَارٍ كَانَ كَمَنْ أَعْتَقَ أَرْبَعَةَ أَنْفُسٍ مِنْ وَلَدِ إِسْمَاعِيلَ»</div>
-        <div class="hadith-source">(رواه البخاري ومسلم)</div>
-    </div>
-
-    <div class="hadith-card">
-        <div class="hadith-number-title">144. حديث لا حول ولا قوة إلا بالله كنز من كنز الجنة</div>
-        <div class="hadith-text">عن أبي موسى الأشعري رضي الله عنه قال: قَالَ لِي رَسُولُ اللَّهِ صَلَّى اللَّهُ عَلَيْهِ وَسَلَّمَ: «أَلَا أَدُلُّكَ عَلَى كَنْزٍ مِنْ كُنُوزِ الجَنَّةِ؟»، قُلْتُ: بَلَى يَا رَسُولَ اللَّهِ، قَالَ: «لَا حَوْلَ وَلَا قُوَّةَ إِلَّا بِاللَّهِ»</div>
-        <div class="hadith-source">(رواه البخاري ومسلم)</div>
-    </div>
-
-    <div class="hadith-card">
-        <div class="hadith-number-title">145. حديث مثل الذي يذكر ربه والذي لا يذكر ربه</div>
-        <div class="hadith-text">عن أبي موسى الأشعري رضي الله عنه قال: قال النبي صلى الله عليه وسلم: «مَثَلُ الَّذِي يَذْكُرُ رَبَّهُ وَالَّذِي لَا يَذْكُرُ رَبَّهُ، مَثَلُ الحَيِّ وَالمَيِّتِ»</div>
-        <div class="hadith-source">(رواه البخاري)</div>
-    </div>
-
-    <div class="hadith-card">
-        <div class="hadith-number-title">146. حديث أحب الكلام إلى الله أربع</div>
-        <div class="hadith-text">عن سمرة بن جندب رضي الله عنه قال: قال رسول الله صلى الله عليه وسلم: «أَحَبُّ الكَلَامِ إِلَى اللَّهِ أَرْبَعٌ: سُبْحَانَ اللَّهِ، وَالحَمْدُ لِلَّهِ، وَلَا إِلَهَ إِلَّا اللَّهُ، وَاللَّهُ أَكْبَرُ، لَا يَضُرُّكَ بِأَيِّهِنَّ بَدَأْتَ»</div>
-        <div class="hadith-source">(رواه مسلم)</div>
-    </div>
-
-    <div class="hadith-card">
-        <div class="hadith-number-title">147. حديث كسب ألف حسنة في اليوم</div>
-        <div class="hadith-text">عن سعد بن أبي وقاص رضي الله عنه قال: كُنَّا عِنْدَ رَسُولِ اللَّهِ صَلَّى اللَّهُ عَلَيْهِ وَسَلَّمَ فَقَالَ: «أَيَعْجِزُ أَحَدُكُمْ أَنْ يَكْسِبَ كُلَّ يَوْمٍ أَلْفَ حَسَنَةٍ؟»، فَسَأَلَهُ سَائِلٌ: كَيْفَ يَكْسِبُ أَلْفَ حَسَنَةٍ؟ قَالَ: «يُسَبِّحُ مَائَةَ تَسْبِيحَةٍ، فَيُكْتَبُ لَهُ أَلْفُ حَسَنَةٍ، أَوْ يُحَطُّ عَنْهُ أَلْفُ خَطِيئَةٍ»</div>
-        <div class="hadith-source">(رواه مسلم)</div>
-    </div>
-
-    <div class="hadith-card">
-        <div class="hadith-number-title">148. حديث سيد الاستغفار</div>
-        <div class="hadith-text">عن شداد بن أوس رضي الله عنه، عن النبي صلى الله عليه وسلم قال: «سَيِّدُ الاِسْتِغْفَارِ أَنْ تَقُولَ: اللَّهُمَّ أَنْتَ رَبِّي لَا إِلَهَ إِلَّا أَنْتَ، خَلَقْتَنِي وَأَنَا عَبْدُكَ، وَأَنَا عَلَى عَهْدِكَ وَوَعْدِكَ مَا اسْتَطَعْتُ، أَعُوذُ بِكَ مِنْ شَرِّ مَا صَنَعْتُ، أَبُوءُ لَكَ بِنِعْمَتِكَ عَلَيَّ، وَأَبُوءُ لَكَ بِذَنْبِي فَاغْفِرْ لِي فَإِنَّهُ لَا يَغْفِرُ الذُّنُوبَ إِلَّا أَنْتَ...»</div>
-        <div class="hadith-source">(رواه البخاري)</div>
-    </div>
-
-    <div class="hadith-card">
-        <div class="hadith-number-title">149. حديث الدعاء مخ العبادة</div>
-        <div class="hadith-text">عن أنس بن مالك رضي الله عنه، عن النبي صلى الله عليه وسلم قال: «الدُّعَاءُ مُخُّ العِبَادَةِ»</div>
-        <div class="hadith-source">(رواه الترمذي)</div>
-    </div>
-
-    <div class="hadith-card">
-        <div class="hadith-number-title">150. حديث ليس شيء أكرم على الله من الدعاء</div>
-        <div class="hadith-text">عن أبي هريرة رضي الله عنه قال: قال رسول الله صلى الله عليه وسلم: «لَيْسَ شَيْءٌ أَكْرَمَ عَلَى اللَّهِ تَعَالَى مِنَ الدُّعَاءِ»</div>
-        <div class="hadith-source">(رواه الترمذي)</div>
-    </div>
-
-    <div class="hadith-card">
-        <div class="hadith-number-title">151. حديث الاستجابة ما لم يعجل العبد</div>
-        <div class="hadith-text">عن أبي هريرة رضي الله عنه، أن رسول الله صلى الله عليه وسلم قال: «يُسْتَجَابُ لِأَحَدِكُمْ مَا لَمْ يَعْجَلْ، يَقُولُ: دَعَوْتُ فَلَمْ يُسْتَجَبْ لِي»</div>
-        <div class="hadith-source">(رواه البخاري ومسلم)</div>
-    </div>
-
-    <div class="hadith-card">
-        <div class="hadith-number-title">152. حديث الدعاء بين الأذان والإقامة لا يرد</div>
-        <div class="hadith-text">عن أنس بن مالك رضي الله عنه قال: قال رسول الله صلى الله عليه وسلم: «الدُّعَاءُ لَا يُرَدُّ بَيْنَ الأَذَانِ وَالإِقَامَةِ»</div>
+        <div class="hadith-number-title">162. الدعاء بين الأذان والإقامة</div>
+        <div class="hadith-summary">عن أنس بن مالك رضي الله عنه: الدعاء المرفوع بين الأذان والإقامة لا يُرد فاحرصوا عليه.</div>
         <div class="hadith-source">(رواه أبو داود والترمذي)</div>
     </div>
 
     <div class="hadith-card">
-        <div class="hadith-number-title">153. حديث أكثر دعاء النبي ربنا آتنا في الدنيا حسنة</div>
-        <div class="hadith-text">عن أنس بن مالك رضي الله عنه قال: كَانَ أَكْثَرُ دُعَاءِ النَّبِيِّ صَلَّى اللَّهُ عَلَيْهِ وَسَلَّمَ: «اللَّهُمَّ آتِنَا فِي الدُّنْيَا حَسَنَةً وَفِي الآخِرَةِ حَسَنَةً وَقِنَا عَذَابَ النَّارِ»</div>
-        <div class="hadith-source">(رواه البخاري ومسلم)</div>
+        <div class="hadith-number-title">163. أكثر دعاء النبي</div>
+        <div class="hadith-summary">عن أنس بن مالك رضي الله عنه: كان أكثر دعائه صلى الله عليه وسلم "ربنا آتنا في الدنيا حسنة وفي الآخرة حسنة وقنا عذاب النار".</div>
+        <div class="hadith-source">(متفق عليه)</div>
     </div>
 
     <div class="hadith-card">
-        <div class="hadith-number-title">154. حديث اللهم إني أسألك الهدى والتقى والعفاف والغنى</div>
-        <div class="hadith-text">عن عبد الله بن مسعود رضي الله عنه، أن النبي صلى الله عليه وسلم كَانَ يَقُولُ: «اللَّهُمَّ إِنِّي أَسْأَلُكَ الهُدَى وَالتُّقَى وَالعَفَافَ وَالغِنَى»</div>
+        <div class="hadith-number-title">164. سؤال الهدى والتقى والنسك</div>
+        <div class="hadith-summary">عن عبد الله بن مسعود رضي الله عنه: كان من دعاء النبي: "اللهم إني أسألك الهدى والتقى والعفاف والغنى".</div>
         <div class="hadith-source">(رواه مسلم)</div>
     </div>
 
     <div class="hadith-card">
-        <div class="hadith-number-title">155. حديث الدعاء الجامع للاستغفار والرحمة والرزق</div>
-        <div class="hadith-text">عن طارق بن أشيم رضي الله عنه قال: كَانَ الرَّجُلُ إِذَا أَسْلَمَ عَلَّمَهُ النَّبِيُّ صَلَّى اللَّهُ عَلَيْهِ وَسَلَّمَ الصَّلَاةَ، ثُمَّ أَمَرَهُ أَنْ يَدْعُوَ بِهَؤُلَاءِ الكَلِمَاتِ: «اللَّهُمَّ اغْفِرْ لِي، وَارْحَمْنِي، وَاهْدِنِي، وَعَافِنِي، وَارْزُقْنِي»</div>
+        <div class="hadith-number-title">165. الدعاء الجامع لخير الدنيا والآخرة</div>
+        <div class="hadith-summary">عن طارق بن أشيم رضي الله عنه: "اللهم اغفر لي وارحمني واهدني وعافني وارزقني" كافية لجمع خير الدارين.</div>
         <div class="hadith-source">(رواه مسلم)</div>
     </div>
 
     <div class="hadith-card">
-        <div class="hadith-number-title">156. حديث فضل الصلاة على النبي يوم الجمعة</div>
-        <div class="hadith-text">عن أوس بن أوس رضي الله عنه قال: قال رسول الله صلى الله عليه وسلم: «إِنَّ مِنْ أَفْضَلِ أَيَّامِكُمْ يَوْمَ الجُمُعَةِ... فَأَكْثِرُوا عَلَيَّ مِنَ الصَّلَاةِ فِيهِ، فَإِنَّ صَلَاتَكُمْ مَعْرُوضَةٌ عَلَيَّ»</div>
+        <div class="hadith-number-title">166. أجر الصلاة على النبي</div>
+        <div class="hadith-summary">عن عبد الله بن عمرو رضي الله عنهما: من صلى على النبي صلى الله عليه وسلم صلاة واحدة صلى الله عليه بها عشراً.</div>
+        <div class="hadith-source">(رواه مسلم)</div>
+    </div>
+
+    <div class="hadith-card">
+        <div class="hadith-number-title">167. رد السلام على من يسلم على النبي</div>
+        <div class="hadith-summary">عن أبي هريرة رضي الله عنه: ما من أحد يسلم على النبي إلا رد الله عليه روحه ليرد عليه السلام.</div>
         <div class="hadith-source">(رواه أبو داود)</div>
     </div>
 
     <div class="hadith-card">
-        <div class="hadith-number-title">157. حديث من صلى علي صلاة صلى الله عليه بها عشراً</div>
-        <div class="hadith-text">عن عبد الله بن عمرو رضي الله عنهما، أنه سمع النبي صلى الله عليه وسلم يقول: «مَنْ صَلَّى عَلَيَّ صَلَاةً صَلَّى اللَّهُ عَلَيْهِ بِهَا عَشْرًا»</div>
-        <div class="hadith-source">(رواه مسلم)</div>
-    </div>
-
-    <div class="hadith-card">
-        <div class="hadith-number-title">158. حديث رد السلام على من يسلم على النبي</div>
-        <div class="hadith-text">عن أبي هريرة رضي الله عنه، أن رسول الله صلى الله عليه وسلم قال: «مَا مِنْ أَحَدٍ يُسَلِّمُ عَلَيَّ إِلَّا رَدَّ اللَّهُ عَلَيَّ رُوحِي حَتَّى أَرُدَّ عَلَيْهِ السَّلَامَ»</div>
-        <div class="hadith-source">(رواه أبو داود)</div>
-    </div>
-
-    <div class="hadith-card">
-        <div class="hadith-number-title">159. حديث أولى الناس بالنبي يوم القيامة أكثرهم عليه صلاة</div>
-        <div class="hadith-text">عن عبد الله بن مسعود رضي الله عنه، أن رسول الله صلى الله عليه وسلم قال: «أَوْلَى النَّاسِ بِي يَوْمَ القِيَامَةِ أَكْثَرُهُمْ عَلَيَّ صَلَاةً»</div>
+        <div class="hadith-number-title">168. أقرب الناس للنبي يوم القيامة</div>
+        <div class="hadith-summary">عن عبد الله بن مسعود رضي الله عنه: أولى الناس وأقربهم للنبي يوم القيامة أكثرهم صلاة عليه.</div>
         <div class="hadith-source">(رواه الترمذي)</div>
     </div>
 
     <div class="hadith-card">
-        <div class="hadith-number-title">160. حديث أفضل وقت للدعاء في جوف الليل ودبر الصلوات</div>
-        <div class="hadith-text">عن أبي أمامة رضي الله عنه قال: قِيلَ يَا رَسُولَ اللَّهِ: أَيُّ الدُّعَاءِ أَسْمَعُ؟ قَالَ: «جَوْفُ اللَّيْلِ الآخِرُ، وَدُبُرُ الصَّلَوَاتِ المَكْتُوبَاتِ»</div>
+        <div class="hadith-number-title">169. أوقات إجابة الدعاء الخفية</div>
+        <div class="hadith-summary">عن أبي أمامة رضي الله عنه: أفضل وأرجى أوقات الدعاء هو جوف الليل الآخر ودبر الصلوات المكتوبات.</div>
         <div class="hadith-source">(رواه الترمذي)</div>
     </div>
 
-    <!-- الباب التاسع -->
-    <div class="chapter-header">📌 الباب التاسع: الأمانة، الكسب الحلال، والتجارة (161 - 180)</div>
-
     <div class="hadith-card">
-        <div class="hadith-number-title">161. حديث إن أطيب ما أكلتم من كسبكم</div>
-        <div class="hadith-text">عن عائشة رضي الله عنها قالت: قال رسول الله صلى الله عليه وسلم: «إِنَّ أَطْيَبَ مَا أَكَلْتُمْ مِنْ كَسْبِكُمْ، وَإِنَّ أَوْلَادَكُمْ مِنْ كَسْبِكُمْ»</div>
+        <div class="hadith-number-title">170. أطيب الكسب من عمل اليد</div>
+        <div class="hadith-summary">عن عائشة رضي الله عنها: إن أطيب وأحل ما أكل الرجل من كسب يده وسعيه.</div>
         <div class="hadith-source">(رواه الترمذي والنسائي)</div>
     </div>
 
     <div class="hadith-card">
-        <div class="hadith-number-title">162. حديث أكل عمل اليد وعمل داود عليه السلام</div>
-        <div class="hadith-text">عن المقدام بن معديكرب رضي الله عنه، عن رسول الله صلى الله عليه وسلم قال: «مَا أَكَلَ أَحَدٌ طَعَامًا قَطُّ خَيْرًا مِنْ أَنْ يَأْكُلَ مِنْ عَمَلِ يَدِهِ، وَإِنَّ نَبِيَّ اللَّهِ دَاوُدَ عَلَيْهِ السَّلَامُ كَانَ يَأْكُلُ مِنْ عَمَلِ يَدِهِ»</div>
+        <div class="hadith-number-title">171. أكل داود عليه السلام من عمل يده</div>
+        <div class="hadith-summary">عن المقدام بن معديكرب رضي الله عنه: ما أكل أحد طعاماً قط خيراً من أن يأكل من عمل يده، وكان داود يأكل من عمل يده.</div>
         <div class="hadith-source">(رواه البخاري)</div>
     </div>
 
     <div class="hadith-card">
-        <div class="hadith-number-title">163. حديث من غشنا فليس منا</div>
-        <div class="hadith-text">عن أبي هريرة رضي الله عنه، أن رسول الله صلى الله عليه وسلم مر على صبرة طعام فأدخل يده فيها فنالت أصابعه بللاً، فقال: «مَا هَذَا يَا صَاحِبَ الطَّعَامِ؟» قَالَ: أَصَابَتْهُ السَّمَاءُ يَا رَسُولَ اللَّهِ، قَالَ: «أَفَلَا جَعَلْتَهُ فَوْقَ الطَّعَامِ كَيْ يَرَاهُ النَّاسُ؟ مَنْ غَشَّ فَلَيْسَ مِنِّي»</div>
+        <div class="hadith-number-title">172. النهي عن الغش والمخادعة</div>
+        <div class="hadith-summary">عن أبي هريرة رضي الله عنه: الحديث الشهير في النهي عن الغش في البيع والمعاملة "من غش فليس مني".</div>
         <div class="hadith-source">(رواه مسلم)</div>
     </div>
 
     <div class="hadith-card">
-        <div class="hadith-number-title">164. حديث رحمة الله على الرجل السمح في بيعه وشرائه</div>
-        <div class="hadith-text">عن جابر بن عبد الله رضي الله عنهما، أن رسول الله صلى الله عليه وسلم قال: «رَحِمَ اللَّهُ رَجُلًا سَمْحًا إِذَا بَاعَ، وَإِذَا اشْتَرَى، وَإِذَا اقْتَضَى»</div>
+        <div class="hadith-number-title">173. السماحة في البيع والشراء</div>
+        <div class="hadith-summary">عن جابر بن عبد الله رضي الله عنهما: رحمة الله على عبد كان سمحاً إذا باع، وسمحاً إذا اشترى، وسمحاً إذا اقتضى.</div>
         <div class="hadith-source">(رواه البخاري)</div>
     </div>
 
     <div class="hadith-card">
-        <div class="hadith-number-title">165. حديث التاجر الصدوق الأمين مع النبيين والصديقين</div>
-        <div class="hadith-text">عن أبي سعيد الخدري رضي الله عنه، عن النبي صلى الله عليه وسلم قال: «التَّاجِرُ الصَّدُوقُ الأَمِينُ مَعَ النَّبِيِّينَ وَالصِّدِّيقِينَ وَالشُّهَدَاءِ»</div>
+        <div class="hadith-number-title">174. فضل التاجر الصدوق الأمين</div>
+        <div class="hadith-summary">عن أبي سعيد الخدري رضي الله عنه: التاجر الصدوق الأمين يُحشر يوم القيامة مع النبيين والصديقين والشهداء.</div>
         <div class="hadith-source">(رواه الترمذي)</div>
     </div>
 
     <div class="hadith-card">
-        <div class="hadith-number-title">166. حديث إعطاء الأجير أجره قبل أن يجف عرقه</div>
-        <div class="hadith-text">عن عبد الله بن عمر رضي الله عنهما قال: قال رسول الله صلى الله عليه وسلم: «أَعْطُوا الأَجِيرَ أَجْرَهُ قَبْلَ أَنْ يَجِفَّ عَرَقُهُ»</div>
+        <div class="hadith-number-title">175. إعطاء الأجير حقه دون تأخير</div>
+        <div class="hadith-summary">عن عبد الله بن عمر رضي الله عنهما: وجوب إعطاء العامل والأجير أجرته وحقه كاملاً قبل أن يجف عرقه.</div>
         <div class="hadith-source">(رواه ابن ماجه)</div>
     </div>
 
     <div class="hadith-card">
-        <div class="hadith-number-title">167. حديث مطلي الغني ظلم</div>
-        <div class="hadith-text">عن أبي هريرة رضي الله عنه قال: قال رسول الله صلى الله عليه وسلم: «مَطْلُ الغَنِيِّ ظُلْمٌ، وَإِذَا أُتْبِعَ أَحَدُكُمْ عَلَى مَلِيءٍ فَلْيَتْبَعْ»</div>
-        <div class="hadith-source">(رواه البخاري ومسلم)</div>
+        <div class="hadith-number-title">176. تحريم مَطْل الغني والتأخير</div>
+        <div class="hadith-summary">عن أبي هريرة رضي الله عنه: تأخير قضاء الدين والمماطلة من القادر الغني يُعد ظرماً وحراماً.</div>
+        <div class="hadith-source">(متفق عليه)</div>
     </div>
 
     <div class="hadith-card">
-        <div class="hadith-number-title">168. حديث التجاوز عن المعسر في البيع والشراء</div>
-        <div class="hadith-text">عن حذيفة بن اليمان رضي الله عنه قال: قال رسول الله صلى الله عليه وسلم: «أُتِيَ اللَّهُ بِعَبْدٍ مِنْ عِبَادِهِ آتَاهُ اللَّهُ مَالًا، فَقَالَ لَهُ: مَاذَا عَمِلْتَ فِي الدُّنْيَا؟... قَالَ: يَا رَبِّ كُنْتُ أُبَايِعُ النَّاسَ فَأَتَجَاوَزُ عَنِ المُنْظِرِ وَأُنْظِرُ المُعْسِرَ، فَقَالَ اللَّهُ: أَنَا أَحَقُّ بِذَلِكَ مِنْكَ، تَجَاوَزُوا عَنْ عَبْدِي»</div>
+        <div class="hadith-number-title">177. التجاوز عن المعسر والتيسير عليه</div>
+        <div class="hadith-summary">عن حذيفة بن اليمان رضي الله عنه: التجاوز عن المعسرين وإمهالهم في المعاملات سبب لتجاوز الله عن العبد يوم القيامة.</div>
         <div class="hadith-source">(رواه مسلم)</div>
     </div>
 
     <div class="hadith-card">
-        <div class="hadith-number-title">169. حديث من أخذ أموال الناس يريد أداءها أدّى الله عنه</div>
-        <div class="hadith-text">عن أبي هريرة رضي الله عنه، عن النبي صلى الله عليه وسلم قال: «مَنْ أَخَذَ أَمْوَالَ النَّاسِ يُرِيدُ أَدَاءَهَا أَدَّى اللَّهُ عَنْهُ، وَمَنْ أَخَذَ يُرِيدُ إِتْلَافَهَا أَتْلَفَهُ اللَّهُ»</div>
+        <div class="hadith-number-title">178. أداء أموال الناس ونيات السداد</div>
+        <div class="hadith-summary">عن أبي هريرة رضي الله عنه: من أخذ أموال الناس ينوي أداءها أدّى الله عنه، ومن أخذها ينوي إتلافها أتلفه الله.</div>
         <div class="hadith-source">(رواه البخاري)</div>
     </div>
 
     <div class="hadith-card">
-        <div class="hadith-number-title">170. حديث لا يحل مال امرئ مسلم إلا بطيب نفس منه</div>
-        <div class="hadith-text">عن أبي حرة الرقاشي، عن عمه رضي الله عنه، أن رسول الله صلى الله عليه وسلم قال: «أَلَا لَا تَظْلِمُوا، أَلَا لَا يَحِلُّ مَالُ امْرِئٍ إِلَّا بِطِيبِ نَفْسٍ مِنْهُ»</div>
-        <div class="hadith-source">(رواه أحمد والدارقطني)</div>
+        <div class="hadith-number-title">179. حرمة مال المسلم إلا بطيب نفس</div>
+        <div class="hadith-summary">عن أبي حرة الرقاشي عن عمه: ألا لا تظلموا، إنه لا يحل مال امرئ مسلم إلا بطيب نفس ورضا منه.</div>
+        <div class="hadith-source">(رواه أحمد)</div>
     </div>
 
     <div class="hadith-card">
-        <div class="hadith-number-title">171. حديث تحريم اقتطاع شبر من الأرض ظلماً</div>
-        <div class="hadith-text">عن سعيد بن زيد رضي الله عنه قال: سمعت رسول الله صلى الله عليه وسلم يقول: «مَنْ اَقْتَطَعَ شِبْرًا مِنَ الأَرْضِ ظُلْمًا طَوَّقَهُ اللَّهُ إِيَّاهُ يَوْمَ القِيَامَةِ مِنْ سَبْعِ أَرَضِينَ»</div>
-        <div class="hadith-source">(رواه البخاري ومسلم)</div>
+        <div class="hadith-number-title">180. عقوبة غصب واقتطاع الأرض ظاهراً</div>
+        <div class="hadith-summary">عن سعيد بن زيد رضي الله عنه: من اقتطع شبراً من الأرض ظلماً طُوّقه الله إياه يوم القيامة من سبع أرضين.</div>
+        <div class="hadith-source">(متفق عليه)</div>
     </div>
+    <!-- الباب التاسع -->
+    <div class="chapter-header">📌 الباب التاسع: الأمانة في الولاية وتأدية الحقوق (181 - 200)</div>
 
     <div class="hadith-card">
-        <div class="hadith-number-title">172. حديث اقتطاع حق المسلم باليمين الفاجرة</div>
-        <div class="hadith-text">عن أبي أمامة إياس بن ثعلبة الحارثي رضي الله عنه، أن رسول الله صلى الله عليه وسلم قال: «مَنِ اَقْتَطَعَ حَقَّ امْرِئٍ مُسْلِمٍ بِيَمِينِهِ، فَقَدْ أَوْجَبَ اللَّهُ لَهُ النَّارَ، وَحَرَّمَ عَلَيْهِ الجَنَّةَ»، فَقَالَ لَهُ رَجُلٌ: وَإِنْ كَانَ شَيْئًا يَسِيرًا يَا رَسُولَ اللَّهِ؟ قَالَ: «وَإِنْ قَضِيبًا مِنْ أَرَاكٍ»</div>
+        <div class="hadith-number-title">181. عقوبة اقتطاع حق المسلم باليمين</div>
+        <div class="hadith-summary">عن أبي أمامة رضي الله عنه: من اقتطع حق امرئ مسلم بيمينه الفاجرة أوجب الله له النار وحرم عليه الجنة، ولو كان قضيباً من أراك.</div>
         <div class="hadith-source">(رواه مسلم)</div>
     </div>
 
     <div class="hadith-card">
-        <div class="hadith-number-title">173. حديث الخيانة والغش في الرعية</div>
-        <div class="hadith-text">عن معقل بن يسار رضي الله عنه قال: سمعت رسول الله صلى الله عليه وسلم يقول: «مَا مِنْ عَبْدٍ يَسْتَرْعِيهِ اللَّهُ رَعِيَّةً يَمُوتُ يَوْمَ يَمُوتُ وَهُوَ غَاشٌّ لِرَعِيَّتِهِ إِلَّا حَرَّمَ اللَّهُ عَلَيْهِ الجَنَّةَ»</div>
-        <div class="hadith-source">(رواه البخاري ومسلم)</div>
+        <div class="hadith-number-title">182. خيانة الراعي لرعيته</div>
+        <div class="hadith-summary">عن معقل بن يسار رضي الله عنه: ما من عبد يسترعيه الله رعية يموت وهو غاش لها إلا حرم الله عليه الجنة.</div>
+        <div class="hadith-source">(متفق عليه)</div>
     </div>
 
     <div class="hadith-card">
-        <div class="hadith-number-title">174. حديث تحريم نبت السحت وأن النار أولى به</div>
-        <div class="hadith-text">عن كعب بن عجرة رضي الله عنه قال: قال لي رسول الله صلى الله عليه وسلم: «يَا كَعْبُ بْنَ عُجْرَةَ، إِنَّهُ لَا يَدْخُلُ الجَنَّةَ لَحْمٌ نَبَتَ مِنْ سُحْتٍ، النَّارُ أَوْلَى بِهِ»</div>
+        <div class="hadith-number-title">183. تحريم أكل مال السحت</div>
+        <div class="hadith-summary">عن كعب بن عجرة رضي الله عنه: إنه لا يدخل الجنة لحم نبت من سحت وحرام، فالنار أولى به.</div>
         <div class="hadith-source">(رواه الترمذي)</div>
     </div>
 
     <div class="hadith-card">
-        <div class="hadith-number-title">175. حديث لعن الراشي والمترشي</div>
-        <div class="hadith-text">عن عبد الله بن عمرو رضي الله عنهما قال: «لَعَنَ رَسُولُ اللَّهِ صَلَّى اللَّهُ عَلَيْهِ وَسَلَّمَ الرَّاشِيَ وَالمُرْتَشِيَ»</div>
+        <div class="hadith-number-title">184. لعن الراشي والمترشي</div>
+        <div class="hadith-summary">عن عبد الله بن عمرو رضي الله عنهما: لعن رسول الله صلى الله عليه وسلم الراشي والمترشي في الحكم والمعاملات.</div>
         <div class="hadith-source">(رواه أبو داود والترمذي)</div>
     </div>
 
     <div class="hadith-card">
-        <div class="hadith-number-title">176. حديث أتدرون من المفلس</div>
-        <div class="hadith-text">عن أبي هريرة رضي الله عنه قال: قال رسول الله صلى الله عليه وسلم: «أَتَدْرُونَ مَا المُفْلِسُ؟»، قَالُوا: المُفْلِسُ فِينَا مَنْ لَا دِرْهَمَ لَهُ وَلَا مَتَاعَ، فَقَالَ: «إِنَّ المُفْلِسَ مِنْ أُمَّتِي يَأْتِي يَوْمَ القِيَامَةِ بِصَلَاةٍ وَصِيَامٍ وَزَكَاةٍ، وَيَأْتِي قَدْ شَتَمَ هَذَا، وَقَذَفَ هَذَا، وَأَكَلَ مَالَهَذَا...»</div>
+        <div class="hadith-number-title">185. حقيقة المفلس يوم القيامة</div>
+        <div class="hadith-summary">عن أبي هريرة رضي الله عنه: المفلس من يأتي يوم القيامة بصلاة وصيام وزكاة، وقد شتم هذا وأكل مال هذا فيُأخذ من حسناته حتى تفنى.</div>
         <div class="hadith-source">(رواه مسلم)</div>
     </div>
 
     <div class="hadith-card">
-        <div class="hadith-number-title">177. حديث القصاص يوم القيامة حتى للشاة الجلحاء</div>
-        <div class="hadith-text">عن أبي هريرة رضي الله عنه، أن رسول الله صلى الله عليه وسلم قال: «لَتُؤَدُّنَّ الحُقُوقَ إِلَى أَهْلِهَا يَوْمَ القِيَامَةِ، حَتَّى يُقَادَ لِلشَّاةِ الجَلْحَاءِ مِنَ الشَّاةِ القَرْنَاءِ»</div>
+        <div class="hadith-number-title">186. أداء الحقوق والقصاص العادل</div>
+        <div class="hadith-summary">عن أبي هريرة رضي الله عنه: لتؤدن الحقوق إلى أهلها يوم القيامة حتى يقاد للشاة الجلحاء من الشاة القرناء.</div>
         <div class="hadith-source">(رواه مسلم)</div>
     </div>
 
     <div class="hadith-card">
-        <div class="hadith-number-title">178. حديث إتقان العمل</div>
-        <div class="hadith-text">عن عائشة رضي الله عنها قالت: قال رسول الله صلى الله عليه وسلم: «إِنَّ اللَّهَ تَعَالَى يُحِبُّ إِذَا عَمِلَ أَحَدُكُمْ عَمَلًا أَنْ يُتْقِنَهُ»</div>
+        <div class="hadith-number-title">187. حث الإسلام على إتقان العمل</div>
+        <div class="hadith-summary">عن عائشة رضي الله عنها: إن الله تعالى يحب إذا عمل أحدكم عملاً أن يتقنه ويؤديه بإحسان.</div>
         <div class="hadith-source">(رواه البيهقي والطبراني)</div>
     </div>
 
     <div class="hadith-card">
-        <div class="hadith-number-title">179. حديث البيعان بالخيار ما لم يتفرقا</div>
-        <div class="hadith-text">عن حكيم بن حزام رضي الله عنه قال: قال رسول الله صلى الله عليه وسلم: «البَيِّعَانِ بِالخِيَارِ مَا لَمْ يَتَفَرَّقَا... فَإِنْ صَدَقَا وَبَيَّنَا بُورِكَ لَهُمَا فِي بَيْعِهِمَا، وَإِنْ كَتَمَا وَكَذَبَا مُحِقَتْ بَرَكَةُ بَيْعِهِمَا»</div>
-        <div class="hadith-source">(رواه البخاري ومسلم)</div>
+        <div class="hadith-number-title">188. خيار البيعان والبركة في الصدق</div>
+        <div class="hadith-summary">عن حكيم بن حزام رضي الله عنه: البيعان بالخيار ما لم يتفرقا، فإن صدقا وبيّنا بورك لهما، وإن كتما وكذبا مُحقت بركة بيعهما.</div>
+        <div class="hadith-source">(متفق عليه)</div>
     </div>
 
     <div class="hadith-card">
-        <div class="hadith-number-title">180. حديث أمانة المجالس إلا ثلاثاً</div>
-        <div class="hadith-text">عن جابر بن عبد الله رضي الله عنهما، عن النبي صلى الله عليه وسلم قال: «المَجَالِسُ بِالأَمَانَةِ إِلَّا ثَلَاثَةَ مَجَالِسَ: سَفْكُ دَمٍ حَرَامٍ، أَوْ فَرْجٌ حَرَامٌ، أَوْ اقْتِطَاعُ مَالٍ بِغَيْرِ حَقٍّ»</div>
+        <div class="hadith-number-title">189. حفظ أمانة المجالس</div>
+        <div class="hadith-summary">عن جابر بن عبد الله رضي الله عنهما: المجالس بالأمانة فلا يحل إفشاء سرها إلا في سفك دم حرام أو فرج حرام أو اقتطاع مال.</div>
         <div class="hadith-source">(رواه أبو داود)</div>
     </div>
 
-</div>
-
-</body>
-</html>
-<!DOCTYPE html>
-<html lang="ar" dir="rtl">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>الموسوعة النبوية الشاملة - الجزء الرابع والأخير (181 - 220)</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Amiri:ital,wght@0,400;0,700;1,400;1,700&family=Cairo:wght@400;600;700;800;900&display=swap" rel="stylesheet">
-    <style>
-        @page { size: A4; margin: 12mm; }
-        :root {
-            --primary: #0f172a;
-            --primary-light: #1e293b;
-            --accent: #b4832c;
-            --bg-body: #f8fafc;
-            --card-bg: #ffffff;
-            --text-main: #0f172a;
-            --border-color: #cbd5e1;
-        }
-        * { box-sizing: border-box; margin: 0; padding: 0; }
-        body { font-family: 'Cairo', sans-serif; color: var(--text-main); background-color: #e2e8f0; line-height: 1.8; padding: 20px; }
-        .page-container { max-width: 1000px; margin: 0 auto; background: #ffffff; padding: 35px; border: 5px double var(--accent); border-radius: 12px; box-shadow: 0 10px 30px rgba(0,0,0,0.15); }
-        .main-header { text-align: center; border-bottom: 3px double var(--accent); padding-bottom: 20px; margin-bottom: 25px; }
-        .main-header h1 { font-size: 32px; color: var(--primary); font-weight: 900; margin-bottom: 8px; }
-        .main-header p { font-size: 18px; color: var(--accent); font-weight: 700; }
-        .credits-banner { background: linear-gradient(135deg, var(--primary), var(--primary-light)); color: #ffffff; text-align: center; padding: 18px; border-radius: 8px; margin-bottom: 30px; border-right: 6px solid var(--accent); }
-        .credits-banner .author { font-size: 22px; font-weight: 900; }
-        .credits-banner .role { font-size: 16px; color: #fde047; font-weight: 700; margin-top: 4px; }
-        .chapter-header { background: linear-gradient(90deg, var(--primary), var(--primary-light)); color: #ffffff; padding: 14px 22px; border-radius: 8px; font-size: 20px; font-weight: 900; margin: 35px 0 20px 0; border-right: 8px solid var(--accent); page-break-before: always; }
-        .chapter-header:first-of-type { page-break-before: auto; }
-        .hadith-card { background-color: var(--card-bg); border: 1px solid var(--border-color); border-right: 5px solid var(--accent); border-radius: 8px; padding: 20px 24px; margin-bottom: 20px; page-break-inside: avoid; }
-        .hadith-number-title { font-size: 18px; font-weight: 800; color: var(--primary); margin-bottom: 10px; border-bottom: 1px dashed var(--border-color); padding-bottom: 6px; }
-        .hadith-text { font-family: 'Amiri', serif; font-size: 21px; color: #020617; text-align: justify; line-height: 2.1; margin-bottom: 10px; font-weight: 700; }
-        .hadith-source { font-size: 14px; font-weight: 700; color: var(--accent); text-align: left; }
-        .completion-footer { text-align: center; padding: 25px; margin-top: 40px; border-top: 3px double var(--accent); font-size: 20px; font-weight: 900; color: var(--primary); }
-        @media print {
-            body { background: none; padding: 0; }
-            .page-container { border: 3px solid var(--accent); box-shadow: none; padding: 15px; max-width: 100%; }
-            .chapter-header, .credits-banner { background: var(--primary) !important; color: #ffffff !important; -webkit-print-color-adjust: exact; }
-            .hadith-card { background-color: #ffffff !important; border: 1px solid #94a3b8; border-right: 5px solid var(--accent) !important; -webkit-print-color-adjust: exact; }
-        }
-    </style>
-</head>
-<body>
-
-<div class="page-container">
-
-    <div class="main-header">
-        <h1>الموسوعة النبوية الشاملة</h1>
-        <p>الجزء الرابع والأخير: الأحاديث الشريفة من (181) إلى (220)</p>
-    </div>
-
-    <div class="credits-banner">
-        <div class="author">إعداد / مؤمن هشام القصاص</div>
-        <div class="role">أمين اتحاد مدارس سيدي سالم</div>
-    </div>
-
-    <!-- الباب العاشر -->
-    <div class="chapter-header">📌 الباب العاشر: التوبة، الاستغفار، وسعة رحمة الله (181 - 200)</div>
-
     <div class="hadith-card">
-        <div class="hadith-number-title">181. حديث التوبة واستغفار النبي مائة مرة في اليوم</div>
-        <div class="hadith-text">عن الأغر بن يسار المزني رضي الله عنه قال: قال رسول الله صلى الله عليه وسلم: «يَا أَيُّهَا النَّاسُ، تُوبُوا إِلَى اللَّهِ وَاسْتَغْفِرُوهُ، فَإِنِّي أَتُوبُ فِي اليَوْمِ مَائَةَ مَرَّةٍ»</div>
+        <div class="hadith-number-title">190. سعة توبة الاستغفار في اليوم</div>
+        <div class="hadith-summary">عن الأغر بن يسار المزني رضي الله عنه: حث النبي صلى الله عليه وسلم على التوبة والاستغفار، وبيان أنه يتوب في اليوم مائة مرة.</div>
         <div class="hadith-source">(رواه مسلم)</div>
     </div>
 
     <div class="hadith-card">
-        <div class="hadith-number-title">182. حديث بسط اليد بالليل والنهار ليتوب المسيء</div>
-        <div class="hadith-text">عن أبي موسى الأشعري رضي الله عنه، عن النبي صلى الله عليه وسلم قال: «إِنَّ اللَّهَ تَعَالَى يَبْسُطُ يَدَهُ بِاللَّيْلِ لِيَتُوبَ مُسِيءُ النَّهَارِ، وَيَبْسُطُ يَدَهُ بِالنَّهَارِ لِيَتُوبَ مُسِيءُ اللَّيْلِ، حَتَّى تَطْلُعَ الشَّمْسُ مِنْ مَغْرِبِهَا»</div>
+        <div class="hadith-number-title">191. بسط يد الرحمة للمسيء</div>
+        <div class="hadith-summary">عن أبي موسى الأشعري رضي الله عنه: إن الله يبسط يده بالليل ليتوب مسيء النهار، ويبسط يده بالنهار ليتوب مسيء الليل.</div>
         <div class="hadith-source">(رواه مسلم)</div>
     </div>
 
     <div class="hadith-card">
-        <div class="hadith-number-title">183. حديث استغفار النبي أكثر من سبعين مرة</div>
-        <div class="hadith-text">عن أبي هريرة رضي الله عنه قال: سمعت رسول الله صلى الله عليه وسلم يقول: «وَاللَّهِ إِنِّي لَأَسْتَغْفِرُ اللَّهَ وَأَتُوبُ إِلَيْهِ فِي اليَوْمِ أَكْثَرَ مِنْ سَبْعِينَ مَرَّةً»</div>
+        <div class="hadith-number-title">192. كثرة الاستغفار اليومي</div>
+        <div class="hadith-summary">عن أبي هريرة رضي الله عنه: قسم رسول الله صلى الله عليه وسلم على أمت استغفاره وتوبته إلى الله أكثر من سبعين مرة يومياً.</div>
         <div class="hadith-source">(رواه البخاري)</div>
     </div>
 
     <div class="hadith-card">
-        <div class="hadith-number-title">184. حديث فرح الله بتوبة عبده</div>
-        <div class="hadith-text">عن أنس بن مالك رضي الله عنه قال: قال رسول الله صلى الله عليه وسلم: «لَلَّهُ أَشَدُّ فَرَحًا بِتَوْبَةِ عَبْدِهِ حِينَ يَتُوبُ إِلَيْهِ مِنْ أَحَدِكُمْ كَانَ عَلَى رَاحِلَتِهِ بِأَرْضِ فَلَاةٍ، فَانْفَلَتَتْ مِنْهُ وَعَلَيْهَا طَعَامُهُ وَشَرَابُهُ... فَقَالَ مِنْ شِدَّةِ الفَرَحِ: اللَّهُمَّ أَنْتَ عَبْدِي وَأَنَا رَبُّكَ، أَخْطَأَ مِنْ شِدَّةِ الفَرَحِ»</div>
-        <div class="hadith-source">(رواه البخاري ومسلم)</div>
+        <div class="hadith-number-title">193. شدة فرح الله بتوبة العبد</div>
+        <div class="hadith-summary">عن أنس بن مالك رضي الله عنه: ضرب المثل بالرجل الذي أضل راحلته في أرض فلاة ثم وجدها، لبيان شدة فرح الله بتوبة عبده.</div>
+        <div class="hadith-source">(متفق عليه)</div>
     </div>
 
     <div class="hadith-card">
-        <div class="hadith-number-title">185. حديث قاتل المائة نفس وتوبة الله عليه</div>
-        <div class="hadith-text">عن أبي سعيد الخدري رضي الله عنه، أن نبي الله صلى الله عليه وسلم قال: «كَانَ فِيمَنْ كَانَ قَبْلَكُمْ رَجُلٌ قَتَلَ تِسْعَةً وَتِسْعِينَ نَفْسًا... ثُمَّ دُلَّ عَلَى رَجُلٍ عَالِمٍ فَقَالَ: إِنَّهُ قَتَلَ مَائَةَ نَفْسٍ فَهَلْ لَهُ مِنْ تَوْبَةٍ؟ فَقَالَ: نَعَمْ وَمَنْ يَحُولُ بَيْنَهُ وَبَيْنَ التَّوْبَةِ؟... فَغَفَرَ اللَّهُ لَهُ»</div>
-        <div class="hadith-source">(رواه البخاري ومسلم)</div>
+        <div class="hadith-number-title">194. التوبة مقبولة ولو كثرت الذنوب</div>
+        <div class="hadith-summary">عن أبي سعيد الخدري رضي الله عنه: حديث الرجل الذي قتل مائة نفس وسأل عن التوبة فتاب الله عليه لصدق قصده وتوجهه.</div>
+        <div class="hadith-source">(متفق عليه)</div>
     </div>
 
     <div class="hadith-card">
-        <div class="hadith-number-title">186. حديث قبول التوبة ما لم يغرغر العبد</div>
-        <div class="hadith-text">عن عبد الله بن عمر رضي الله عنهما، عن النبي صلى الله عليه وسلم قال: «إِنَّ اللَّهَ يَقْبَلُ تَوْبَةَ العَبْدِ مَا لَمْ يُغَرْغِرْ»</div>
+        <div class="hadith-number-title">195. مهلة التوبة قبل الغرغرة</div>
+        <div class="hadith-summary">عن عبد الله بن عمر رضي الله عنهما: إن الله تبارك وتعالى يقبل توبة العبد المذنب ما لم يغرغر وتصل روحه الحلقوم.</div>
         <div class="hadith-source">(رواه الترمذي)</div>
     </div>
 
     <div class="hadith-card">
-        <div class="hadith-number-title">187. حديث علم العبد أن له رباً يغفر الذنب</div>
-        <div class="hadith-text">عن أبي هريرة رضي الله عنه، عن النبي صلى الله عليه وسلم فيما يحكي عن ربه عز وجل قال: «أَذْنَبَ عَبْدٌ ذَنْبًا فَقَالَ: اللَّهُمَّ اغْفِرْ لِي ذَنْبِي، فَقَالَ تَبَارَكَ وَتَعَالَى: أَذْنَبَ عَبْدِي ذَنْبًا فَعَلِمَ أَنَّ لَهُ رَبًّا يَغْفِرُ الذَّنْبَ وَيَأْخُذُ بِالذَّنْبِ... قَدْ غَفَرْتُ لِعَبْدِي»</div>
-        <div class="hadith-source">(رواه البخاري ومسلم)</div>
+        <div class="hadith-number-title">196. مغفرة الذنب بالاعتراف والتوبة</div>
+        <div class="hadith-summary">عن أبي هريرة رضي الله عنه: الحديث القدسي في العبد الذي أذنب فعلم أن له رباً يغفر الذنب ويأخذ به فغفر الله له.</div>
+        <div class="hadith-source">(متفق عليه)</div>
     </div>
 
     <div class="hadith-card">
-        <div class="hadith-number-title">188. حديث يا ابن آدم لو بلغت ذنوبك عنان السماء ثم استغفرتني غفرت لك</div>
-        <div class="hadith-text">عن أنس بن مالك رضي الله عنه قال: سمعت رسول الله صلى الله عليه وسلم يقول: «قَالَ اللَّهُ تَعَالَى: يَا ابْنَ آدَمَ، إِنَّكَ مَا دَعَوْتَنِي وَرَجَوْتَنِي غَفَرْتُ لَكَ عَلَى مَا كَانَ فِيكَ وَلَا أُبَالِي، يَا ابْنَ آدَمَ لَوْ بَلَغَتْ ذُنُوبُكَ عَنَانَ السَّمَاءِ ثُمَّ اسْتَغْفَرْتَنِي غَفَرْتُ لَكَ...»</div>
+        <div class="hadith-number-title">197. سعة مغفرة الله لذنوب العباد</div>
+        <div class="hadith-summary">عن أنس بن مالك رضي الله عنه: الحديث القدسي "يا ابن آدم لو بلغت ذنوبك عنان السماء ثم استغفرتني غفرت لك ولا أبالي".</div>
         <div class="hadith-source">(رواه الترمذي)</div>
     </div>
 
     <div class="hadith-card">
-        <div class="hadith-number-title">189. حديث من لزم الاستغفار جعل الله له من كل ضيق مخرجاً</div>
-        <div class="hadith-text">عن عبد الله بن عباس رضي الله عنهما قال: قال رسول الله صلى الله عليه وسلم: «مَنْ لَزِمَ الاِسْتِغْفَارَ جَعَلَ اللَّهُ لَهُ مِنْ كُلِّ ضِيقٍ مَخْرَجًا، وَمِنْ كُلِّ هَمٍّ فَرَجًا، وَرَزَقَهُ مِنْ حَيْثُ لَا يَحْتَسِبُ»</div>
-        <div class="hadith-source">(رواه أبو داود وابن ماجه)</div>
+        <div class="hadith-number-title">198. ثمرات ملازمة الاستغفار</div>
+        <div class="hadith-summary">عن ابن عباس رضي الله عنهما: من لزم الاستغفار جعل الله له من كل ضيق مخرجاً، ومن كل هم فرجاً، ورزقه من حيث لا يحتسب.</div>
+        <div class="hadith-source">(رواه أبو داود)</div>
     </div>
 
     <div class="hadith-card">
-        <div class="hadith-number-title">190. حديث التائب من الذنب كمن لا ذنب له</div>
-        <div class="hadith-text">عن عبد الله بن مسعود رضي الله عنه قال: قال رسول الله صلى الله عليه وسلم: «التَّائِبُ مِنَ الذَّنْبِ كَمَنْ لَا ذَنْبَ لَهُ»</div>
+        <div class="hadith-number-title">199. التائب من الذنب كمن لا ذنب له</div>
+        <div class="hadith-summary">عن عبد الله بن مسعود رضي الله عنه: التائب من الذنب والراجع عنه بصدق كمن لا ذنب له في الصحائف.</div>
         <div class="hadith-source">(رواه ابن ماجه)</div>
     </div>
 
     <div class="hadith-card">
-        <div class="hadith-number-title">191. حديث الندم توبة</div>
-        <div class="hadith-text">عن عبد الله بن مسعود رضي الله عنه، عن النبي صلى الله عليه وسلم قال: «النَّدَمُ تَوْبَةٌ»</div>
+        <div class="hadith-number-title">200. حقيقة التوبة بالندم</div>
+        <div class="hadith-summary">عن عبد الله بن مسعود رضي الله عنه: الندم على ما فات والشعور بالخطأ هو ركن التوبة الأساسي وعمودها.</div>
         <div class="hadith-source">(رواه ابن ماجه وأحمد)</div>
     </div>
 
+    <!-- الباب العاشر -->
+    <div class="chapter-header">📌 الباب العاشر: العلم والمسؤولية وحب الوطن (201 - 220)</div>
+
     <div class="hadith-card">
-        <div class="hadith-number-title">192. حديث سبق رحمة الله لغضبه</div>
-        <div class="hadith-text">عن أبي هريرة رضي الله عنه قال: قال رسول الله صلى الله عليه وسلم: «لَمَّا قَضَى اللَّهُ الخَلْقَ كَتَبَ فِي كِتَابِهِ فَهُوَ عِنْدَهُ فَوْقَ العَرْشِ: إِنَّ رَحْمَتِي غَلَبَتْ غَضَبِي»</div>
-        <div class="hadith-source">(رواه البخاري ومسلم)</div>
+        <div class="hadith-number-title">201. التفقه في الدين نشاط الخير</div>
+        <div class="hadith-summary">عن معاوية بن أبي سفيان رضي الله عنهما: من يرد الله به خيراً يوفقه ويفقهه في أحكام الدين وشريعته.</div>
+        <div class="hadith-source">(متفق عليه)</div>
     </div>
 
     <div class="hadith-card">
-        <div class="hadith-number-title">193. حديث تقسيم الرحمة إلى مائة جزء</div>
-        <div class="hadith-text">عن أبي هريرة رضي الله عنه قال: سمعت رسول الله صلى الله عليه وسلم يقول: «جَعَلَ اللَّهُ الرَّحْمَةَ مِائَةَ جُزْءٍ، فَأَمْسَكَ عِنْدَهُ تِسْعَةً وَتِسْعِينَ جُزْءًا، وَأَنْزَلَ فِي الأَرْضِ جُزْءًا وَاحِدًا، فَمِنْ ذَلِكَ الجُزْءِ يَتَرَاحَمُ الخَلْقُ...»</div>
-        <div class="hadith-source">(رواه البخاري ومسلم)</div>
-    </div>
-
-    <div class="hadith-card">
-        <div class="hadith-number-title">194. حديث أرحم بأمه من هذه بولدها</div>
-        <div class="hadith-text">عن عمر بن الخطاب رضي الله عنه قال: قُدِمَ عَلَى النَّبِيِّ صَلَّى اللَّهُ عَلَيْهِ وَسَلَّمَ سَبْيٌ، فَإِذَا امْرَأَةٌ مِنَ السَّبْيِ تَبْتَغِي إِذَا وَجَدَتْ صَبِيًّا فِي السَّبْيِ أَخَذَتْهُ فَأَلْصَقَتْهُ بِبَطْنِهَا وَأَرْضَعَتْهُ، فَقَالَ لَنَا النَّبِيُّ صَلَّى اللَّهُ عَلَيْهِ وَسَلَّمَ: «أَتُرَوْنَ هَذِهِ طَارِحَةً وَلَدَهَا فِي النَّارِ؟» قُلْنَا: لَا وَهِيَ تَقْدِرُ عَلَى أَنْ لَا تَطْرَحَهُ، فَقَالَ: «لَلَّهُ أَرْحَمُ بِعِبَادِهِ مِنْ هَذِهِ بِوَلَدِهَا»</div>
-        <div class="hadith-source">(رواه البخاري ومسلم)</div>
-    </div>
-
-    <div class="hadith-card">
-        <div class="hadith-number-title">195. حديث اتباع السيئة الحسنة تمحها</div>
-        <div class="hadith-text">عن أبي ذر ومعاذ بن جبل رضي الله عنهما، أن رسول الله صلى الله عليه وسلم قال: «اتَّقِ اللَّهَ حَيْثُمَا كُنْتَ، وَأَتْبِعِ السَّيِّئَةَ الحَسَنَةَ تَمْحُهَا، وَخَالِقِ النَّاسَ بِخُلُقٍ حَسَنٍ»</div>
-        <div class="hadith-source">(رواه الترمذي)</div>
-    </div>
-
-    <div class="hadith-card">
-        <div class="hadith-number-title">196. حديث الصدقة تطفئ الخطيئة كما يطفئ الماء النار</div>
-        <div class="hadith-text">عن معاذ بن جبل رضي الله عنه قال: قال رسول الله صلى الله عليه وسلم: «... وَالصَّدَقَةُ تُطْفِئُ الخَطِيئَةَ كَمَا يُطْفِئُ المَاءُ النَّارَ»</div>
-        <div class="hadith-source">(رواه الترمذي)</div>
-    </div>
-
-    <div class="hadith-card">
-        <div class="hadith-number-title">197. حديث أرايت لو صلى الخمس وصام رمضان أيدخل الجنة</div>
-        <div class="hadith-text">عن جابر بن عبد الله رضي الله عنهما، أن رجلاً سأل رسول الله صلى الله عليه وسلم فقال: أَرَأَيْتَ إِذَا صَلَّيْتُ المَكْتُوبَاتِ، وَصُمْتُ رَمَضَانَ، وَأَحْلَلْتُ الحَلَالَ، وَحَرَّمْتُ الحَرَامَ، وَلَمْ أَزِدْ عَلَى ذَلِكَ شَيْئًا، أَأَدْخُلُ الجَنَّةَ؟ قَالَ: «نَعَمْ»</div>
+        <div class="hadith-number-title">202. تسهيل طريق الجنة لطلب العلم</div>
+        <div class="hadith-summary">عن أبي هريرة رضي الله عنه: من سلك طريقاً يبتغي فيه علماً نافعاً سهل الله له به طريقاً إلى الجنة.</div>
         <div class="hadith-source">(رواه مسلم)</div>
     </div>
 
     <div class="hadith-card">
-        <div class="hadith-number-title">198. حديث نزول الرب إلى السماء الدنيا في ثلث الليل الآخر</div>
-        <div class="hadith-text">عن أبي هريرة رضي الله عنه، أن رسول الله صلى الله عليه وسلم قال: «يَنْزِلُ رَبُّنَا تَبَارَكَ وَتَعَالَى كُلَّ لَيْلَةٍ إِلَى السَّمَاءِ الدُّنْيَا حِينَ يَبْقَى ثُلُثُ اللَّيْلِ الآخِرُ فَيَقُولُ: مَنْ يَدْعُونِي فَأَسْتَجِيبَ لَهُ؟ مَنْ يَسْأَلُنِي فَأُعْطِيَهُ؟ مَنْ يَسْتَغْفِرُنِي فَأَغْفِرَ لَهُ؟»</div>
-        <div class="hadith-source">(رواه البخاري ومسلم)</div>
-    </div>
-
-    <div class="hadith-card">
-        <div class="hadith-number-title">199. حديث الشفاعة لأهل الكبائر من الأمة</div>
-        <div class="hadith-text">عن أنس بن مالك رضي الله عنه قال: قال رسول الله صلى الله عليه وسلم: «شَفَاعَتِي لِأَهْلِ الكَبَائِرِ مِنْ أُمَّتِي»</div>
+        <div class="hadith-number-title">203. العلماء ورثة الأنبياء</div>
+        <div class="hadith-summary">عن أبي الدرداء رضي الله عنه: إن العلماء ورثة الأنبياء، وإن الأنبياء لم يورثوا ديناراً ولا درهماً وإنما ورثوا العلم.</div>
         <div class="hadith-source">(رواه أبو داود والترمذي)</div>
     </div>
 
     <div class="hadith-card">
-        <div class="hadith-number-title">200. حديث خروج من كان في قلبه مثقال ذرة من إيمان من النار</div>
-        <div class="hadith-text">عن أنس بن مالك رضي الله عنه، عن النبي صلى الله عليه وسلم قال: «يَخْرُجُ مِنَ النَّارِ مَنْ قَالَ لَا إِلَهَ إِلَّا اللَّهُ، وَفِي قَلْبِهِ وَزْنُ شَعِيرَةٍ مِنْ خَيْرٍ، وَيَخْرُجُ مِنَ النَّارِ مَنْ قَالَ لَا إِلَهَ إِلَّا اللَّهُ، وَفِي قَلْبِهِ وَزْنُ بُرَّةٍ مِنْ خَيْرٍ، وَيَخْرُجُ مِنَ النَّارِ مَنْ قَالَ لَا إِلَهَ إِلَّا اللَّهُ، وَفِي قَلْبِهِ وَزْنُ ذَرَّةٍ مِنْ خَيْرٍ»</div>
-        <div class="hadith-source">(رواه البخاري ومسلم)</div>
-    </div>
-
-    <!-- الباب الحادي عشر -->
-    <div class="chapter-header">📌 الباب الحادي عشر: العلم والريادة وحب الوطن (201 - 220)</div>
-
-    <div class="hadith-card">
-        <div class="hadith-number-title">201. حديث من يرد الله به خيراً يفقهه في الدين</div>
-        <div class="hadith-text">عن معاوية بن أبي سفيان رضي الله عنهما قال: سمعت النبي صلى الله عليه وسلم يقول: «مَنْ يُرِدِ اللَّهُ بِهِ خَيْرًا يُفَقِّهْهُ فِي الدِّينِ»</div>
-        <div class="hadith-source">(رواه البخاري ومسلم)</div>
-    </div>
-
-    <div class="hadith-card">
-        <div class="hadith-number-title">202. حديث سلوك طريق العلم والتسهيل إلى الجنة</div>
-        <div class="hadith-text">عن أبي هريرة رضي الله عنه قال: قال رسول الله صلى الله عليه وسلم: «... وَمَنْ سَلَكَ طَرِيقًا يَلْتَمِسُ فِيهِ عِلْمًا سَهَّلَ اللَّهُ لَهُ بِهِ طَرِيقًا إِلَى الجَنَّةِ»</div>
-        <div class="hadith-source">(رواه مسلم)</div>
-    </div>
-
-    <div class="hadith-card">
-        <div class="hadith-number-title">203. حديث العلماء ورثة الأنبياء</div>
-        <div class="hadith-text">عن أبي الدرداء رضي الله عنه قال: سمعت رسول الله صلى الله عليه وسلم يقول: «إِنَّ العُلَمَاءَ وَرَثَةُ الأَنْبِيَاءِ، وَإِنَّ الأَنْبِيَاءَ لَمْ يُوَرِّثُوا دِينَارًا وَلَا دِرْهَمًا، وَإِنَّمَا وَرَّثُوا العِلْمَ، فَمَنْ أَخَذَهُ أَخَذَ بِحَظٍّ وَافِرٍ»</div>
-        <div class="hadith-source">(رواه أبو داود والترمذي)</div>
-    </div>
-
-    <div class="hadith-card">
-        <div class="hadith-number-title">204. حديث خيركم من تعلم القرآن وعلمه</div>
-        <div class="hadith-text">عن عثمان بن عفان رضي الله عنه، عن النبي صلى الله عليه وسلم قال: «خَيْرُكُمْ مَنْ تَعَلَّمَ القُرْآنَ وَعَلَّمَهُ»</div>
+        <div class="hadith-number-title">204. خيرية تعلم القرآن وتعليمه</div>
+        <div class="hadith-summary">عن عثمان بن عفان رضي الله عنه: خيركم وأفضلكم منزلة من تعلم القرآن الكريم وعلمه لغيره.</div>
         <div class="hadith-source">(رواه البخاري)</div>
     </div>
 
     <div class="hadith-card">
-        <div class="hadith-number-title">205. حديث الماهر بالقرآن مع السفرة الكرام البررة</div>
-        <div class="hadith-text">عن عائشة رضي الله عنها قالت: قال رسول الله صلى الله عليه وسلم: «المَاهِرُ بِالقُرْآنِ مَعَ السَّفَرَةِ الكِرَامِ البَرَرَةِ، وَالَّذِي يَقْرَأُ القُرْآنَ وَيَتَتَعْتَعُ فِيهِ وَهُوَ عَلَيْهِ شَاقٌّ لَهُ أَجْرَانِ»</div>
-        <div class="hadith-source">(رواه البخاري ومسلم)</div>
+        <div class="hadith-number-title">205. الماهر بالقرآن مع السفرة</div>
+        <div class="hadith-summary">عن عائشة رضي الله عنها: الماهر بالقرآن مع السفرة الكرام البررة، والذي يقرؤه وهو عليه شاق له أجران.</div>
+        <div class="hadith-source">(متفق عليه)</div>
     </div>
 
     <div class="hadith-card">
-        <div class="hadith-number-title">206. حديث الشفاعة بالقرآن يوم القيامة</div>
-        <div class="hadith-text">عن أبي أمامة الباهلي رضي الله عنه قال: سمعت رسول الله صلى الله عليه وسلم يقول: «اقْرَءُوا القُرْآنَ فَإِنَّهُ يَأْتِي يَوْمَ القِيَامَةِ شَفِيعًا لِأَصْحَابِهِ»</div>
+        <div class="hadith-number-title">206. شفاعة القرآن لأصحابه</div>
+        <div class="hadith-summary">عن أبي أمامة الباهلي رضي الله عنه: اقرؤوا القرآن فإنه يأتي يوم القيامة شفيعاً لأصحابه وحاملي هدايته.</div>
         <div class="hadith-source">(رواه مسلم)</div>
     </div>
 
     <div class="hadith-card">
-        <div class="hadith-number-title">207. حديث الأجر بالحرف من كتاب الله</div>
-        <div class="hadith-text">عن عبد الله بن مسعود رضي الله عنه قال: قال رسول الله صلى الله عليه وسلم: «مَنْ قَرَأَ حَرْفًا مِنْ كِتَابِ اللَّهِ فَلَهُ بِهِ حَسَنَةٌ، وَالحَسَنَةُ بِعَشْرِ أَمْثَالِهَا، لَا أَقُولُ الم حَرْفٌ، وَلَكِنْ أَلِفٌ حَرْفٌ وَلَامٌ حَرْفٌ وَمِيمٌ حَرْفٌ»</div>
+        <div class="hadith-number-title">207. مضاعفة حسنات قراءة القرآن</div>
+        <div class="hadith-summary">عن عبد الله بن مسعود رضي الله عنه: من قرأ حرفاً من كتاب الله فله به حسنة، والحسنة بعشر أمثالها لا أقول الم حرف.</div>
         <div class="hadith-source">(رواه الترمذي)</div>
     </div>
 
     <div class="hadith-card">
-        <div class="hadith-number-title">208. حديث انقطاع عمل ابن آدم إلا من ثلاث</div>
-        <div class="hadith-text">عن أبي هريرة رضي الله عنه، أن رسول الله صلى الله عليه وسلم قال: «إِذَا مَاتَ الإِنْسَانُ انْقَطَعَ عَنْهُ عَمَلُهُ إِلَّا مِنْ ثَلَاثَةٍ: إِلَّا مِنْ صَدَقَةٍ جَارِيَةٍ، أَوْ عِلْمٍ يُنْتَفَعُ بِهِ، أَوْ وَلَدٍ صَالِحٍ يَدْعُو لَهُ»</div>
+        <div class="hadith-number-title">208. العلم النافع بعد الموت</div>
+        <div class="hadith-summary">عن أبي هريرة رضي الله عنه: إذا مات الإنسان انقطع عنه عمله إلا من ثلاث؛ صدقة جارية، أو علم ينتفع به، أو ولد صالح يدعو له.</div>
         <div class="hadith-source">(رواه مسلم)</div>
     </div>
 
     <div class="hadith-card">
-        <div class="hadith-number-title">209. حديث الدال على الخير كفاعله</div>
-        <div class="hadith-text">عن أبي مسعود عقبة بن عمرو الأنصاري رضي الله عنه قال: قال رسول الله صلى الله عليه وسلم: «مَنْ دَلَّ عَلَى خَيْرٍ فَلَهُ مِثْلُ أَجْرِ فَاعِلِهِ»</div>
+        <div class="hadith-number-title">209. أجر الدال على الخير</div>
+        <div class="hadith-summary">عن أبي مسعود الأنصاري رضي الله عنه: من دل على خير وإحسان فله من الأجر مثل أجر فاعله دون أن ينقص منه.</div>
         <div class="hadith-source">(رواه مسلم)</div>
     </div>
 
     <div class="hadith-card">
-        <div class="hadith-number-title">210. حديث الدعوة إلى الهدى وأجور الأتباع</div>
-        <div class="hadith-text">عن أبي هريرة رضي الله عنه، أن رسول الله صلى الله عليه وسلم قال: «مَنْ دَعَا إِلَى هُدًى كَانَ لَهُ مِنَ الأَجْرِ مِثْلُ أُجُورِ مَنْ تَبِعَهُ، لَا يَنْقُصُ ذَلِكَ مِنْ أُجُورِهِمْ شَيْئًا...»</div>
+        <div class="hadith-number-title">210. أجر الدعوة إلى الهدى</div>
+        <div class="hadith-summary">عن أبي هريرة رضي الله عنه: من دعا إلى هدى كان له من الأجر مثل أجور من تبعه لا ينقص ذلك من أجورهم شيئاً.</div>
         <div class="hadith-source">(رواه مسلم)</div>
     </div>
 
     <div class="hadith-card">
-        <div class="hadith-number-title">211. حديث فريضة طلب العلم</div>
-        <div class="hadith-text">عن أنس بن مالك رضي الله عنه قال: قال رسول الله صلى الله عليه وسلم: «طَلَبُ العِلْمِ فَرِيضَةٌ عَلَى كُلِّ مُسْلِمٍ»</div>
+        <div class="hadith-number-title">211. فرضية طلب العلم</div>
+        <div class="hadith-summary">عن أنس بن مالك رضي الله عنه: طلب العلم والتفقه في الدين فريضة وواجب على كل مسلم ومسلمة.</div>
         <div class="hadith-source">(رواه ابن ماجه)</div>
     </div>
 
     <div class="hadith-card">
-        <div class="hadith-number-title">212. حديث نضرة الله لمن حفظ الحديث وبلغه</div>
-        <div class="hadith-text">عن زيد بن ثابت رضي الله عنه قال: سمعت رسول الله صلى الله عليه وسلم يقول: «نَضَّرَ اللَّهُ امْرَأً سَمِعَ مِنَّا حَدِيثًا فَحَفِظَهُ حَتَّى يُبَلِّغَهُ غَيْرَهُ...»</div>
+        <div class="hadith-number-title">212. دعاء النضرة لنقل الحديث</div>
+        <div class="hadith-summary">عن زيد بن ثابت رضي الله عنه: نضَّر الله امرأً سمع منا حديثاً فحفظه ووعاه حتى يبلغه غيره كما سمعه.</div>
         <div class="hadith-source">(رواه أبو داود والترمذي)</div>
     </div>
 
     <div class="hadith-card">
-        <div class="hadith-number-title">213. حديث التعوذ من علم لا ينفع</div>
-        <div class="hadith-text">عن أبي هريرة رضي الله عنه قال: كَانَ مِنْ دُعَاءِ النَّبِيِّ صَلَّى اللَّهُ عَلَيْهِ وَسَلَّمَ: «اللَّهُمَّ إِنِّي أَعُوذُ بِكَ مِنْ عِلْمٍ لَا يَنْفَعُ، وَمِنْ قَلْبٍ لَا يَخْشَعُ، وَمِنْ نَفْسٍ لَا تَشْبَعُ، وَمِنْ دَعْوَةٍ لَا يُسْتَجَابُ لَهَا»</div>
+        <div class="hadith-number-title">213. الاستعاذة من العلم غير النافع</div>
+        <div class="hadith-summary">عن أبي هريرة رضي الله عنه: كان من دعاء النبي الاستعاذة من علم لا ينفع، ومن قلب لا يخشع، ومن نفس لا تشبع.</div>
         <div class="hadith-source">(رواه مسلم)</div>
     </div>
 
     <div class="hadith-card">
-        <div class="hadith-number-title">214. حديث كلهم راع وكلكم مسؤول عن رعيته</div>
-        <div class="hadith-text">عن عبد الله بن عمر رضي الله عنهما، أنه سمع رسول الله صلى الله عليه وسلم يقول: «كُلُّكُمْ رَاعٍ وَكُلُّكُمْ مَسْؤُولٌ عَنْ رَعِيَّتِهِ، الإِمَامُ رَاعٍ وَمَسْؤُولٌ عَنْ رَعِيَّتِهِ، وَالرَّجُلُ رَاعٍ فِي أَهْلِهِ وَهُوَ مَسْؤُولٌ عَنْ رَعِيَّتِهِ...»</div>
-        <div class="hadith-source">(رواه البخاري ومسلم)</div>
+        <div class="hadith-number-title">214. كلكم راع ومسؤول عن رعيته</div>
+        <div class="hadith-summary">عن عبد الله بن عمر رضي الله عنهما: بيان شمول المسؤولية المجتمعية والأسرية؛ فكل فرد راعٍ ومسؤول عن رعيته.</div>
+        <div class="hadith-source">(متفق عليه)</div>
     </div>
 
     <div class="hadith-card">
-        <div class="hadith-number-title">215. حديث السلطان العادل والقيادة الرشيدة</div>
-        <div class="hadith-text">عن عبد الله بن عمرو رضي الله عنهما قال: قال رسول الله صلى الله عليه وسلم: «إِنَّ المُقْسِطِينَ عِنْدَ اللَّهِ عَلَى مَنَابِرَ مِنْ نُورٍ، عَنْ يَمِينِ الرَّحْمَنِ عَزَّ وَجَلَّ -وَكِلْتَا يَدَيْهِ يَمِينٌ- الَّذِينَ يَعْدِلُونَ فِي حُكْمِهِمْ وَأَهْلِيهِمْ وَمَا وَلُوا»</div>
+        <div class="hadith-number-title">215. منابر النور للحكام العادليين</div>
+        <div class="hadith-summary">عن عبد الله بن عمرو رضي الله عنهما: إن المقسطين والعادلين في حكمهم وأهليهم وما ولوا على منابر من نور عند الله.</div>
         <div class="hadith-source">(رواه مسلم)</div>
     </div>
 
     <div class="hadith-card">
-        <div class="hadith-number-title">216. حديث اليد العليا خير من اليد السفلى</div>
-        <div class="hadith-text">عن حكيم بن حزام رضي الله عنه، عن النبي صلى الله عليه وسلم قال: «اليَدُ العُلْيَا خَيْرٌ مِنَ اليَدِ السُّفْلَى، وَابْدَأْ بِمَنْ تَعُولُ، وَخَيْرُ الصَّدَقَةِ عَنْ ظَهْرِ غِنًى، وَمَنْ يَسْتَعْفِفْ يُعِفَّهُ اللَّهُ، وَمَنْ يَسْتَغْنِ يُغْنِهِ اللَّهُ»</div>
-        <div class="hadith-source">(رواه البخاري ومسلم)</div>
+        <div class="hadith-number-title">216. اليد العليا والبدء بمن تعول</div>
+        <div class="hadith-summary">عن حكيم بن حزام رضي الله عنه: اليد العليا خير من اليد السفلى، وابدأ بمن تعول، وخير الصدقة ما كان عن ظهر غنى.</div>
+        <div class="hadith-source">(متفق عليه)</div>
     </div>
 
     <div class="hadith-card">
-        <div class="hadith-number-title">217. حديث حب الوطن والدعاء للبلد الحرام مكة والمدينة</div>
-        <div class="hadith-text">عن عبد الله بن عدي بن حمراء رضي الله عنه قال: رأيت رسول الله صلى الله عليه وسلم واقفاً على الحَزْوَرَةِ بالمكرمة فقال لمكة: «وَاللَّهِ إِنَّكِ لَخَيْرُ أَرْضِ اللَّهِ، وَأَحَبُّ أَرْضِ اللَّهِ إِلَى اللَّهِ، وَلَوْلَا أَنِّي أُخْرِجْتُ مِنْكِ مَا خَرَجْتُ»</div>
-        <div class="hadith-source">(رواه الترمذي وابن ماجه)</div>
-    </div>
-
-    <div class="hadith-card">
-        <div class="hadith-number-title">218. حديث الدعاء بالبركة للوطن والمكيال والمد</div>
-        <div class="hadith-text">عن أنس بن مالك رضي الله عنه، عن النبي صلى الله عليه وسلم قال: «اللَّهُمَّ اجْعَلْ بِالْمَدِينَةِ ضِعْفَيْ مَا جَعَلْتَ بِمَكَّةَ مِنَ الْبَرَكَةِ»</div>
-        <div class="hadith-source">(رواه البخاري ومسلم)</div>
-    </div>
-
-    <div class="hadith-card">
-        <div class="hadith-number-title">219. حديث من أصبح آمناً في سربه معافى في جسده</div>
-        <div class="hadith-text">عن عبيد الله بن محصن الأنصاري رضي الله عنه قال: قال رسول الله صلى الله عليه وسلم: «مَنْ أَصْبَحَ مِنْكُمْ آمِنًا فِي سِرْبِهِ، مُعَافَى فِي جَسَدِهِ، عِنْدَهُ قُوتُ يَوْمِهِ، فَكَأَنَّمَا حِيزَتْ لَهُ الدُّنْيَا»</div>
+        <div class="hadith-number-title">217. حب الوطن والارتباط بالأرض</div>
+        <div class="hadith-summary">عن عبد الله بن عدي رضي الله عنه: قول النبي لمكة المكرمة "والله إنك لخير أرض الله وأحب أرض الله إلي ولو لم أخرج منك ما خرجت".</div>
         <div class="hadith-source">(رواه الترمذي)</div>
     </div>
 
     <div class="hadith-card">
-        <div class="hadith-number-title">220. حديث الرباط في سبيل الله وحراسة الوطن</div>
-        <div class="hadith-text">عن سلمان الفارسي رضي الله عنه قال: سمعت رسول الله صلى الله عليه وسلم يقول: «رِبَاطُ يَوْمٍ وَلَيْلَةٍ خَيْرٌ مِنْ صِيَامِ شَهْرٍ وَقِيَامِهِ، وَإِنْ مَاتَ جَرَى عَلَيْهِ عَمَلُهُ الَّذِي كَانَ يَعْمَلُهُ، وَأُجْرِيَ عَلَيْهِ رِزْقُهُ، وَأَمِنَ الْفَتَّانَ»</div>
+        <div class="hadith-number-title">218. الدعاء بالبركة للأوطان</div>
+        <div class="hadith-summary">عن أنس بن مالك رضي الله عنه: دعاء النبي صلى الله عليه وسلم بالبركة والزيادة في وطنه وداره ومكيالهم ومدهم.</div>
+        <div class="hadith-source">(متفق عليه)</div>
+    </div>
+
+    <div class="hadith-card">
+        <div class="hadith-number-title">219. نعم الأمان والعافية والرزق</div>
+        <div class="hadith-summary">عن عبيد الله بن محصن رضي الله عنه: من أصبح آمناً في سربه معافى في جسده عنده قوت يومه فكأنما حيزت له الدنيا.</div>
+        <div class="hadith-source">(رواه الترمذي)</div>
+    </div>
+
+    <div class="hadith-card">
+        <div class="hadith-number-title">220. أجر حراسة الوطن والرباط</div>
+        <div class="hadith-summary">عن سلمان الفارسي رضي الله عنه: رباط يوم وليلة لحراسة الوطن والدفاع عنه خير من صيام شهر وقيمامه، وإن مات جرى عليه عمله.</div>
         <div class="hadith-source">(رواه مسلم)</div>
     </div>
 
