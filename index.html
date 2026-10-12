@@ -2,12 +2,12 @@
 <html lang="ar" dir="rtl">
 <head>
   <meta charset="UTF-8">
-  <title>بدائل If بأبسط طريقة وبخط كبير للطلاب</title>
+  <title>بدائل If بلغة مصرية بسيطة جداً</title>
   <style>
     @import url('https://fonts.googleapis.com/css2?family=Tajawal:wght@500;700;800;900&family=Outfit:wght@600;700;800&display=swap');
 
     @page {
-      size: A4 portrait;
+      size: A4 landscape;
       margin: 0;
     }
 
@@ -17,154 +17,129 @@
 
     body {
       margin: 0;
-      padding: 20px 0;
-      background-color: #e2e8f0;
+      padding: 15px 0;
+      background-color: #cbd5e1;
       font-family: 'Tajawal', system-ui, sans-serif;
       color: #0f172a;
       -webkit-print-color-adjust: exact;
       print-color-adjust: exact;
     }
 
-    /* Floating Download Button */
-    .download-bar {
+    /* Top Action Bar */
+    .action-bar {
       position: fixed;
-      top: 15px;
+      top: 10px;
       left: 50%;
       transform: translateX(-50%);
       z-index: 9999;
       background: #0f172a;
-      padding: 10px 24px;
-      border-radius: 50px;
-      box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+      padding: 8px 20px;
+      border-radius: 40px;
       display: flex;
       align-items: center;
       gap: 12px;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.3);
     }
 
-    .download-btn {
-      background: linear-gradient(135deg, #2563eb, #1d4ed8);
-      color: #ffffff;
+    .btn-download {
+      background: #2563eb;
+      color: white;
       border: none;
-      padding: 10px 20px;
-      border-radius: 30px;
-      font-size: 11pt;
-      font-weight: 800;
+      padding: 8px 18px;
+      border-radius: 20px;
       font-family: 'Tajawal', sans-serif;
+      font-weight: 800;
+      font-size: 11pt;
       cursor: pointer;
-      display: flex;
-      align-items: center;
-      gap: 8px;
-      transition: all 0.2s ease;
     }
 
-    .download-btn:hover {
-      background: linear-gradient(135deg, #1d4ed8, #1e40af);
-      transform: scale(1.03);
-    }
-
-    /* A4 Page Layout */
+    /* Landscape Page */
     .page {
-      width: 210mm;
-      height: 297mm;
-      margin: 50px auto 20px auto;
-      padding: 14mm 16mm 12mm 16mm;
-      background-color: #ffffff;
+      width: 297mm;
+      height: 210mm;
+      margin: 40px auto 15px auto;
+      padding: 12mm 15mm 10mm 15mm;
+      background: white;
       border-radius: 12px;
-      box-shadow: 0 12px 30px rgba(0,0,0,0.1);
       display: flex;
       flex-direction: column;
       justify-content: space-between;
-      position: relative;
-      overflow: hidden;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.1);
     }
 
-    .page-content {
-      flex: 1;
-      display: flex;
-      flex-direction: column;
-      gap: 14px;
-    }
-
-    /* Header Banner */
-    .header {
-      background: linear-gradient(135deg, #1e3a8a, #3b82f6);
+    .header-box {
+      background: linear-gradient(135deg, #1e3a8a, #2563eb);
       color: white;
-      padding: 16px 20px;
-      border-radius: 14px;
-      text-align: center;
-      box-shadow: 0 4px 15px rgba(30, 58, 138, 0.2);
+      padding: 12px 18px;
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
     }
 
-    .header h1 {
+    .header-box h1 {
       margin: 0;
-      font-size: 20pt;
+      font-size: 18pt;
       font-weight: 900;
     }
 
-    .header p {
-      margin: 4px 0 0 0;
-      font-size: 11pt;
-      color: #e0f2fe;
-      font-weight: 700;
+    .header-box p {
+      margin: 2px 0 0 0;
+      font-size: 10.5pt;
+      color: #bfdbfe;
     }
 
-    /* Individual Part Card */
-    .part-card {
-      background: #ffffff;
+    .grid-2 {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+      margin-top: 10px;
+    }
+
+    .card {
+      background: #f8fafc;
       border: 2px solid #cbd5e1;
-      border-radius: 14px;
-      padding: 12px 16px;
+      border-radius: 10px;
+      padding: 10px 14px;
       display: flex;
       flex-direction: column;
-      gap: 8px;
+      gap: 6px;
     }
 
-    .part-card.blue { border-color: #3b82f6; background: #f0f9ff; }
-    .part-card.amber { border-color: #f59e0b; background: #fffbeb; }
-    .part-card.purple { border-color: #a855f7; background: #faf5ff; }
-    .part-card.red { border-color: #ef4444; background: #fef2f2; }
+    .card.blue { border-color: #3b82f6; background: #eff6ff; }
+    .card.amber { border-color: #f59e0b; background: #fffbeb; }
+    .card.green { border-color: #22c55e; background: #f0fdf4; }
 
-    .part-title {
-      font-size: 13pt;
+    .card-title {
+      font-size: 12pt;
       font-weight: 900;
       color: #0f172a;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
     }
 
-    .rule-pill {
+    .rule-tag {
       background: #0f172a;
       color: #f8fafc;
       font-family: 'Outfit', sans-serif;
       font-size: 11pt;
       font-weight: 700;
-      padding: 6px 12px;
-      border-radius: 8px;
+      padding: 4px 10px;
+      border-radius: 6px;
       direction: ltr;
       text-align: left;
     }
 
-    .rule-pill .hl { color: #facc15; font-weight: 800; }
-    .rule-pill .hl2 { color: #38bdf8; font-weight: 800; }
+    .rule-tag .hl { color: #facc15; }
+    .rule-tag .hl2 { color: #38bdf8; }
 
-    /* Daily Example Box */
-    .example-box {
-      background: #ffffff;
+    .ex-box {
+      background: white;
       border: 1px dashed #94a3b8;
-      border-radius: 10px;
-      padding: 8px 12px;
-      font-size: 10.5pt;
-    }
-
-    .example-title {
-      font-weight: 800;
-      color: #2563eb;
+      padding: 6px 10px;
+      border-radius: 6px;
       font-size: 10pt;
-      margin-bottom: 2px;
     }
 
-    .en-text {
+    .en {
       font-family: 'Outfit', sans-serif;
       direction: ltr;
       unicode-bidi: embed;
@@ -173,28 +148,25 @@
       color: #0f172a;
     }
 
-    .ar-text {
+    .ar {
       color: #475569;
-      font-size: 10pt;
       font-weight: 700;
-      margin-top: 2px;
+      font-size: 9.5pt;
     }
 
-    /* Signal / Clue Box */
-    .signal-box {
+    .clue {
       background: #fef3c7;
       border-right: 4px solid #d97706;
-      border-radius: 6px;
-      padding: 6px 10px;
-      font-size: 10pt;
+      padding: 4px 8px;
+      font-size: 9.5pt;
       font-weight: 800;
       color: #78350f;
+      border-radius: 4px;
     }
 
-    /* Footer */
-    .page-footer {
+    .footer {
       border-top: 2px solid #e2e8f0;
-      padding-top: 8px;
+      padding-top: 6px;
       display: flex;
       justify-content: space-between;
       font-size: 9pt;
@@ -203,181 +175,143 @@
     }
 
     @media print {
-      .download-bar { display: none !important; }
+      .action-bar { display: none; }
       body { padding: 0; background: none; }
-      .page {
-        margin: 0;
-        border-radius: 0;
-        box-shadow: none;
-        break-after: page;
-        page-break-after: always;
-      }
-      .page:last-child { break-after: auto; page-break-after: auto; }
+      .page { margin: 0; border-radius: 0; box-shadow: none; break-after: page; }
     }
   </style>
 </head>
 <body>
 
-  <!-- Download Floating Bar -->
-  <div class="download-bar">
-    <span style="color: white; font-size: 10pt; font-weight: 700;">📄 جاهز للطباعة والتنزيل:</span>
-    <button class="download-btn" onclick="window.print()">📥 تنزيل / طباعة PDF</button>
+  <div class="action-bar">
+    <span style="color:white; font-weight:700;">📄 الشرح المصري المبسط جاهز:</span>
+    <button class="btn-download" onclick="window.print()">📥 تحميل / طباعة PDF</button>
   </div>
 
-  <!-- ==================== PAGE 1 ==================== -->
+  <!-- PAGE 1 -->
   <div class="page">
-    <div class="page-content">
-      
-      <div class="header">
-        <h1>كورس بدائل (If) السريع والمبسط جداً</h1>
-        <p>كل جزء لوحده بخط كبير وأمثلة من الحياة اليومية ودلائل الامتحان 🎯</p>
-      </div>
-
-      <!-- Part 1 -->
-      <div class="part-card blue">
-        <div class="part-title">
-          <span>🔹 الجزء 1: الكلمات المباشرة اللي زي (If) بالضبط</span>
+    <div>
+      <div class="header-box">
+        <div>
+          <h1>شرح بدائل If بلغة مصرية وبسيطة جداً 🇪🇬</h1>
+          <p>افهم الفكرة ببساطة ومن غير تعقيد عشان تقفل الامتحان بسهولة</p>
         </div>
-        <div style="font-size: 10.5pt; font-weight: 700; color: #334155;">
-          الكلمات دي: <span style="color: #2563eb;">Provided that / As long as / On condition that / In case</span>
-        </div>
-        <div class="rule-pill">
-          [ الكلمة ] + <span class="hl">فاعل (Subject)</span> + <span class="hl2">فعل كامل (Verb)</span>
-        </div>
-        <div class="example-box">
-          <div class="example-title">💡 مثال من الحياة اليومية:</div>
-          <div class="en-text">You can drive my car <span style="color: #2563eb;">as long as</span> you drive slowly.</div>
-          <div class="ar-text">تقدر تسوق عربيتي طالما بتسوق بشويش (بعدها جملة كاملة: you + drive).</div>
-        </div>
-        <div class="signal-box">
-          🔍 التنويه والدلالة: أول ما تلاقي بعد النقط (فاعل + فعل كامل) اختر واحدة من الكلمات دي فوراً!
+        <div style="background:rgba(255,255,255,0.2); padding:6px 12px; border-radius:8px; font-weight:800; font-size:10pt;">
+          صفحة 1 من 2
         </div>
       </div>
 
-      <!-- Part 2 -->
-      <div class="part-card amber">
-        <div class="part-title">
-          <span>🔹 الجزء 2: السر بين (In case) و (In case of)</span>
+      <div class="grid-2">
+        
+        <!-- Part 1 -->
+        <div class="card blue">
+          <div class="card-title">1️⃣ كلمات بتلعب نفس دور If بالضبط</div>
+          <div style="font-size:10pt; font-weight:700;">زي: <b>As long as / Provided that / In case</b> (معناهم: طالما / بشرط)</div>
+          <div class="rule-tag">[ الكلمة ] + <span class="hl">فاعل (Subject)</span> + <span class="hl2">فعل كامل</span></div>
+          <div class="ex-box">
+            <div class="en">You can drive my car <span style="color:#2563eb;">as long as</span> you drive carefully.</div>
+            <div class="ar">⬅️ البلدي: تقدر تسوق عربيتي طالما بتسوق بشويش (بعدها جملة كاملة).</div>
+          </div>
+          <div class="clue">💡 الزتونة: لقيت بعد النقط (فاعل + فعل كامل)؟ اختار حاجة من دول فوراً.</div>
         </div>
-        <div class="rule-pill">
-          • In case ➔ ييجي بعدها: <span class="hl">جملة كاملة (فاعل + فعل)</span><br>
-          • In case of ➔ ييجي بعدها: <span class="hl2">اسم (Noun) أو فعل فيه ing</span>
-        </div>
-        <div class="example-box">
-          <div class="example-title">💡 مثال يومي توضيحي:</div>
-          <div class="en-text">1. Take umbrella <span style="color: #d97706;">in case</span> it rains. (جملة)</div>
-          <div class="en-text">2. Take umbrella <span style="color: #d97706;">in case of</span> rain. (اسم فقط)</div>
-          <div class="ar-text">خد شمسية احتياطي عشان لو مطرت.</div>
-        </div>
-        <div class="signal-box">
-          🔍 التنويه والدلالة: تلمح كلمة (rain) لوحدها بدون فعل؟ خد In case of. لقيت (it rains)؟ خد In case.
-        </div>
-      </div>
 
-      <!-- Part 3 -->
-      <div class="part-card purple">
-        <div class="part-title">
-          <span>🔹 الجزء 3: بديل (Should) ⬅️ الدليل: المصدر!</span>
+        <!-- Part 2 -->
+        <div class="card amber">
+          <div class="card-title">2️⃣ الفرق البلدي بين In case و In case of</div>
+          <div class="rule-tag">• In case ➔ <span class="hl">وراها جملة (فاعل + فعل)</span><br>• In case of ➔ <span class="hl2">وراها كلمة وحدة (اسم/v.ing)</span></div>
+          <div class="ex-box">
+            <div class="en">1. Take umbrella <span style="color:#d97706;">in case</span> it rains. (جملة)</div>
+            <div class="en">2. Take umbrella <span style="color:#d97706;">in case of</span> rain. (اسم بس)</div>
+            <div class="ar">⬅️ البلدي: خد شمسية احتُياطي عشان الدنيا تمطر / في حالة المطر.</div>
+          </div>
+          <div class="clue">💡 الزتونة: كلمة rain لوحدها تاخد In case of.. لكن it rains تاخد In case.</div>
         </div>
-        <div class="rule-pill">
-          <span class="hl">Should</span> + فاعل + <span class="hl2">فعل في المصدر (بدون أي زيادة)</span>
-        </div>
-        <div class="example-box">
-          <div class="example-title">💡 مثال يومي توضيحي:</div>
-          <div class="en-text"><span style="color: #9333ea;">Should</span> he <span style="color: #2563eb;">come</span> early, he will see us.</div>
-          <div class="ar-text">لو جه بدري هيشوفنا (لاحظ كتبت come مش comes بالرغم من وجود he).</div>
-        </div>
-        <div class="signal-box">
-          🔍 التنويه والدلالة: تلاقي الفاعل المفرد (he/she/it) ووراه فعل في المصدر؟ اختر Should بدون تفكير!
-        </div>
-      </div>
 
+        <!-- Part 3 -->
+        <div class="card green">
+          <div class="card-title">3️⃣ بدل If حط Should (علامتها: الفعل السادة)</div>
+          <div class="rule-tag"><span class="hl">Should</span> + فاعل + <span class="hl2">فعل في المصدر (سادة من غير إضافات)</span></div>
+          <div class="ex-box">
+            <div class="en"><span style="color:#16a34a;">Should</span> he <span style="color:#2563eb;">come</span> early, he will see us.</div>
+            <div class="ar">⬅️ البلدي: لو ييجي بدري هيشوفنا (لاحظ كتبت come مش comes بعد he).</div>
+          </div>
+          <div class="clue">💡 الزتونة: تلمح الفاعل وراه فعل سادة في المصدر؟ اختار Should وأنت مغمض.</div>
+        </div>
+
+        <!-- Part 4 -->
+        <div class="card blue">
+          <div class="card-title">4️⃣ بدل If حط Were (علامتها: to + المصدر)</div>
+          <div class="rule-tag"><span class="hl">Were</span> + فاعل + <span class="hl2">(to + المصدر)</span></div>
+          <div class="ex-box">
+            <div class="en"><span style="color:#2563eb;">Were</span> he <span style="color:#d97706;">to play</span> well, he would win.</div>
+            <div class="ar">⬅️ البلدي: لو كان يلعب كويس كان كسب.</div>
+          </div>
+          <div class="clue">💡 الزتونة: لقيت التركيب العجيب ده (to + المصدر) بعد الفاعل؟ اختار Were.</div>
+        </div>
+
+      </div>
     </div>
 
-    <div class="page-footer">
-      <span>مذكرة بدائل If المبسطة - بخط كبير وملائم للطلاب</span>
+    <div class="footer">
+      <span>مذكرة بدائل If للطلاب - الشرح المصري المبسط</span>
       <span>صفحة 1 من 2</span>
     </div>
   </div>
 
-
-  <!-- ==================== PAGE 2 ==================== -->
+  <!-- PAGE 2 -->
   <div class="page">
-    <div class="page-content">
-
-      <!-- Part 4 -->
-      <div class="part-card red">
-        <div class="part-title">
-          <span>🔹 الجزء 4: بديل (Were) ⬅️ الدليل: (to + المصدر)</span>
+    <div>
+      <div class="header-box" style="background: linear-gradient(135deg, #0f172a, #1e293b);">
+        <div>
+          <h1>باقي القواعد والزتونة السحرية للامتحان 🎯</h1>
+          <p>كمل الباقي واعرف بتتحل ازاي في الامتحان من أول نظرة</p>
         </div>
-        <div class="rule-pill">
-          • <span class="hl">Were</span> + فاعل + <span class="hl2">(to + المصدر)</span> ➔ لو فيه فعل تاني<br>
-          • <span class="hl">Were</span> + فاعل + <span class="hl2">(اسم أو صفة)</span> ➔ لو هي الفعل الأساسي
-        </div>
-        <div class="example-box">
-          <div class="example-title">💡 أمثلة يومية:</div>
-          <div class="en-text">1. <span style="color: #dc2626;">Were</span> he <span style="color: #2563eb;">to play</span> well, he would win.</div>
-          <div class="en-text">2. <span style="color: #dc2626;">Were</span> I rich, I would buy a boat.</div>
-          <div class="ar-text">لو لعب كويس كان كسب / لو كنت غني كنت اشتريت مركب.</div>
-        </div>
-        <div class="signal-box">
-          🔍 التنويه والدلالة: أول ما تلمح عينك تركيب (to + المصدر) بعد الفاعل، اختار Were على طول!
+        <div style="background:rgba(255,255,255,0.2); padding:6px 12px; border-radius:8px; font-weight:800; font-size:10pt;">
+          صفحة 2 من 2
         </div>
       </div>
 
-      <!-- Part 5 -->
-      <div class="part-card blue">
-        <div class="part-title">
-          <span>🔹 الجزء 5: بديل (Had) ⬅️ الدليل: التصريف الثالث (P.P)</span>
+      <div class="grid-2">
+
+        <!-- Part 5 -->
+        <div class="card amber">
+          <div class="card-title">5️⃣ بدل If حط Had (علامتها: التصريف الثالث P.P)</div>
+          <div class="rule-tag"><span class="hl">Had</span> + فاعل + <span class="hl2">تصريف ثالث (P.P)</span></div>
+          <div class="ex-box">
+            <div class="en"><span style="color:#d97706;">Had</span> he <span style="color:#2563eb;">studied</span>, he would have passed.</div>
+            <div class="ar">⬅️ البلدي: لو كان ذاكر كان نجح.</div>
+          </div>
+          <div class="clue">💡 الزتونة: لقيت تصريف ثالث (studied / played / gone) بعد الفاعل؟ اختار Had.</div>
         </div>
-        <div class="rule-pill">
-          • <span class="hl">Had</span> + فاعل + <span class="hl2">تصريف ثالث (P.P)</span> ➔ حالة ثالثة<br>
-          • <span class="hl">Had</span> + فاعل + <span class="hl2">اسم مملوك</span> ➔ حالة ثانية
+
+        <!-- Part 6 -->
+        <div class="card green">
+          <div class="card-title">6️⃣ لو عايزين نقول "لو لم" أو "لولا" (النفي)</div>
+          <div class="rule-tag">• Unless ➔ <span class="hl">وراها جملة كاملة</span><br>• Without / But for ➔ <span class="hl2">وراها اسم بس</span></div>
+          <div class="ex-box">
+            <div class="en">1. <span style="color:#16a34a;">Unless</span> he studies, he will fail. (جملة)</div>
+            <div class="en">2. <span style="color:#16a34a;">Without</span> your help, I would fail. (اسم بس)</div>
+            <div class="ar">⬅️ البلدي: لو ممذاكرش هيرسب / لولا مساعدتك كان زماني سقطت.</div>
+          </div>
+          <div class="clue">💡 الزتونة: المعنى محتاج نفي؟ لو وراها جملة اختر Unless، لو اسم اختر Without.</div>
         </div>
-        <div class="example-box">
-          <div class="example-title">💡 أمثلة يومية:</div>
-          <div class="en-text">1. <span style="color: #2563eb;">Had</span> he <span style="color: #d97706;">studied</span>, he would have passed.</div>
-          <div class="en-text">2. <span style="color: #2563eb;">Had</span> I a car, I would travel.</div>
-          <div class="ar-text">لو كان ذاكر كان نجح / لو كان معايا عربية كنت سافرت.</div>
-        </div>
-        <div class="signal-box">
-          🔍 التنويه والدلالة: لقيـت تصريف ثالث (P.P) بعد الفاعل؟ اختار Had فوراً!
-        </div>
+
       </div>
 
-      <!-- Part 6 -->
-      <div class="part-card amber">
-        <div class="part-title">
-          <span>🔹 الجزء 6: أدوات النفي (Unless / Without / But for)</span>
-        </div>
-        <div class="rule-pill">
-          • Unless ➔ <span class="hl">إذا لم (يجيء بعدها جملة مثبتة)</span><br>
-          • Without / But for ➔ <span class="hl2">لولا (يجيء بعدها اسم أو v.ing)</span>
-        </div>
-        <div class="example-box">
-          <div class="example-title">💡 أمثلة يومية:</div>
-          <div class="en-text">1. <span style="color: #d97706;">Unless</span> he studies, he will fail. (لو مذاكرش هيرسب)</div>
-          <div class="en-text">2. <span style="color: #d97706;">Without</span> your help, I would fail. (لولا مساعدتك)</div>
-        </div>
-        <div class="signal-box">
-          🔍 التنويه والدلالة: الكلمات دي معناها منفي (لو لم / لولا)، فلو الجملة محتاجة نفي اختر واحدة منهم حسب ما بعدها!
-        </div>
-      </div>
-
-      <!-- Final Golden Summary -->
-      <div style="background: #0f172a; color: white; padding: 12px 16px; border-radius: 12px;">
-        <div style="font-size: 11pt; font-weight: 900; color: #facc15; margin-bottom: 4px;">⚡ الملخص الماسي السريع (حل بمجرد النظر):</div>
-        <div style="font-size: 10pt; font-weight: 700; line-height: 1.6; color: #f1f5f9;">
-          1. لقيـت <span style="color: #38bdf8;">[مصدر مجرد]</span> بعد الفاعل ➔ اختار <strong>Should</strong><br>
-          2. لقيـت <span style="color: #38bdf8;">[to + المصدر]</span> بعد الفاعل ➔ اختار <strong>Were</strong><br>
-          3. لقيـت <span style="color: #38bdf8;">[تصريف ثالث P.P]</span> بعد الفاعل ➔ اختار <strong>Had</strong>
+      <!-- Magic Table -->
+      <div style="margin-top: 12px; background:#0f172a; color:white; padding:12px; border-radius:10px;">
+        <div style="font-size:11pt; font-weight:900; color:#facc15; margin-bottom:6px;">⚡ زتونة الامتحان الماسية (بص على اللي بعد الفاعل وحل في ثانية):</div>
+        <div style="font-size:10pt; font-weight:700; line-height:1.7; color:#f8fafc;">
+          1. لقيت <span style="color:#38bdf8;">[فعل سادة / مصدر]</span> بعد الفاعل ➔ اختار فوراً <strong>Should</strong><br>
+          2. لقيت <span style="color:#38bdf8;">[to + المصدر]</span> بعد الفاعل ➔ اختار فوراً <strong>Were</strong><br>
+          3. لقيت <span style="color:#38bdf8;">[تصريف ثالث P.P]</span> بعد الفاعل ➔ اختار فوراً <strong>Had</strong>
         </div>
       </div>
 
     </div>
 
-    <div class="page-footer">
-      <span>مذكرة بدائل If المبسطة - بخط كبير وملائم للطلاب</span>
+    <div class="footer">
+      <span>مذكرة بدائل If للطلاب - الشرح المصري المبسط</span>
       <span>صفحة 2 من 2</span>
     </div>
   </div>
