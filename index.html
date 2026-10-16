@@ -1,320 +1,252 @@
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
-  <meta charset="UTF-8">
-  <title>بدائل If بلغة مصرية بسيطة جداً</title>
-  <style>
-    @import url('https://fonts.googleapis.com/css2?family=Tajawal:wght@500;700;800;900&family=Outfit:wght@600;700;800&display=swap');
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>بوستر دعم وتاييد الرئيس عبد الفتاح السيسي</title>
+    <!-- استيراد خطوط عربية احترافية من Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Amiri:wght@700&family=Cairo:wght@400;600;700;900&display=swap" rel="stylesheet">
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
 
-    @page {
-      size: A4 landscape;
-      margin: 0;
-    }
+        body {
+            background-color: #e5e7eb;
+            font-family: 'Cairo', sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            padding: 20px;
+        }
 
-    *, *::before, *::after {
-      box-sizing: border-box;
-    }
+        /* حاوية البوستر بمقاييس الطباعة القياسية */
+        .poster-container {
+            width: 800px;
+            height: 1130px;
+            background: linear-gradient(135deg, #ffffff 0%, #fcfbf9 100%);
+            border: 12px solid #111;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.35);
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            padding: 40px;
+        }
 
-    body {
-      margin: 0;
-      padding: 15px 0;
-      background-color: #cbd5e1;
-      font-family: 'Tajawal', system-ui, sans-serif;
-      color: #0f172a;
-      -webkit-print-color-adjust: exact;
-      print-color-adjust: exact;
-    }
+        /* إطار الألوان الوطنية المنسق على الجوانب */
+        .poster-container::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 25px;
+            height: 100%;
+            background: linear-gradient(to bottom, #c0392b 33%, #ffffff 33%, #ffffff 66%, #111111 66%);
+            z-index: 2;
+        }
 
-    /* Top Action Bar */
-    .action-bar {
-      position: fixed;
-      top: 10px;
-      left: 50%;
-      transform: translateX(-50%);
-      z-index: 9999;
-      background: #0f172a;
-      padding: 8px 20px;
-      border-radius: 40px;
-      display: flex;
-      align-items: center;
-      gap: 12px;
-      box-shadow: 0 8px 20px rgba(0,0,0,0.3);
-    }
+        .poster-container::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 25px;
+            height: 100%;
+            background: linear-gradient(to bottom, #111111 33%, #ffffff 33%, #ffffff 66%, #c0392b 66%);
+            z-index: 2;
+        }
 
-    .btn-download {
-      background: #2563eb;
-      color: white;
-      border: none;
-      padding: 8px 18px;
-      border-radius: 20px;
-      font-family: 'Tajawal', sans-serif;
-      font-weight: 800;
-      font-size: 11pt;
-      cursor: pointer;
-    }
+        /* الهيدر والعنوان الرئيسي */
+        .header-section {
+            text-align: center;
+            z-index: 3;
+            margin-top: 10px;
+        }
 
-    /* Landscape Page */
-    .page {
-      width: 297mm;
-      height: 210mm;
-      margin: 40px auto 15px auto;
-      padding: 12mm 15mm 10mm 15mm;
-      background: white;
-      border-radius: 12px;
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-      box-shadow: 0 10px 25px rgba(0,0,0,0.1);
-    }
+        .main-title {
+            font-family: 'Amiri', serif;
+            font-size: 64px;
+            font-weight: 700;
+            color: #b8860b;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.15);
+            letter-spacing: 2px;
+            position: relative;
+            display: inline-block;
+        }
 
-    .header-box {
-      background: linear-gradient(135deg, #1e3a8a, #2563eb);
-      color: white;
-      padding: 12px 18px;
-      border-radius: 10px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-    }
+        .main-title::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 60%;
+            height: 3px;
+            background: #c0392b;
+            border-radius: 2px;
+        }
 
-    .header-box h1 {
-      margin: 0;
-      font-size: 18pt;
-      font-weight: 900;
-    }
+        /* قسم الصورة الشخصية والخلفية الجمالية */
+        .hero-section {
+            position: relative;
+            flex-grow: 1;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: 20px 0;
+            z-index: 3;
+        }
 
-    .header-box p {
-      margin: 2px 0 0 0;
-      font-size: 10.5pt;
-      color: #bfdbfe;
-    }
+        .bg-landmarks {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background-image: url('https://i.postimg.cc/4Nsp2XPv/IMG-4f487f84-bce5-4e64-8b06-4e9d07c73c16.jpg');
+            background-size: cover;
+            background-position: center;
+            opacity: 0.85;
+            border-radius: 15px;
+            box-shadow: inset 0 0 40px rgba(0,0,0,0.3);
+            border: 4px solid #b8860b;
+        }
 
-    .grid-2 {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 12px;
-      margin-top: 10px;
-    }
+        .overlay-gradient {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(to top, rgba(0,0,0,0.6) 0%, rgba(0,0,0,0.1) 50%, rgba(255,255,255,0.2) 100%);
+            border-radius: 12px;
+        }
 
-    .card {
-      background: #f8fafc;
-      border: 2px solid #cbd5e1;
-      border-radius: 10px;
-      padding: 10px 14px;
-      display: flex;
-      flex-direction: column;
-      gap: 6px;
-    }
+        /* شعار أو نص التأسيس والتأييد داخل الصورة أو أسفلها */
+        .slogan-section {
+            text-align: center;
+            z-index: 3;
+            background: rgba(255, 255, 255, 0.92);
+            padding: 20px;
+            border-radius: 12px;
+            border: 2px solid #b8860b;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+        }
 
-    .card.blue { border-color: #3b82f6; background: #eff6ff; }
-    .card.amber { border-color: #f59e0b; background: #fffbeb; }
-    .card.green { border-color: #22c55e; background: #f0fdf4; }
+        .slogan-ar {
+            font-size: 32px;
+            font-weight: 900;
+            color: #1a1a1a;
+            margin-bottom: 5px;
+        }
 
-    .card-title {
-      font-size: 12pt;
-      font-weight: 900;
-      color: #0f172a;
-    }
+        .slogan-name {
+            font-size: 36px;
+            font-weight: 900;
+            color: #c0392b;
+            letter-spacing: 1px;
+        }
 
-    .rule-tag {
-      background: #0f172a;
-      color: #f8fafc;
-      font-family: 'Outfit', sans-serif;
-      font-size: 11pt;
-      font-weight: 700;
-      padding: 4px 10px;
-      border-radius: 6px;
-      direction: ltr;
-      text-align: left;
-    }
+        .slogan-en {
+            font-size: 20px;
+            font-weight: 700;
+            color: #4b5563;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-top: 8px;
+        }
 
-    .rule-tag .hl { color: #facc15; }
-    .rule-tag .hl2 { color: #38bdf8; }
+        /* الفوتر السفلي */
+        .footer-section {
+            text-align: center;
+            font-size: 14px;
+            color: #6b7280;
+            font-weight: 600;
+            z-index: 3;
+            border-top: 1px solid #e5e7eb;
+            padding-top: 10px;
+        }
 
-    .ex-box {
-      background: white;
-      border: 1px dashed #94a3b8;
-      padding: 6px 10px;
-      border-radius: 6px;
-      font-size: 10pt;
-    }
+        /* زر الطباعة (يختفي عند الطباعة الفعلية) */
+        .print-btn-container {
+            position: fixed;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 1000;
+        }
 
-    .en {
-      font-family: 'Outfit', sans-serif;
-      direction: ltr;
-      unicode-bidi: embed;
-      font-weight: 700;
-      font-size: 11pt;
-      color: #0f172a;
-    }
+        .print-btn {
+            background-color: #c0392b;
+            color: white;
+            border: none;
+            padding: 12px 30px;
+            font-size: 18px;
+            font-weight: bold;
+            border-radius: 30px;
+            cursor: pointer;
+            box-shadow: 0 5px 15px rgba(192, 57, 43, 0.4);
+            transition: all 0.3s ease;
+            font-family: 'Cairo', sans-serif;
+        }
 
-    .ar {
-      color: #475569;
-      font-weight: 700;
-      font-size: 9.5pt;
-    }
+        .print-btn:hover {
+            background-color: #962d22;
+            transform: translateY(-2px);
+        }
 
-    .clue {
-      background: #fef3c7;
-      border-right: 4px solid #d97706;
-      padding: 4px 8px;
-      font-size: 9.5pt;
-      font-weight: 800;
-      color: #78350f;
-      border-radius: 4px;
-    }
-
-    .footer {
-      border-top: 2px solid #e2e8f0;
-      padding-top: 6px;
-      display: flex;
-      justify-content: space-between;
-      font-size: 9pt;
-      font-weight: 800;
-      color: #64748b;
-    }
-
-    @media print {
-      .action-bar { display: none; }
-      body { padding: 0; background: none; }
-      .page { margin: 0; border-radius: 0; box-shadow: none; break-after: page; }
-    }
-  </style>
+        @media print {
+            body {
+                background: none;
+                padding: 0;
+            }
+            .print-btn-container {
+                display: none;
+            }
+            .poster-container {
+                box-shadow: none;
+                border: 8px solid #111;
+                width: 100%;
+                height: 100vh;
+            }
+        }
+    </style>
 </head>
 <body>
 
-  <div class="action-bar">
-    <span style="color:white; font-weight:700;">📄 الشرح المصري المبسط جاهز:</span>
-    <button class="btn-download" onclick="window.print()">📥 تحميل / طباعة PDF</button>
-  </div>
+    <!-- زر الطباعة -->
+    <div class="print-btn-container">
+        <button class="print-btn" onclick="window.print()">🖨️ طباعة البوستر بجودة عالية</button>
+    </div>
 
-  <!-- PAGE 1 -->
-  <div class="page">
-    <div>
-      <div class="header-box">
-        <div>
-          <h1>شرح بدائل If بلغة مصرية وبسيطة جداً 🇪🇬</h1>
-          <p>افهم الفكرة ببساطة ومن غير تعقيد عشان تقفل الامتحان بسهولة</p>
-        </div>
-        <div style="background:rgba(255,255,255,0.2); padding:6px 12px; border-radius:8px; font-weight:800; font-size:10pt;">
-          صفحة 1 من 2
-        </div>
-      </div>
-
-      <div class="grid-2">
+    <!-- البوستر الرئيسي -->
+    <div class="poster-container">
         
-        <!-- Part 1 -->
-        <div class="card blue">
-          <div class="card-title">1️⃣ كلمات بتلعب نفس دور If بالضبط</div>
-          <div style="font-size:10pt; font-weight:700;">زي: <b>As long as / Provided that / In case</b> (معناهم: طالما / بشرط)</div>
-          <div class="rule-tag">[ الكلمة ] + <span class="hl">فاعل (Subject)</span> + <span class="hl2">فعل كامل</span></div>
-          <div class="ex-box">
-            <div class="en">You can drive my car <span style="color:#2563eb;">as long as</span> you drive carefully.</div>
-            <div class="ar">⬅️ البلدي: تقدر تسوق عربيتي طالما بتسوق بشويش (بعدها جملة كاملة).</div>
-          </div>
-          <div class="clue">💡 الزتونة: لقيت بعد النقط (فاعل + فعل كامل)؟ اختار حاجة من دول فوراً.</div>
+        <!-- العنوان العلوي -->
+        <div class="header-section">
+            <h1 class="main-title">تحيا مصر</h1>
         </div>
 
-        <!-- Part 2 -->
-        <div class="card amber">
-          <div class="card-title">2️⃣ الفرق البلدي بين In case و In case of</div>
-          <div class="rule-tag">• In case ➔ <span class="hl">وراها جملة (فاعل + فعل)</span><br>• In case of ➔ <span class="hl2">وراها كلمة وحدة (اسم/v.ing)</span></div>
-          <div class="ex-box">
-            <div class="en">1. Take umbrella <span style="color:#d97706;">in case</span> it rains. (جملة)</div>
-            <div class="en">2. Take umbrella <span style="color:#d97706;">in case of</span> rain. (اسم بس)</div>
-            <div class="ar">⬅️ البلدي: خد شمسية احتُياطي عشان الدنيا تمطر / في حالة المطر.</div>
-          </div>
-          <div class="clue">💡 الزتونة: كلمة rain لوحدها تاخد In case of.. لكن it rains تاخد In case.</div>
+        <!-- منطقة الصورة والخلفية الوطنية -->
+        <div class="hero-section">
+            <div class="bg-landmarks"></div>
+            <div class="overlay-gradient"></div>
         </div>
 
-        <!-- Part 3 -->
-        <div class="card green">
-          <div class="card-title">3️⃣ بدل If حط Should (علامتها: الفعل السادة)</div>
-          <div class="rule-tag"><span class="hl">Should</span> + فاعل + <span class="hl2">فعل في المصدر (سادة من غير إضافات)</span></div>
-          <div class="ex-box">
-            <div class="en"><span style="color:#16a34a;">Should</span> he <span style="color:#2563eb;">come</span> early, he will see us.</div>
-            <div class="ar">⬅️ البلدي: لو ييجي بدري هيشوفنا (لاحظ كتبت come مش comes بعد he).</div>
-          </div>
-          <div class="clue">💡 الزتونة: تلمح الفاعل وراه فعل سادة في المصدر؟ اختار Should وأنت مغمض.</div>
+        <!-- النصوص والشعارات الترويجية -->
+        <div class="slogan-section">
+            <div class="slogan-ar">معاً لمستقبل أفضل</div>
+            <div class="slogan-name">للرئيس عبد الفتاح السيسي</div>
+            <div class="slogan-en">For a Stronger Egypt • Vote El-Sisi</div>
         </div>
 
-        <!-- Part 4 -->
-        <div class="card blue">
-          <div class="card-title">4️⃣ بدل If حط Were (علامتها: to + المصدر)</div>
-          <div class="rule-tag"><span class="hl">Were</span> + فاعل + <span class="hl2">(to + المصدر)</span></div>
-          <div class="ex-box">
-            <div class="en"><span style="color:#2563eb;">Were</span> he <span style="color:#d97706;">to play</span> well, he would win.</div>
-            <div class="ar">⬅️ البلدي: لو كان يلعب كويس كان كسب.</div>
-          </div>
-          <div class="clue">💡 الزتونة: لقيت التركيب العجيب ده (to + المصدر) بعد الفاعل؟ اختار Were.</div>
+        <!-- الفوتر -->
+        <div class="footer-section">
+            <p>دعم وتأييد مسيرة التنمية والبناء والاستقرار</p>
         </div>
-
-      </div>
-    </div>
-
-    <div class="footer">
-      <span>مذكرة بدائل If للطلاب - الشرح المصري المبسط</span>
-      <span>صفحة 1 من 2</span>
-    </div>
-  </div>
-
-  <!-- PAGE 2 -->
-  <div class="page">
-    <div>
-      <div class="header-box" style="background: linear-gradient(135deg, #0f172a, #1e293b);">
-        <div>
-          <h1>باقي القواعد والزتونة السحرية للامتحان 🎯</h1>
-          <p>كمل الباقي واعرف بتتحل ازاي في الامتحان من أول نظرة</p>
-        </div>
-        <div style="background:rgba(255,255,255,0.2); padding:6px 12px; border-radius:8px; font-weight:800; font-size:10pt;">
-          صفحة 2 من 2
-        </div>
-      </div>
-
-      <div class="grid-2">
-
-        <!-- Part 5 -->
-        <div class="card amber">
-          <div class="card-title">5️⃣ بدل If حط Had (علامتها: التصريف الثالث P.P)</div>
-          <div class="rule-tag"><span class="hl">Had</span> + فاعل + <span class="hl2">تصريف ثالث (P.P)</span></div>
-          <div class="ex-box">
-            <div class="en"><span style="color:#d97706;">Had</span> he <span style="color:#2563eb;">studied</span>, he would have passed.</div>
-            <div class="ar">⬅️ البلدي: لو كان ذاكر كان نجح.</div>
-          </div>
-          <div class="clue">💡 الزتونة: لقيت تصريف ثالث (studied / played / gone) بعد الفاعل؟ اختار Had.</div>
-        </div>
-
-        <!-- Part 6 -->
-        <div class="card green">
-          <div class="card-title">6️⃣ لو عايزين نقول "لو لم" أو "لولا" (النفي)</div>
-          <div class="rule-tag">• Unless ➔ <span class="hl">وراها جملة كاملة</span><br>• Without / But for ➔ <span class="hl2">وراها اسم بس</span></div>
-          <div class="ex-box">
-            <div class="en">1. <span style="color:#16a34a;">Unless</span> he studies, he will fail. (جملة)</div>
-            <div class="en">2. <span style="color:#16a34a;">Without</span> your help, I would fail. (اسم بس)</div>
-            <div class="ar">⬅️ البلدي: لو ممذاكرش هيرسب / لولا مساعدتك كان زماني سقطت.</div>
-          </div>
-          <div class="clue">💡 الزتونة: المعنى محتاج نفي؟ لو وراها جملة اختر Unless، لو اسم اختر Without.</div>
-        </div>
-
-      </div>
-
-      <!-- Magic Table -->
-      <div style="margin-top: 12px; background:#0f172a; color:white; padding:12px; border-radius:10px;">
-        <div style="font-size:11pt; font-weight:900; color:#facc15; margin-bottom:6px;">⚡ زتونة الامتحان الماسية (بص على اللي بعد الفاعل وحل في ثانية):</div>
-        <div style="font-size:10pt; font-weight:700; line-height:1.7; color:#f8fafc;">
-          1. لقيت <span style="color:#38bdf8;">[فعل سادة / مصدر]</span> بعد الفاعل ➔ اختار فوراً <strong>Should</strong><br>
-          2. لقيت <span style="color:#38bdf8;">[to + المصدر]</span> بعد الفاعل ➔ اختار فوراً <strong>Were</strong><br>
-          3. لقيت <span style="color:#38bdf8;">[تصريف ثالث P.P]</span> بعد الفاعل ➔ اختار فوراً <strong>Had</strong>
-        </div>
-      </div>
 
     </div>
-
-    <div class="footer">
-      <span>مذكرة بدائل If للطلاب - الشرح المصري المبسط</span>
-      <span>صفحة 2 من 2</span>
-    </div>
-  </div>
 
 </body>
 </html>
