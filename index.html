@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>تصميم عملة ورقية رسمية - جاهزة للطباعة</title>
-    <!-- استدعاء خطوط عربية فاخرة للنقود والوثائق الرسمية -->
+    <title>عملة تذكارية رسمية - ماسبيرو</title>
+    <!-- خطوط عربية فاخرة للوثائق والنقود الرسمية -->
     <link href="https://fonts.googleapis.com/css2?family=Amiri:wght@700&family=Cairo:wght@600;800;900&family=Reem+Kufi:wght@700&family=Courier+Prime:wght@700&display=swap" rel="stylesheet">
     <style>
         * {
@@ -15,7 +15,7 @@
 
         body {
             font-family: 'Cairo', sans-serif;
-            background-color: #1a1a1a;
+            background-color: #0d1b2a;
             color: #1a252c;
             display: flex;
             flex-direction: column;
@@ -25,149 +25,289 @@
             padding: 20px;
         }
 
-        /* حاوية العملة الورقية بمقاسات العملات الورقية الرسمية */
+        /* حاوية العملة الورقية (أبعاد بانورامية للنقود) */
         .banknote {
-            width: 780px;
-            height: 380px;
+            width: 820px;
+            height: 390px;
             max-width: 100%;
             position: relative;
-            background: #f4efe1; /* لون ورق النقود الفاخر */
-            border-radius: 8px;
+            background: #f4efe1; /* لون ورق النقد الرسمي */
+            border-radius: 10px;
             overflow: hidden;
-            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.6);
-            border: 1px solid #c8b27c;
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.7);
+            border: 2px solid #d4af37;
             
-            /* خلفية النقوش الهندسية المعقدة (Guilloche/Security Pattern) */
+            /* دمج صورة الخلفية العامة مع نقوش النقود الأمنية */
             background-image: 
-                radial-gradient(circle at 50% 50%, rgba(184, 134, 11, 0.08) 0%, transparent 70%),
-                repeating-linear-gradient(45deg, rgba(27, 67, 50, 0.04) 0px, rgba(27, 67, 50, 0.04) 2px, transparent 2px, transparent 8px),
-                repeating-linear-gradient(-45deg, rgba(184, 134, 11, 0.04) 0px, rgba(184, 134, 11, 0.04) 2px, transparent 2px, transparent 8px);
+                linear-gradient(rgba(10, 25, 47, 0.75), rgba(10, 25, 47, 0.75)),
+                url('https://i.postimg.cc/XvMb7FN7/IMG-946cbdd7-64a2-4682-91ec-d62be5b50196.webp');
+            background-size: cover;
+            background-position: center;
         }
 
-        /* الإطار الأمني الخارجي المزخرف */
+        /* الإطار الأمني الداخلي */
         .security-border {
             position: absolute;
             top: 10px;
             left: 10px;
             right: 10px;
             bottom: 10px;
-            border: 3px double #1b4332;
-            outline: 2px solid #b8860b;
-            outline-offset: -7px;
-            padding: 15px;
+            border: 2px double #d4af37;
+            outline: 1px solid rgba(255, 255, 255, 0.3);
+            outline-offset: -5px;
+            padding: 20px;
             display: flex;
             flex-direction: column;
             justify-content: space-between;
-            background: rgba(255, 255, 255, 0.25);
+            background: rgba(13, 27, 42, 0.45);
+            backdrop-filter: blur(4px);
         }
 
-        /* الرأس: الجهة المصدرة والقيمة بالرقام */
+        /* الشريط الهولوغرامي الأمني العمودي */
+        .security-thread {
+            position: absolute;
+            right: 250px;
+            top: -20px;
+            bottom: -20px;
+            width: 12px;
+            background: linear-gradient(180deg, #d4af37 0%, #ffffff 50%, #d4af37 100%);
+            opacity: 0.6;
+            transform: rotate(3deg);
+            box-shadow: 0 0 8px rgba(212, 175, 55, 0.8);
+        }
+
+        /* رأس العملة */
         .banknote-header {
             display: flex;
             justify-content: space-between;
             align-items: center;
             z-index: 2;
-        }
-
-        .issuer-title {
-            text-align: right;
+            border-bottom: 1px solid rgba(212, 175, 55, 0.4);
+            padding-bottom: 10px;
         }
 
         .issuer-title h2 {
             font-family: 'Amiri', serif;
-            font-size: 20px;
-            color: #1b4332;
+            font-size: 18px;
+            color: #d4af37;
             letter-spacing: 0.5px;
         }
 
         .issuer-title h4 {
             font-size: 11px;
-            color: #8b6b23;
-            font-weight: 800;
+            color: #cbd5e1;
+            font-weight: 600;
+        }
+
+        /* شعار الهيئة المعزول في الزاوية */
+        .logo-box {
+            width: 50px;
+            height: 50px;
+            background: #ffffff;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 3px;
+            border: 1px solid #d4af37;
+        }
+
+        .logo-box img {
+            max-width: 100%;
+            max-height: 100%;
+            object-fit: contain;
+            mix-blend-mode: multiply;
         }
 
         .denomination-top {
             font-family: 'Reem Kufi', sans-serif;
-            font-size: 36px;
+            font-size: 30px;
             font-weight: 900;
-            color: #1b4332;
-            text-shadow: 1px 1px 0px #b8860b;
+            color: #f1c40f;
             line-height: 1;
         }
 
-        /* منتصف العملة: الفئة الرئيسية والشريط الأمني والعلامة المائية */
+        /* محتوى العملة: الأسماء والرموز */
         .banknote-body {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            position: relative;
             z-index: 2;
-            margin: 10px 0;
+            margin: 5px 0;
         }
 
-        /* الشريط الهولوغرامي الأمني (Holographic Security Thread) */
-        .security-thread {
-            position: absolute;
-            right: 220px;
-            top: -50px;
-            bottom: -50px;
-            width: 14px;
-            background: linear-gradient(180deg, 
-                #b8860b 0%, 
-                #e6ca65 25%, 
-                #1b4332 50%, 
-                #e6ca65 75%, 
-                #b8860b 100%);
-            opacity: 0.65;
-            box-shadow: 0 0 4px rgba(0,0,0,0.3);
-            transform: rotate(2deg);
-        }
-
-        /* نافذة العلامة المائية */
-        .watermark-window {
-            width: 110px;
-            height: 140px;
-            border: 2px dashed rgba(184, 134, 11, 0.4);
-            border-radius: 50%;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            background: rgba(255, 255, 255, 0.3);
-            box-shadow: inset 0 0 10px rgba(0,0,0,0.05);
-        }
-
-        .watermark-window span {
-            font-size: 10px;
-            color: rgba(27, 67, 50, 0.4);
-            font-weight: bold;
-        }
-
-        /* الفئة الرئيسية بالنص */
-        .main-value-box {
+        /* صندوق الأسماء المدمج في العملة */
+        .names-currency-box {
+            background: rgba(255, 255, 255, 0.08);
+            border: 1px solid rgba(212, 175, 55, 0.4);
+            border-radius: 8px;
+            padding: 10px 20px;
             text-align: center;
             flex-grow: 1;
+            margin: 0 20px;
         }
 
-        .value-number {
-            font-family: 'Cairo', sans-serif;
-            font-size: 72px;
-            font-weight: 900;
-            color: #1b4332;
-            line-height: 1;
-            text-shadow: 2px 2px 0px #e6ca65, 4px 4px 0px rgba(27, 67, 50, 0.15);
+        .currency-title {
+            font-size: 13px;
+            color: #94a3b8;
+            margin-bottom: 5px;
         }
 
-        .value-text {
+        .currency-name-line {
             font-family: 'Amiri', serif;
-            font-size: 22px;
-            font-weight: bold;
-            color: #705315;
-            margin-top: 5px;
+            font-size: 20px;
+            font-weight: 700;
+            color: #f39c12;
+            line-height: 1.3;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.6);
         }
 
-        /* الرقم التسلسلي القومي */
+        /* الرقم التسلسلي الأمني للعملة */
         .serial-number {
             font-family: 'Courier Prime', monospace;
-            font-size: 14px;
-            color: #a
+            font-size: 13px;
+            color: #ff6b6b;
+            font-weight: bold;
+            letter-spacing: 2px;
+            text-align: left;
+        }
+
+        /* تذييل العملة */
+        .banknote-footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-end;
+            z-index: 2;
+            border-top: 1px solid rgba(255, 255, 255, 0.15);
+            padding-top: 8px;
+        }
+
+        .signatures {
+            display: flex;
+            gap: 25px;
+        }
+
+        .sig-block {
+            text-align: center;
+        }
+
+        .sig-block .sig-line {
+            width: 80px;
+            height: 1px;
+            background: #d4af37;
+            margin: 2px 0;
+        }
+
+        .sig-block span {
+            font-size: 9px;
+            color: #cbd5e1;
+        }
+
+        .program-stamp {
+            font-family: 'Reem Kufi', sans-serif;
+            font-size: 16px;
+            color: #ffffff;
+            background: linear-gradient(135deg, #d4af37, #b8860b);
+            padding: 2px 15px;
+            border-radius: 15px;
+            color: #0d1b2a;
+            font-weight: bold;
+        }
+
+        /* زر الطباعة */
+        .print-btn {
+            margin-top: 25px;
+            background: linear-gradient(135deg, #d4af37, #b8860b);
+            color: #0d1b2a;
+            border: none;
+            padding: 12px 35px;
+            font-size: 16px;
+            font-weight: bold;
+            border-radius: 30px;
+            cursor: pointer;
+            box-shadow: 0 4px 15px rgba(212, 175, 55, 0.4);
+            transition: all 0.3s ease;
+        }
+
+        .print-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(212, 175, 55, 0.6);
+        }
+
+        /* إعدادات الطباعة الاحترافية */
+        @media print {
+            body {
+                background: white;
+                padding: 0;
+            }
+            .print-btn {
+                display: none;
+            }
+            .banknote {
+                box-shadow: none;
+                border: 1px solid #000;
+                -webkit-print-color-adjust: exact;
+                print-color-adjust: exact;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- تصميم العملة التذكارية الرسمية -->
+    <div class="banknote">
+        <div class="security-border">
+            
+            <!-- الشريط الأمني -->
+            <div class="security-thread"></div>
+
+            <!-- رأس العملة (العنوان والشعار والقيمة) -->
+            <div class="banknote-header">
+                <div class="issuer-title">
+                    <h2>الهيئة الوطنية للإعلام</h2>
+                    <h4>ماسبيرو - إصدار تذكاري خاص</h4>
+                </div>
+                <div class="logo-box">
+                    <img src="https://i.postimg.cc/wT78XF7T/IMG-f539c8bf-f70b-46a7-bc1e-2cffc62be165.jpg" alt="شعار ماسبيرو">
+                </div>
+                <div class="denomination-top">VIP</div>
+            </div>
+
+            <!-- محتوى العملة (الأسماء متتالية والرقْم التسلسلي) -->
+            <div class="banknote-body">
+                <div class="names-currency-box">
+                    <div class="currency-title">بطاقة اعتماد ورقية تذكارية - برنامج كلام شباب</div>
+                    <div class="currency-name-line">الطالب / مؤمن هشام القصاص</div>
+                    <div class="currency-name-line">الطالبة / ملك عبد العزيز الجندي</div>
+                </div>
+
+                <div>
+                    <div class="serial-number">MASPÉRO #2026</div>
+                    <div class="serial-number" style="margin-top: 15px; font-size: 11px;">SEC-AUTH</div>
+                </div>
+            </div>
+
+            <!-- تذييل العملة (التواقيع وختم البرنامج) -->
+            <div class="banknote-footer">
+                <div class="signatures">
+                    <div class="sig-block">
+                        <span>إدارة البرنامج</span>
+                        <div class="sig-line"></div>
+                    </div>
+                    <div class="sig-block">
+                        <span>التلفزيون المصري</span>
+                        <div class="sig-line"></div>
+                    </div>
+                </div>
+
+                <div class="program-stamp">برنامج كلام شباب</div>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- زر الطباعة أو الحفظ PDF -->
+    <button class="print-btn" onclick="window.print()">🖨️ طباعة العملة التذكارية (PDF)</button>
+
+</body>
+</html>
