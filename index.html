@@ -3,250 +3,324 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>بوستر دعم وتاييد الرئيس عبد الفتاح السيسي</title>
-    <!-- استيراد خطوط عربية احترافية من Google Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Amiri:wght@700&family=Cairo:wght@400;600;700;900&display=swap" rel="stylesheet">
+    <title>دعوة رسمية - الهيئة الوطنية للإعلام (ماسبيرو)</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts: Cairo, Reem Kufi, Amiri -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Amiri:ital,wght@0,400;0,700;1,400&family=Cairo:wght@300;400;600;700;800;900&family=Reem+Kufi:wght@500;600;700&display=swap" rel="stylesheet">
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        gold: {
+                            100: '#fef9c3',
+                            300: '#fde047',
+                            400: '#eab308',
+                            500: '#ca8a04',
+                            600: '#a16207',
+                            700: '#854d0e',
+                            glow: '#ffd700'
+                        },
+                        royal: {
+                            800: '#0a192f',
+                            900: '#030b1e',
+                            950: '#010511'
+                        }
+                    },
+                    fontFamily: {
+                        cairo: ['Cairo', 'sans-serif'],
+                        kufi: ['Reem Kufi', 'sans-serif'],
+                        amiri: ['Amiri', 'serif']
+                    }
+                }
+            }
+        }
+    </script>
+
     <style>
-        * {
-            box-sizing: border-box;
+        body {
+            font-family: 'Cairo', sans-serif;
+            background-color: #030b1e;
+            color: #f3f4f6;
             margin: 0;
             padding: 0;
-        }
-
-        body {
-            background-color: #e5e7eb;
-            font-family: 'Cairo', sans-serif;
-            display: flex;
-            justify-content: center;
-            align-items: center;
             min-height: 100vh;
-            padding: 20px;
         }
 
-        /* حاوية البوستر بمقاييس الطباعة القياسية */
-        .poster-container {
-            width: 800px;
-            height: 1130px;
-            background: linear-gradient(135deg, #ffffff 0%, #fcfbf9 100%);
-            border: 12px solid #111;
-            position: relative;
-            overflow: hidden;
-            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.35);
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
-            padding: 40px;
-        }
-
-        /* إطار الألوان الوطنية المنسق على الجوانب */
-        .poster-container::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 25px;
-            height: 100%;
-            background: linear-gradient(to bottom, #c0392b 33%, #ffffff 33%, #ffffff 66%, #111111 66%);
-            z-index: 2;
-        }
-
-        .poster-container::after {
-            content: '';
-            position: absolute;
-            top: 0;
-            right: 0;
-            width: 25px;
-            height: 100%;
-            background: linear-gradient(to bottom, #111111 33%, #ffffff 33%, #ffffff 66%, #c0392b 66%);
-            z-index: 2;
-        }
-
-        /* الهيدر والعنوان الرئيسي */
-        .header-section {
-            text-align: center;
-            z-index: 3;
-            margin-top: 10px;
-        }
-
-        .main-title {
-            font-family: 'Amiri', serif;
-            font-size: 64px;
-            font-weight: 700;
-            color: #b8860b;
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.15);
-            letter-spacing: 2px;
-            position: relative;
-            display: inline-block;
-        }
-
-        .main-title::after {
-            content: '';
-            position: absolute;
-            bottom: -5px;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 60%;
-            height: 3px;
-            background: #c0392b;
-            border-radius: 2px;
-        }
-
-        /* قسم الصورة الشخصية والخلفية الجمالية */
-        .hero-section {
-            position: relative;
-            flex-grow: 1;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            margin: 20px 0;
-            z-index: 3;
-        }
-
-        .bg-landmarks {
-            position: absolute;
-            width: 100%;
-            height: 100%;
-            background-image: url('https://i.postimg.cc/4Nsp2XPv/IMG-4f487f84-bce5-4e64-8b06-4e9d07c73c16.jpg');
+        /* خلفية رئيسية من الرابط المحدد */
+        .bg-custom-image {
+            background-image: url('https://i.postimg.cc/XvMb7FN7/IMG-946cbdd7-64a2-4682-91ec-d62be5b50196.webp');
             background-size: cover;
             background-position: center;
-            opacity: 0.85;
-            border-radius: 15px;
-            box-shadow: inset 0 0 40px rgba(0,0,0,0.3);
-            border: 4px solid #b8860b;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
         }
 
-        .overlay-gradient {
+        /* تأثير الزجاج الفاخر Glassmorphism */
+        .glass-card {
+            background: linear-gradient(135deg, rgba(10, 25, 47, 0.78) 0%, rgba(3, 11, 30, 0.88) 100%);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border: 1px solid rgba(212, 175, 55, 0.35);
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.6), 
+                        inset 0 0 20px rgba(212, 175, 55, 0.1);
+        }
+
+        /* إطار ذهبي مزخرف للطباعة والعرض */
+        .gold-border-decor {
+            position: relative;
+        }
+        .gold-border-decor::before {
+            content: '';
             position: absolute;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(to top, rgba(0,0,0,0.6) 0%, rgba(0,0,0,0.1) 50%, rgba(255,255,255,0.2) 100%);
+            top: 10px;
+            right: 10px;
+            bottom: 10px;
+            left: 10px;
+            border: 1px solid rgba(234, 179, 8, 0.3);
+            pointer-events: none;
             border-radius: 12px;
         }
 
-        /* شعار أو نص التأسيس والتأييد داخل الصورة أو أسفلها */
-        .slogan-section {
-            text-align: center;
-            z-index: 3;
-            background: rgba(255, 255, 255, 0.92);
-            padding: 20px;
-            border-radius: 12px;
-            border: 2px solid #b8860b;
-            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+        /* النص الذهبي المتدرج */
+        .text-gold-gradient {
+            background: linear-gradient(135deg, #fff2a3 0%, #eab308 50%, #ca8a04 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
         }
 
-        .slogan-ar {
-            font-size: 32px;
-            font-weight: 900;
-            color: #1a1a1a;
-            margin-bottom: 5px;
+        .text-gold-light {
+            background: linear-gradient(135deg, #ffffff 0%, #fef08a 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
         }
 
-        .slogan-name {
-            font-size: 36px;
-            font-weight: 900;
-            color: #c0392b;
-            letter-spacing: 1px;
+        /* عزل خلفية الشعار باستغلال التداخل والتصفية */
+        .logo-blend {
+            mix-blend-mode: screen;
+            filter: brightness(1.15) contrast(1.1);
         }
 
-        .slogan-en {
-            font-size: 20px;
-            font-weight: 700;
-            color: #4b5563;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-            margin-top: 8px;
+        /* لمسة إبداعية للزوايا الزخرفية */
+        .corner-pattern {
+            width: 32px;
+            height: 32px;
+            border-color: #eab308;
+            position: absolute;
         }
+        .corner-tl { top: 16px; right: 16px; border-top: 2px solid; border-right: 2px solid; }
+        .corner-tr { top: 16px; left: 16px; border-top: 2px solid; border-left: 2px solid; }
+        .corner-bl { bottom: 16px; right: 16px; border-bottom: 2px solid; border-right: 2px solid; }
+        .corner-br { bottom: 16px; left: 16px; border-bottom: 2px solid; border-left: 2px solid; }
 
-        /* الفوتر السفلي */
-        .footer-section {
-            text-align: center;
-            font-size: 14px;
-            color: #6b7280;
-            font-weight: 600;
-            z-index: 3;
-            border-top: 1px solid #e5e7eb;
-            padding-top: 10px;
-        }
-
-        /* زر الطباعة (يختفي عند الطباعة الفعلية) */
-        .print-btn-container {
-            position: fixed;
-            bottom: 20px;
-            left: 50%;
-            transform: translateX(-50%);
-            z-index: 1000;
-        }
-
-        .print-btn {
-            background-color: #c0392b;
-            color: white;
-            border: none;
-            padding: 12px 30px;
-            font-size: 18px;
-            font-weight: bold;
-            border-radius: 30px;
-            cursor: pointer;
-            box-shadow: 0 5px 15px rgba(192, 57, 43, 0.4);
-            transition: all 0.3s ease;
-            font-family: 'Cairo', sans-serif;
-        }
-
-        .print-btn:hover {
-            background-color: #962d22;
-            transform: translateY(-2px);
-        }
-
+        /* إعدادات الطباعة الدقيقة */
         @media print {
+            @page {
+                size: A5 landscape;
+                margin: 0;
+            }
             body {
-                background: none;
-                padding: 0;
+                background: none !important;
+                background-color: #050e1f !important;
+                -webkit-print-color-adjust: exact !important;
+                print-color-adjust: exact !important;
             }
-            .print-btn-container {
-                display: none;
+            .no-print {
+                display: none !important;
             }
-            .poster-container {
-                box-shadow: none;
-                border: 8px solid #111;
-                width: 100%;
-                height: 100vh;
+            .print-container {
+                width: 100vw !important;
+                height: 100vh !important;
+                max-width: none !important;
+                margin: 0 !important;
+                padding: 1.5cm !important;
+                box-shadow: none !important;
+                border-radius: 0 !important;
+                page-break-after: always;
+            }
+            .glass-card {
+                background: linear-gradient(135deg, rgba(8, 20, 38, 0.95) 0%, rgba(3, 11, 30, 0.98) 100%) !important;
+                border: 2px solid #ca8a04 !important;
             }
         }
     </style>
 </head>
-<body>
+<body class="bg-custom-image flex flex-col items-center justify-center min-h-screen p-4 sm:p-6 lg:p-8 relative">
 
-    <!-- زر الطباعة -->
-    <div class="print-btn-container">
-        <button class="print-btn" onclick="window.print()">🖨️ طباعة البوستر بجودة عالية</button>
+    <!-- طبقة تنقية للخلفية العامة -->
+    <div class="fixed inset-0 bg-gradient-to-b from-royal-950/80 via-royal-900/70 to-royal-950/90 pointer-events-none z-0"></div>
+
+    <!-- شريط التحكم العلوي (لا يظهر في الطباعة) -->
+    <div class="no-print relative z-20 mb-6 flex flex-wrap items-center justify-center gap-4 bg-royal-900/80 p-3 px-6 rounded-2xl border border-gold-500/30 backdrop-blur-md shadow-2xl">
+        <button onclick="window.print()" class="flex items-center gap-2 bg-gradient-to-r from-gold-600 to-gold-400 hover:from-gold-500 hover:to-gold-300 text-royal-950 font-bold px-6 py-2.5 rounded-xl transition duration-300 shadow-lg shadow-gold-500/20 active:scale-95">
+            <i class="fa-solid => fa-print text-lg"></i>
+            <span>طباعة الدعوة (PDF)</span>
+        </button>
+        <button onclick="toggleDesignTheme()" class="flex items-center gap-2 bg-royal-800 hover:bg-royal-900 text-gold-300 border border-gold-500/40 px-5 py-2.5 rounded-xl transition duration-300 active:scale-95">
+            <i class="fa-solid fa-wand-magic-sparkles"></i>
+            <span id="themeToggleText">تبديل حدة الزجاج</span>
+        </button>
+        <div class="text-xs text-gray-300 border-r border-gray-700 pr-4 mr-2 hidden md:block">
+            <i class="fa-solid fa-circle-info text-gold-400 ml-1"></i>
+            جاهزة للطباعة فوراً بمقياس A5 أو Standard Letter
+        </div>
     </div>
 
-    <!-- البوستر الرئيسي -->
-    <div class="poster-container">
+    <!-- كارت الدعوة الرئيسي -->
+    <div id="invitationCard" class="print-container relative z-10 w-full max-w-4xl glass-card rounded-3xl p-6 sm:p-10 md:p-12 gold-border-decor transition-all duration-500 my-auto overflow-hidden">
         
-        <!-- العنوان العلوي -->
-        <div class="header-section">
-            <h1 class="main-title">تحيا مصر</h1>
+        <!-- الزوايا المزخرفة -->
+        <div class="corner-pattern corner-tl"></div>
+        <div class="corner-pattern corner-tr"></div>
+        <div class="corner-pattern corner-bl"></div>
+        <div class="corner-pattern corner-br"></div>
+
+        <!-- الهيدر: الترويسة الرسمية والشعار -->
+        <div class="flex flex-col-reverse sm:flex-row justify-between items-center pb-6 border-b border-gold-500/25 gap-4">
+            
+            <!-- الجهة الرسمية باليمين -->
+            <div class="text-center sm:text-right space-y-1">
+                <div class="flex items-center justify-center sm:justify-start gap-2">
+                    <span class="text-gold-400 text-xs font-semibold tracking-widest uppercase">جمهورية مصر العربية</span>
+                </div>
+                <h1 class="text-2xl sm:text-3xl font-extrabold font-kufi text-gold-gradient tracking-wide">
+                    الهيئة الوطنية للإعلام
+                </h1>
+                <h2 class="text-lg sm:text-xl font-bold text-gray-200 font-cairo">
+                    قطاع التليفزيون المصري • ماسبيرو
+                </h2>
+                <div class="inline-block bg-gold-500/10 border border-gold-500/30 px-3 py-0.5 rounded-full mt-1">
+                    <p class="text-xs font-bold text-gold-300">أسرة برنامج: كلام شباب</p>
+                </div>
+            </div>
+
+            <!-- الشعار الرسمي على اليسار مع التنسيق الزجاجي والعزل -->
+            <div class="flex flex-col items-center">
+                <div class="relative p-2 rounded-2xl bg-royal-950/60 border border-gold-500/30 shadow-inner group">
+                    <img 
+                        src="https://i.postimg.cc/wT78XF7T/IMG-f539c8bf-f70b-46a7-bc1e-2cffc62be165.jpg" 
+                        alt="شعار ماسبيرو - الهيئة الوطنية للإعلام" 
+                        class="h-20 sm:h-24 w-auto object-contain logo-blend rounded-lg transition-transform duration-300 group-hover:scale-105"
+                        onerror="this.src='https://placehold.co/120x120/0a192f/eab308?text=MASPERO'"
+                    />
+                </div>
+                <span class="text-[10px] text-gold-400/70 tracking-widest mt-1">MASPERO MEDIA</span>
+            </div>
         </div>
 
-        <!-- منطقة الصورة والخلفية الوطنية -->
-        <div class="hero-section">
-            <div class="bg-landmarks"></div>
-            <div class="overlay-gradient"></div>
+        <!-- محتوى الدعوة الرئيسي -->
+        <div class="py-8 sm:py-10 text-center space-y-6">
+            
+            <div class="inline-flex items-center justify-center gap-3">
+                <span class="h-[1px] w-12 sm:w-20 bg-gradient-to-r from-transparent to-gold-500"></span>
+                <span class="font-amiri text-2xl sm:text-3xl font-bold text-gold-gradient px-2">دعوة رسمية خاصة</span>
+                <span class="h-[1px] w-12 sm:w-20 bg-gradient-to-l from-transparent to-gold-500"></span>
+            </div>
+
+            <p class="text-base sm:text-lg text-gray-300 font-light leading-relaxed max-w-2xl mx-auto">
+                يسر إدارة برنامج <span class="font-bold text-gold-300 text-xl font-kufi">"كلام شباب"</span> بالهيئة الوطنية للإعلام أن تتوجه بخالص التحية والتقدير، وتتشرف بدعوة كلٍّ من:
+            </p>
+
+            <!-- أسماء المكرمين / المدعوين -->
+            <div class="my-6 grid grid-cols-1 md:grid-cols-2 gap-4 max-w-3xl mx-auto">
+                
+                <!-- المكرم الأول -->
+                <div class="bg-gradient-to-br from-royal-800/80 to-royal-950/90 border border-gold-500/40 p-4 sm:p-5 rounded-2xl shadow-xl hover:border-gold-400 transition">
+                    <div class="text-gold-400 text-xs font-semibold mb-1">
+                        <i class="fa-solid fa-graduation-cap ml-1"></i> الطالب المكرم
+                    </div>
+                    <div class="text-xl sm:text-2xl font-bold font-kufi text-gold-light">
+                        مؤمن هشام القصاص
+                    </div>
+                </div>
+
+                <!-- المكرم الثاني -->
+                <div class="bg-gradient-to-br from-royal-800/80 to-royal-950/90 border border-gold-500/40 p-4 sm:p-5 rounded-2xl shadow-xl hover:border-gold-400 transition">
+                    <div class="text-gold-400 text-xs font-semibold mb-1">
+                        <i class="fa-solid fa-graduation-cap ml-1"></i> الطالبة المكرمة
+                    </div>
+                    <div class="text-xl sm:text-2xl font-bold font-kufi text-gold-light">
+                        ملك عبد العزيز الجندي
+                    </div>
+                </div>
+
+            </div>
+
+            <p class="text-sm sm:text-base text-gray-200 leading-relaxed max-w-2xl mx-auto font-cairo">
+                لحضور وتصوير الحلقة الخاصة والمميزة من البرنامج بمبنى التليفزيون المصري (ماسبيرو)، تقديرًا للتميز والتمثيل المشرف، والمشاركة الفاعلة في الحوار الشبابي البنّاء.
+            </p>
         </div>
 
-        <!-- النصوص والشعارات الترويجية -->
-        <div class="slogan-section">
-            <div class="slogan-ar">معاً لمستقبل أفضل</div>
-            <div class="slogan-name">للرئيس عبد الفتاح السيسي</div>
-            <div class="slogan-en">For a Stronger Egypt • Vote El-Sisi</div>
-        </div>
+        <!-- تفاصيل الموعد والمكان + الختم والـ QR -->
+        <div class="pt-6 border-t border-gold-500/25 grid grid-cols-1 md:grid-cols-3 gap-6 items-center">
+            
+            <!-- تفاصيل الاستوديو والوقت -->
+            <div class="space-y-2 text-center md:text-right text-xs sm:text-sm text-gray-300">
+                <div class="flex items-center justify-center md:justify-start gap-2">
+                    <i class="fa-solid fa-location-dot text-gold-400 text-base"></i>
+                    <span>المكان: استوديوهات ماسبيرو - استوديو (5)</span>
+                </div>
+                <div class="flex items-center justify-center md:justify-start gap-2">
+                    <i class="fa-solid fa-calendar-check text-gold-400 text-base"></i>
+                    <span>التاريخ: يتم التنسيق مع فريق الإعداد</span>
+                </div>
+                <div class="flex items-center justify-center md:justify-start gap-2">
+                    <i class="fa-solid fa-id-card text-gold-400 text-base"></i>
+                    <span>ملاحظة: يُرجى إبراز هذه الدعوة عند البوابة</span>
+                </div>
+            </div>
 
-        <!-- الفوتر -->
-        <div class="footer-section">
-            <p>دعم وتأييد مسيرة التنمية والبناء والاستقرار</p>
+            <!-- رمز التوثيق السريع QR -->
+            <div class="flex flex-col items-center justify-center my-2 md:my-0">
+                <div class="p-2 bg-white rounded-xl shadow-lg border-2 border-gold-500/50">
+                    <!-- SVG QR Code زُخرفي موثوق -->
+                    <svg class="w-16 h-16 text-royal-950" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M2,2H10V10H2V2M4,4V8H8V4H4M11,2H13V4H11V2M14,2H22V10H14V2M16,4V8H20V4H16M2,14H10V22H2V14M4,16V20H8V16H4M11,6H13V9H11V6M11,11H13V13H11V11M11,14H13V16H11V14M11,18H13V22H11V18M14,11H16V13H14V11M17,11H19V13H17V11M20,11H22V13H20V11M14,14H16V18H14V14M17,14H20V16H17V14M19,17H22V20H19V17M14,19H17V22H14V19M20,20H22V22H20V20Z"/>
+                    </svg>
+                </div>
+                <span class="text-[10px] text-gold-400 font-mono mt-1">كود التوثيق: MAS-2026-NMA</span>
+            </div>
+
+            <!-- التوقيع والختم -->
+            <div class="text-center md:text-left space-y-1">
+                <p class="text-xs text-gold-400 font-semibold">رئيس الهيئة الوطنية للإعلام</p>
+                <p class="text-sm font-bold text-gray-200 font-kufi">أسرة برنامج كلام شباب</p>
+                <div class="pt-2 flex justify-center md:justify-end">
+                    <!-- ختم رسمي محاكي -->
+                    <div class="w-16 h-16 rounded-full border-2 border-dashed border-gold-500/60 flex items-center justify-center text-center p-1 transform -rotate-12 bg-gold-500/5">
+                        <span class="text-[9px] font-bold text-gold-400 leading-tight">الهيئة الوطنية للإعلام<br>اعتماد رسمي</span>
+                    </div>
+                </div>
+            </div>
+
         </div>
 
     </div>
 
+    <!-- كود الجافاسكربت للتفاعل والتخصيص -->
+    <script>
+        let isDarkerGlass = false;
+        function toggleDesignTheme() {
+            const card = document.getElementById('invitationCard');
+            const toggleText = document.getElementById('themeToggleText');
+            
+            if (!isDarkerGlass) {
+                card.style.background = 'linear-gradient(135deg, rgba(3, 11, 30, 0.95) 0%, rgba(10, 25, 47, 0.98) 100%)';
+                card.style.backdropFilter = 'blur(25px)';
+                toggleText.innerText = 'استعادة الشفافية';
+            } else {
+                card.style.background = 'linear-gradient(135deg, rgba(10, 25, 47, 0.78) 0%, rgba(3, 11, 30, 0.88) 100%)';
+                card.style.backdropFilter = 'blur(16px)';
+                toggleText.innerText = 'تبديل حدة الزجاج';
+            }
+            isDarkerGlass = !isDarkerGlass;
+        }
+    </script>
 </body>
 </html>
