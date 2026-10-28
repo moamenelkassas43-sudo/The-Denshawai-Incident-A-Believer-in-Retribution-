@@ -44,8 +44,9 @@
             animation: pulseGlow 4s ease-in-out infinite;
         }
 
+        /* الطبقات الزجاجية للخلفية المطلوبة */
         .glass-panel {
-            background: rgba(15, 23, 42, 0.86);
+            background: rgba(15, 23, 42, 0.84);
             backdrop-filter: blur(20px);
             -webkit-backdrop-filter: blur(20px);
             border: 1px solid rgba(255, 255, 255, 0.12);
@@ -100,7 +101,7 @@
 </head>
 <body class="bg-slate-950 text-slate-100 font-sans min-h-screen relative selection:bg-amber-500 selection:text-white theme-male">
 
-    <!-- خلفية الموقع الرسمية المطلوبة -->
+    <!-- خلفية الموقع الرسمية المحددة برابطك تماماً -->
     <div class="fixed inset-0 bg-cover bg-center bg-no-repeat z-0" style="background-image: url('https://i.postimg.cc/xTMVt85x/3215b0208f3c54eadd7fc84f052f93b0.jpg');"></div>
     <div class="fixed inset-0 bg-slate-950/85 backdrop-blur-md z-0"></div>
 
@@ -347,7 +348,7 @@
         </footer>
     </div>
 
-    <!-- كود الجافاسكريبت المدمج لضمان عمل كل الميزات -->
+    <!-- كود الجافاسكريبت المدمج -->
     <script>
         document.addEventListener('DOMContentLoaded', () => {
             const authModal = document.getElementById('authModal');
